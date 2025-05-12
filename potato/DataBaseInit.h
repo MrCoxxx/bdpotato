@@ -24,7 +24,7 @@ void AddPotatoColumnsToListView(HWND hListView)
         L"Вес товарного клубня"
     };
 
-    int widths[] = { 50, 150, 150, 150, 100, 200, 150 };
+    int widths[] = { 50, 100, 150, 100, 100, 100, 100 };
 
     LVCOLUMN lvc = { 0 };
     lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM;
