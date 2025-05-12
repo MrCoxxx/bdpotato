@@ -16,7 +16,21 @@ void DestroyUIElements(HWND hWnd)
 	{
 		DestroyWindow(hComboBox);
 		hComboBox = NULL;
-	}	
+	}
+
+	DestroyTable(hWnd);
+
 	//InvalidateRect(hWnd, NULL, TRUE);
 	//UpdateWindow(hWnd);
+}
+
+void DestroyTable(HWND hWnd) 
+{
+
+	if (hListView)
+	{
+		DestroyWindow(hListView);
+		hListView = NULL;
+	}
+
 }

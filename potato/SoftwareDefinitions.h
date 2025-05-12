@@ -1,18 +1,26 @@
 #pragma once
 
-#define MenuAdd		1
-#define MenuRedact		2
-#define MenuInfo		3
-#define MenuExit		4
-#define MenuTableShow		5
-#define MenuTableClose		6
-#define MenuRequestShow		7
+#define MenuAdd					1
+#define MenuRedact				2
+#define MenuInfo				3
+#define MenuExit				4
+#define MenuTableShow			5
+#define MenuTableClose			6
+#define MenuRequestShow			7
 #define MenuRequestClose		8
+#define OpenTableButton			9
+#define CloseTableButton		10
 
-#define ID_COMBOBOX_TABLE	1001
-#define ID_COMBOBOX_REQUEST	1002
-#define ID_BUTTON_TABLE 1003
-#define ID_BUTTON_REQUEST 1004
+#define ID_COMBOBOX_TABLE		1001
+#define ID_COMBOBOX_REQUEST		1002
+#define ID_BUTTON_TABLE_OPEN	1003
+#define ID_BUTTON_TABLE_CLOSE	1004
+#define ID_BUTTON_REQUEST_OPEN	1005
+#define ID_BUTTON_REQUEST_CLOSE	1006
+
+#define ID_LISTVIEW				100
+#define ID_COMBOBOX				101
+#define ID_BUTTON_LOAD			102
 
 LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
 WNDCLASS NewMainWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
@@ -23,3 +31,9 @@ void TableWnd(HWND hWnd);
 void RequestWnd(HWND hWnd);
 void RequestCombobox(HWND hWnd, LPARAM lp);
 void DestroyUIElements(HWND hWnd);
+void InitializeDatabase();
+void LoadPotatoDataIntoListView(HWND hListView);
+void AddPotatoColumnsToListView(HWND hListView);
+std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase();
+void LoadTableData(HWND hWnd);
+void DestroyTable(HWND hWnd);

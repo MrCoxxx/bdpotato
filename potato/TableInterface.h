@@ -21,9 +21,20 @@ void TableWnd(HWND hWnd)
 		"button",
 		"Открыть",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		5, 60, 120, 30,
+		5, 90, 120, 30,
 		hWnd,
-		(HMENU)ID_BUTTON_TABLE,
+		(HMENU)OpenTableButton,
+		NULL,
+		NULL
+	);
+
+	hButton = CreateWindowA(
+		"button",
+		"Закрыть",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		5, 120, 120, 30,
+		hWnd,
+		(HMENU)CloseTableButton,
 		NULL,
 		NULL
 	);
@@ -35,7 +46,7 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 		L"COMBOBOX",
 		L"",
 		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
-		50, 50, 200, 200,
+		20, 40, 200, 200,
 		hWnd,
 		(HMENU)ID_COMBOBOX_TABLE,
 		(HINSTANCE)lp,

@@ -133,6 +133,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataBaseInit.h" />
     <ClInclude Include="DestroyUI.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="RequestInterface.h" />

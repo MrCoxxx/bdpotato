@@ -23,7 +23,7 @@ void RequestWnd(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		5, 80, 120, 30,
 		hWnd,
-		(HMENU)ID_BUTTON_REQUEST,
+		(HMENU)ID_BUTTON_REQUEST_OPEN,
 		NULL,
 		NULL
 	);

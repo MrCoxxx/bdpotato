@@ -1,30 +1,44 @@
 #include <windows.h>
-#include <sqlite3.h> 
+#include <sqlite3.h>
+#include <commctrl.h>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <sstream>
+#include <locale>
+#include <codecvt>
+
+
+#pragma comment(lib, "comctl32.lib")
+#pragma comment(lib, "sqlite3.lib")
 
 #include "SoftwareDefinitions.h"
 
 static BOOL isTableCreated = TRUE;
 static BOOL isRequestCreated = FALSE;
-
+static HWND hListView;
 static HWND hComboBox;
 static HINSTANCE hInstance;
 static HWND hStaticText;
 static HWND hButton;
+static sqlite3* db = nullptr;
 
 #include "Menu.h"
 #include "TableInterface.h"
 #include "RequestInterface.h"
 #include "DestroyUI.h"
+#include "DataBaseInit.h"
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {
+	// Инициализация общих элементов управления
+	INITCOMMONCONTROLSEX icc;
+	icc.dwSize = sizeof(icc);
+	icc.dwICC = ICC_LISTVIEW_CLASSES;
+	InitCommonControlsEx(&icc);
 
-	sqlite3* db;    // указатель на базу данных
-	// открываем подключение к базе данных
-	int result = sqlite3_open("kart.db", &db);
-
-	// закрываем подключение
-	sqlite3_close(db);
+	// Инициализация базы данных
+	InitializeDatabase();
 
 	hInstance = hInst;
 
@@ -48,6 +62,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 	{
 		TranslateMessage(&SoftwareMainMessage);
 		DispatchMessage(&SoftwareMainMessage);
+	}
+	// Закрываем подключение к БД при выходе
+	if (db) {
+		sqlite3_close(db);
 	}
 
 	return 0;
@@ -92,6 +110,9 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			{
 				DestroyUIElements(hWnd);
 				TableWndAdd(hWnd, (LPARAM)hInstance);
+				
+				
+
 				isTableCreated = TRUE;
 				isRequestCreated = FALSE;
 
@@ -109,11 +130,16 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 				isTableCreated = FALSE;
 				isRequestCreated = TRUE;
 
-			}
-			break;
+			}		
 		case MenuRequestClose:
 			DestroyUIElements(hWnd);
 			isRequestCreated = FALSE;
+			break;
+		case OpenTableButton:
+			LoadTableData(hWnd);
+			break;
+		case CloseTableButton:
+			DestroyTable(hWnd);
 			break;
 		}
 		
@@ -121,6 +147,9 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 
 	case WM_CREATE:
 		TableWndAdd(hWnd, (LPARAM)hInstance);
+
+		//LoadTableData(hWnd);
+
 		MainWndAddMenus(hWnd);
 		
 		break;
