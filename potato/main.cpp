@@ -176,6 +176,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		break;
 
 	case WM_DESTROY:
+		
 		PostQuitMessage(0);
 		break;
 
