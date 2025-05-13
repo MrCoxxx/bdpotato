@@ -2,6 +2,7 @@ void TableWndAdd(HWND hWnd, LPARAM lp)
 {
 	TableWnd(hWnd);
 	TableCombobox(hWnd, lp);
+	LoadTableData(hWnd);
 }
 
 void TableWnd(HWND hWnd)
@@ -10,7 +11,7 @@ void TableWnd(HWND hWnd)
 		"static",
 		"Выберите таблицу",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		10, 20, 200, 60,
+		30, 20, 200, 60,
 		hWnd,
 		NULL,
 		NULL,
@@ -21,7 +22,7 @@ void TableWnd(HWND hWnd)
 		"button",
 		"Открыть",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		5, 90, 120, 30,
+		15, 90, 120, 30,
 		hWnd,
 		(HMENU)OpenTableButton,
 		NULL,
@@ -32,7 +33,7 @@ void TableWnd(HWND hWnd)
 		"button",
 		"Закрыть",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		125, 90, 120, 30,
+		135, 90, 120, 30,
 		hWnd,
 		(HMENU)CloseTableButton,
 		NULL,
@@ -46,7 +47,7 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 		L"COMBOBOX",
 		L"",
 		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
-		20, 40, 200, 200,
+		35, 40, 200, 200,
 		hWnd,
 		NULL,
 		(HINSTANCE)lp,
@@ -57,6 +58,39 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Картошка");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические признаки");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
-	SendMessage(hComboBoxTable, CB_SETCURSEL, 1, 0);
+	SendMessage(hComboBoxTable, CB_SETCURSEL, 0, 0);
 	idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
+}
+
+
+void LoadTableData(HWND hWnd)
+{
+
+	hListView = CreateWindow(WC_LISTVIEW, L"",
+		WS_VISIBLE | WS_CHILD | WS_BORDER | LVS_REPORT | LVS_EDITLABELS,
+		270, 10, 700, 570,
+		hWnd, NULL,
+		hInstance, NULL);
+
+	if (idComboBox == 0)
+	{
+		//AddAllDataToListView(hListView);
+		//LoadAllDataIntoListView(hListView);
+	}
+	if (idComboBox == 1)
+	{
+		AddPotatoColumnsToListView(hListView);
+		LoadPotatoDataIntoListView(hListView);
+	}
+	if (idComboBox == 2)
+	{
+		AddMorphologicalColumnsToListView(hListView);
+		LoadMorphologicalDataIntoListView(hListView);
+	}
+	if (idComboBox == 3)
+	{
+		AddCulinaryColumnsToListView(hListView);
+		LoadCulinaryDataIntoListView(hListView);
+	}
+
 }

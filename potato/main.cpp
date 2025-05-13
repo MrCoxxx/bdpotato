@@ -18,6 +18,7 @@ static HINSTANCE hInstance;
 static BOOL isTableIntCreated = TRUE;
 static BOOL isRequestIntCreated = FALSE;
 static BOOL isTableCreated = FALSE;
+static BOOL isSearchUI = FALSE;
 static HWND hListView;
 static HWND hComboBoxTable;
 static HWND hStaticTextTable;
@@ -25,8 +26,10 @@ static HWND hButtonOpenTable;
 static HWND hButtonCloseTable;
 static HWND hComboBoxRequest;
 static HWND hStaticTextRequest;
-static HWND hButtonOpenRequest;
-static HWND hButtonCloseRequest;
+static HWND hButtonSearchOpen;
+static HWND hButtonSearchClose;
+static HWND hButtonCheckBox;
+static HWND hButtonComplite;
 static LRESULT idComboBox;
 static sqlite3* db = nullptr;
 
@@ -38,6 +41,7 @@ static sqlite3* db = nullptr;
 #include "PotatoData.h"
 #include "MorphologicalData.h"
 #include "CulinaryData.h"
+//#include "AllData.h"
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {
@@ -59,7 +63,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 
 	CreateWindow(
 		L"MainWndClass",
-		L"Potato",
+		L"База данных",
 		WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 		460, 240, 1000, 650,
 		NULL,
@@ -162,14 +166,32 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			idComboBox = NULL;
 			isTableCreated = FALSE;
 			break;
+		case SearchClickButtonOpen:
+			if (!isSearchUI) 
+			{
+				DestroyIntRequest(hWnd);
+				Search(hWnd);
+				isSearchUI = TRUE;
+			}			
+			break;
+		case SearchClickButtonClose:			
+			if (isSearchUI)
+			{
+				RequestWnd(hWnd);
+				DestroySearchUI(hWnd);
+				isSearchUI = FALSE;
+			}
+			break;		
 		}
+
+
 		
 		break;
 
 	case WM_CREATE:
 		TableWndAdd(hWnd, (LPARAM)hInstance);
 		//RequestWndAdd(hWnd, (LPARAM)hInstance);
-		LoadTableData(hWnd);
+		
 
 		MainWndAddMenus(hWnd);
 		

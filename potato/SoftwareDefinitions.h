@@ -10,6 +10,8 @@
 #define MenuRequestClose		8
 #define OpenTableButton			9
 #define CloseTableButton		10
+#define SearchClickButtonOpen	11
+#define SearchClickButtonClose	12
 
 
 //Main
@@ -31,11 +33,13 @@ void TableWnd(HWND hWnd);
 void RequestWndAdd(HWND hWnd, LPARAM lp);
 void RequestWnd(HWND hWnd);
 void RequestCombobox(HWND hWnd, LPARAM lp);
+void Search(HWND hWnd);
 
 
 //Init DataBase
 void InitializeDatabase();
 void LoadTableData(HWND hWnd);
+void LoadRequestData(HWND hWnd);
 
 
 //Delete UI
@@ -43,6 +47,7 @@ void DestroyUIElements(HWND hWnd);
 void DestroyDataTable(HWND hWnd);
 void DestroyIntTable(HWND hWnd);
 void DestroyIntRequest(HWND hWnd);
+void DestroySearchUI(HWND hWnd);
 
 
 //Coding UTF
@@ -66,3 +71,9 @@ void LoadMorphologicalDataIntoListView(HWND hListView);
 std::vector<std::vector<std::wstring>> GetCulinaryDataFromDatabase();
 void AddCulinaryColumnsToListView(HWND hListView);
 void LoadCulinaryDataIntoListView(HWND hListView);
+
+
+//All Data
+//std::vector<std::vector<std::wstring>> GetAllDataFromDatabase();
+//void AddAllDataToListView(HWND hListView);
+//void LoadAllDataIntoListView(HWND hListView);

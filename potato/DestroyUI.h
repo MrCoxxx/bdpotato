@@ -62,23 +62,37 @@ void DestroyIntRequest(HWND hWnd)
 			hStaticTextRequest = NULL;
 		}
 
-		if (hButtonOpenRequest)
+		if (hButtonSearchOpen)
 		{
-			DestroyWindow(hButtonOpenRequest);
-			hButtonOpenRequest = NULL;
-		}
-
-		if (hButtonCloseRequest)
-		{
-			DestroyWindow(hButtonCloseRequest);
-			hButtonCloseRequest = NULL;
+			DestroyWindow(hButtonSearchOpen);
+			hButtonSearchOpen = NULL;
 		}
 
 		if (hComboBoxRequest)
 		{
 			DestroyWindow(hComboBoxRequest);
 			hComboBoxRequest = NULL;
-		}
-
+		}		
 	}
+}
+
+void DestroySearchUI(HWND hWnd) 
+{
+
+	if (hButtonCheckBox)
+	{
+		DestroyWindow(hButtonCheckBox);
+		hButtonCheckBox = NULL;
+	}
+	if (hButtonComplite)
+	{
+		DestroyWindow(hButtonComplite);
+		hButtonComplite = NULL;
+	}
+	if (hButtonSearchClose)
+	{
+		DestroyWindow(hButtonSearchClose);
+		hButtonSearchClose = NULL;
+	}
+
 }
