@@ -14,20 +14,30 @@
 
 #include "SoftwareDefinitions.h"
 
-static BOOL isTableCreated = TRUE;
-static BOOL isRequestCreated = FALSE;
-static HWND hListView;
-static HWND hComboBox;
 static HINSTANCE hInstance;
-static HWND hStaticText;
-static HWND hButton;
+static BOOL isTableIntCreated = TRUE;
+static BOOL isRequestIntCreated = FALSE;
+static BOOL isTableCreated = FALSE;
+static HWND hListView;
+static HWND hComboBoxTable;
+static HWND hStaticTextTable;
+static HWND hButtonOpenTable;
+static HWND hButtonCloseTable;
+static HWND hComboBoxRequest;
+static HWND hStaticTextRequest;
+static HWND hButtonOpenRequest;
+static HWND hButtonCloseRequest;
+static LRESULT idComboBox;
 static sqlite3* db = nullptr;
 
 #include "Menu.h"
+#include "DataBaseInit.h"
 #include "TableInterface.h"
 #include "RequestInterface.h"
 #include "DestroyUI.h"
-#include "DataBaseInit.h"
+#include "PotatoData.h"
+#include "MorphologicalData.h"
+#include "CulinaryData.h"
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {
@@ -102,44 +112,52 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		case MenuInfo:
 			MessageBoxA(hWnd, "В разработке", "Информация", MB_OK);
 			break;
-		case MenuExit:
+
+		case  MenuExit:
 			PostQuitMessage(0);
 			break;
 		case MenuTableShow:
-			if (!isTableCreated)
+			if (!isTableIntCreated)
 			{
 				DestroyUIElements(hWnd);
-				TableWndAdd(hWnd, (LPARAM)hInstance);
-				
-				
-
-				isTableCreated = TRUE;
-				isRequestCreated = FALSE;
+				TableWndAdd(hWnd, (LPARAM)hInstance);				
+				isTableIntCreated = TRUE;
+				isRequestIntCreated = FALSE;
 
 			}
 			break;
 		case MenuTableClose:
 			DestroyUIElements(hWnd);
-			isTableCreated = FALSE;
+			isTableIntCreated = FALSE;
+			isRequestIntCreated = FALSE;
 			break;
 		case MenuRequestShow:
-			if (!isRequestCreated)
+			if (!isRequestIntCreated)
 			{
 				DestroyUIElements(hWnd);
 				RequestWndAdd(hWnd, (LPARAM)hInstance);
-				isTableCreated = FALSE;
-				isRequestCreated = TRUE;
+				isRequestIntCreated = TRUE;
+				isTableIntCreated = FALSE;
 
 			}		
+			break;
 		case MenuRequestClose:
 			DestroyUIElements(hWnd);
-			isRequestCreated = FALSE;
+			isRequestIntCreated = FALSE;
+			isTableIntCreated = FALSE;
 			break;
 		case OpenTableButton:
-			LoadTableData(hWnd);
+			if (!isTableCreated)
+			{
+				idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
+				LoadTableData(hWnd);
+				isTableCreated = TRUE;
+			}
 			break;
 		case CloseTableButton:
-			DestroyTable(hWnd);
+			DestroyDataTable(hWnd);
+			idComboBox = NULL;
+			isTableCreated = FALSE;
 			break;
 		}
 		
@@ -147,7 +165,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 
 	case WM_CREATE:
 		TableWndAdd(hWnd, (LPARAM)hInstance);
-
+		//RequestWndAdd(hWnd, (LPARAM)hInstance);
 		//LoadTableData(hWnd);
 
 		MainWndAddMenus(hWnd);

@@ -133,9 +133,12 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CulinaryData.h" />
     <ClInclude Include="DataBaseInit.h" />
     <ClInclude Include="DestroyUI.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MorphologicalData.h" />
+    <ClInclude Include="PotatoData.h" />
     <ClInclude Include="RequestInterface.h" />
     <ClInclude Include="SoftwareDefinitions.h" />
     <ClInclude Include="TableInterface.h" />

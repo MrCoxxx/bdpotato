@@ -1,30 +1,14 @@
 void DestroyUIElements(HWND hWnd)
 {
-	if (hStaticText)
-	{
-		DestroyWindow(hStaticText);
-		hStaticText = NULL;
-	}
-
-	if (hButton)
-	{
-		DestroyWindow(hButton);
-		hButton = NULL;
-	}
-
-	if (hComboBox)
-	{
-		DestroyWindow(hComboBox);
-		hComboBox = NULL;
-	}
-
-	DestroyTable(hWnd);
+	DestroyIntTable(hWnd);
+	DestroyIntRequest(hWnd);
+	DestroyDataTable(hWnd);
 
 	//InvalidateRect(hWnd, NULL, TRUE);
 	//UpdateWindow(hWnd);
 }
 
-void DestroyTable(HWND hWnd) 
+void DestroyDataTable(HWND hWnd) 
 {
 
 	if (hListView)
@@ -33,4 +17,68 @@ void DestroyTable(HWND hWnd)
 		hListView = NULL;
 	}
 
+}
+
+void DestroyIntTable(HWND hWnd) 
+{
+	if (isTableIntCreated) 
+	{
+
+		if (hStaticTextTable)
+		{
+			DestroyWindow(hStaticTextTable);
+			hStaticTextTable = NULL;
+		}
+
+		if (hButtonOpenTable)
+		{
+			DestroyWindow(hButtonOpenTable);
+			hButtonOpenTable = NULL;
+		}
+
+		if (hButtonCloseTable)
+		{
+			DestroyWindow(hButtonCloseTable);
+			hButtonCloseTable = NULL;
+		}
+
+		if (hComboBoxTable)
+		{
+			DestroyWindow(hComboBoxTable);
+			hComboBoxTable = NULL;
+		}
+
+	}
+}
+
+void DestroyIntRequest(HWND hWnd)
+{
+	if (isRequestIntCreated)
+	{
+
+		if (hStaticTextRequest)
+		{
+			DestroyWindow(hStaticTextRequest);
+			hStaticTextRequest = NULL;
+		}
+
+		if (hButtonOpenRequest)
+		{
+			DestroyWindow(hButtonOpenRequest);
+			hButtonOpenRequest = NULL;
+		}
+
+		if (hButtonCloseRequest)
+		{
+			DestroyWindow(hButtonCloseRequest);
+			hButtonCloseRequest = NULL;
+		}
+
+		if (hComboBoxRequest)
+		{
+			DestroyWindow(hComboBoxRequest);
+			hComboBoxRequest = NULL;
+		}
+
+	}
 }

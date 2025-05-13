@@ -6,7 +6,7 @@ void TableWndAdd(HWND hWnd, LPARAM lp)
 
 void TableWnd(HWND hWnd)
 {
-	hStaticText = CreateWindowA(
+	hStaticTextTable = CreateWindowA(
 		"static",
 		"Выберите таблицу",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -17,7 +17,7 @@ void TableWnd(HWND hWnd)
 		NULL
 	);
 
-	hButton = CreateWindowA(
+	hButtonOpenTable = CreateWindowA(
 		"button",
 		"Открыть",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -28,7 +28,7 @@ void TableWnd(HWND hWnd)
 		NULL
 	);
 
-	hButton = CreateWindowA(
+	hButtonCloseTable = CreateWindowA(
 		"button",
 		"Закрыть",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -42,20 +42,20 @@ void TableWnd(HWND hWnd)
 
 void TableCombobox(HWND hWnd, LPARAM lp)
 {
-	hComboBox = CreateWindowW(
+	hComboBoxTable = CreateWindowW(
 		L"COMBOBOX",
 		L"",
 		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
 		20, 40, 200, 200,
 		hWnd,
-		(HMENU)ID_COMBOBOX_TABLE,
+		NULL,
 		(HINSTANCE)lp,
 		NULL
 	);
 
-	SendMessageW(hComboBox, CB_ADDSTRING, 0, (LPARAM)L"Элемент 1");
-	SendMessageW(hComboBox, CB_ADDSTRING, 0, (LPARAM)L"Элемент 2");
-	SendMessageW(hComboBox, CB_ADDSTRING, 0, (LPARAM)L"Элемент 3");
-	SendMessageW(hComboBox, CB_ADDSTRING, 0, (LPARAM)L"Элемент 4");
-	SendMessage(hComboBox, CB_SETCURSEL, 0, 0);
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Все данные");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Картошка");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические признаки");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
+	SendMessage(hComboBoxTable, CB_SETCURSEL, 0, 0);
 }
