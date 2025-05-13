@@ -4,16 +4,16 @@ void MainWndAddMenus(HWND hWnd)
 	HMENU SubMenuMain = CreateMenu();
 	HMENU SubMenuTable = CreateMenu();
 	HMENU SubMenuRequest = CreateMenu();
-
-	AppendMenu(SubMenuMain, MF_STRING, MenuAdd, L"Добавить новые данные");
-	AppendMenu(SubMenuMain, MF_SEPARATOR, NULL, NULL);
-	AppendMenu(SubMenuMain, MF_STRING, MenuRedact, L"Редактировать данные");
-	AppendMenu(SubMenuMain, MF_SEPARATOR, NULL, NULL);
+		
 	AppendMenu(SubMenuMain, MF_STRING, MenuInfo, L"Информация");
 	AppendMenu(SubMenuMain, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(SubMenuMain, MF_STRING, MenuExit, L"Выход");
 
 	AppendMenu(SubMenuTable, MF_STRING, MenuTableShow, L"Открыть");
+	AppendMenu(SubMenuTable, MF_SEPARATOR, NULL, NULL);
+	AppendMenu(SubMenuTable, MF_STRING, MenuAdd, L"Добавить новые данные");
+	AppendMenu(SubMenuTable, MF_SEPARATOR, NULL, NULL);
+	AppendMenu(SubMenuTable, MF_STRING, MenuRedact, L"Редактировать данные");
 	AppendMenu(SubMenuTable, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(SubMenuTable, MF_STRING, MenuTableClose, L"Закрыть");
 

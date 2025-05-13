@@ -32,7 +32,7 @@ void TableWnd(HWND hWnd)
 		"button",
 		"Закрыть",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		5, 120, 120, 30,
+		125, 90, 120, 30,
 		hWnd,
 		(HMENU)CloseTableButton,
 		NULL,
@@ -57,5 +57,6 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Картошка");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические признаки");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
-	SendMessage(hComboBoxTable, CB_SETCURSEL, 0, 0);
+	SendMessage(hComboBoxTable, CB_SETCURSEL, 1, 0);
+	idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
 }

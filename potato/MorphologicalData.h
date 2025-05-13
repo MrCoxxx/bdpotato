@@ -1,6 +1,5 @@
 void AddMorphologicalColumnsToListView(HWND hListView)
 {
-    // Создаем массив для заголовков колонок
     const wchar_t* headers[] = {
         L"ID",
         L"Образец",
@@ -40,10 +39,8 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             std::vector<std::wstring> row;
 
-            // ID (число, не требует конвертации)
             row.push_back(std::to_wstring(sqlite3_column_int(stmt, 0)));
 
-            // Sample
             const unsigned char* sample = sqlite3_column_text(stmt, 1);
             if (sample) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(sample)));
@@ -52,7 +49,6 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
                 row.push_back(L"");
             }
 
-            // Origin
             const unsigned char* origin = sqlite3_column_text(stmt, 2);
             if (origin) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(origin)));
@@ -61,7 +57,6 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
                 row.push_back(L"");
             }
 
-            // VIGRR catalogue number
             const unsigned char* vigrr = sqlite3_column_text(stmt, 3);
             if (vigrr) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(vigrr)));
@@ -70,7 +65,6 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
                 row.push_back(L"");
             }
 
-            // Productivity
             const unsigned char* productivity = sqlite3_column_text(stmt, 4);
             if (productivity) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(productivity)));
@@ -79,7 +73,6 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
                 row.push_back(L"");
             }
 
-            // Field resistance to late blight
             const unsigned char* resistance = sqlite3_column_text(stmt, 5);
             if (resistance) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(resistance)));
@@ -88,7 +81,6 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
                 row.push_back(L"");
             }
 
-            // Weight of commercial tuber
             const unsigned char* weight = sqlite3_column_text(stmt, 6);
             if (weight) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(weight)));
@@ -107,13 +99,10 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
 
 void LoadMorphologicalDataIntoListView(HWND hListView)
 {
-    // Очищаем список
     ListView_DeleteAllItems(hListView);
 
-    // Получаем данные из БД
     auto data = GetMorphologicalDataFromDatabase();
 
-    // Добавляем данные в ListView
     LVITEM lvi = { 0 };
     lvi.mask = LVIF_TEXT;
 
@@ -127,7 +116,6 @@ void LoadMorphologicalDataIntoListView(HWND hListView)
 
         ListView_InsertItem(hListView, &lvi);
 
-        // Добавляем подэлементы
         for (size_t j = 1; j < data[i].size(); j++) {
             wcscpy_s(buffer, data[i][j].c_str());
             ListView_SetItemText(hListView, i, static_cast<int>(j), buffer);

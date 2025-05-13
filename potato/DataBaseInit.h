@@ -14,14 +14,12 @@ void InitializeDatabase()
 void LoadTableData(HWND hWnd) 
 {
 
-    // Создаем ListView
     hListView = CreateWindow(WC_LISTVIEW, L"",
         WS_VISIBLE | WS_CHILD | WS_BORDER | LVS_REPORT | LVS_EDITLABELS,
         270, 10, 700, 570,
         hWnd, NULL,
         hInstance, NULL);
 
-    // Настраиваем колонки и загружаем данные
     if (idComboBox == 0)
     {
 
@@ -38,7 +36,8 @@ void LoadTableData(HWND hWnd)
     }
     if (idComboBox == 3)
     {
-
+        AddCulinaryColumnsToListView(hListView);
+        LoadCulinaryDataIntoListView(hListView);
     }
 
 }

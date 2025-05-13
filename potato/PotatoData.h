@@ -1,6 +1,5 @@
 void AddPotatoColumnsToListView(HWND hListView)
 {
-    // Создаем массив для заголовков колонок
     const wchar_t* headers[] = {
         L"ID",
         L"Образец",
@@ -40,10 +39,8 @@ std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase()
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             std::vector<std::wstring> row;
 
-            // ID (число, не требует конвертации)
             row.push_back(std::to_wstring(sqlite3_column_int(stmt, 0)));
 
-            // Sample
             const unsigned char* sample = sqlite3_column_text(stmt, 1);
             if (sample) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(sample)));
@@ -52,7 +49,6 @@ std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase()
                 row.push_back(L"");
             }
 
-            // Origin
             const unsigned char* origin = sqlite3_column_text(stmt, 2);
             if (origin) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(origin)));
@@ -61,7 +57,6 @@ std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase()
                 row.push_back(L"");
             }
 
-            // VIGRR catalogue number
             const unsigned char* vigrr = sqlite3_column_text(stmt, 3);
             if (vigrr) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(vigrr)));
@@ -70,17 +65,14 @@ std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase()
                 row.push_back(L"");
             }
 
-            // Productivity
             double productivity = sqlite3_column_double(stmt, 4);
             std::wstringstream wss;
             wss << std::fixed << std::setprecision(2) << productivity;
             row.push_back(wss.str());
 
-            // Field resistance to late blight
             int resistance = sqlite3_column_int(stmt, 5);
             row.push_back(std::to_wstring(resistance));
 
-            // Weight of commercial tuber
             int weight = sqlite3_column_int(stmt, 6);
             row.push_back(std::to_wstring(weight));
 
@@ -94,13 +86,10 @@ std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase()
 
 void LoadPotatoDataIntoListView(HWND hListView)
 {
-    // Очищаем список
     ListView_DeleteAllItems(hListView);
 
-    // Получаем данные из БД
     auto data = GetPotatoDataFromDatabase();
 
-    // Добавляем данные в ListView
     LVITEM lvi = { 0 };
     lvi.mask = LVIF_TEXT;
 
@@ -114,7 +103,6 @@ void LoadPotatoDataIntoListView(HWND hListView)
 
         ListView_InsertItem(hListView, &lvi);
 
-        // Добавляем подэлементы
         for (size_t j = 1; j < data[i].size(); j++) {
             wcscpy_s(buffer, data[i][j].c_str());
             ListView_SetItemText(hListView, i, static_cast<int>(j), buffer);

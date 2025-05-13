@@ -147,12 +147,15 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			isTableIntCreated = FALSE;
 			break;
 		case OpenTableButton:
-			if (!isTableCreated)
+			DestroyDataTable(hWnd);
+			idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
+			LoadTableData(hWnd);
+			/*if (!isTableCreated)
 			{
 				idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
 				LoadTableData(hWnd);
 				isTableCreated = TRUE;
-			}
+			}*/
 			break;
 		case CloseTableButton:
 			DestroyDataTable(hWnd);
@@ -166,7 +169,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 	case WM_CREATE:
 		TableWndAdd(hWnd, (LPARAM)hInstance);
 		//RequestWndAdd(hWnd, (LPARAM)hInstance);
-		//LoadTableData(hWnd);
+		LoadTableData(hWnd);
 
 		MainWndAddMenus(hWnd);
 		
