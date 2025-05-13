@@ -66,25 +66,25 @@ void Search(HWND hWnd)
 	);
 }
 
-//void RequestCombobox(HWND hWnd, LPARAM lp) 
-//{
-//	hComboBoxRequest = CreateWindowW(
-//		L"COMBOBOX",
-//		L"",
-//		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
-//		50, 50, 200, 200,
-//		hWnd,
-//		NULL,
-//		(HINSTANCE)lp,
-//		NULL
-//	);
-//
-//	SendMessageW(hComboBoxRequest, CB_ADDSTRING, 0, (LPARAM)L"Ёлемент 1");
-//	SendMessageW(hComboBoxRequest, CB_ADDSTRING, 0, (LPARAM)L"Ёлемент 2");
-//	SendMessageW(hComboBoxRequest, CB_ADDSTRING, 0, (LPARAM)L"Ёлемент 3");
-//	SendMessageW(hComboBoxRequest, CB_ADDSTRING, 0, (LPARAM)L"Ёлемент 4");
-//	SendMessage(hComboBoxRequest, CB_SETCURSEL, 0, 0);
-//}
+void RequestCombobox(HWND hWnd, LPARAM lp) 
+{
+	hComboBoxRequest = CreateWindowW(
+		L"COMBOBOX",
+		L"",
+		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
+		50, 50, 200, 200,
+		hWnd,
+		NULL,
+		(HINSTANCE)lp,
+		NULL
+	);
+
+	SendMessageW(hComboBoxRequest, CB_ADDSTRING, 0, (LPARAM)L"Ёлемент 1");
+	SendMessageW(hComboBoxRequest, CB_ADDSTRING, 0, (LPARAM)L"Ёлемент 2");
+	SendMessageW(hComboBoxRequest, CB_ADDSTRING, 0, (LPARAM)L"Ёлемент 3");
+	SendMessageW(hComboBoxRequest, CB_ADDSTRING, 0, (LPARAM)L"Ёлемент 4");
+	SendMessage(hComboBoxRequest, CB_SETCURSEL, 0, 0);
+}
 
 void LoadRequestData(HWND hWnd)
 {
