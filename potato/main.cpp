@@ -9,6 +9,7 @@
 #include <codecvt>
 
 
+
 #pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "sqlite3.lib")
 
@@ -25,14 +26,11 @@ static HWND hStaticTextTable;
 static HWND hButtonOpenTable;
 static HWND hButtonCloseTable;
 static HWND hComboBoxRequest;
-static HWND hStaticTextRequest;
-static HWND hButtonSearchOpen;
-static HWND hButtonSearchClose;
-static HWND hButtonCheckBox;
-static HWND hButtonComplite;
 static LRESULT idComboBox;
 static sqlite3* db = nullptr;
 
+
+#include "CreateWidgets.h"
 #include "Menu.h"
 #include "DataBaseInit.h"
 #include "TableInterface.h"
@@ -124,7 +122,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			if (!isTableIntCreated)
 			{
 				DestroyUIElements(hWnd);
-				TableWndAdd(hWnd, (LPARAM)hInstance);				
+				TableWndAdd(hWnd, (LPARAM)hInstance);
 				isTableIntCreated = TRUE;
 				isRequestIntCreated = FALSE;
 
@@ -143,7 +141,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 				isRequestIntCreated = TRUE;
 				isTableIntCreated = FALSE;
 
-			}		
+			}
 			break;
 		case MenuRequestClose:
 			DestroyUIElements(hWnd);
@@ -167,34 +165,34 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			isTableCreated = FALSE;
 			break;
 		case SearchClickButtonOpen:
-			if (!isSearchUI) 
+			if (!isSearchUI)
 			{
 				DestroyIntRequest(hWnd);
 				Search(hWnd);
 				isSearchUI = TRUE;
-			}			
+			}
 			break;
-		case SearchClickButtonClose:			
+		case SearchClickButtonClose:
 			if (isSearchUI)
 			{
 				RequestWnd(hWnd);
 				DestroySearchUI(hWnd);
 				isSearchUI = FALSE;
 			}
-			break;		
+			break;
 		}
 
 
-		
+
 		break;
+
 
 	case WM_CREATE:
 		TableWndAdd(hWnd, (LPARAM)hInstance);
-		//RequestWndAdd(hWnd, (LPARAM)hInstance);
-		
+		//RequestWndAdd(hWnd, (LPARAM)hInstance);		
 
 		MainWndAddMenus(hWnd);
-		
+
 		break;
 
 	case WM_DESTROY:

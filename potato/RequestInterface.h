@@ -5,9 +5,18 @@ void RequestWndAdd(HWND hWnd, LPARAM lp)
 	LoadRequestData(hWnd);
 }
 
+Widgets* textRequest;
+Widgets* searchOpen;
+Widgets* searchClose;
+Widgets* complite;
+Widgets* CheckBox1;
+Widgets* CheckBox2;
+Widgets* CheckBox3;
+Widgets* CheckBox4;
+
 void RequestWnd(HWND hWnd)
 {
-	hStaticTextRequest = CreateWindowA(
+	textRequest = new Widgets(
 		"static",
 		"Выберите запрос",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -18,21 +27,25 @@ void RequestWnd(HWND hWnd)
 		NULL
 	);
 
-	hButtonSearchOpen = CreateWindowA(
+	searchOpen = new Widgets(
 		"button",
 		"Поиск",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 90, 240, 30,
+		15,
+		90,
+		240,
+		30,
 		hWnd,
 		(HMENU)SearchClickButtonOpen,
 		NULL,
 		NULL
 	);
+	
 }
 
 void Search(HWND hWnd) 
 {
-	hButtonSearchClose = CreateWindowA(
+	searchClose = new Widgets(
 		"button",
 		"Поиск",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -43,7 +56,7 @@ void Search(HWND hWnd)
 		NULL
 	);
 
-	hButtonComplite = CreateWindowA(
+	complite = new Widgets(
 		"button",
 		"Поиск",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -54,11 +67,50 @@ void Search(HWND hWnd)
 		NULL
 	);
 
-	hButtonCheckBox = CreateWindowA(
+	RequestCheckBox(hWnd);
+
+}
+
+void RequestCheckBox(HWND hWnd) 
+{
+	CheckBox1 = new Widgets(
 		"button",
 		"CheckBox",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
 		15, 120, 100, 30,
+		hWnd,
+		NULL,
+		NULL,
+		NULL
+	);
+
+	CheckBox2 = new Widgets(
+		"button",
+		"CheckBox",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		15, 150, 100, 30,
+		hWnd,
+		NULL,
+		NULL,
+		NULL
+	);
+
+	CheckBox3 = new Widgets(
+		"button",
+		"CheckBox",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		15, 180, 100, 30,
+		hWnd,
+		NULL,
+		NULL,
+		NULL
+	);
+
+	CheckBox4 = new Widgets(
+		"button",
+		"CheckBox",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		15, 210, 100, 30,
 		hWnd,
 		NULL,
 		NULL,

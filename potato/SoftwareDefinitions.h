@@ -34,6 +34,7 @@ void RequestWndAdd(HWND hWnd, LPARAM lp);
 void RequestWnd(HWND hWnd);
 void RequestCombobox(HWND hWnd, LPARAM lp);
 void Search(HWND hWnd);
+void RequestCheckBox(HWND hWnd);
 
 
 //Init DataBase
@@ -48,6 +49,7 @@ void DestroyDataTable(HWND hWnd);
 void DestroyIntTable(HWND hWnd);
 void DestroyIntRequest(HWND hWnd);
 void DestroySearchUI(HWND hWnd);
+void DestroyCheckBox(HWND hWnd);
 
 
 //Coding UTF

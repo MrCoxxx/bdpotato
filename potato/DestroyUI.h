@@ -53,46 +53,65 @@ void DestroyIntTable(HWND hWnd)
 
 void DestroyIntRequest(HWND hWnd)
 {
-	if (isRequestIntCreated)
+	if (textRequest)
 	{
-
-		if (hStaticTextRequest)
-		{
-			DestroyWindow(hStaticTextRequest);
-			hStaticTextRequest = NULL;
-		}
-
-		if (hButtonSearchOpen)
-		{
-			DestroyWindow(hButtonSearchOpen);
-			hButtonSearchOpen = NULL;
-		}
-
-		if (hComboBoxRequest)
-		{
-			DestroyWindow(hComboBoxRequest);
-			hComboBoxRequest = NULL;
-		}		
+		textRequest->Destroy();
+		textRequest = nullptr;
 	}
+
+	if (searchOpen)
+	{
+		searchOpen->Destroy();
+		searchOpen = nullptr;
+	}
+
+
+	
 }
 
 void DestroySearchUI(HWND hWnd) 
 {
+	DestroyCheckBox(hWnd);
 
-	if (hButtonCheckBox)
+	if (complite)
 	{
-		DestroyWindow(hButtonCheckBox);
-		hButtonCheckBox = NULL;
+		complite->Destroy();
+		complite = nullptr;
 	}
-	if (hButtonComplite)
+
+	if (searchClose)
 	{
-		DestroyWindow(hButtonComplite);
-		hButtonComplite = NULL;
+		searchClose->Destroy();
+		searchClose = nullptr;
 	}
-	if (hButtonSearchClose)
+
+}
+
+void DestroyCheckBox(HWND hWnd) 
+{
+
+	if (CheckBox1)
 	{
-		DestroyWindow(hButtonSearchClose);
-		hButtonSearchClose = NULL;
+		CheckBox1->Destroy();
+		CheckBox1 = nullptr;
+	}
+
+	if (CheckBox2)
+	{
+		CheckBox2->Destroy();
+		CheckBox2 = nullptr;
+	}
+
+	if (CheckBox3)
+	{
+		CheckBox3->Destroy();
+		CheckBox3 = nullptr;
+	}
+
+	if (CheckBox4)
+	{
+		CheckBox4->Destroy();
+		CheckBox4 = nullptr;
 	}
 
 }
