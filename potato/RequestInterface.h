@@ -39,8 +39,7 @@ void RequestWnd(HWND hWnd)
 		(HMENU)SearchClickButtonOpen,
 		NULL,
 		NULL
-	);
-	
+	);	
 }
 
 void Search(HWND hWnd) 
@@ -67,11 +66,10 @@ void Search(HWND hWnd)
 		NULL
 	);
 
-	RequestCheckBox(hWnd);
-
+	SearchCheckBox(hWnd);
 }
 
-void RequestCheckBox(HWND hWnd) 
+void SearchCheckBox(HWND hWnd) 
 {
 	CheckBox1 = new Widgets(
 		"button",

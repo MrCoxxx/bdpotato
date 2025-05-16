@@ -34,7 +34,7 @@ void RequestWndAdd(HWND hWnd, LPARAM lp);
 void RequestWnd(HWND hWnd);
 void RequestCombobox(HWND hWnd, LPARAM lp);
 void Search(HWND hWnd);
-void RequestCheckBox(HWND hWnd);
+void SearchCheckBox(HWND hWnd);
 
 
 //Init DataBase
