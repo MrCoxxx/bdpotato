@@ -37,7 +37,7 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
 
     if (sqlite3_prepare_v2(db, sqlMorphological, -1, &stmt, NULL) == SQLITE_OK) {
         while (sqlite3_step(stmt) == SQLITE_ROW) {
-            std::vector<std::wstring> row;
+            std::vector<std::wstring> row; 
 
             row.push_back(std::to_wstring(sqlite3_column_int(stmt, 0)));
 

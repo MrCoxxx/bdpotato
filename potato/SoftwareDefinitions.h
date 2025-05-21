@@ -35,6 +35,7 @@ void RequestWnd(HWND hWnd);
 void RequestCombobox(HWND hWnd, LPARAM lp);
 void Search(HWND hWnd);
 void SearchCheckBox(HWND hWnd);
+void SearchButton(HWND hWnd);
 
 
 //Init DataBase
@@ -48,8 +49,9 @@ void DestroyUIElements(HWND hWnd);
 void DestroyDataTable(HWND hWnd);
 void DestroyIntTable(HWND hWnd);
 void DestroyIntRequest(HWND hWnd);
-void DestroySearchUI(HWND hWnd);
+void DestroySearchUI(HWND hWnd); 
 void DestroyCheckBox(HWND hWnd);
+void DestroySearchButton(HWND hWnd);
 
 
 //Coding UTF
@@ -76,6 +78,6 @@ void LoadCulinaryDataIntoListView(HWND hListView);
 
 
 //All Data
-//std::vector<std::vector<std::wstring>> GetAllDataFromDatabase();
-//void AddAllDataToListView(HWND hListView);
-//void LoadAllDataIntoListView(HWND hListView);
+std::vector<std::vector<std::wstring>> GetAllDataFromDatabase();
+void AddAllToListView(HWND hListView);
+void LoadAllDataIntoListView(HWND hListView);

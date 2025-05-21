@@ -140,6 +140,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MorphologicalData.h" />
     <ClInclude Include="PotatoData.h" />
+    <ClInclude Include="RequestData.h" />
     <ClInclude Include="RequestInterface.h" />
     <ClInclude Include="SoftwareDefinitions.h" />
     <ClInclude Include="TableInterface.h" />

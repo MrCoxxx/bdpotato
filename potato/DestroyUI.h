@@ -72,19 +72,7 @@ void DestroyIntRequest(HWND hWnd)
 void DestroySearchUI(HWND hWnd) 
 {
 	DestroyCheckBox(hWnd);
-
-	if (complite)
-	{
-		complite->Destroy();
-		complite = nullptr;
-	}
-
-	if (searchClose)
-	{
-		searchClose->Destroy();
-		searchClose = nullptr;
-	}
-
+	DestroySearchButton(hWnd);
 }
 
 void DestroyCheckBox(HWND hWnd) 
@@ -114,4 +102,44 @@ void DestroyCheckBox(HWND hWnd)
 		CheckBox4 = nullptr;
 	}
 
+}
+
+void DestroySearchButton(HWND hWnd) 
+{
+
+	if (complite)
+	{
+		complite->Destroy();
+		complite = nullptr;
+	}
+
+	if (searchClose)
+	{
+		searchClose->Destroy();
+		searchClose = nullptr;
+	}
+
+	if (min)
+	{
+		min->Destroy();
+		min = nullptr;
+	}
+
+	if (avg)
+	{
+		avg->Destroy();
+		avg = nullptr;
+	}
+
+	if (max)
+	{
+		max->Destroy();
+		max = nullptr;
+	}
+
+	if (edit)
+	{
+		edit->Destroy();
+		edit = nullptr;
+	}
 }

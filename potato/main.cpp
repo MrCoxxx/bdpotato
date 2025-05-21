@@ -8,8 +8,6 @@
 #include <locale>
 #include <codecvt>
 
-
-
 #pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "sqlite3.lib")
 
@@ -39,7 +37,7 @@ static sqlite3* db = nullptr;
 #include "PotatoData.h"
 #include "MorphologicalData.h"
 #include "CulinaryData.h"
-//#include "AllData.h"
+#include "RequestData.h"
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {
@@ -75,7 +73,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 		TranslateMessage(&SoftwareMainMessage);
 		DispatchMessage(&SoftwareMainMessage);
 	}
-	// Закрываем подключение к БД при выходе
 	if (db) {
 		sqlite3_close(db);
 	}
@@ -114,7 +111,6 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		case MenuInfo:
 			MessageBoxA(hWnd, "В разработке", "Информация", MB_OK);
 			break;
-
 		case  MenuExit:
 			PostQuitMessage(0);
 			break;
@@ -152,12 +148,6 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			DestroyDataTable(hWnd);
 			idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
 			LoadTableData(hWnd);
-			/*if (!isTableCreated)
-			{
-				idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
-				LoadTableData(hWnd);
-				isTableCreated = TRUE;
-			}*/
 			break;
 		case CloseTableButton:
 			DestroyDataTable(hWnd);
@@ -181,24 +171,15 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			}
 			break;
 		}
-
-
-
 		break;
-
-
 	case WM_CREATE:
 		TableWndAdd(hWnd, (LPARAM)hInstance);
-		//RequestWndAdd(hWnd, (LPARAM)hInstance);		
-
+		//RequestWndAdd(hWnd, (LPARAM)hInstance);
 		MainWndAddMenus(hWnd);
-
 		break;
-
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
-
 	default:
 		return DefWindowProc(hWnd, msg, wp, lp);
 	}

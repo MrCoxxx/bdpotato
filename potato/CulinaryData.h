@@ -31,11 +31,10 @@ std::vector<std::vector<std::wstring>> GetCulinaryDataFromDatabase()
     const char* sqlCulinary = "SELECT id, id_potato, taste, pulp_consistency, "
         "darkening_after_cooking  FROM culinary_qualities";
     sqlite3_stmt* stmt;
-
+    int i = 0;
     if (sqlite3_prepare_v2(db, sqlCulinary, -1, &stmt, NULL) == SQLITE_OK) {
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             std::vector<std::wstring> row;
-
             
             row.push_back(std::to_wstring(sqlite3_column_int(stmt, 0)));
 
@@ -71,7 +70,6 @@ std::vector<std::vector<std::wstring>> GetCulinaryDataFromDatabase()
             else {
                 row.push_back(L"");
             }
-
             result.push_back(row);
         }
         sqlite3_finalize(stmt);

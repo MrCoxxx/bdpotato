@@ -11,7 +11,6 @@ void InitializeDatabase()
     sqlite3_exec(db, "PRAGMA encoding = 'UTF-8'", NULL, NULL, NULL);
 }
 
-
 std::wstring utf8_to_utf16(const std::string& utf8)
 {
     std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;

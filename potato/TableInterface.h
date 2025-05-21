@@ -74,8 +74,8 @@ void LoadTableData(HWND hWnd)
 
 	if (idComboBox == 0)
 	{
-		//AddAllDataToListView(hListView);
-		//LoadAllDataIntoListView(hListView);
+		AddAllToListView(hListView);
+		LoadAllDataIntoListView(hListView);
 	}
 	if (idComboBox == 1)
 	{
