@@ -56,7 +56,7 @@ WNDCLASS NewSearchWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, H
 void WndSearch(HWND hWnd);
 void SearchCheckbox(HWND hWnd);
 void SearchEditzone(HWND hWnd);
-
+const char* SqlRequest();
 
 //Menu
 void MainWndAddMenus(HWND hWnd);

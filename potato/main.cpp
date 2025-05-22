@@ -16,6 +16,7 @@
 
 #include "GlobalVariable.h"
 
+
 #include "MainWnd.h"
 #include "SearchWnd.h"
 #include "Menu.h"
@@ -28,6 +29,7 @@
 #include "MorphologicalData.h"
 #include "CulinaryData.h"
 #include "RequestData.h"
+#include "SqlRequestData.h"
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {

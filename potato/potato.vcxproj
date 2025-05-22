@@ -147,6 +147,7 @@
     <ClInclude Include="SearchInterface.h" />
     <ClInclude Include="SearchWnd.h" />
     <ClInclude Include="SoftwareDefinitions.h" />
+    <ClInclude Include="SqlRequestData.h" />
     <ClInclude Include="TableInterface.h" />
   </ItemGroup>
   <ItemGroup>

@@ -98,9 +98,9 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 			HWND hMainWnd = FindWindow(L"MainWndClass", NULL);
 			DestroyDataTable(hWnd);
 			LoadRequestData(hMainWnd);
+			DestroyCheckBox(hWnd);
 			DestroyWindow(hWnd);
-			
-			
+		
 			secondWnd = FALSE;
 			break;
 		}

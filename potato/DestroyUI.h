@@ -78,29 +78,90 @@ void DestroySearchUI(HWND hWnd)
 void DestroyCheckBox(HWND hWnd) 
 {
 
-	/*if (CheckBox1)
+	if (editSample)
 	{
-		CheckBox1->Destroy();
-		CheckBox1 = NULL;
+		DestroyWindow(editSample);
+		editSample = NULL;
+		statsCheckBoxSample = NULL;
 	}
-
-	if (CheckBox2)
+	if (editOrigin)
 	{
-		CheckBox2->Destroy();
-		CheckBox2 = NULL;
+		DestroyWindow(editOrigin);
+		editOrigin = NULL;
+		statsCheckBoxOrigin = NULL;
 	}
-
-	if (CheckBox3)
+	if (editVIGRR)
 	{
-		CheckBox3->Destroy();
-		CheckBox3 = NULL;
+		DestroyWindow(editVIGRR);
+		editVIGRR = NULL;
+		statsCheckBoxVIGRR = NULL;
 	}
-
-	if (CheckBox4)
+	if (editProductivity)
 	{
-		CheckBox4->Destroy();
-		CheckBox4 = NULL;
-	}*/
+		DestroyWindow(editProductivity);
+		editProductivity = NULL;
+		statsCheckBoxProductivity = NULL;
+	}
+	if (editField)
+	{
+		DestroyWindow(editField);
+		editField = NULL;
+		statsCheckBoxField = NULL;
+	}
+	if (editForm)
+	{
+		DestroyWindow(editForm);
+		editForm = NULL;
+		statsCheckBoxForm = NULL;
+	}
+	if (editPeel)
+	{
+		DestroyWindow(editPeel);
+		editPeel = NULL;
+		statsCheckBoxPeel = NULL;
+	}
+	if (editPulp)
+	{
+		DestroyWindow(editPulp);
+		editPulp = NULL;
+		statsCheckBoxPulp = NULL;
+	}
+	if (editEye)
+	{
+		DestroyWindow(editEye);
+		editEye = NULL;
+		statsCheckBoxEye = NULL;
+	}
+	if (editStolon)
+	{
+		DestroyWindow(editStolon);
+		editStolon = NULL;
+		statsCheckBoxStolon = NULL;
+	}
+	if (editTaste)
+	{
+		DestroyWindow(editTaste);
+		editTaste = NULL;
+		statsCheckBoxTaste = NULL;
+	}
+	if (editConsistency)
+	{
+		DestroyWindow(editConsistency);
+		editConsistency = NULL;
+		statsCheckBoxConsistency = NULL;
+	}
+	if (editDarkening)
+	{
+		DestroyWindow(editDarkening);
+		editDarkening = NULL;
+		statsCheckBoxDarkening = NULL;
+	}
+	if (editWeight)
+	{
+		DestroyWindow(editWeight);
+		editWeight = NULL;
+		statsCheckBoxWeight = NULL;
+	}
 
 }
 
