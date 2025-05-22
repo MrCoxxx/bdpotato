@@ -137,11 +137,14 @@
     <ClInclude Include="CulinaryData.h" />
     <ClInclude Include="DataBaseInit.h" />
     <ClInclude Include="DestroyUI.h" />
+    <ClInclude Include="MainWnd.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MorphologicalData.h" />
     <ClInclude Include="PotatoData.h" />
     <ClInclude Include="RequestData.h" />
     <ClInclude Include="RequestInterface.h" />
+    <ClInclude Include="SearchInterface.h" />
+    <ClInclude Include="SearchWnd.h" />
     <ClInclude Include="SoftwareDefinitions.h" />
     <ClInclude Include="TableInterface.h" />
   </ItemGroup>

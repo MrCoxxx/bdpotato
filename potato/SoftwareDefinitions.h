@@ -19,6 +19,12 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 WNDCLASS NewMainWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
 
 
+//Searrch
+LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+WNDCLASS NewSearchWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
+void WndSearch(HWND hWnd);
+
+
 //Menu
 void MainWndAddMenus(HWND hWnd);
 
@@ -36,6 +42,7 @@ void RequestCombobox(HWND hWnd, LPARAM lp);
 void Search(HWND hWnd);
 void SearchCheckBox(HWND hWnd);
 void SearchButton(HWND hWnd);
+void WndSearch(HWND hWnd);
 
 
 //Init DataBase

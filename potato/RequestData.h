@@ -37,19 +37,27 @@ std::vector<std::vector<std::wstring>> GetAllDataFromDatabase()
 
     if (!db) return result;
 
+    //const char* name = "Арамис";
+
+    std::wstring name = L"Арамис";
+    std::string utf8_name = utf16_to_utf8(name);
+    double name1 = 2.25;
+    //std::string utf8_name1 = utf16_to_utf8(name1);
+
     const char* sqlAll = "SELECT p.sample, p.origin, p.VIGRR_catalogue_number, p.productivity, p.field_resistance_to_late_blight, "
         "mf.form, mf.peel_coloring, mf.pulp_coloring, mf.eye_depth, mf.stolon_trace_depth, "
         "cq.taste, cq.pulp_consistency, cq.darkening_after_cooking, p.weight_of_commercial_tuber "
-        "FROM potato p JOIN morphological_features_of_the_tuber mf ON p.id = mf.id_potato JOIN culinary_qualities cq ON p.id = cq.id_potato";
-
+        "FROM potato p JOIN morphological_features_of_the_tuber mf ON p.id = mf.id_potato JOIN culinary_qualities cq ON p.id = cq.id_potato WHERE p.productivity = ? AND p.sample = ?  ";
     sqlite3_stmt* stmt;
-    if (sqlite3_prepare_v2(db, sqlAll, -1, &stmt, NULL) == SQLITE_OK) {
-        while (sqlite3_step(stmt) == SQLITE_ROW) {
-            if (NULL) {
 
-            }
-            std::vector<std::wstring> row;
-       
+    
+
+    
+    if (sqlite3_prepare_v2(db, sqlAll, -1, &stmt, NULL) == SQLITE_OK) {
+        sqlite3_bind_text(stmt, 2, utf8_name.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_double(stmt, 1, name1);
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            std::vector<std::wstring> row;            
             const unsigned char* sample = sqlite3_column_text(stmt, 0);
             if (sample) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(sample)));
@@ -163,7 +171,9 @@ std::vector<std::vector<std::wstring>> GetAllDataFromDatabase()
             }
 
             result.push_back(row);
+        
         }
+        
         sqlite3_finalize(stmt);
     }
 

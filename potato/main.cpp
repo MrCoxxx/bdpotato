@@ -18,6 +18,7 @@ static BOOL isTableIntCreated = TRUE;
 static BOOL isRequestIntCreated = FALSE;
 static BOOL isTableCreated = FALSE;
 static BOOL isSearchUI = FALSE;
+static BOOL secondWnd = FALSE;
 static HWND hListView;
 static HWND hComboBoxTable;
 static HWND hStaticTextTable;
@@ -27,12 +28,14 @@ static HWND hComboBoxRequest;
 static LRESULT idComboBox;
 static sqlite3* db = nullptr;
 
-
+#include "MainWnd.h"
+#include "SearchWnd.h"
 #include "CreateWidgets.h"
 #include "Menu.h"
 #include "DataBaseInit.h"
 #include "TableInterface.h"
 #include "RequestInterface.h"
+#include "SearchInterface.h"
 #include "DestroyUI.h"
 #include "PotatoData.h"
 #include "MorphologicalData.h"
@@ -53,18 +56,21 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 	hInstance = hInst;
 
 	WNDCLASS SoftwareMainClass = NewMainWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"MainWndClass", SoftwareMainProcedure);
+	WNDCLASS SoftwareSearchClass = NewSearchWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"SearchWndClass", SoftwareSearchProcedure);
 	
 	if (!RegisterClassW(&SoftwareMainClass)) { return -1; }
 	MSG SoftwareMainMessage = { 0 };
+	if (!RegisterClassW(&SoftwareSearchClass)) { return -1; }
+	MSG SoftwareSearchMessage = { 0 };
 
-	CreateWindow(
+	HWND hWnd = CreateWindow(
 		L"MainWndClass",
 		L"База данных",
 		WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 		460, 240, 1000, 650,
 		NULL,
 		NULL,
-		NULL,
+		hInstance,
 		NULL
 	);
 
@@ -79,108 +85,4 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 
 	return 0;
 
-}
-
-WNDCLASS NewMainWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure)
-{
-	WNDCLASS NWC = { 0 };
-
-	NWC.hbrBackground = BGColor;
-	NWC.hCursor = Cursor;
-	NWC.hInstance = hInst;
-	NWC.hIcon = Icon;
-	NWC.lpszClassName = Name;
-	NWC.lpfnWndProc = Procedure;
-	
-	return NWC;
-}
-
-LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
-{
-	switch (msg)
-	{
-	case WM_COMMAND:
-		switch (wp)
-		{
-		case MenuAdd:
-			MessageBoxA(hWnd, "В разработке", "Добавление данных", MB_OK);
-			break;
-		case MenuRedact:
-			MessageBoxA(hWnd, "В разработке", "Редактирование данных", MB_OK);
-			break;
-		case MenuInfo:
-			MessageBoxA(hWnd, "В разработке", "Информация", MB_OK);
-			break;
-		case  MenuExit:
-			PostQuitMessage(0);
-			break;
-		case MenuTableShow:
-			if (!isTableIntCreated)
-			{
-				DestroyUIElements(hWnd);
-				TableWndAdd(hWnd, (LPARAM)hInstance);
-				isTableIntCreated = TRUE;
-				isRequestIntCreated = FALSE;
-
-			}
-			break;
-		case MenuTableClose:
-			DestroyUIElements(hWnd);
-			isTableIntCreated = FALSE;
-			isRequestIntCreated = FALSE;
-			break;
-		case MenuRequestShow:
-			if (!isRequestIntCreated)
-			{
-				DestroyUIElements(hWnd);
-				RequestWndAdd(hWnd, (LPARAM)hInstance);
-				isRequestIntCreated = TRUE;
-				isTableIntCreated = FALSE;
-
-			}
-			break;
-		case MenuRequestClose:
-			DestroyUIElements(hWnd);
-			isRequestIntCreated = FALSE;
-			isTableIntCreated = FALSE;
-			break;
-		case OpenTableButton:
-			DestroyDataTable(hWnd);
-			idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
-			LoadTableData(hWnd);
-			break;
-		case CloseTableButton:
-			DestroyDataTable(hWnd);
-			idComboBox = NULL;
-			isTableCreated = FALSE;
-			break;
-		case SearchClickButtonOpen:
-			if (!isSearchUI)
-			{
-				DestroyIntRequest(hWnd);
-				Search(hWnd);
-				isSearchUI = TRUE;
-			}
-			break;
-		case SearchClickButtonClose:
-			if (isSearchUI)
-			{
-				RequestWnd(hWnd);
-				DestroySearchUI(hWnd);
-				isSearchUI = FALSE;
-			}
-			break;
-		}
-		break;
-	case WM_CREATE:
-		TableWndAdd(hWnd, (LPARAM)hInstance);
-		//RequestWndAdd(hWnd, (LPARAM)hInstance);
-		MainWndAddMenus(hWnd);
-		break;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		break;
-	default:
-		return DefWindowProc(hWnd, msg, wp, lp);
-	}
 }
