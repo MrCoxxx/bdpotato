@@ -26,7 +26,8 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			MessageBoxA(hWnd, "В разработке", "Редактирование данных", MB_OK);
 			break;
 		case MenuInfo:
-			MessageBoxA(hWnd, "В разработке", "Информация", MB_OK);
+			MessageBoxA(hWnd, "Программу разработали Павлов Кирилл Витальвич и \n"
+				"Голубцов Георгий Валентинович для Университета", "Информация", MB_OK);
 			break;
 		case  MenuExit:
 			PostQuitMessage(0);

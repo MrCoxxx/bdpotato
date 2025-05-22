@@ -3,9 +3,6 @@ void DestroyUIElements(HWND hWnd)
 	DestroyIntTable(hWnd);
 	DestroyIntRequest(hWnd);
 	DestroyDataTable(hWnd);
-
-	//InvalidateRect(hWnd, NULL, TRUE);
-	//UpdateWindow(hWnd);
 }
 
 void DestroyDataTable(HWND hWnd) 
