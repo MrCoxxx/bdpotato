@@ -75,6 +75,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			WndSearch(hWnd);
 			break;	
 		
+		
 		}
 		break;
 	case WM_CREATE:

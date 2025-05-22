@@ -2,6 +2,7 @@ void Search(HWND hWnd)
 {
 	SearchCheckBox(hWnd);
 	SearchButton(hWnd);
+	SearchEditzone(hWnd);
 }
 
 void SearchCheckBox(HWND hWnd)
@@ -10,9 +11,9 @@ void SearchCheckBox(HWND hWnd)
 		L"button",
 		L"Образец",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		15, 120, 150, 30,
+		15, 15, 80, 30,
 		hWnd,
-		(HMENU)Checkbox1,
+		(HMENU)CheckBoxSample,
 		NULL,
 		NULL
 	);
@@ -21,141 +22,141 @@ void SearchCheckBox(HWND hWnd)
 		L"button",
 		L"Происхождение",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		15, 170, 150, 30,
+		15, 80, 130, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxOrigin,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxVIGRR = CreateWindow(
 		L"button",
 		L"Каталожный № ВИГРР",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		15, 200, 150, 30,
+		15, 145, 170, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxVIGRR,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxProductivity = CreateWindow(
 		L"button",
 		L"Урожайность",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		15, 230, 150, 30,
+		15, 200, 110, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxProductivity,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxField = CreateWindow(
 		L"button",
 		L"Устойчивость к фитофторозу",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		120, 120, 150, 30,
+		15, 265, 220, 30,
 		hWnd,
-		(HMENU)Checkbox1,
+		(HMENU)CheckBoxField,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxForm = CreateWindow(
 		L"button",
 		L"Форма",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		120, 170, 150, 30,
+		250, 15, 70, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxForm,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxPeel = CreateWindow(
 		L"button",
 		L"Окраска кожуры",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		120, 200, 150, 30,
+		250, 80, 130, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxPeel,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxPulp = CreateWindow(
 		L"button",
 		L"Окраска мякоти",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		120, 230, 150, 30,
+		250, 145, 125, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxPulp,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxEye = CreateWindow(
 		L"button",
 		L"Глубина глазков",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		240, 120, 150, 30,
+		250, 200, 135, 30,
 		hWnd,
-		(HMENU)Checkbox1,
+		(HMENU)CheckBoxEye,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxStolon = CreateWindow(
 		L"button",
 		L"Глубина столонного следа",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		240, 170, 150, 30,
+		250, 265, 200, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxStolon,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxTaste = CreateWindow(
 		L"button",
 		L"Вкус",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		240, 200, 150, 30,
+		465, 15, 55, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxTaste,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxConsistency = CreateWindow(
 		L"button",
 		L"Консистенция",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		240, 230, 150, 30,
+		465, 80, 110, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxConsistency,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxDarkening = CreateWindow(
 		L"button",
 		L"Потемнение после варки",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		360, 120, 150, 30,
+		465, 145, 185, 30,
 		hWnd,
-		(HMENU)Checkbox1,
+		(HMENU)CheckBoxDarkening,
 		NULL,
 		NULL
 	);
-
+	
 	checkBoxWeight = CreateWindow(
 		L"button",
 		L"Вес товарного клубня",
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		360, 170, 150, 30,
+		15, 330, 165, 30,
 		hWnd,
-		NULL,
+		(HMENU)CheckBoxWeight,
 		NULL,
 		NULL
 	);
@@ -164,160 +165,260 @@ void SearchCheckBox(HWND hWnd)
 
 void SearchButton(HWND hWnd)
 {
-
 	complite = new Widgets(
 		"button",
 		"Поиск",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 90, 240, 30,
+		15, 400, 635, 30,
 		hWnd,
 		(HMENU)SearchClickButtonClose,
 		NULL,
 		NULL
 	);
+}
 
-	/*min = new Widgets(
-		"button",
-		"min",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 150, 50, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-
-	avg = new Widgets(
-		"button",
-		"avg",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		65, 150, 50, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-
-	max = new Widgets(
-		"button",
-		"max",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		115, 150, 50, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);*/
+void SearchEditzone(HWND hWnd) 
+{
 	editSample = CreateWindow(
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		165, 150, 100, 20,
+		15, 45, 220, 20,
 		hWnd,
+		(HMENU)CheckBoxSample,
 		NULL,
+		NULL
+	);
+	editOrigin = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 110, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxOrigin,
+		NULL,
+		NULL
+	);
+	editVIGRR = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 175, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxVIGRR,
+		NULL,
+		NULL
+	);
+	editProductivity = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 240, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxProductivity,
+		NULL,
+		NULL
+	);
+	editField = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 305, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxField,
+		NULL,
+		NULL
+	);
+	editForm = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		250, 45, 200, 20,
+		hWnd,
+		(HMENU)CheckBoxForm,
+		NULL,
+		NULL
+	);
+	editPeel = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		250, 110, 200, 20,
+		hWnd,
+		(HMENU)CheckBoxPeel,
+		NULL,
+		NULL
+	);
+	editPulp = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		250, 175, 200, 20,
+		hWnd,
+		(HMENU)CheckBoxPulp,
+		NULL,
+		NULL
+	);
+	editEye = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		250, 230, 200, 20,
+		hWnd,
+		(HMENU)CheckBoxEye,
+		NULL,
+		NULL
+	);
+	editStolon = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		250, 295, 200, 20,
+		hWnd,
+		(HMENU)CheckBoxStolon,
+		NULL,
+		NULL
+	);
+	editTaste = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		465, 45, 185, 20,
+		hWnd,
+		(HMENU)CheckBoxTaste,
+		NULL,
+		NULL
+	);
+	editConsistency = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		465, 110, 185, 20,
+		hWnd,
+		(HMENU)CheckBoxConsistency,
+		NULL,
+		NULL
+	);
+	editDarkening = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		465, 175, 185, 20,
+		hWnd,
+		(HMENU)CheckBoxDarkening,
+		NULL,
+		NULL
+	);
+	editWeight = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 370, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
 		NULL,
 		NULL
 	);
 }
 
-void SearchCheckbox(HWND hWnd) 
+void SearchCheckbox(HWND hWnd)
 {
 	//Sample
 	if (statsCheckBoxSample == BST_CHECKED) {
-		SetWindowText((HWND)editSample, L"Арамис");
+		SetWindowText(editSample, L"Ирбитский");
 	}
-	if (statsCheckBoxSample == BST_UNCHECKED) {
-		SetWindowText((HWND)editSample, L"");
+	else if (statsCheckBoxSample == BST_UNCHECKED) {
+		SetWindowText(editSample, L"");
 	}
 	//Origin
 	if (statsCheckBoxOrigin == BST_CHECKED) {
-		SetWindowText((HWND)editOrigin, L"Арамис");
+		SetWindowText(editOrigin, L"УрФАНИЦ УрОРАН");
 	}
-	if (statsCheckBoxOrigin == BST_UNCHECKED) {
-		SetWindowText((HWND)editOrigin, L"");
+	else if (statsCheckBoxOrigin == BST_UNCHECKED) {
+		SetWindowText(editOrigin, L"");
 	}
 	//VIGRR
 	if (statsCheckBoxVIGRR == BST_CHECKED) {
-		SetWindowText((HWND)editVIGRR, L"Арамис");
+		SetWindowText(editVIGRR, L"24712");
 	}
-	if (statsCheckBoxVIGRR == BST_UNCHECKED) {
-		SetWindowText((HWND)editVIGRR, L"");
+	else if (statsCheckBoxVIGRR == BST_UNCHECKED) {
+		SetWindowText(editVIGRR, L"");
 	}
 	//Productivity
 	if (statsCheckBoxProductivity == BST_CHECKED) {
-		SetWindowText((HWND)editProductivity, L"Арамис");
+		SetWindowText(editProductivity, L"2.36");
 	}
-	if (statsCheckBoxProductivity == BST_UNCHECKED) {
-		SetWindowText((HWND)editProductivity, L"");
+	else if (statsCheckBoxProductivity == BST_UNCHECKED) {
+		SetWindowText(editProductivity, L"");
 	}
 	//Field
 	if (statsCheckBoxField == BST_CHECKED) {
-		SetWindowText((HWND)editField, L"Арамис");
+		SetWindowText(editField, L"3");
 	}
-	if (statsCheckBoxField == BST_UNCHECKED) {
-		SetWindowText((HWND)editField, L"");
+	else if (statsCheckBoxField == BST_UNCHECKED) {
+		SetWindowText(editField, L"");
 	}
 	//Form
 	if (statsCheckBoxForm == BST_CHECKED) {
-		SetWindowText((HWND)editForm, L"Арамис");
+		SetWindowText(editForm, L"Округлый");
 	}
-	if (statsCheckBoxForm == BST_UNCHECKED) {
-		SetWindowText((HWND)editForm, L"");
+	else if (statsCheckBoxForm == BST_UNCHECKED) {
+		SetWindowText(editForm, L"");
 	}
 	//Peel
 	if (statsCheckBoxPeel == BST_CHECKED) {
-		SetWindowText((HWND)editPeel, L"Арамис");
+		SetWindowText(editPeel, L"Красная");
 	}
-	if (statsCheckBoxPeel == BST_UNCHECKED) {
-		SetWindowText((HWND)editPeel, L"");
+	else if (statsCheckBoxPeel == BST_UNCHECKED) {
+		SetWindowText(editPeel, L"");
 	}
 	//Pulp
 	if (statsCheckBoxPulp == BST_CHECKED) {
-		SetWindowText((HWND)editPulp, L"Арамис");
+		SetWindowText(editPulp, L"Светло-жёлтая");
 	}
-	if (statsCheckBoxPulp == BST_UNCHECKED) {
-		SetWindowText((HWND)editPulp, L"");
+	else if (statsCheckBoxPulp == BST_UNCHECKED) {
+		SetWindowText(editPulp, L"");
 	}
 	//Eye
 	if (statsCheckBoxEye == BST_CHECKED) {
-		SetWindowText((HWND)editEye, L"Арамис");
+		SetWindowText(editEye, L"Мелкие до средних");
 	}
-	if (statsCheckBoxEye == BST_UNCHECKED) {
-		SetWindowText((HWND)editEye, L"");
+	else if (statsCheckBoxEye == BST_UNCHECKED) {
+		SetWindowText(editEye, L"");
 	}
 	//Stolon
 	if (statsCheckBoxStolon == BST_CHECKED) {
-		SetWindowText((HWND)editStolon, L"Арамис");
+		SetWindowText(editStolon, L"Мелкая");
 	}
-	if (statsCheckBoxStolon == BST_UNCHECKED) {
-		SetWindowText((HWND)editStolon, L"");
+	else if (statsCheckBoxStolon == BST_UNCHECKED) {
+		SetWindowText(editStolon, L"");
 	}
 	//Taste
 	if (statsCheckBoxTaste == BST_CHECKED) {
-		SetWindowText((HWND)editTaste, L"Арамис");
+		SetWindowText(editTaste, L"Хороший");
 	}
-	if (statsCheckBoxTaste == BST_UNCHECKED) {
-		SetWindowText((HWND)editTaste, L"");
+	else if (statsCheckBoxTaste == BST_UNCHECKED) {
+		SetWindowText(editTaste, L"");
 	}
 	//Consistency
 	if (statsCheckBoxConsistency == BST_CHECKED) {
-		SetWindowText((HWND)editConsistency, L"Арамис");
+		SetWindowText(editConsistency, L"Плотная");
 	}
-	if (statsCheckBoxConsistency == BST_UNCHECKED) {
-		SetWindowText((HWND)editConsistency, L"");
+	else if (statsCheckBoxConsistency == BST_UNCHECKED) {
+		SetWindowText(editConsistency, L"");
 	}
 	//Darkening
 	if (statsCheckBoxDarkening == BST_CHECKED) {
-		SetWindowText((HWND)editDarkening, L"Арамис");
+		SetWindowText(editDarkening, L"Среднее");
 	}
-	if (statsCheckBoxDarkening == BST_UNCHECKED) {
-		SetWindowText((HWND)editDarkening, L"");
+	else if (statsCheckBoxDarkening == BST_UNCHECKED) {
+		SetWindowText(editDarkening, L"");
 	}
 	//Weight
 	if (statsCheckBoxWeight == BST_CHECKED) {
-		SetWindowText((HWND)editWeight, L"Арамис");
+		SetWindowText(editWeight, L"146");
 	}
-	if (statsCheckBoxWeight == BST_UNCHECKED) {
-		SetWindowText((HWND)editWeight, L"");
+	else if (statsCheckBoxWeight == BST_UNCHECKED) {
+		SetWindowText(editWeight, L"");
 	}
 }

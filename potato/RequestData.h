@@ -1,20 +1,20 @@
 void AddAllToListView(HWND hListView)
 {
     const wchar_t* headers[] = {
-        L"ID",
         L"Образец",
+        L"Происхождение",
+        L"ВИГРР",
+        L"Урожайность",
+        L"Полевая устойчивость к фитофторозу",
+        L"Форма",
+        L"Окраска кожуры",
+        L"Окраска мякоти",
+        L"Глубина глазков",
+        L"Глубина столонного следа",
         L"Вкус",
-        L"Консистенция",
+        L"Консистенция мякоти",
         L"Потемнение после варки",
-        L"ID1",
-        L"Образец1",
-        L"Вкус1",
-        L"Консистенция1",
-        L"Потемнение после варки1",
-        L"ID2",
-        L"Образец2",
-        L"Вкус2",
-        L"Консистенция2"
+        L"Масса товарного клубня"
     };
 
     int widths[] = { 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200 };
@@ -30,32 +30,80 @@ void AddAllToListView(HWND hListView)
         ListView_InsertColumn(hListView, i, &lvc);
     }
 }
+const char* sqlAll;
 
+std::wstring GetEditText(HWND hEdit) {
+    wchar_t buffer[256];
+    GetWindowTextW(hEdit, buffer, 256);
+    return std::wstring(buffer);
+}
 std::vector<std::vector<std::wstring>> GetAllDataFromDatabase()
 {
     std::vector<std::vector<std::wstring>> result;
 
     if (!db) return result;
 
-    //const char* name = "Арамис";
+    if (statsCheckBoxSample == BST_CHECKED and statsCheckBoxOrigin == BST_CHECKED and statsCheckBoxOrigin == BST_CHECKED and statsCheckBoxOrigin == BST_CHECKED and
+        statsCheckBoxVIGRR == BST_CHECKED and statsCheckBoxProductivity == BST_CHECKED and statsCheckBoxField == BST_CHECKED and statsCheckBoxForm == BST_CHECKED and
+        statsCheckBoxPeel == BST_CHECKED and statsCheckBoxPulp == BST_CHECKED and statsCheckBoxEye == BST_CHECKED and statsCheckBoxStolon == BST_CHECKED and
+        statsCheckBoxTaste == BST_CHECKED and statsCheckBoxConsistency == BST_CHECKED and statsCheckBoxDarkening == BST_CHECKED and statsCheckBoxWeight == BST_CHECKED) {
 
-    std::wstring name = L"Арамис";
-    std::string utf8_name = utf16_to_utf8(name);
-    double name1 = 2.25;
-    //std::string utf8_name1 = utf16_to_utf8(name1);
+        sample = GetEditText(editSample);
+        origin = GetEditText(editOrigin);
+        VIGRR = GetEditText(editVIGRR);
+        productivity = GetEditText(editProductivity);
+        field = GetEditText(editField);
+        form = GetEditText(editForm);
+        peel = GetEditText(editPeel);
+        pulp = GetEditText(editPulp);
+        eye = GetEditText(editEye);
+        stolon = GetEditText(editStolon);
+        taste = GetEditText(editTaste);   
+        consistency = GetEditText(editConsistency);
+        darkening = GetEditText(editDarkening);
+        weight = GetEditText(editWeight);
 
-    const char* sqlAll = "SELECT p.sample, p.origin, p.VIGRR_catalogue_number, p.productivity, p.field_resistance_to_late_blight, "
-        "mf.form, mf.peel_coloring, mf.pulp_coloring, mf.eye_depth, mf.stolon_trace_depth, "
-        "cq.taste, cq.pulp_consistency, cq.darkening_after_cooking, p.weight_of_commercial_tuber "
-        "FROM potato p JOIN morphological_features_of_the_tuber mf ON p.id = mf.id_potato JOIN culinary_qualities cq ON p.id = cq.id_potato WHERE p.productivity = ? AND p.sample = ?  ";
+        utf8_sample = utf16_to_utf8(sample);
+        utf8_origin = utf16_to_utf8(origin);
+        utf8_VIGRR = utf16_to_utf8(VIGRR);
+        utf8_productivity = utf16_to_utf8(productivity);
+        utf8_field = utf16_to_utf8(field);
+        utf8_form = utf16_to_utf8(form);
+        utf8_peel = utf16_to_utf8(peel);
+        utf8_pulp = utf16_to_utf8(pulp);
+        utf8_eye = utf16_to_utf8(eye);
+        utf8_stolon = utf16_to_utf8(stolon);
+        utf8_taste = utf16_to_utf8(taste);
+        utf8_consistency = utf16_to_utf8(consistency);
+        utf8_darkening = utf16_to_utf8(darkening);
+        utf8_weight = utf16_to_utf8(weight);
+
+        sqlAll = "SELECT p.sample, p.origin, p.VIGRR_catalogue_number, p.productivity, p.field_resistance_to_late_blight, "
+            "mf.form, mf.peel_coloring, mf.pulp_coloring, mf.eye_depth, mf.stolon_trace_depth, "
+            "cq.taste, cq.pulp_consistency, cq.darkening_after_cooking, p.weight_of_commercial_tuber "
+            "FROM potato p JOIN morphological_features_of_the_tuber mf ON p.id = mf.id_potato JOIN culinary_qualities cq ON p.id = cq.id_potato "
+            "WHERE p.sample = ? AND p.origin = ? AND p.VIGRR_catalogue_number = ? AND p.productivity = ? AND p.field_resistance_to_late_blight = ? AND mf.form = ? "
+            "AND mf.peel_coloring = ? AND mf.pulp_coloring = ? AND mf.eye_depth = ? AND mf.stolon_trace_depth = ? AND cq.taste = ? AND cq.pulp_consistency = ? "
+            "AND cq.darkening_after_cooking = ? AND p.weight_of_commercial_tuber = ? ";
+    }   
+
     sqlite3_stmt* stmt;
 
-    
-
-    
     if (sqlite3_prepare_v2(db, sqlAll, -1, &stmt, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(stmt, 2, utf8_name.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_double(stmt, 1, name1);
+        sqlite3_bind_text(stmt, 1, utf8_sample.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 2, utf8_origin.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 3, utf8_VIGRR.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 4, utf8_productivity.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 5, utf8_field.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 6, utf8_form.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 7, utf8_peel.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 8, utf8_pulp.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 9, utf8_eye.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 10, utf8_stolon.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 11, utf8_taste.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 12, utf8_consistency.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 13, utf8_darkening.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 14, utf8_weight.c_str(), -1, SQLITE_TRANSIENT);
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             std::vector<std::wstring> row;            
             const unsigned char* sample = sqlite3_column_text(stmt, 0);

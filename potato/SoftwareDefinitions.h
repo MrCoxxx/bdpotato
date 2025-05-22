@@ -12,7 +12,37 @@
 #define CloseTableButton		10
 #define SearchClickButtonOpen	11
 #define SearchClickButtonClose	12
-#define Checkbox1				13
+#define CheckBoxSample			13
+#define CheckBoxOrigin			14
+#define CheckBoxVIGRR			15
+#define CheckBoxProductivity	16
+#define CheckBoxField			17
+#define CheckBoxForm			18	
+#define CheckBoxPeel			19
+#define CheckBoxPulp			20
+#define CheckBoxEye				21
+#define CheckBoxStolon			22
+#define CheckBoxTaste			23
+#define CheckBoxConsistency		24
+#define CheckBoxDarkening		25
+#define CheckBoxWeight			26
+
+#define TextBufferSize			256
+
+wchar_t Buffer1[TextBufferSize];
+wchar_t Buffer2[TextBufferSize];
+wchar_t Buffer3[TextBufferSize];
+wchar_t Buffer4[TextBufferSize];
+wchar_t Buffer5[TextBufferSize];
+wchar_t Buffer6[TextBufferSize];
+wchar_t Buffer7[TextBufferSize];
+wchar_t Buffer8[TextBufferSize];
+wchar_t Buffer9[TextBufferSize];
+wchar_t Buffer10[TextBufferSize];
+wchar_t Buffer11[TextBufferSize];
+wchar_t Buffer12[TextBufferSize];
+wchar_t Buffer13[TextBufferSize];
+wchar_t Buffer14[TextBufferSize];
 
 
 //Main
@@ -25,6 +55,7 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT message, WPARAM wParam,
 WNDCLASS NewSearchWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
 void WndSearch(HWND hWnd);
 void SearchCheckbox(HWND hWnd);
+void SearchEditzone(HWND hWnd);
 
 
 //Menu

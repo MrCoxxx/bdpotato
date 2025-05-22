@@ -62,4 +62,7 @@ void LoadRequestData(HWND hWnd)
 		hWnd, NULL,
 		hInstance, NULL);
 
+	AddAllToListView(hListView);
+	LoadAllDataIntoListView(hListView);
+
 }
