@@ -56,7 +56,7 @@ WNDCLASS NewSearchWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, H
 void WndSearch(HWND hWnd);
 void SearchCheckbox(HWND hWnd);
 void SearchEditzone(HWND hWnd);
-const char* SqlRequest();
+//QueryData BuildQuery();
 
 //Menu
 void MainWndAddMenus(HWND hWnd);
@@ -118,6 +118,6 @@ void LoadCulinaryDataIntoListView(HWND hListView);
 
 
 //All Data
-std::vector<std::vector<std::wstring>> GetAllDataFromDatabase();
+std::vector<std::vector<std::wstring>> GetAllDataFromDatabase(sqlite3* db);
 void AddAllToListView(HWND hListView);
 void LoadAllDataIntoListView(HWND hListView);

@@ -30,167 +30,55 @@ void AddAllToListView(HWND hListView)
         ListView_InsertColumn(hListView, i, &lvc);
     }
 }
-const char* sqlAll;
 
-std::wstring GetEditText(HWND hEdit) {
-    wchar_t buffer[256];
-    GetWindowTextW(hEdit, buffer, 256);
-    return std::wstring(buffer);
-}
-std::vector<std::vector<std::wstring>> GetAllDataFromDatabase()
+
+std::vector<std::vector<std::wstring>> GetAllDataFromDatabase(sqlite3* db)
 {
-    std::vector<std::vector<std::wstring>> result;
+    std::vector<std::vector<std::wstring>> results;
 
-    if (!db) return result;
+    QueryData query = BuildQuery();
+    sqlite3_stmt* stmt = nullptr;
 
-    const char* sqlData = SqlRequest();
-
-    sqlite3_stmt* stmt;
-
-    if (sqlite3_prepare_v2(db, sqlAll, -1, &stmt, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(stmt, 1, utf8_sample.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 2, utf8_origin.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 3, utf8_VIGRR.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 4, utf8_productivity.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 5, utf8_field.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 6, utf8_form.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 7, utf8_peel.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 8, utf8_pulp.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 9, utf8_eye.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 10, utf8_stolon.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 11, utf8_taste.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 12, utf8_consistency.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 13, utf8_darkening.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 14, utf8_weight.c_str(), -1, SQLITE_TRANSIENT);
-        while (sqlite3_step(stmt) == SQLITE_ROW) {
-            std::vector<std::wstring> row;            
-            const unsigned char* sample = sqlite3_column_text(stmt, 0);
-            if (sample) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(sample)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* origin = sqlite3_column_text(stmt, 1);
-            if (origin) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(origin)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* VIGGR = sqlite3_column_text(stmt, 2);
-            if (VIGGR) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(VIGGR)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* productivity = sqlite3_column_text(stmt, 3);
-            if (productivity) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(productivity)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* field = sqlite3_column_text(stmt, 4);
-            if (field) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(field)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* form = sqlite3_column_text(stmt, 5);
-            if (form) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(form)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* peel = sqlite3_column_text(stmt, 6);
-            if (peel) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(peel)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* pulp = sqlite3_column_text(stmt, 7);
-            if (pulp) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(pulp)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* eye = sqlite3_column_text(stmt, 8);
-            if (eye) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(eye)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* stolon = sqlite3_column_text(stmt, 9);
-            if (stolon) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(stolon)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* taste = sqlite3_column_text(stmt, 10);
-            if (taste) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(taste)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* consistency = sqlite3_column_text(stmt, 11);
-            if (consistency) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(consistency)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* darkening = sqlite3_column_text(stmt, 12);
-            if (darkening) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(darkening)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            const unsigned char* weight = sqlite3_column_text(stmt, 13);
-            if (weight) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(weight)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            result.push_back(row);
-        
-        }
-        
-        sqlite3_finalize(stmt);
+    if (sqlite3_prepare_v2(db, query.sql.c_str(), -1, &stmt, nullptr) != SQLITE_OK) {
+        // Обработка ошибки подготовки запроса
+        const char* err = sqlite3_errmsg(db);
+        MessageBoxA(nullptr, err, "Database Error", MB_ICONERROR);
+        return results;
     }
 
-    return result;
+    // Привязываем параметры
+    for (size_t i = 0; i < query.params.size(); ++i) {
+        if (sqlite3_bind_text(stmt, i + 1, query.params[i].c_str(), -1, SQLITE_TRANSIENT) != SQLITE_OK) {
+            sqlite3_finalize(stmt);
+            MessageBoxA(nullptr, "Failed to bind parameter", "Database Error", MB_ICONERROR);
+            return results;
+        }
+    }
+
+    // Выполняем запрос и получаем результаты
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        std::vector<std::wstring> row;
+        for (int col = 0; col < sqlite3_column_count(stmt); ++col) {
+            const unsigned char* text = sqlite3_column_text(stmt, col);
+            if (text) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(text)));
+            }
+            else {
+                row.push_back(L"");
+            }
+        }
+        results.push_back(row);
+    }
+
+    sqlite3_finalize(stmt);
+    return results;
 }
 
 void LoadAllDataIntoListView(HWND hListView)
 {
     ListView_DeleteAllItems(hListView);
 
-    auto data = GetAllDataFromDatabase();
+    auto data = GetAllDataFromDatabase(db);
 
     LVITEM lvi = { 0 };
     lvi.mask = LVIF_TEXT;

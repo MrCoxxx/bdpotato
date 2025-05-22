@@ -17,7 +17,7 @@ void WndSearch(HWND hWnd)
 	if (secondWnd == FALSE) {
 		HWND hSearchWnd = CreateWindow(
 			L"SearchWndClass",
-			L"Второе окно",
+			L"Поиск",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 			460, 240, 680, 485,
 			hWnd, NULL, hInstance, NULL
@@ -107,6 +107,7 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 
 		break;
 	case WM_DESTROY:
+		DestroyCheckBox(hWnd);
 		DestroyWindow(hWnd);
 		secondWnd = FALSE;
 		break;

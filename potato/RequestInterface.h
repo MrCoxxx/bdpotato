@@ -2,7 +2,7 @@ void RequestWndAdd(HWND hWnd, LPARAM lp)
 {
 	RequestWnd(hWnd);
 	//RequestCombobox(hWnd, lp);
-	LoadRequestData(hWnd);
+	//LoadRequestData(hWnd);
 }
 
 void RequestWnd(HWND hWnd)
