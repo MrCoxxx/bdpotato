@@ -29,6 +29,11 @@ static HWND editTaste;
 static HWND editConsistency;
 static HWND editDarkening;
 static HWND editWeight;
+static HWND hButtonAuthorization;
+static HWND editLogin;
+static HWND editPassword;
+static HWND hStaticLogin;
+static HWND hStaticPassword;
 
 //CheckBox
 static HWND checkBoxSample;

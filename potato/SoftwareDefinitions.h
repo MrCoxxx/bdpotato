@@ -26,6 +26,7 @@
 #define CheckBoxConsistency		24
 #define CheckBoxDarkening		25
 #define CheckBoxWeight			26
+#define AuthorizationButton		27
 
 #define TextBufferSize			256
 
@@ -57,6 +58,9 @@ void WndSearch(HWND hWnd);
 void SearchCheckbox(HWND hWnd);
 void SearchEditzone(HWND hWnd);
 //QueryData BuildQuery();
+
+//
+void AuthrorizathionInt(HWND hWnd);
 
 //Menu
 void MainWndAddMenus(HWND hWnd);
@@ -92,6 +96,7 @@ void DestroyIntRequest(HWND hWnd);
 void DestroySearchUI(HWND hWnd); 
 void DestroyCheckBox(HWND hWnd);
 void DestroySearchButton(HWND hWnd);
+void DestroyAuthorization(HWND hWnd);
 
 
 //Coding UTF

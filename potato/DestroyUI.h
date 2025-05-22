@@ -16,6 +16,39 @@ void DestroyDataTable(HWND hWnd)
 
 }
 
+void DestroyAuthorization(HWND hWnd) {
+
+	if (hButtonAuthorization)
+	{
+		DestroyWindow(hButtonAuthorization);
+		hButtonAuthorization = NULL;
+	}
+
+	if (editLogin)
+	{
+		DestroyWindow(editLogin);
+		editLogin = NULL;
+	}
+
+	if (editPassword)
+	{
+		DestroyWindow(editPassword);
+		editPassword = NULL;
+	}
+
+	if (hStaticLogin)
+	{
+		DestroyWindow(hStaticLogin);
+		hStaticLogin = NULL;
+	}
+
+	if (hStaticPassword)
+	{
+		DestroyWindow(hStaticPassword);
+		hStaticPassword = NULL;
+	}
+}
+
 void DestroyIntTable(HWND hWnd) 
 {
 	if (isTableIntCreated) 

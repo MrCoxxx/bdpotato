@@ -24,6 +24,7 @@
 #include "TableInterface.h"
 #include "RequestInterface.h"
 #include "SearchInterface.h"
+#include "AuthorizationInterface.h"
 #include "DestroyUI.h"
 #include "SqlRequestData.h"
 #include "PotatoData.h"
@@ -46,7 +47,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 
 	WNDCLASS SoftwareMainClass = NewMainWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"MainWndClass", SoftwareMainProcedure);
 	WNDCLASS SoftwareSearchClass = NewSearchWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"SearchWndClass", SoftwareSearchProcedure);
-	
+
 	if (!RegisterClassW(&SoftwareMainClass)) { return -1; }
 	MSG SoftwareMainMessage = { 0 };
 	if (!RegisterClassW(&SoftwareSearchClass)) { return -1; }

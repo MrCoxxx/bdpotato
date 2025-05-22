@@ -75,14 +75,24 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		case SearchClickButtonOpen:
 			WndSearch(hWnd);
 			break;	
-		
+		case AuthorizationButton:
+			const wchar_t* LoginA = L"admin";
+			const wchar_t* PasswordA = L"admin";
+			GetWindowTextW(editLogin, Buffer1, 256);
+			GetWindowTextW(editPassword, Buffer2, 256);
+			if (wcscmp(Buffer1, LoginA) == 0 &&
+				wcscmp(Buffer2, PasswordA) == 0) {
+				DestroyAuthorization(hWnd);
+				TableWndAdd(hWnd, (LPARAM)hInstance);
+				//RequestWndAdd(hWnd, (LPARAM)hInstance);
+				MainWndAddMenus(hWnd);
+			}
+			break;
 		
 		}
 		break;
 	case WM_CREATE:
-		TableWndAdd(hWnd, (LPARAM)hInstance);
-		//RequestWndAdd(hWnd, (LPARAM)hInstance);
-		MainWndAddMenus(hWnd);
+		AuthrorizathionInt(hWnd);
 		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
