@@ -12,25 +12,12 @@
 #pragma comment(lib, "sqlite3.lib")
 
 #include "SoftwareDefinitions.h"
+#include "CreateWidgets.h"
 
-static HINSTANCE hInstance;
-static BOOL isTableIntCreated = TRUE;
-static BOOL isRequestIntCreated = FALSE;
-static BOOL isTableCreated = FALSE;
-static BOOL isSearchUI = FALSE;
-static BOOL secondWnd = FALSE;
-static HWND hListView;
-static HWND hComboBoxTable;
-static HWND hStaticTextTable;
-static HWND hButtonOpenTable;
-static HWND hButtonCloseTable;
-static HWND hComboBoxRequest;
-static LRESULT idComboBox;
-static sqlite3* db = nullptr;
+#include "GlobalVariable.h"
 
 #include "MainWnd.h"
 #include "SearchWnd.h"
-#include "CreateWidgets.h"
 #include "Menu.h"
 #include "DataBaseInit.h"
 #include "TableInterface.h"

@@ -12,6 +12,7 @@
 #define CloseTableButton		10
 #define SearchClickButtonOpen	11
 #define SearchClickButtonClose	12
+#define Checkbox1				13
 
 
 //Main
@@ -19,10 +20,11 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 WNDCLASS NewMainWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
 
 
-//Searrch
+//Search
 LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 WNDCLASS NewSearchWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
 void WndSearch(HWND hWnd);
+void SearchCheckbox(HWND hWnd);
 
 
 //Menu

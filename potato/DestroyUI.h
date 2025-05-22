@@ -56,13 +56,13 @@ void DestroyIntRequest(HWND hWnd)
 	if (textRequest)
 	{
 		textRequest->Destroy();
-		textRequest = nullptr;
+		textRequest = NULL;
 	}
 
 	if (searchOpen)
 	{
 		searchOpen->Destroy();
-		searchOpen = nullptr;
+		searchOpen = NULL;
 	}
 
 
@@ -78,29 +78,29 @@ void DestroySearchUI(HWND hWnd)
 void DestroyCheckBox(HWND hWnd) 
 {
 
-	if (CheckBox1)
+	/*if (CheckBox1)
 	{
 		CheckBox1->Destroy();
-		CheckBox1 = nullptr;
+		CheckBox1 = NULL;
 	}
 
 	if (CheckBox2)
 	{
 		CheckBox2->Destroy();
-		CheckBox2 = nullptr;
+		CheckBox2 = NULL;
 	}
 
 	if (CheckBox3)
 	{
 		CheckBox3->Destroy();
-		CheckBox3 = nullptr;
+		CheckBox3 = NULL;
 	}
 
 	if (CheckBox4)
 	{
 		CheckBox4->Destroy();
-		CheckBox4 = nullptr;
-	}
+		CheckBox4 = NULL;
+	}*/
 
 }
 
@@ -110,36 +110,36 @@ void DestroySearchButton(HWND hWnd)
 	if (complite)
 	{
 		complite->Destroy();
-		complite = nullptr;
+		complite = NULL;
 	}
 
 	if (searchClose)
 	{
 		searchClose->Destroy();
-		searchClose = nullptr;
+		searchClose = NULL;
 	}
 
 	if (min)
 	{
 		min->Destroy();
-		min = nullptr;
+		min = NULL;
 	}
 
 	if (avg)
 	{
 		avg->Destroy();
-		avg = nullptr;
+		avg = NULL;
 	}
 
 	if (max)
 	{
 		max->Destroy();
-		max = nullptr;
+		max = NULL;
 	}
 
-	if (edit)
+	/*if (edit)
 	{
 		edit->Destroy();
-		edit = nullptr;
-	}
+		edit = NULL;
+	}*/
 }

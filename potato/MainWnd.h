@@ -73,16 +73,8 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			break;
 		case SearchClickButtonOpen:
 			WndSearch(hWnd);
-
-			break;
-		case SearchClickButtonClose:
-			if (isSearchUI)
-			{
-				RequestWnd(hWnd);
-				DestroySearchUI(hWnd);
-				isSearchUI = FALSE;
-			}
-			break;
+			break;	
+		
 		}
 		break;
 	case WM_CREATE:

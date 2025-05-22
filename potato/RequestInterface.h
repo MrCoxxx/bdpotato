@@ -1,6 +1,3 @@
-Widgets* textRequest;
-Widgets* searchOpen;
-
 void RequestWndAdd(HWND hWnd, LPARAM lp)
 {
 	RequestWnd(hWnd);

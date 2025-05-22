@@ -19,7 +19,7 @@ void WndSearch(HWND hWnd) {
 			L"SearchWndClass",
 			L"Второе окно",
 			WS_OVERLAPPEDWINDOW,
-			460, 240, 300, 200,
+			460, 240, 1000, 650,
 			hWnd, NULL, hInstance, NULL
 		);
 		if (hSearchWnd) {
@@ -41,10 +41,17 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		break;
 	case WM_COMMAND:
 		switch (wp) {
-
+		case SearchClickButtonClose:
+			DestroyWindow(hWnd);
+			secondWnd = FALSE;
+			break;
+		case Checkbox1:
+			statsCheckBoxSample = SendMessage(checkBoxSample, BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
 		}
-		break;
 
+		break;
 	case WM_DESTROY:
 		DestroyWindow(hWnd);
 		secondWnd = FALSE;
