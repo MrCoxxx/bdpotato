@@ -27,7 +27,9 @@
 #define CheckBoxDarkening		25
 #define CheckBoxWeight			26
 #define AuthorizationButton		27
-#define AddClickButtonClose	28
+#define AddClickButton			28
+#define EditClickButton			29
+#define MenuExport				30
 
 #define TextBufferSize			256
 
@@ -82,6 +84,13 @@ void AddCulinarySample();
 LRESULT CALLBACK SoftwareEditProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
 WNDCLASS NewEditWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
 void WndEdit(HWND hWnd);
+void Edit(HWND hWnd);
+void EditStatic(HWND hWnd);
+void EditButton(HWND hWnd);
+void EditEditzone(HWND hWnd);
+void EditPotatoSample();
+void EditMorphologicalSample();
+void EditCulinarySample();
 
 //Table UI
 void TableWndAdd(HWND hWnd, LPARAM lp);
@@ -143,3 +152,5 @@ void LoadCulinaryDataIntoListView(HWND hListView);
 std::vector<std::vector<std::wstring>> GetAllDataFromDatabase(sqlite3* db);
 void AddAllToListView(HWND hListView);
 void LoadAllDataIntoListView(HWND hListView);
+
+bool ExportToExcel(sqlite3* db, const std::string& filename);

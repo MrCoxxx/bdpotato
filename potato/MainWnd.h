@@ -25,6 +25,9 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		case MenuRedact:
 			WndEdit(hWnd);
 			break;
+		case MenuExport:
+			ExportToExcel(db, "potato_data.xlsx");
+			break;
 		case MenuInfo:
 			MessageBoxA(hWnd, "Программу разработали Павлов Кирилл Витальвич и \n"
 				"Голубцов Георгий Валентинович для Университета", "Информация", MB_OK);
@@ -92,10 +95,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		}
 		break;
 	case WM_CREATE:
-		//AuthrorizathionInt(hWnd);
-		TableWndAdd(hWnd, (LPARAM)hInstance);
-		//RequestWndAdd(hWnd, (LPARAM)hInstance);
-		MainWndAddMenus(hWnd);
+		AuthrorizathionInt(hWnd);
 		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);

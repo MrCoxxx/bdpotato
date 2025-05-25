@@ -38,6 +38,7 @@ static HWND hStaticLogin;
 static HWND hStaticPassword;
 static HWND editIDPotatoC;
 static HWND editIDPotatoM;
+static HWND editID;
 
 //CheckBox
 static HWND checkBoxSample;
@@ -97,6 +98,7 @@ std::wstring Darkening;
 std::wstring Weight;
 std::wstring IDPotatoC;
 std::wstring IDPotatoM;
+std::wstring ID;
 
 std::string utf8_Sample;
 std::string utf8_Origin;
@@ -114,6 +116,7 @@ std::string utf8_Darkening;
 std::string utf8_Weight;
 std::string utf8_IDPotatoC;
 std::string utf8_IDPotatoM;
+std::string utf8_ID;
 
 //Static
 static HWND staticSample;
@@ -137,3 +140,6 @@ static HWND staticticLogin;
 static HWND staticticPassword;
 static HWND staticIDPotatoC;
 static HWND staticIDPotatoM;
+static HWND staticID;
+
+std::string potato;

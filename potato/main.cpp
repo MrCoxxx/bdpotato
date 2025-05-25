@@ -7,15 +7,16 @@
 #include <sstream>
 #include <locale>
 #include <codecvt>
+#include <xlsxwriter.h>
 
 #pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "sqlite3.lib")
+#pragma comment(lib, "xlsxwriter.lib")
 
 #include "SoftwareDefinitions.h"
 #include "CreateWidgets.h"
 
 #include "GlobalVariable.h"
-
 
 #include "MainWnd.h"
 #include "SearchWnd.h"
@@ -27,6 +28,7 @@
 #include "RequestInterface.h"
 #include "SearchInterface.h"
 #include "AddInterface.h"
+#include "EditInterface.h"
 #include "AuthorizationInterface.h"
 #include "DestroyUI.h"
 #include "SqlRequestData.h"
@@ -34,6 +36,7 @@
 #include "MorphologicalData.h"
 #include "CulinaryData.h"
 #include "RequestData.h"
+#include "ExportExcel.h"
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {

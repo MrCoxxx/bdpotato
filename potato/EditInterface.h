@@ -1,11 +1,11 @@
-void Add(HWND hWnd)
+void Edit(HWND hWnd)
 {
-	AddStatic(hWnd);
-	AddButton(hWnd);
-	AddEditzone(hWnd);
+	EditStatic(hWnd);
+	EditButton(hWnd);
+	EditEditzone(hWnd);
 }
 
-void AddStatic(HWND hWnd) 
+void EditStatic(HWND hWnd)
 {
 	staticSample = CreateWindow(
 		L"static",
@@ -168,22 +168,33 @@ void AddStatic(HWND hWnd)
 		NULL
 	);
 }
-void AddButton(HWND hWnd)
+void EditButton(HWND hWnd)
 {
 	complite = new Widgets(
 		"button",
-		"Добавить",
+		"Редактировать",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 400, 635, 30,
+		15, 435, 635, 30,
 		hWnd,
-		(HMENU)AddClickButton,
+		(HMENU)EditClickButton,
 		NULL,
 		NULL
 	);
 }
 
-void AddEditzone(HWND hWnd)
+void EditEditzone(HWND hWnd)
 {
+	editID = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 400, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxSample,
+		NULL,
+		NULL
+	);
+
 	editSample = CreateWindow(
 		L"edit",
 		L"",

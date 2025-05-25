@@ -31,11 +31,17 @@ LRESULT CALLBACK SoftwareEditProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 	switch (msg)
 	{
 	case WM_CREATE:
+		Edit(hWnd);
 		break;
 	case WM_COMMAND:
 		switch (wp) {
-
-
+		case EditClickButton:
+			EditPotatoSample();
+			EditMorphologicalSample();
+			EditCulinarySample();
+			DestroyWindow(hWnd);
+			editWnd = FALSE;
+			break;
 		}
 
 		break;

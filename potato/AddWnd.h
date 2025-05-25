@@ -35,7 +35,7 @@ LRESULT CALLBACK SoftwareAddProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 		break;
 	case WM_COMMAND:
 		switch (wp) {
-		case AddClickButtonClose:
+		case AddClickButton:
 			AddPotatoSample();
 			AddMorphologicalSample();
 			AddCulinarySample();

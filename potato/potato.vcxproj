@@ -110,8 +110,12 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <LinkTimeCodeGenerationObjectFile>$(IntDir)$(TargetName).iobj</LinkTimeCodeGenerationObjectFile>
-      <AdditionalDependencies>sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sqlite3.lib;xlsxwriter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\vcpkg\installed\x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -140,8 +144,10 @@
     <ClInclude Include="CulinaryData.h" />
     <ClInclude Include="DataBaseInit.h" />
     <ClInclude Include="DestroyUI.h" />
+    <ClInclude Include="EditInterface.h" />
     <ClInclude Include="EditWnd.h" />
     <ClInclude Include="GlobalVariable.h" />
+    <ClInclude Include="ExportExcel.h" />
     <ClInclude Include="MainWnd.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MorphologicalData.h" />
