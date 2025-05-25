@@ -110,17 +110,32 @@ void LoadPotatoDataIntoListView(HWND hListView)
     }
 }
 
-void AddPotatoSample(const std::wstring& sample, const std::wstring& origin)
+void AddPotatoSample()
 {
-    std::string utf8_sample = utf16_to_utf8(sample);
-    std::string utf8_origin = utf16_to_utf8(origin);
-
     sqlite3_stmt* stmt;
-    const char* sql = "INSERT INTO potato (sample, origin) VALUES (?, ?)";
+    const char* sql = "INSERT INTO potato (sample, origin, VIGRR_catalogue_number, productivity, field_resistance_to_late_blight, weight_of_commercial_tuber) VALUES (?, ?, ?, ?, ?, ?)";
+
+    Sample = GetEditText(editSample);
+    Origin = GetEditText(editOrigin);
+    VIGRR = GetEditText(editVIGRR);
+    Productivity = GetEditText(editProductivity);
+    Field = GetEditText(editField);
+    Weight = GetEditText(editWeight);
+
+    utf8_Sample = utf16_to_utf8(Sample);
+    utf8_Origin = utf16_to_utf8(Origin);
+    utf8_VIGRR = utf16_to_utf8(VIGRR);
+    utf8_Productivity = utf16_to_utf8(Productivity);
+    utf8_Field = utf16_to_utf8(Field);
+    utf8_Weight = utf16_to_utf8(Weight);
 
     if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(stmt, 1, utf8_sample.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 2, utf8_origin.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 1, utf8_Sample.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 2, utf8_Origin.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 3, utf8_VIGRR.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 4, utf8_Productivity.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 5, utf8_Field.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 6, utf8_Weight.c_str(), -1, SQLITE_TRANSIENT);
 
         if (sqlite3_step(stmt) != SQLITE_DONE) {
             // Обработка ошибки

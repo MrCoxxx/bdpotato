@@ -99,23 +99,3 @@ void LoadAllDataIntoListView(HWND hListView)
         }
     }
 }
-
-void AddAllSample(const std::wstring& sample, const std::wstring& origin)
-{
-    std::string utf8_sample = utf16_to_utf8(sample);
-    std::string utf8_origin = utf16_to_utf8(origin);
-
-    sqlite3_stmt* stmt;
-    const char* sql = "INSERT INTO morphological_features_of_the_tuber (sample, origin) VALUES (?, ?)";
-
-    if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(stmt, 1, utf8_sample.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 2, utf8_origin.c_str(), -1, SQLITE_TRANSIENT);
-
-        if (sqlite3_step(stmt) != SQLITE_DONE) {
-            // Обработка ошибки
-        }
-
-        sqlite3_finalize(stmt);
-    }
-}

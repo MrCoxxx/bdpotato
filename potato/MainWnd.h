@@ -20,10 +20,10 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		switch (wp)
 		{
 		case MenuAdd:
-			MessageBoxA(hWnd, "В разработке", "Добавление данных", MB_OK);
+			WndAdd(hWnd);
 			break;
 		case MenuRedact:
-			MessageBoxA(hWnd, "В разработке", "Редактирование данных", MB_OK);
+			WndEdit(hWnd);
 			break;
 		case MenuInfo:
 			MessageBoxA(hWnd, "Программу разработали Павлов Кирилл Витальвич и \n"
@@ -92,7 +92,10 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		}
 		break;
 	case WM_CREATE:
-		AuthrorizathionInt(hWnd);
+		//AuthrorizathionInt(hWnd);
+		TableWndAdd(hWnd, (LPARAM)hInstance);
+		//RequestWndAdd(hWnd, (LPARAM)hInstance);
+		MainWndAddMenus(hWnd);
 		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);

@@ -123,17 +123,32 @@ void LoadMorphologicalDataIntoListView(HWND hListView)
     }
 }
 
-void AddMorphologicalSample(const std::wstring& sample, const std::wstring& origin)
+void AddMorphologicalSample()
 {
-    std::string utf8_sample = utf16_to_utf8(sample);
-    std::string utf8_origin = utf16_to_utf8(origin);
+    IDPotatoM = GetEditText(editIDPotatoM);
+    Form = GetEditText(editForm);
+    Peel = GetEditText(editPeel);
+    Pulp = GetEditText(editPulp);
+    Eye = GetEditText(editEye);
+    Stolon = GetEditText(editStolon);
+
+    utf8_IDPotatoM = utf16_to_utf8(IDPotatoM);
+    utf8_Form = utf16_to_utf8(Form);
+    utf8_Peel = utf16_to_utf8(Peel);
+    utf8_Pulp = utf16_to_utf8(Pulp);
+    utf8_Eye = utf16_to_utf8(Eye);
+    utf8_Stolon = utf16_to_utf8(Stolon);    
 
     sqlite3_stmt* stmt;
-    const char* sql = "INSERT INTO morphological_features_of_the_tuber (sample, origin) VALUES (?, ?)";
+    const char* sql = "INSERT INTO morphological_features_of_the_tuber (id_potato, form, peel_coloring, pulp_coloring, eye_depth, stolon_trace_depth) VALUES (?, ?, ?, ?, ?, ?)";
 
     if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(stmt, 1, utf8_sample.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 2, utf8_origin.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 1, utf8_IDPotatoM.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 2, utf8_Form.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 3, utf8_Peel.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 4, utf8_Pulp.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 5, utf8_Eye.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 6, utf8_Stolon.c_str(), -1, SQLITE_TRANSIENT);
 
         if (sqlite3_step(stmt) != SQLITE_DONE) {
             // Обработка ошибки

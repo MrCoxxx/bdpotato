@@ -104,17 +104,27 @@ void LoadCulinaryDataIntoListView(HWND hListView)
     }
 }
 
-void AddCulinarySample(const std::wstring& sample, const std::wstring& origin)
+void AddCulinarySample()
 {
-    std::string utf8_sample = utf16_to_utf8(sample);
-    std::string utf8_origin = utf16_to_utf8(origin);
+    IDPotatoC = GetEditText(editIDPotatoC);
+    Taste = GetEditText(editTaste);
+    Consistency = GetEditText(editConsistency);
+    Darkening = GetEditText(editDarkening);
+
+    utf8_IDPotatoC = utf16_to_utf8(IDPotatoC);
+    utf8_Taste = utf16_to_utf8(Taste);
+    utf8_Consistency = utf16_to_utf8(Consistency);
+    utf8_Darkening = utf16_to_utf8(Darkening);   
+
 
     sqlite3_stmt* stmt;
-    const char* sql = "INSERT INTO morphological_features_of_the_tuber (sample, origin) VALUES (?, ?)";
+    const char* sql = "INSERT INTO culinary_qualities (id_potato, taste, pulp_consistency, darkening_after_cooking) VALUES (?, ?, ?, ?)";
 
     if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(stmt, 1, utf8_sample.c_str(), -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(stmt, 2, utf8_origin.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 1, utf8_IDPotatoC.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 2, utf8_Taste.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 3, utf8_Consistency.c_str(), -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(stmt, 4, utf8_Darkening.c_str(), -1, SQLITE_TRANSIENT);
 
         if (sqlite3_step(stmt) != SQLITE_DONE) {
             // Обработка ошибки

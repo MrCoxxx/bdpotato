@@ -27,6 +27,7 @@
 #define CheckBoxDarkening		25
 #define CheckBoxWeight			26
 #define AuthorizationButton		27
+#define AddClickButtonClose	28
 
 #define TextBufferSize			256
 
@@ -65,6 +66,22 @@ void AuthrorizathionInt(HWND hWnd);
 //Menu
 void MainWndAddMenus(HWND hWnd);
 
+//Add
+LRESULT CALLBACK SoftwareAddProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
+WNDCLASS NewAddWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
+void WndAdd(HWND hWnd);
+void AddEditzone(HWND hWnd);
+void Add(HWND hWnd);
+void AddStatic(HWND hWnd);
+void AddButton(HWND hWnd);
+void AddPotatoSample();
+void AddMorphologicalSample();
+void AddCulinarySample();
+
+//Edit
+LRESULT CALLBACK SoftwareEditProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
+WNDCLASS NewEditWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
+void WndEdit(HWND hWnd);
 
 //Table UI
 void TableWndAdd(HWND hWnd, LPARAM lp);

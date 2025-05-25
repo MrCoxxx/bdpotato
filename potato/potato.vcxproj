@@ -133,11 +133,14 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddInterface.h" />
+    <ClInclude Include="AddWnd.h" />
     <ClInclude Include="AuthorizationInterface.h" />
     <ClInclude Include="CreateWidgets.h" />
     <ClInclude Include="CulinaryData.h" />
     <ClInclude Include="DataBaseInit.h" />
     <ClInclude Include="DestroyUI.h" />
+    <ClInclude Include="EditWnd.h" />
     <ClInclude Include="GlobalVariable.h" />
     <ClInclude Include="MainWnd.h" />
     <ClInclude Include="Menu.h" />
