@@ -163,9 +163,7 @@ void AddMorphologicalSample()
 void EditMorphologicalSample()
 {
     sqlite3_stmt* stmt;
-    const char* sql = "UPDATE morphological_features_of_the_tuber SET id_potato = ?, form = ?, peel_coloring = ?, "
-        "pulp_coloring = ?, eye_depth = ?, stolon_trace_depth = ? "
-        "WHERE id = ?";
+    const char* sql = "UPDATE morphological_features_of_the_tuber SET id_potato = ?, form = ?, peel_coloring = ?, pulp_coloring = ?, eye_depth = ?, stolon_trace_depth = ? WHERE id = ?";
 
     Sample = GetEditText(editSample);
     Origin = GetEditText(editOrigin);

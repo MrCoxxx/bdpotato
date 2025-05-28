@@ -148,9 +148,7 @@ void AddPotatoSample()
 void EditPotatoSample()
 {
     sqlite3_stmt* stmt;
-    const char* sql = "UPDATE potato SET sample = ?, origin = ?, VIGRR_catalogue_number = ?, "
-        "productivity = ?, field_resistance_to_late_blight = ?, weight_of_commercial_tuber = ? "
-        "WHERE id = ?";
+    const char* sql = "UPDATE potato SET sample = ?, origin = ?, VIGRR_catalogue_number = ?, productivity = ?, field_resistance_to_late_blight = ?, weight_of_commercial_tuber = ? WHERE id = ?";
 
     Sample = GetEditText(editSample);
     Origin = GetEditText(editOrigin);

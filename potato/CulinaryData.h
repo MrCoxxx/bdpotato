@@ -138,8 +138,7 @@ void AddCulinarySample()
 void EditCulinarySample()
 {
     sqlite3_stmt* stmt;
-    const char* sql = "UPDATE culinary_qualities SET id_potato = ?, taste = ?, pulp_consistency = ?, "
-        "darkening_after_cooking = ? WHERE id = ?";
+    const char* sql = "UPDATE culinary_qualities SET id_potato = ?, taste = ?, pulp_consistency = ?, darkening_after_cooking = ? WHERE id = ?";
 
     Sample = GetEditText(editSample);
     Origin = GetEditText(editOrigin);

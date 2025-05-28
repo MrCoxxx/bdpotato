@@ -29,7 +29,8 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			ExportToExcel(db, "potato_data.xlsx");
 			break;
 		case MenuInfo:
-			MessageBoxA(hWnd, "Программу разработали Павлов Кирилл Витальвич и \n"
+			MessageBoxA(hWnd, "Программа учёта видов картофеля\n"
+				"разработали Павлов Кирилл Витальвич и \n"
 				"Голубцов Георгий Валентинович для Университета", "Информация", MB_OK);
 			break;
 		case  MenuExit:
