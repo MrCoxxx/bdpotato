@@ -159,6 +159,7 @@
     <ClInclude Include="SoftwareDefinitions.h" />
     <ClInclude Include="SqlRequestData.h" />
     <ClInclude Include="TableInterface.h" />
+    <ClInclude Include="TestWnd.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="kart" />

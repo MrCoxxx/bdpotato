@@ -22,6 +22,7 @@
 #include "SearchWnd.h"
 #include "AddWnd.h"
 #include "EditWnd.h"
+#include "TestWnd.h"
 #include "Menu.h"
 #include "DataBaseInit.h"
 #include "TableInterface.h"
@@ -55,6 +56,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 	WNDCLASS SoftwareSearchClass = NewSearchWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"SearchWndClass", SoftwareSearchProcedure);
 	WNDCLASS SoftwareAddClass = NewAddWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"AddWndClass", SoftwareAddProcedure);
 	WNDCLASS SoftwareEditClass = NewEditWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"EditWndClass", SoftwareEditProcedure);
+	//WNDCLASS SoftwareTestClass = NewTestWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"TestWndClass", SoftwareTestProcedure);
 
 	if (!RegisterClassW(&SoftwareMainClass)) { return -1; }
 	MSG SoftwareMainMessage = { 0 };
@@ -64,6 +66,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 	MSG SoftwareAddMessage = { 0 };
 	if (!RegisterClassW(&SoftwareEditClass)) { return -1; }
 	MSG SoftwareEditMessage = { 0 };
+	//if (!RegisterClassW(&SoftwareTestClass)) { return -1; }
+	//MSG SoftwareTestMessage = { 0 };
 
 	HWND hWnd = CreateWindow(
 		L"MainWndClass",

@@ -30,7 +30,7 @@ QueryData BuildQuery()
                     result.sql += " WHERE ";
                 }
                 else {
-                    result.sql += " AND ";
+                    result.sql += " OR ";
                 }
                 result.sql += condition;
                 result.params.push_back(utf8);
@@ -45,7 +45,8 @@ QueryData BuildQuery()
     getCheckedParam(statsCheckBoxProductivity == BST_CHECKED, editProductivity, "p.productivity = ?");
     getCheckedParam(statsCheckBoxField == BST_CHECKED, editField, "p.field_resistance_to_late_blight = ?");
     getCheckedParam(statsCheckBoxForm == BST_CHECKED, editForm, "mf.form = ?");
-    getCheckedParam(statsCheckBoxPeel == BST_CHECKED, editPeel, "mf.peel_coloring = ?");
+    getCheckedParam(statsCheckBoxPeel1 == BST_CHECKED, editPeel2, "mf.peel_coloring = ?");
+    getCheckedParam(statsCheckBoxPeel2 == BST_CHECKED, editPeel3, "mf.peel_coloring = ?");
     getCheckedParam(statsCheckBoxPulp == BST_CHECKED, editPulp, "mf.pulp_coloring = ?");
     getCheckedParam(statsCheckBoxEye == BST_CHECKED, editEye, "mf.eye_depth = ?");
     getCheckedParam(statsCheckBoxStolon == BST_CHECKED, editStolon, "mf.stolon_trace_depth = ?");

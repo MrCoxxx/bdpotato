@@ -6,6 +6,7 @@ static BOOL isSearchUI = FALSE;
 static BOOL secondWnd = FALSE;
 static BOOL addWnd = FALSE;
 static BOOL editWnd = FALSE;
+static BOOL testWnd = FALSE;
 static BOOL allStatsChecked = FALSE;
 static HWND hListView;
 static HWND hComboBoxTable;
@@ -64,6 +65,8 @@ static LRESULT statsCheckBoxProductivity;
 static LRESULT statsCheckBoxField;
 static LRESULT statsCheckBoxForm;
 static LRESULT statsCheckBoxPeel;
+static LRESULT statsCheckBoxPeel1;
+static LRESULT statsCheckBoxPeel2;
 static LRESULT statsCheckBoxPulp;
 static LRESULT statsCheckBoxEye;
 static LRESULT statsCheckBoxStolon;
@@ -143,3 +146,9 @@ static HWND staticIDPotatoM;
 static HWND staticID;
 
 std::string potato;
+
+
+//
+static HWND editPeel1;
+static HWND editPeel2;
+static HWND editPeel3;

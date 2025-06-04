@@ -161,6 +161,49 @@ void SearchCheckBox(HWND hWnd)
 		NULL
 	);
 
+	LPCWSTR name[4] = { L"Жёлтый", L"Красный", L"Голубой", L"Чёрный"};
+
+	editPeel = CreateWindow(
+		L"button",
+		name[0],
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		250, 110, 75, 20,
+		hWnd,
+		(HMENU)CheckBoxPeel1,
+		NULL,
+		NULL
+	);
+	editPeel1 = CreateWindow(
+		L"button",
+		name[1],
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		250, 130, 75, 20,
+		hWnd,
+		(HMENU)CheckBoxPeel2,
+		NULL,
+		NULL
+	);
+	editPeel2 = CreateWindow(
+		L"edit",
+		L"",
+		WS_CHILD | ES_CENTER,
+		250, 110, 200, 20,
+		hWnd,
+		(HMENU)CheckBoxPeel,
+		NULL,
+		NULL
+	);
+	editPeel3 = CreateWindow(
+		L"edit",
+		L"",
+		WS_CHILD | ES_CENTER,
+		250, 110, 200, 20,
+		hWnd,
+		(HMENU)CheckBoxPeel,
+		NULL,
+		NULL
+	);
+
 }
 
 void SearchButton(HWND hWnd)
@@ -239,7 +282,7 @@ void SearchEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editPeel = CreateWindow(
+	/*editPeel = CreateWindow(
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -248,7 +291,7 @@ void SearchEditzone(HWND hWnd)
 		(HMENU)CheckBoxPeel,
 		NULL,
 		NULL
-	);
+	);*/
 	editPulp = CreateWindow(
 		L"edit",
 		L"",
@@ -366,11 +409,23 @@ void SearchCheckbox(HWND hWnd)
 		SetWindowText(editForm, L"");
 	}
 	//Peel
-	if (statsCheckBoxPeel == BST_CHECKED) {
-		SetWindowText(editPeel, L"Красная");
+	//if (statsCheckBoxPeel == BST_CHECKED) {
+	//	SetWindowText(editPeel, L"Красная");
+	//}
+	//else if (statsCheckBoxPeel == BST_UNCHECKED) {
+	//	SetWindowText(editPeel, L"");
+	//}
+	if (statsCheckBoxPeel1 == BST_CHECKED) {
+		SetWindowText(editPeel2, L"Жёлтая");
 	}
 	else if (statsCheckBoxPeel == BST_UNCHECKED) {
-		SetWindowText(editPeel, L"");
+		SetWindowText(editPeel2, L"");
+	}
+	if (statsCheckBoxPeel1 == BST_CHECKED) {
+		SetWindowText(editPeel3, L"Красная");
+	}
+	else if (statsCheckBoxPeel == BST_UNCHECKED) {
+		SetWindowText(editPeel3, L"");
 	}
 	//Pulp
 	if (statsCheckBoxPulp == BST_CHECKED) {

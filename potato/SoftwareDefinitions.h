@@ -30,6 +30,8 @@
 #define AddClickButton			28
 #define EditClickButton			29
 #define MenuExport				30
+#define CheckBoxPeel1 31
+#define CheckBoxPeel2 32
 
 #define TextBufferSize			256
 
@@ -91,6 +93,12 @@ void EditEditzone(HWND hWnd);
 void EditPotatoSample();
 void EditMorphologicalSample();
 void EditCulinarySample();
+
+//Test
+//LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
+//WNDCLASS NewTestWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
+//void WndTest(HWND hWnd);
+//void Test(HWND hWnd);
 
 //Table UI
 void TableWndAdd(HWND hWnd, LPARAM lp);
