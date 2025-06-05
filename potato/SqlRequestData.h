@@ -9,6 +9,18 @@ struct QueryData{
     std::vector<std::string> params;
 };
 
+bool checkOr = false;
+
+bool CheckOr() {
+    if (statsCheckBoxPeel1 == BST_CHECKED and statsCheckBoxPeel2 == BST_CHECKED) {
+        checkOr = true;
+        return checkOr;
+    }
+    else {
+        return checkOr;
+    }
+}
+
 QueryData BuildQuery()
 {
     QueryData result;
@@ -28,32 +40,47 @@ QueryData BuildQuery()
             if (!utf8.empty()) {
                 if (result.sql.find("WHERE") == std::string::npos) {
                     result.sql += " WHERE ";
+                    if (editControl == editPeel2 || editControl == editPeel3) {
+                        result.sql += condition.substr(4);
+                    }
+                    else {
+                        result.sql += condition.substr(5);
+                    }
+                    
                 }
                 else {
-                    result.sql += " OR ";
+                    result.sql += condition;
                 }
-                result.sql += condition;
+                /*else if (CheckOr) {
+                    result.sql += " OR ";
+                    checkOr = false;
+                }
+                else {
+                    result.sql += " AND ";
+                }*/
+                
                 result.params.push_back(utf8);
             }
         }
-        };
+    };
 
     // ƒобавл€ем услови€ дл€ каждого параметра
-    getCheckedParam(statsCheckBoxSample == BST_CHECKED, editSample, "p.sample = ?");
-    getCheckedParam(statsCheckBoxOrigin == BST_CHECKED, editOrigin, "p.origin = ?");
-    getCheckedParam(statsCheckBoxVIGRR == BST_CHECKED, editVIGRR, "p.VIGRR_catalogue_number = ?");
-    getCheckedParam(statsCheckBoxProductivity == BST_CHECKED, editProductivity, "p.productivity = ?");
-    getCheckedParam(statsCheckBoxField == BST_CHECKED, editField, "p.field_resistance_to_late_blight = ?");
-    getCheckedParam(statsCheckBoxForm == BST_CHECKED, editForm, "mf.form = ?");
-    getCheckedParam(statsCheckBoxPeel1 == BST_CHECKED, editPeel2, "mf.peel_coloring = ?");
-    getCheckedParam(statsCheckBoxPeel2 == BST_CHECKED, editPeel3, "mf.peel_coloring = ?");
-    getCheckedParam(statsCheckBoxPulp == BST_CHECKED, editPulp, "mf.pulp_coloring = ?");
-    getCheckedParam(statsCheckBoxEye == BST_CHECKED, editEye, "mf.eye_depth = ?");
-    getCheckedParam(statsCheckBoxStolon == BST_CHECKED, editStolon, "mf.stolon_trace_depth = ?");
-    getCheckedParam(statsCheckBoxTaste == BST_CHECKED, editTaste, "cq.taste = ?");
-    getCheckedParam(statsCheckBoxConsistency == BST_CHECKED, editConsistency, "cq.pulp_consistency = ?");
-    getCheckedParam(statsCheckBoxDarkening == BST_CHECKED, editDarkening, "cq.darkening_after_cooking = ?");
-    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight, "p.weight_of_commercial_tuber = ?");
+    getCheckedParam(statsCheckBoxSample == BST_CHECKED, editSample, " AND p.sample = ?");
+    getCheckedParam(statsCheckBoxOrigin == BST_CHECKED, editOrigin, " AND p.origin = ?");
+    getCheckedParam(statsCheckBoxVIGRR == BST_CHECKED, editVIGRR, " AND p.VIGRR_catalogue_number = ?");
+    getCheckedParam(statsCheckBoxProductivity == BST_CHECKED, editProductivity, " AND p.productivity = ?");
+    getCheckedParam(statsCheckBoxField == BST_CHECKED, editField, " AND p.field_resistance_to_late_blight = ?");
+    getCheckedParam(statsCheckBoxForm == BST_CHECKED, editForm, " AND mf.form = ?");
+    getCheckedParam(statsCheckBoxPeel1 == BST_CHECKED, editPeel2, " OR mf.peel_coloring = ?");
+    getCheckedParam(statsCheckBoxPeel2 == BST_CHECKED, editPeel3, " OR mf.peel_coloring = ?");
+    getCheckedParam(statsCheckBoxPulp == BST_CHECKED, editPulp, " AND mf.pulp_coloring = ?");
+    getCheckedParam(statsCheckBoxEye == BST_CHECKED, editEye, " AND mf.eye_depth = ?");
+    getCheckedParam(statsCheckBoxStolon == BST_CHECKED, editStolon, " AND mf.stolon_trace_depth = ?");
+    getCheckedParam(statsCheckBoxTaste == BST_CHECKED, editTaste, " AND cq.taste = ?");
+    getCheckedParam(statsCheckBoxConsistency == BST_CHECKED, editConsistency, " AND cq.pulp_consistency = ?");
+    getCheckedParam(statsCheckBoxDarkening == BST_CHECKED, editDarkening, " AND cq.darkening_after_cooking = ?");
+    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight, " AND p.weight_of_commercial_tuber > ?");
+    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight1, " AND p.weight_of_commercial_tuber < ?");
 
     return result;
 }

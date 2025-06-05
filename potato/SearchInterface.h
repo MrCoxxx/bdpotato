@@ -355,9 +355,29 @@ void SearchEditzone(HWND hWnd)
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 370, 220, 20,
+		15, 370, 50, 20,
 		hWnd,
 		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	editWeight1 = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		85, 370, 50, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	hStaticTextTable1 = CreateWindowA(
+		"static",
+		"-",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		70, 370, 10, 20,
+		hWnd,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -470,9 +490,15 @@ void SearchCheckbox(HWND hWnd)
 	}
 	//Weight
 	if (statsCheckBoxWeight == BST_CHECKED) {
-		SetWindowText(editWeight, L"146");
+		SetWindowText(editWeight, L"132");
 	}
 	else if (statsCheckBoxWeight == BST_UNCHECKED) {
 		SetWindowText(editWeight, L"");
+	}
+	if (statsCheckBoxWeight == BST_CHECKED) {
+		SetWindowText(editWeight1, L"150");
+	}
+	else if (statsCheckBoxWeight == BST_UNCHECKED) {
+		SetWindowText(editWeight1, L"");
 	}
 }

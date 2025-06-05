@@ -16,14 +16,14 @@
     <Filter Include="Файлы заголовков\Interface">
       <UniqueIdentifier>{06fa2368-392c-480e-8e00-4ab7813e5f5b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Wnd">
-      <UniqueIdentifier>{d6128bcb-9ba3-4209-80cd-756b8185c40d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\Data">
       <UniqueIdentifier>{c915c96f-fd6e-457d-8b29-77bddb43772d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Файлы заголовков\Other">
       <UniqueIdentifier>{7ba5fda7-040f-4b27-8e8e-f0bf84acc7c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Wnd">
+      <UniqueIdentifier>{d6128bcb-9ba3-4209-80cd-756b8185c40d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
