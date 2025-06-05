@@ -203,7 +203,6 @@ void SearchCheckBox(HWND hWnd)
 		NULL,
 		NULL
 	);
-
 }
 
 void SearchButton(HWND hWnd)
