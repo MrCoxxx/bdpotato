@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\Interface">
+      <UniqueIdentifier>{06fa2368-392c-480e-8e00-4ab7813e5f5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Wnd">
+      <UniqueIdentifier>{d6128bcb-9ba3-4209-80cd-756b8185c40d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Data">
+      <UniqueIdentifier>{c915c96f-fd6e-457d-8b29-77bddb43772d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Other">
+      <UniqueIdentifier>{7ba5fda7-040f-4b27-8e8e-f0bf84acc7c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -20,74 +32,74 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SoftwareDefinitions.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="TableInterface.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="RequestInterface.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="DestroyUI.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="DataBaseInit.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="PotatoData.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MorphologicalData.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="CulinaryData.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="CreateWidgets.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="RequestData.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchWnd.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MainWnd.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchInterface.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="GlobalVariable.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="SqlRequestData.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="AuthorizationInterface.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="AddWnd.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="EditWnd.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Wnd</Filter>
     </ClInclude>
     <ClInclude Include="AddInterface.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="AuthorizationInterface.h">
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CulinaryData.h">
+      <Filter>Файлы заголовков\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="DataBaseInit.h">
+      <Filter>Файлы заголовков\Data</Filter>
     </ClInclude>
     <ClInclude Include="EditInterface.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="ExportExcel.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="EditWnd.h">
+      <Filter>Файлы заголовков\Wnd</Filter>
+    </ClInclude>
+    <ClInclude Include="MainWnd.h">
+      <Filter>Файлы заголовков\Wnd</Filter>
+    </ClInclude>
+    <ClInclude Include="MorphologicalData.h">
+      <Filter>Файлы заголовков\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="PotatoData.h">
+      <Filter>Файлы заголовков\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestData.h">
+      <Filter>Файлы заголовков\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestInterface.h">
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchInterface.h">
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchWnd.h">
+      <Filter>Файлы заголовков\Wnd</Filter>
+    </ClInclude>
+    <ClInclude Include="SqlRequestData.h">
+      <Filter>Файлы заголовков\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="TableInterface.h">
+      <Filter>Файлы заголовков\Interface</Filter>
     </ClInclude>
     <ClInclude Include="TestWnd.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Wnd</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateWidgets.h">
+      <Filter>Файлы заголовков\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="DestroyUI.h">
+      <Filter>Файлы заголовков\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportExcel.h">
+      <Filter>Файлы заголовков\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalVariable.h">
+      <Filter>Файлы заголовков\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Файлы заголовков\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="SoftwareDefinitions.h">
+      <Filter>Файлы заголовков\Other</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
