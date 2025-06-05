@@ -11,7 +11,7 @@ void InitializeGDIplus()
 void CreateImage(HWND hWnd)
 {
     // Проверка существования файла
-    const wchar_t* imagePath = L"C:\\Users\\Кирилл\\source\\repos\\potato\\potato\\background_image.png";
+    const wchar_t* imagePath = L"background_image.png";
 
     if (!PathFileExists(imagePath))
     {
