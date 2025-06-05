@@ -417,13 +417,13 @@ void SearchCheckbox(HWND hWnd)
 	if (statsCheckBoxPeel1 == BST_CHECKED) {
 		SetWindowText(editPeel2, L"Жёлтая");
 	}
-	else if (statsCheckBoxPeel == BST_UNCHECKED) {
+	else if (statsCheckBoxPeel1 == BST_UNCHECKED) {
 		SetWindowText(editPeel2, L"");
 	}
-	if (statsCheckBoxPeel1 == BST_CHECKED) {
+	if (statsCheckBoxPeel2 == BST_CHECKED) {
 		SetWindowText(editPeel3, L"Красная");
 	}
-	else if (statsCheckBoxPeel == BST_UNCHECKED) {
+	else if (statsCheckBoxPeel2 == BST_UNCHECKED) {
 		SetWindowText(editPeel3, L"");
 	}
 	//Pulp

@@ -150,6 +150,18 @@ void DestroyCheckBox(HWND hWnd)
 		editPeel = NULL;
 		statsCheckBoxPeel = NULL;
 	}
+	if (editPeel2)
+	{
+		DestroyWindow(editPeel2);
+		editPeel2 = NULL;
+		statsCheckBoxPeel1 = NULL;
+	}
+	if (editPeel3){
+	
+		DestroyWindow(editPeel3);
+		editPeel3 = NULL;
+		statsCheckBoxPeel2 = NULL;
+	}
 	if (editPulp)
 	{
 		DestroyWindow(editPulp);
