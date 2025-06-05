@@ -8,16 +8,22 @@
 #include <locale>
 #include <codecvt>
 #include <xlsxwriter.h>
+#include <gdiplus.h>
+#include <shlwapi.h> // для PathFileExists
+
+using namespace Gdiplus;
 
 #pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "sqlite3.lib")
 #pragma comment(lib, "xlsxwriter.lib")
+#pragma comment(lib, "gdiplus.lib")
+#pragma comment(lib, "shlwapi.lib")
 
 #include "SoftwareDefinitions.h"
 #include "CreateWidgets.h"
 
 #include "GlobalVariable.h"
-
+#include "Image.h"
 #include "MainWnd.h"
 #include "SearchWnd.h"
 #include "AddWnd.h"
@@ -39,6 +45,7 @@
 #include "RequestData.h"
 #include "ExportExcel.h"
 
+
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {
 	// Инициализация общих элементов управления
@@ -57,6 +64,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 	WNDCLASS SoftwareAddClass = NewAddWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"AddWndClass", SoftwareAddProcedure);
 	WNDCLASS SoftwareEditClass = NewEditWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"EditWndClass", SoftwareEditProcedure);
 	//WNDCLASS SoftwareTestClass = NewTestWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"TestWndClass", SoftwareTestProcedure);
+
 
 	if (!RegisterClassW(&SoftwareMainClass)) { return -1; }
 	MSG SoftwareMainMessage = { 0 };

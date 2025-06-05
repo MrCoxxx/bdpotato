@@ -162,3 +162,10 @@ void AddAllToListView(HWND hListView);
 void LoadAllDataIntoListView(HWND hListView);
 
 bool ExportToExcel(sqlite3* db, const std::string& filename);
+
+
+//
+void CreateImage(HWND hWnd);
+void InitializeGDIplus();
+void CreatePaint(HWND hWnd);
+void Cleanup();

@@ -101,9 +101,17 @@
     <ClInclude Include="SoftwareDefinitions.h">
       <Filter>Файлы заголовков\Other</Filter>
     </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Файлы заголовков\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="kart.db" />
     <None Include="kart" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="background_image.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
   </ItemGroup>
 </Project>

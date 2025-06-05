@@ -96,13 +96,20 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 	case WM_CREATE:
 		//AuthrorizathionInt(hWnd);
 
+		InitializeGDIplus();
+		CreateImage(hWnd);
+
 		DestroyAuthorization(hWnd);
 		TableWndAdd(hWnd, (LPARAM)hInstance);
 		//RequestWndAdd(hWnd, (LPARAM)hInstance);
 		MainWndAddMenus(hWnd);
 
 		break;
+	case WM_PAINT:	
+		CreatePaint(hWnd);
+		break;
 	case WM_DESTROY:
+		Cleanup();
 		PostQuitMessage(0);
 		break;
 	default:

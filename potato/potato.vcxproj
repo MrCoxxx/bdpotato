@@ -148,6 +148,7 @@
     <ClInclude Include="EditWnd.h" />
     <ClInclude Include="GlobalVariable.h" />
     <ClInclude Include="ExportExcel.h" />
+    <ClInclude Include="Image.h" />
     <ClInclude Include="MainWnd.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MorphologicalData.h" />
@@ -164,6 +165,9 @@
   <ItemGroup>
     <None Include="kart" />
     <None Include="kart.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="background_image.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
