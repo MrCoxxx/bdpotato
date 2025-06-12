@@ -55,8 +55,8 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 	);
 
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Все данные");
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Картошка");
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические признаки");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Основные характеристики");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические особенности клубня");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
 	SendMessage(hComboBoxTable, CB_SETCURSEL, 0, 0);
 	idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
