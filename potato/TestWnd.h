@@ -67,7 +67,6 @@ void Test(HWND hWnd)
 		);
 	}
 
-
 	/*nameT[0] = CreateWindow(
 		L"button",
 		name[0],
