@@ -154,3 +154,13 @@ std::string potato;
 static HWND editPeel1;
 static HWND editPeel2;
 static HWND editPeel3;
+
+static HWND testPeel1;
+static HWND testPeel2;
+static HWND testPeel3;
+static HWND testPeel4;
+static HWND testPeel5;
+static HWND testPeel6;
+static HWND testPeel7;
+static HWND testPeel8;
+static HWND testPeel9;
