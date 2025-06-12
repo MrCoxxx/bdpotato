@@ -64,15 +64,16 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		case CheckBoxPeel:
 			statsCheckBoxPeel = SendMessage(checkBoxPeel, BM_GETCHECK, 0, 0);
 			SearchCheckbox(hWnd);
+			
 			break;
-		case CheckBoxPeel1:
+		/*case CheckBoxPeel1:
 			statsCheckBoxPeel1 = SendMessage(editPeel, BM_GETCHECK, 0, 0);
 			SearchCheckbox(hWnd);
 			break;
 		case CheckBoxPeel2:
 			statsCheckBoxPeel2 = SendMessage(editPeel1, BM_GETCHECK, 0, 0);
 			SearchCheckbox(hWnd);
-			break;
+			break;*/
 		case CheckBoxPulp:
 			statsCheckBoxPulp = SendMessage(checkBoxPulp, BM_GETCHECK, 0, 0);
 			SearchCheckbox(hWnd);

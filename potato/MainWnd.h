@@ -77,8 +77,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			isTableCreated = FALSE;
 			break;
 		case SearchClickButtonOpen:
-			WndSearch(hWnd);
-			//WndTest(hWnd);
+			WndSearch(hWnd);			
 			break;	
 		case AuthorizationButton:
 			const wchar_t* LoginA = L"admin";

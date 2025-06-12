@@ -11,11 +11,11 @@ WNDCLASS NewTestWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HIC
 
 	return NWCT;
 }
-
+HWND hTestWnd;
 void WndTest(HWND hWnd)
 {
 	if (testWnd == FALSE) {
-		HWND hTestWnd = CreateWindow(
+		hTestWnd = CreateWindow(
 			L"TestWndClass",
 			L"Добавить данные",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
@@ -31,21 +31,21 @@ LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 	switch (msg)
 	{
 	case WM_CREATE:
-		//Test(hWnd);
+		Test(hWnd);
 		break;
 	case WM_COMMAND:
 		switch (wp) {
-
-			break;
-		case WM_DESTROY:
-			DestroyWindow(hWnd);
-			testWnd = FALSE;
-			break;
-		default:
-			return DefWindowProc(hWnd, msg, wp, lp);
 		}
-		return 0;
+		break;
+		
+	case WM_DESTROY:
+		DestroyWindow(hWnd);
+		testWnd = FALSE;
+		break;		
+	default:
+		return DefWindowProc(hWnd, msg, wp, lp);		
 	}
+	return 0;
 }
 
 void Test(HWND hWnd)

@@ -161,7 +161,7 @@ void SearchCheckBox(HWND hWnd)
 		NULL
 	);
 
-	LPCWSTR name[4] = { L"Жёлтый", L"Красный", L"Голубой", L"Чёрный"};
+	/*LPCWSTR name[4] = {L"Жёлтый", L"Красный", L"Голубой", L"Чёрный"};
 
 	editPeel = CreateWindow(
 		L"button",
@@ -202,7 +202,7 @@ void SearchCheckBox(HWND hWnd)
 		(HMENU)CheckBoxPeel,
 		NULL,
 		NULL
-	);
+	);*/
 }
 
 void SearchButton(HWND hWnd)
@@ -281,7 +281,7 @@ void SearchEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	/*editPeel = CreateWindow(
+	editPeel = CreateWindow(
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -290,7 +290,7 @@ void SearchEditzone(HWND hWnd)
 		(HMENU)CheckBoxPeel,
 		NULL,
 		NULL
-	);*/
+	);
 	editPulp = CreateWindow(
 		L"edit",
 		L"",
@@ -428,24 +428,24 @@ void SearchCheckbox(HWND hWnd)
 		SetWindowText(editForm, L"");
 	}
 	//Peel
-	//if (statsCheckBoxPeel == BST_CHECKED) {
-	//	SetWindowText(editPeel, L"Красная");
+	if (statsCheckBoxPeel == BST_CHECKED) {
+		WndTest(hWnd);
+	}
+	else if (statsCheckBoxPeel == BST_UNCHECKED) {
+		DestroyWindow(hTestWnd);
+	}
+	//if (statsCheckBoxPeel1 == BST_CHECKED) {
+	//	SetWindowText(editPeel2, L"Жёлтая");
 	//}
-	//else if (statsCheckBoxPeel == BST_UNCHECKED) {
-	//	SetWindowText(editPeel, L"");
+	//else if (statsCheckBoxPeel1 == BST_UNCHECKED) {
+	//	SetWindowText(editPeel2, L"");
 	//}
-	if (statsCheckBoxPeel1 == BST_CHECKED) {
-		SetWindowText(editPeel2, L"Жёлтая");
-	}
-	else if (statsCheckBoxPeel1 == BST_UNCHECKED) {
-		SetWindowText(editPeel2, L"");
-	}
-	if (statsCheckBoxPeel2 == BST_CHECKED) {
-		SetWindowText(editPeel3, L"Красная");
-	}
-	else if (statsCheckBoxPeel2 == BST_UNCHECKED) {
-		SetWindowText(editPeel3, L"");
-	}
+	//if (statsCheckBoxPeel2 == BST_CHECKED) {
+	//	SetWindowText(editPeel3, L"Красная");
+	//}
+	//else if (statsCheckBoxPeel2 == BST_UNCHECKED) {
+	//	SetWindowText(editPeel3, L"");
+	//}
 	//Pulp
 	if (statsCheckBoxPulp == BST_CHECKED) {
 		SetWindowText(editPulp, L"Светло-жёлтая");
