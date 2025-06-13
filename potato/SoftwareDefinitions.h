@@ -32,6 +32,7 @@
 #define MenuExport				30
 #define CheckBoxPeel1 31
 #define CheckBoxPeel2 32
+#define TestPeel 33
 
 #define TextBufferSize			256
 
@@ -169,3 +170,7 @@ void CreateImage(HWND hWnd);
 void InitializeGDIplus();
 void CreatePaint(HWND hWnd);
 void Cleanup();
+
+
+void TestT(HWND hWnd);
+std::wstring GetSelectedFilters();

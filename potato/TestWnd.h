@@ -26,6 +26,11 @@ void WndTest(HWND hWnd)
 	}
 }
 
+HWND hEditFilters[9];
+static HWND nameT[9];
+LPCWSTR name[9] = { L"белая", L"Светло-жёлтая", L"жёлтая", L"Жёлто-коричневая", L"Розовая", L"Красная", L"Красно-фиолетовая", L"Сине-фиолетовая", L"Тёмно-фиолетовая" };
+bool isChecked[9] = { false };
+static LRESULT statsCheckPeel[9];
 LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 {
 	switch (msg)
@@ -35,6 +40,13 @@ LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		break;
 	case WM_COMMAND:
 		switch (wp) {
+
+		case MAKEWPARAM(TestPeel, BN_CLICKED):
+			for (int i = 0; i < 9; i++) {
+				statsCheckPeel[i] = SendMessage(nameT[i], BM_GETCHECK, 0, 0);
+			}
+			
+			TestT(hWnd);
 		}
 		break;
 		
@@ -48,11 +60,97 @@ LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 	return 0;
 }
 
+
+
+/*void TestS(HWND hWnd) {
+	if ((LRESULT)nameT[0] == BST_CHECKED) {
+		SetWindowText(hEditFilters[0], L"Белая");
+	}
+	else{
+		SetWindowText(hEditFilters[0], L"");
+	}
+	if ((LRESULT)nameT[1] == BST_CHECKED) {
+		SetWindowText(hEditFilters[1], L"Светло-жёлтая");
+	}
+	else {
+		SetWindowText(hEditFilters[1], L"");
+	}
+	if ((LRESULT)nameT[2] == BST_CHECKED) {
+		SetWindowText(hEditFilters[2], L"Жёлтая");
+	}
+	else {
+		SetWindowText(hEditFilters[2], L"");
+	}
+	if ((LRESULT)nameT[3] == BST_CHECKED) {
+		SetWindowText(hEditFilters[3], L"Жёлто-коричневая");
+	}
+	else {
+		SetWindowText(hEditFilters[3], L"");
+	}
+	if ((LRESULT)nameT[4] == BST_CHECKED) {
+		SetWindowText(hEditFilters[4], L"Розовая");
+	}
+	else {
+		SetWindowText(hEditFilters[4], L"");
+	}
+	if ((LRESULT)nameT[5] == BST_CHECKED) {
+		SetWindowText(hEditFilters[5], L"Красная");
+	}
+	else {
+		SetWindowText(hEditFilters[5], L"");
+	}
+	if ((LRESULT)nameT[6] == BST_CHECKED) {
+		SetWindowText(hEditFilters[6], L"Красно-фиолетовая");
+	}
+	else {
+		SetWindowText(hEditFilters[6], L"");
+	}
+	if ((LRESULT)nameT[7] == BST_CHECKED) {
+		SetWindowText(hEditFilters[7], L"Сине-фиолетовая");
+	}
+	else {
+		SetWindowText(hEditFilters[7], L"");
+	}
+	if ((LRESULT)nameT[8] == BST_CHECKED) {
+		SetWindowText(hEditFilters[8], L"Тёмно-фиолетовая");
+	}
+	else {
+		SetWindowText(hEditFilters[8], L"");
+	}
+}*/
+
+void TestT(HWND hWnd) {
+	std::wstring selectedFilters = GetSelectedFilters();
+	DestroyWindow(hWnd);
+	SetWindowText(editPeel, selectedFilters.c_str());
+	
+}
+
+std::wstring GetWindowText1(HWND hWnd) {
+	wchar_t buffer[256];
+	GetWindowText(hWnd, buffer, 256);
+	return std::wstring(buffer);
+}
+
+std::wstring GetSelectedFilters() {
+	std::wstring result;
+	for (int i = 0; i < 9; i++) {
+		if (SendMessage(nameT[i], BM_GETCHECK, 0, 0) == BST_CHECKED) {			
+			std::wstring filterValue = GetWindowText1(hEditFilters[i]);
+			if (!result.empty()) {
+				result += L", ";
+			}
+			result += filterValue;
+		}
+	}
+	return result;
+}
+
 void Test(HWND hWnd)
 {
 	int posT[9]{ 15,45,75,105,135,165,195,225,255 };
-	static HWND nameT[9];
-	LPCWSTR name[9] = { L"Белая", L"Светло-жёлтая", L"Жёлтая", L"Жёлто-коричневая", L"Розовая", L"Красная", L"Красно-фиолетовая", L"Сине-фиолетовая", L"Тёмно-фиолетовая" };
+	
+	
 
 	for (int i = 0; i < 9; i++) {
 		nameT[i] = CreateWindow(
@@ -65,9 +163,39 @@ void Test(HWND hWnd)
 			NULL,
 			NULL
 		);
-	}
 
-	/*nameT[0] = CreateWindow(
+		hEditFilters[i] = CreateWindow(
+			L"EDIT",
+			name[i],
+			WS_CHILD | ES_LEFT,
+			170, posT[i], 200, 20,
+			hWnd,
+			NULL,
+			NULL,
+			NULL
+		);
+
+	}
+	
+	complite = new Widgets(
+		"button",
+		"Поиск",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 275, 180, 30,
+		hWnd,
+		(HMENU)TestPeel,
+		NULL,
+		NULL
+	);
+
+}
+
+
+
+
+
+
+/*nameT[0] = CreateWindow(
 		L"button",
 		name[0],
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
@@ -165,16 +293,3 @@ void Test(HWND hWnd)
 		NULL,
 		NULL
 	);*/
-	
-	complite = new Widgets(
-		"button",
-		"Поиск",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 275, 180, 30,
-		hWnd,
-		(HMENU)SearchClickButtonClose,
-		NULL,
-		NULL
-	);
-
-}

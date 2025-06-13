@@ -10,6 +10,8 @@
 #include <xlsxwriter.h>
 #include <gdiplus.h>
 #include <shlwapi.h> // для PathFileExists
+#include <unordered_map>
+#include <functional>
 
 using namespace Gdiplus;
 
