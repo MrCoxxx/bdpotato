@@ -9,16 +9,6 @@ struct QueryData{
     std::vector<std::string> params;
 };
 
-// Глобальные переменные
-bool checkOr = false;
-CHAR* TestInd[];
-
-// Функция для проверки наличия OR условий
-bool CheckOr(HWND checkBox1) {
-    checkOr = (SendMessage(checkBox1, BM_GETCHECK, 0, 0) == BST_CHECKED);
-    return checkOr;
-}
-
 QueryData BuildQuery()
 {
     QueryData result;
@@ -43,13 +33,35 @@ QueryData BuildQuery()
                 else {
                     result.sql += condition;
                 }
-               /*
-                else {
-                    result.sql += " AND ";
-                }*/
-                
                 result.params.push_back(utf8);
             }
+        }
+    };
+
+    auto testCheckedParam = [&](bool checked, HWND editControl, const std::string& condition) {
+        if (checked) {
+
+            GetWindowTextA(editControl, Buffer3, TextBufferSize);
+            std::vector<std::string> words = split(Buffer3, ',');
+            int i = 0;
+
+            size_t wordCount = countWords(Buffer3, ',');
+            for (const auto& word : words) {
+                SetWindowTextA(testPeel1, word.c_str());
+
+                if (i == 0) {
+                    getCheckedParam(checked, testPeel1, " AND (" + condition);
+                    i++;
+                }
+                else {
+                    getCheckedParam(checked, testPeel1, " OR " + condition);
+                    i++;
+                }
+                if (i == wordCount) {
+                    result.sql += ")";
+                }
+            }
+
         }
     };
 
@@ -60,8 +72,6 @@ QueryData BuildQuery()
     getCheckedParam(statsCheckBoxProductivity == BST_CHECKED, editProductivity, " AND p.productivity = ?");
     getCheckedParam(statsCheckBoxField == BST_CHECKED, editField, " AND p.field_resistance_to_late_blight = ?");
     getCheckedParam(statsCheckBoxForm == BST_CHECKED, editForm, " AND mf.form = ?");
-    
-    //getCheckedParam(statsCheckBoxPeel2 == BST_CHECKED, editPeel3, " OR mf.peel_coloring = ?");
     getCheckedParam(statsCheckBoxPulp == BST_CHECKED, editPulp, " AND mf.pulp_coloring = ?");
     getCheckedParam(statsCheckBoxEye == BST_CHECKED, editEye, " AND mf.eye_depth = ?");
     getCheckedParam(statsCheckBoxStolon == BST_CHECKED, editStolon, " AND mf.stolon_trace_depth = ?");
@@ -70,27 +80,8 @@ QueryData BuildQuery()
     getCheckedParam(statsCheckBoxDarkening == BST_CHECKED, editDarkening, " AND cq.darkening_after_cooking = ?");
     getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight, " AND p.weight_of_commercial_tuber > ?");
     getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight1, " AND p.weight_of_commercial_tuber < ?");
-    if (statsCheckBoxPeel == BST_CHECKED) {
+    testCheckedParam(statsCheckBoxPeel == BST_CHECKED, editPeel, "mf.peel_coloring = ?");
 
-        GetWindowTextA(editPeel, Buffer3, TextBufferSize);
-        std::vector<std::string> words = split(Buffer3, ',');
-        int i = 0;
-        
-        size_t wordCount = countWords(Buffer3, ','); 
-        for (const auto& word : words) {
-            SetWindowTextA(testPeel1, word.c_str());
-            
-            if (i == 0) {
-                getCheckedParam(statsCheckBoxPeel == BST_CHECKED, testPeel1, " AND mf.peel_coloring = ?");
-                i++;
-            }
-            else {
-                getCheckedParam(statsCheckBoxPeel == BST_CHECKED, testPeel1, " OR mf.peel_coloring = ?");
-                i++;
-            }
-        }
-        
-    }
     return result;
 }
 
@@ -117,14 +108,3 @@ size_t countWords(const std::string& s, char delimiter) {
     }
     return count;
 }
-/*
-int main() {
-    
-
-    for (const auto& word : words) {
-        std::cout << word << std::endl;
-    }
-    
-
-    return 0;
-}*/
