@@ -38,18 +38,18 @@
 
 wchar_t Buffer1[TextBufferSize];
 wchar_t Buffer2[TextBufferSize];
-wchar_t Buffer3[TextBufferSize];
-wchar_t Buffer4[TextBufferSize];
-wchar_t Buffer5[TextBufferSize];
-wchar_t Buffer6[TextBufferSize];
-wchar_t Buffer7[TextBufferSize];
-wchar_t Buffer8[TextBufferSize];
-wchar_t Buffer9[TextBufferSize];
-wchar_t Buffer10[TextBufferSize];
-wchar_t Buffer11[TextBufferSize];
-wchar_t Buffer12[TextBufferSize];
-wchar_t Buffer13[TextBufferSize];
-wchar_t Buffer14[TextBufferSize];
+char Buffer3[TextBufferSize];
+//wchar_t Buffer4[TextBufferSize];
+//wchar_t Buffer5[TextBufferSize];
+//wchar_t Buffer6[TextBufferSize];
+//wchar_t Buffer7[TextBufferSize];
+//wchar_t Buffer8[TextBufferSize];
+//wchar_t Buffer9[TextBufferSize];
+//wchar_t Buffer10[TextBufferSize];
+//wchar_t Buffer11[TextBufferSize];
+//wchar_t Buffer12[TextBufferSize];
+//wchar_t Buffer13[TextBufferSize];
+//wchar_t Buffer14[TextBufferSize];
 
 
 //Main
@@ -174,3 +174,5 @@ void Cleanup();
 
 void TestT(HWND hWnd);
 std::wstring GetSelectedFilters();
+std::vector<std::string> split(const std::string& s, char delimiter);
+size_t countWords(const std::string& s, char delimiter);

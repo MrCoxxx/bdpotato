@@ -291,6 +291,16 @@ void SearchEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
+	testPeel1 = CreateWindow(
+		L"edit",
+		L"",
+		WS_CHILD | ES_CENTER,
+		250, 110, 200, 20,
+		hWnd,
+		NULL,
+		NULL,
+		NULL
+	);
 	editPulp = CreateWindow(
 		L"edit",
 		L"",

@@ -12,6 +12,7 @@
 #include <shlwapi.h> // для PathFileExists
 #include <unordered_map>
 #include <functional>
+#include <cctype>
 
 using namespace Gdiplus;
 

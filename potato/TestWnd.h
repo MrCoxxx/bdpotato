@@ -25,12 +25,13 @@ void WndTest(HWND hWnd)
 		testWnd = TRUE;
 	}
 }
-
+int checkInd[9]{ NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL };
 HWND hEditFilters[9];
 static HWND nameT[9];
 LPCWSTR name[9] = { L"белая", L"Светло-жёлтая", L"жёлтая", L"Жёлто-коричневая", L"Розовая", L"Красная", L"Красно-фиолетовая", L"Сине-фиолетовая", L"Тёмно-фиолетовая" };
 bool isChecked[9] = { false };
 static LRESULT statsCheckPeel[9];
+static LRESULT statsCheckPeel1;
 LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 {
 	switch (msg)
@@ -41,11 +42,7 @@ LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 	case WM_COMMAND:
 		switch (wp) {
 
-		case MAKEWPARAM(TestPeel, BN_CLICKED):
-			for (int i = 0; i < 9; i++) {
-				statsCheckPeel[i] = SendMessage(nameT[i], BM_GETCHECK, 0, 0);
-			}
-			
+		case MAKEWPARAM(TestPeel, BN_CLICKED):			
 			TestT(hWnd);
 		}
 		break;
@@ -124,6 +121,19 @@ void TestT(HWND hWnd) {
 	DestroyWindow(hWnd);
 	SetWindowText(editPeel, selectedFilters.c_str());
 	
+	int j = 0;
+	for (int i = 0; i < 9; i++) {
+		checkInd[i] = NULL;
+	}
+	for (int i = 0; i < 9; i++) {
+		statsCheckPeel[i] = SendMessage(nameT[i], BM_GETCHECK, 0, 0);
+		if (statsCheckPeel[i] == BST_CHECKED) {
+
+			checkInd[j] = i;
+			j++;
+		}
+	}
+
 }
 
 std::wstring GetWindowText1(HWND hWnd) {
@@ -138,7 +148,7 @@ std::wstring GetSelectedFilters() {
 		if (SendMessage(nameT[i], BM_GETCHECK, 0, 0) == BST_CHECKED) {			
 			std::wstring filterValue = GetWindowText1(hEditFilters[i]);
 			if (!result.empty()) {
-				result += L", ";
+				result += L",";
 			}
 			result += filterValue;
 		}
