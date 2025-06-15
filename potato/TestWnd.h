@@ -11,13 +11,13 @@ WNDCLASS NewTestWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HIC
 
 	return NWCT;
 }
-HWND hTestWnd;
-void WndTest(HWND hWnd)
+
+void WndTest(HWND hWnd, LPCWSTR nameW)
 {
 	if (testWnd == FALSE) {
 		hTestWnd = CreateWindow(
 			L"TestWndClass",
-			L"Окраска кожуры",
+			nameW,
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 			460, 240, 230, 365,
 			hWnd, NULL, hInstance, NULL
@@ -31,7 +31,12 @@ LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 	switch (msg)
 	{
 	case WM_CREATE:
-		Test(hWnd, name);
+		if (statsCheckBoxForm == BST_CHECKED) {
+			Test(hWnd, nameF);
+		}
+		if (statsCheckBoxPeel == BST_CHECKED) {
+			Test(hWnd, nameP);
+		}
 		break;
 	case WM_COMMAND:
 		switch (wp) {
@@ -77,9 +82,9 @@ void TestT(HWND hWnd) {
 	SetWindowText(editPeel, selectedFilters.c_str());
 }
 
-void Test(HWND hWnd, LPCWSTR *name)
+void Test(HWND hWnd, LPCWSTR *nameC)
 {
-	al = sizeof(name) + 1;
+	al = sizeof(nameC) + 1;
 
 	int posT = 15;	
 	
@@ -87,7 +92,7 @@ void Test(HWND hWnd, LPCWSTR *name)
 	for (int i = 0; i < al; i++) {
 		nameT[i] = CreateWindow(
 			L"button",
-			name[i],
+			nameC[i],
 			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
 			15, posT, 200, 20,
 			hWnd,
@@ -98,7 +103,7 @@ void Test(HWND hWnd, LPCWSTR *name)
 
 		hEditFilters[i] = CreateWindow(
 			L"EDIT",
-			name[i],
+			nameC[i],
 			WS_CHILD | ES_LEFT,
 			170, posT, 200, 20,
 			hWnd,

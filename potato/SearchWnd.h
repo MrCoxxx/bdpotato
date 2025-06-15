@@ -59,11 +59,27 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 			break;
 		case CheckBoxForm:
 			statsCheckBoxForm = SendMessage(checkBoxForm, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
+			if (statsCheckBoxForm == BST_CHECKED) {
+				WndTest(hWnd, nameW[0]);
+				//SetWindowText(editForm, L"Округлый");
+			}
+			else if (statsCheckBoxForm == BST_UNCHECKED) {
+				//SetWindowText(editForm, L"");
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
 			break;
 		case CheckBoxPeel:
 			statsCheckBoxPeel = SendMessage(checkBoxPeel, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
+			if (statsCheckBoxPeel == BST_CHECKED) {
+				WndTest(hWnd, nameW[1]);
+			}
+			else if (statsCheckBoxPeel == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
 			break;
 		/*case CheckBoxPeel1:
 			statsCheckBoxPeel1 = SendMessage(editPeel, BM_GETCHECK, 0, 0);

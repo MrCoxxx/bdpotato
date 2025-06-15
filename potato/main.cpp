@@ -28,10 +28,11 @@ using namespace Gdiplus;
 #include "GlobalVariable.h"
 #include "Image.h"
 #include "MainWnd.h"
+#include "TestWnd.h"
 #include "SearchWnd.h"
 #include "AddWnd.h"
 #include "EditWnd.h"
-#include "TestWnd.h"
+
 #include "Menu.h"
 #include "DataBaseInit.h"
 #include "TableInterface.h"
