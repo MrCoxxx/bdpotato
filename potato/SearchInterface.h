@@ -443,6 +443,7 @@ void SearchCheckbox(HWND hWnd)
 	}
 	else if (statsCheckBoxPeel == BST_UNCHECKED) {
 		DestroyWindow(hTestWnd);
+		testWnd = FALSE;
 	}
 	//if (statsCheckBoxPeel1 == BST_CHECKED) {
 	//	SetWindowText(editPeel2, L"Жёлтая");

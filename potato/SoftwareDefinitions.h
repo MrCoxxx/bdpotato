@@ -99,7 +99,7 @@ void EditCulinarySample();
 LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
 WNDCLASS NewTestWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
 void WndTest(HWND hWnd);
-void Test(HWND hWnd);
+void Test(HWND hWnd, LPCWSTR* name);
 
 //Table UI
 void TableWndAdd(HWND hWnd, LPARAM lp);

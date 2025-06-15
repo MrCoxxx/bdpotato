@@ -161,3 +161,10 @@ static HWND testPeel6;
 static HWND testPeel7;
 static HWND testPeel8;
 static HWND testPeel9;
+
+int al;
+HWND hEditFilters[9];
+HWND nameT[9];
+//HWND* nameT = new HWND[al];
+//HWND* hEditFilters = new HWND[al];
+LPCWSTR name[] = { L"белая", L"Светло-жёлтая", L"жёлтая" , L"Жёлто-коричневая", L"Розовая", L"Красная", L"Красно-фиолетовая", L"Сине-фиолетовая", L"Тёмно-фиолетовая" };
