@@ -82,9 +82,14 @@ static LRESULT statsCheckBoxPeel2;
 static LRESULT statsCheckBoxPulp;
 static LRESULT statsCheckBoxEye;
 static LRESULT statsCheckBoxStolon;
+static LRESULT statsCheckBoxTuber;
 static LRESULT statsCheckBoxTaste;
 static LRESULT statsCheckBoxConsistency;
 static LRESULT statsCheckBoxDarkening;
+static LRESULT statsCheckBoxBoil;
+static LRESULT statsCheckBoxFriability;
+static LRESULT statsCheckBoxWater;
+static LRESULT statsCheckBoxBoiled;
 static LRESULT statsCheckBoxWeight;
 
 
@@ -194,8 +199,18 @@ LPCWSTR nameE[5] = { L"очень глубокие(2 и более мм)", L"глубокие(1,7–1,9 мм)", L
 
 LPCWSTR nameS[5] = { L"плоский", L"мелкий", L"средней глубины", L"глубокий", L"очень глубокий" };
 
+LPCWSTR nameTu[3] = { L"гладкая", L"слабосетчатая", L"сильносетчатая" };
+
 LPCWSTR nameTa[5] = { L"неприятный, горьковатый", L"пресный", L"удовлетворительный", L"хороший", L"отличный" };
 
 LPCWSTR nameC[5] = { L"волокнистая", L"плотная", L"умеренно плотная", L"мягкая", L"нежная" };
 
 LPCWSTR nameD[5] = { L"очень сильное", L"сильное", L"среднее", L"слабое", L"не темнеет" };
+
+LPCWSTR nameBo[5] = { L"не развариваются", L"развариваются", L"средне развариваются", L"сильно развариваются", L"очень сильно развариваются" };
+
+LPCWSTR nameFr[5] = { L"нерассыпчатая", L"слабо рассыпчатая", L"умеренно рассыпчатая", L"мелкозернистая", L"очень рассыпчатая с блеском, крупнозернистая" };
+
+LPCWSTR nameW[5] = { L"очень водянистые", L"водянистые", L"умеренно водянистые", L"слабо водянистые", L"не водянистые" };
+
+LPCWSTR nameBoi[5] = { L"очень неприятный, резкий", L"неприятный, с примесью постороннего запаха", L"удовлетворительный", L"приятный", L"очень приятный" };

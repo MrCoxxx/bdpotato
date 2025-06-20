@@ -119,6 +119,18 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 			}
 			//SearchCheckbox(hWnd);
 			break;
+		case CheckBoxTuber:
+			statsCheckBoxTuber = SendMessage(checkBoxTuber, BM_GETCHECK, 0, 0);
+			if (statsCheckBoxTuber == BST_CHECKED) {
+				WindowData tuberData = { nameTu, 5, L"Поверхность кожуры клубня", editTuber };
+				WndTest(hWnd, tuberData);
+			}
+			else if (statsCheckBoxTuber == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
+			break;
 		case CheckBoxTaste:
 			statsCheckBoxTaste = SendMessage(checkBoxTaste, BM_GETCHECK, 0, 0);
 			if (statsCheckBoxTaste == BST_CHECKED) {
@@ -150,6 +162,54 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 				WndTest(hWnd, darkeningData);
 			}
 			else if (statsCheckBoxDarkening == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
+			break;
+		case CheckBoxBoil:
+			statsCheckBoxBoil = SendMessage(checkBoxBoil, BM_GETCHECK, 0, 0);
+			if (statsCheckBoxBoil == BST_CHECKED) {
+				WindowData boilData = { nameBo, 5, L"Разваримость клубней", editBoil };
+				WndTest(hWnd, boilData);
+			}
+			else if (statsCheckBoxBoil == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
+			break;
+		case CheckBoxFriability:
+			statsCheckBoxFriability = SendMessage(checkBoxFriability, BM_GETCHECK, 0, 0);
+			if (statsCheckBoxFriability == BST_CHECKED) {
+				WindowData friabilityData = { nameFr, 5, L"Рассыпчатость", editFriability };
+				WndTest(hWnd, friabilityData);
+			}
+			else if (statsCheckBoxFriability == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
+			break;
+		case CheckBoxWater:
+			statsCheckBoxWater = SendMessage(checkBoxWater, BM_GETCHECK, 0, 0);
+			if (statsCheckBoxWater == BST_CHECKED) {
+				WindowData waterData = { nameW, 5, L"Водянистость клубней", editWater };
+				WndTest(hWnd, waterData);
+			}
+			else if (statsCheckBoxWater == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
+			break;
+		case CheckBoxBoiled:
+			statsCheckBoxBoiled = SendMessage(checkBoxBoiled, BM_GETCHECK, 0, 0);
+			if (statsCheckBoxBoiled == BST_CHECKED) {
+				WindowData boiledData = { nameBoi, 5, L"Запах варёного картофеля", editBoiled };
+				WndTest(hWnd, boiledData);
+			}
+			else if (statsCheckBoxBoiled == BST_UNCHECKED) {
 				DestroyWindow(hTestWnd);
 				testWnd = FALSE;
 			}
