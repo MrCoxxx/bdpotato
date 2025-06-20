@@ -85,27 +85,75 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 			break;
 		case CheckBoxPulp:
 			statsCheckBoxPulp = SendMessage(checkBoxPulp, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
+			if (statsCheckBoxPulp == BST_CHECKED) {
+				WindowData pulpData = { namePu, 9, L"Окраска мякоти", editPulp };
+				WndTest(hWnd, pulpData);
+			}
+			else if (statsCheckBoxPulp == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
 			break;
 		case CheckBoxEye:
 			statsCheckBoxEye = SendMessage(checkBoxEye, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
+			if (statsCheckBoxEye == BST_CHECKED) {
+				WindowData eyeData = { nameE, 5, L"Глубина глазков", editEye };
+				WndTest(hWnd, eyeData);
+			}
+			else if (statsCheckBoxEye == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
 			break;
 		case CheckBoxStolon:
 			statsCheckBoxStolon = SendMessage(checkBoxStolon, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
+			if (statsCheckBoxStolon == BST_CHECKED) {
+				WindowData stolonData = { nameS, 5, L"Глубина столонного следа", editStolon };
+				WndTest(hWnd, stolonData);
+			}
+			else if (statsCheckBoxStolon == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
 			break;
 		case CheckBoxTaste:
 			statsCheckBoxTaste = SendMessage(checkBoxTaste, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
+			if (statsCheckBoxTaste == BST_CHECKED) {
+				WindowData tasteData = { nameTa, 5, L"Вкус варёного картофеля", editTaste };
+				WndTest(hWnd, tasteData);
+			}
+			else if (statsCheckBoxTaste == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
 			break;
 		case CheckBoxConsistency:
 			statsCheckBoxConsistency = SendMessage(checkBoxConsistency, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
+			if (statsCheckBoxConsistency == BST_CHECKED) {
+				WindowData consistencyData = { nameC, 5, L"Консистенция мякоти", editConsistency };
+				WndTest(hWnd, consistencyData);
+			}
+			else if (statsCheckBoxConsistency == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
 			break;
 		case CheckBoxDarkening:
 			statsCheckBoxDarkening = SendMessage(checkBoxDarkening, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
+			if (statsCheckBoxDarkening == BST_CHECKED) {
+				WindowData darkeningData = { nameD, 5, L"Потемнение мякоти после варки", editDarkening };
+				WndTest(hWnd, darkeningData);
+			}
+			else if (statsCheckBoxDarkening == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
 			break;
 		case CheckBoxWeight:
 			statsCheckBoxWeight = SendMessage(checkBoxWeight, BM_GETCHECK, 0, 0);

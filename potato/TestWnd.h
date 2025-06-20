@@ -22,7 +22,7 @@ void WndTest(HWND hWnd, const WindowData& data)
 			L"TestWndClass",
 			data.title,
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-			460, 240, 230, data.itemCount * 40 + 25,
+			460, 240, 230, data.itemCount * 40 + 45,
 			hWnd, NULL, hInstance, pData  // Передаем данные как параметр создания
 		);
 		testWnd = TRUE;
