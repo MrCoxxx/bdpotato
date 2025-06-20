@@ -12,15 +12,18 @@ WNDCLASS NewTestWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HIC
 	return NWCT;
 }
 
-void WndTest(HWND hWnd, LPCWSTR nameW)
+void WndTest(HWND hWnd, const WindowData& data)
 {
 	if (testWnd == FALSE) {
+		// Создаем копию данных в куче (они должны существовать после выхода из функции)
+		WindowData* pData = new WindowData(data);
+
 		hTestWnd = CreateWindow(
 			L"TestWndClass",
-			nameW,
+			data.title,
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-			460, 240, 230, 365,
-			hWnd, NULL, hInstance, NULL
+			460, 240, 230, data.itemCount * 40 + 25,
+			hWnd, NULL, hInstance, pData  // Передаем данные как параметр создания
 		);
 		testWnd = TRUE;
 	}
@@ -28,26 +31,40 @@ void WndTest(HWND hWnd, LPCWSTR nameW)
 
 LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 {
+	WindowData* data = nullptr;
+
+	if (msg == WM_CREATE) {
+		// Получаем данные из параметров создания
+		CREATESTRUCT* pCreate = (CREATESTRUCT*)lp;
+		data = (WindowData*)pCreate->lpCreateParams;
+		// Сохраняем в GWLP_USERDATA для последующего использования
+		SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)data);
+	}
+	else {
+		// Для других сообщений получаем данные из GWLP_USERDATA
+		data = (WindowData*)GetWindowLongPtr(hWnd, GWLP_USERDATA);
+	}
+
 	switch (msg)
 	{
 	case WM_CREATE:
-		if (statsCheckBoxForm == BST_CHECKED) {
-			Test(hWnd, nameF);
-		}
-		if (statsCheckBoxPeel == BST_CHECKED) {
-			Test(hWnd, nameP);
+		if (data) {
+			Test(hWnd, data->items, data->itemCount);
 		}
 		break;
 	case WM_COMMAND:
 		switch (wp) {
 
 		case MAKEWPARAM(TestPeel, BN_CLICKED):			
-			TestT(hWnd);
+			TestT(hWnd, data->itemCount, data->editWnd);
+			testWnd = FALSE;
 		}
 		break;
 		
 	case WM_DESTROY:
 		DestroyWindow(hWnd);
+		// Освобождаем память, выделенную для данных
+		//delete data;
 		break;
 	default:
 		return DefWindowProc(hWnd, msg, wp, lp);
@@ -62,9 +79,9 @@ std::wstring GetWindowTextT(HWND hWnd) {
 	return std::wstring(buffer);
 }
 
-std::wstring GetSelectedFilters() {
+std::wstring GetSelectedFilters(int count) {
 	std::wstring result;
-	for (int i = 0; i < al; i++) {
+	for (int i = 0; i < count; i++) {
 		if (SendMessage(nameT[i], BM_GETCHECK, 0, 0) == BST_CHECKED) {			
 			std::wstring filterValue = GetWindowTextT(hEditFilters[i]);
 			if (!result.empty()) {
@@ -76,20 +93,17 @@ std::wstring GetSelectedFilters() {
 	return result;
 }
 
-void TestT(HWND hWnd) {
-	std::wstring selectedFilters = GetSelectedFilters();
+void TestT(HWND hWnd, int count, static HWND editWnd) {
+	std::wstring selectedFilters = GetSelectedFilters(count);
 	DestroyWindow(hWnd);
-	SetWindowText(editPeel, selectedFilters.c_str());
+	SetWindowText(editWnd, selectedFilters.c_str());
 }
 
-void Test(HWND hWnd, LPCWSTR *nameC)
+void Test(HWND hWnd, LPCWSTR* nameC, int count)
 {
-	al = sizeof(nameC) + 1;
+	int posT = 15;
 
-	int posT = 15;	
-	
-	//275
-	for (int i = 0; i < al; i++) {
+	for (int i = 0; i < count; i++) {
 		nameT[i] = CreateWindow(
 			L"button",
 			nameC[i],
@@ -113,7 +127,7 @@ void Test(HWND hWnd, LPCWSTR *nameC)
 		);
 		posT += 30;
 	}
-	
+
 	complite = new Widgets(
 		"button",
 		"Поиск",
@@ -124,5 +138,4 @@ void Test(HWND hWnd, LPCWSTR *nameC)
 		NULL,
 		NULL
 	);
-
 }

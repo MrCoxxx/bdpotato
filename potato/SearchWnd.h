@@ -1,3 +1,5 @@
+
+
 WNDCLASS NewSearchWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure)
 {
 	WNDCLASS NWCS = { 0 };
@@ -60,11 +62,10 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		case CheckBoxForm:
 			statsCheckBoxForm = SendMessage(checkBoxForm, BM_GETCHECK, 0, 0);
 			if (statsCheckBoxForm == BST_CHECKED) {
-				WndTest(hWnd, nameW[0]);
-				//SetWindowText(editForm, L"Округлый");
+				WindowData formData = { nameF, 7, L"Форма", editForm };
+				WndTest(hWnd, formData);
 			}
 			else if (statsCheckBoxForm == BST_UNCHECKED) {
-				//SetWindowText(editForm, L"");
 				DestroyWindow(hTestWnd);
 				testWnd = FALSE;
 			}
@@ -73,7 +74,8 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		case CheckBoxPeel:
 			statsCheckBoxPeel = SendMessage(checkBoxPeel, BM_GETCHECK, 0, 0);
 			if (statsCheckBoxPeel == BST_CHECKED) {
-				WndTest(hWnd, nameW[1]);
+				WindowData peelData = { nameP, 9, L"Окраска кожуры", editPeel };
+				WndTest(hWnd, peelData);
 			}
 			else if (statsCheckBoxPeel == BST_UNCHECKED) {
 				DestroyWindow(hTestWnd);
@@ -81,14 +83,6 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 			}
 			//SearchCheckbox(hWnd);
 			break;
-		/*case CheckBoxPeel1:
-			statsCheckBoxPeel1 = SendMessage(editPeel, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxPeel2:
-			statsCheckBoxPeel2 = SendMessage(editPeel1, BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;*/
 		case CheckBoxPulp:
 			statsCheckBoxPulp = SendMessage(checkBoxPulp, BM_GETCHECK, 0, 0);
 			SearchCheckbox(hWnd);

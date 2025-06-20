@@ -432,7 +432,7 @@ void SearchCheckbox(HWND hWnd)
 	}
 	//Form
 	if (statsCheckBoxForm == BST_CHECKED) {
-		WndTest(hWnd, nameW[0]);
+		//WndTest(hWnd, nameW[0]);
 		//SetWindowText(editForm, L"Округлый");
 	}
 	else if (statsCheckBoxForm == BST_UNCHECKED) {
@@ -442,7 +442,7 @@ void SearchCheckbox(HWND hWnd)
 	}
 	//Peel
 	if (statsCheckBoxPeel == BST_CHECKED) {
-		WndTest(hWnd, nameW[1]);
+		//WndTest(hWnd, nameW[1]);
 	}
 	else if (statsCheckBoxPeel == BST_UNCHECKED) {
 		DestroyWindow(hTestWnd);

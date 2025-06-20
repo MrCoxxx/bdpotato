@@ -164,7 +164,6 @@ static HWND testPeel9;
 
 HWND hTestWnd;
 
-int al;
 
 HWND hEditFilters[9];
 

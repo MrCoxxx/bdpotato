@@ -99,7 +99,13 @@ void EditCulinarySample();
 LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
 WNDCLASS NewTestWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
 void WndTest(HWND hWnd);
-void Test(HWND hWnd, LPCWSTR* name);
+void Test(HWND hWnd, LPCWSTR* nameC, int count);
+struct WindowData {
+	LPCWSTR* items;
+	int itemCount;
+	LPCWSTR title;
+	HWND editWnd;
+};
 
 //Table UI
 void TableWndAdd(HWND hWnd, LPARAM lp);
@@ -172,7 +178,7 @@ void CreatePaint(HWND hWnd);
 void Cleanup();
 
 
-void TestT(HWND hWnd);
+void TestT(HWND hWnd, int count, static HWND editWnd);
 std::wstring GetSelectedFilters();
 std::vector<std::string> split(const std::string& s, char delimiter);
 size_t countWords(const std::string& s, char delimiter);
