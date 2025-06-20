@@ -21,7 +21,7 @@ void WndSearch(HWND hWnd)
 			L"SearchWndClass",
 			L"Поиск",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-			460, 240, 680, 485,
+			460, 240, 680, 600,
 			hWnd, NULL, hInstance, NULL
 		);
 		secondWnd = TRUE;

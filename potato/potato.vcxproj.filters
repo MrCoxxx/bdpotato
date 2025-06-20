@@ -104,6 +104,9 @@
     <ClInclude Include="Image.h">
       <Filter>Файлы заголовков\Other</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="kart.db" />
@@ -113,5 +116,13 @@
     <Image Include="background_image.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+    <Image Include="background_image.ico">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="potato.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

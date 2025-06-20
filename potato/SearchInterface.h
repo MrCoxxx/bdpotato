@@ -5,6 +5,21 @@ void Search(HWND hWnd)
 	SearchEditzone(hWnd);
 }
 
+
+void SearchButton(HWND hWnd)
+{
+	complite = new Widgets(
+		"button",
+		"Поиск",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 500, 635, 30,
+		hWnd,
+		(HMENU)SearchClickButtonClose,
+		NULL,
+		NULL
+	);
+}
+
 void SearchCheckBox(HWND hWnd)
 {
 	checkBoxSample = CreateWindow(
@@ -116,6 +131,17 @@ void SearchCheckBox(HWND hWnd)
 		NULL,
 		NULL
 	);
+
+	checkBoxTuber = CreateWindow(
+		L"button",
+		L"Поверхность кожуры клубня",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		250, 330, 200, 30,
+		hWnd,
+		(HMENU)CheckBoxTuber,
+		NULL,
+		NULL
+	);
 	
 	checkBoxTaste = CreateWindow(
 		L"button",
@@ -149,6 +175,50 @@ void SearchCheckBox(HWND hWnd)
 		NULL,
 		NULL
 	);
+
+	checkBoxBoil = CreateWindow(
+		L"button",
+		L"Разваримость клубней",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		465, 210, 185, 30,
+		hWnd,
+		(HMENU)CheckBoxBoil,
+		NULL,
+		NULL
+	);
+
+	checkBoxFriability = CreateWindow(
+		L"button",
+		L"Рассыпчатость",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		465, 275, 185, 30,
+		hWnd,
+		(HMENU)CheckBoxFriability,
+		NULL,
+		NULL
+	);
+
+	checkBoxWater = CreateWindow(
+		L"button",
+		L"Водянистость клубней",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		465, 340, 185, 30,
+		hWnd,
+		(HMENU)CheckBoxWater,
+		NULL,
+		NULL
+	);
+
+	checkBoxBoiled = CreateWindow(
+		L"button",
+		L"Запах варёного картофеля",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		465, 405, 185, 30,
+		hWnd,
+		(HMENU)CheckBoxBoiled,
+		NULL,
+		NULL
+	);
 	
 	checkBoxWeight = CreateWindow(
 		L"button",
@@ -157,63 +227,6 @@ void SearchCheckBox(HWND hWnd)
 		15, 330, 165, 30,
 		hWnd,
 		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-
-	/*LPCWSTR name[4] = {L"Жёлтый", L"Красный", L"Голубой", L"Чёрный"};
-
-	editPeel = CreateWindow(
-		L"button",
-		name[0],
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		250, 110, 75, 20,
-		hWnd,
-		(HMENU)CheckBoxPeel1,
-		NULL,
-		NULL
-	);
-	editPeel1 = CreateWindow(
-		L"button",
-		name[1],
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		250, 130, 75, 20,
-		hWnd,
-		(HMENU)CheckBoxPeel2,
-		NULL,
-		NULL
-	);
-	editPeel2 = CreateWindow(
-		L"edit",
-		L"",
-		WS_CHILD | ES_CENTER,
-		250, 110, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxPeel,
-		NULL,
-		NULL
-	);
-	editPeel3 = CreateWindow(
-		L"edit",
-		L"",
-		WS_CHILD | ES_CENTER,
-		250, 110, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxPeel,
-		NULL,
-		NULL
-	);*/
-}
-
-void SearchButton(HWND hWnd)
-{
-	complite = new Widgets(
-		"button",
-		"Поиск",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 400, 635, 30,
-		hWnd,
-		(HMENU)SearchClickButtonClose,
 		NULL,
 		NULL
 	);
@@ -331,6 +344,16 @@ void SearchEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
+	editTuber = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		250, 360, 200, 20,
+		hWnd,
+		(HMENU)CheckBoxTuber,
+		NULL,
+		NULL
+	);
 	editTaste = CreateWindow(
 		L"edit",
 		L"",
@@ -358,6 +381,46 @@ void SearchEditzone(HWND hWnd)
 		465, 175, 185, 20,
 		hWnd,
 		(HMENU)CheckBoxDarkening,
+		NULL,
+		NULL
+	);
+	editBoil = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		465, 240, 185, 20,
+		hWnd,
+		(HMENU)CheckBoxBoil,
+		NULL,
+		NULL
+	);
+	editFriability = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		465, 305, 185, 20,
+		hWnd,
+		(HMENU)CheckBoxFriability,
+		NULL,
+		NULL
+	);
+	editWater = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		465, 370, 185, 20,
+		hWnd,
+		(HMENU)CheckBoxWater,
+		NULL,
+		NULL
+	);
+	editBoiled = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		465, 435, 185, 20,
+		hWnd,
+		(HMENU)CheckBoxBoiled,
 		NULL,
 		NULL
 	);

@@ -22,17 +22,22 @@
 #define CheckBoxPulp			20
 #define CheckBoxEye				21
 #define CheckBoxStolon			22
-#define CheckBoxTaste			23
-#define CheckBoxConsistency		24
-#define CheckBoxDarkening		25
-#define CheckBoxWeight			26
-#define AuthorizationButton		27
-#define AddClickButton			28
-#define EditClickButton			29
-#define MenuExport				30
-#define CheckBoxPeel1 31
-#define CheckBoxPeel2 32
-#define TestPeel 33
+#define CheckBoxTuber			23
+#define CheckBoxTaste			24
+#define CheckBoxConsistency		25
+#define CheckBoxDarkening		26
+#define CheckBoxBoil			27
+#define CheckBoxFriability		28
+#define CheckBoxWater			29
+#define CheckBoxBoiled			30
+#define CheckBoxWeight			31
+#define AuthorizationButton		32
+#define AddClickButton			33
+#define EditClickButton			34
+#define MenuExport				35
+#define CheckBoxPeel1			36
+#define CheckBoxPeel2			37
+#define TestPeel				38
 
 #define TextBufferSize			256
 

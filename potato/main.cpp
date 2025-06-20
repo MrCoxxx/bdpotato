@@ -22,6 +22,8 @@ using namespace Gdiplus;
 #pragma comment(lib, "gdiplus.lib")
 #pragma comment(lib, "shlwapi.lib")
 
+#include "resource.h"
+
 #include "SoftwareDefinitions.h"
 #include "CreateWidgets.h"
 
@@ -63,11 +65,11 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 
 	hInstance = hInst;
 
-	WNDCLASS SoftwareMainClass = NewMainWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"MainWndClass", SoftwareMainProcedure);
-	WNDCLASS SoftwareSearchClass = NewSearchWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"SearchWndClass", SoftwareSearchProcedure);
-	WNDCLASS SoftwareAddClass = NewAddWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"AddWndClass", SoftwareAddProcedure);
-	WNDCLASS SoftwareEditClass = NewEditWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"EditWndClass", SoftwareEditProcedure);
-	WNDCLASS SoftwareTestClass = NewTestWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(NULL, IDI_QUESTION), L"TestWndClass", SoftwareTestProcedure);
+	WNDCLASS SoftwareMainClass = NewMainWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON1)), L"MainWndClass", SoftwareMainProcedure);
+	WNDCLASS SoftwareSearchClass = NewSearchWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON1)), L"SearchWndClass", SoftwareSearchProcedure);
+	WNDCLASS SoftwareAddClass = NewAddWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON1)), L"AddWndClass", SoftwareAddProcedure);
+	WNDCLASS SoftwareEditClass = NewEditWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON1)), L"EditWndClass", SoftwareEditProcedure);
+	WNDCLASS SoftwareTestClass = NewTestWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON1)), L"TestWndClass", SoftwareTestProcedure);
 
 
 	if (!RegisterClassW(&SoftwareMainClass)) { return -1; }

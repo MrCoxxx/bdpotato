@@ -29,9 +29,14 @@ static HWND editPeel;
 static HWND editPulp;
 static HWND editEye;
 static HWND editStolon;
+static HWND editTuber;
 static HWND editTaste;
 static HWND editConsistency;
 static HWND editDarkening;
+static HWND editBoil;
+static HWND editFriability;
+static HWND editWater;
+static HWND editBoiled;
 static HWND editWeight;
 static HWND editWeight1;
 static HWND hButtonAuthorization;
@@ -54,9 +59,14 @@ static HWND checkBoxPeel;
 static HWND checkBoxPulp;
 static HWND checkBoxEye;
 static HWND checkBoxStolon;
+static HWND checkBoxTuber;
 static HWND checkBoxTaste;
 static HWND checkBoxConsistency;
 static HWND checkBoxDarkening;
+static HWND checkBoxBoil;
+static HWND checkBoxFriability;
+static HWND checkBoxWater;
+static HWND checkBoxBoiled;
 static HWND checkBoxWeight;
 
 //StatsCheckbox
@@ -76,6 +86,7 @@ static LRESULT statsCheckBoxTaste;
 static LRESULT statsCheckBoxConsistency;
 static LRESULT statsCheckBoxDarkening;
 static LRESULT statsCheckBoxWeight;
+
 
 //Widgets
 Widgets* textRequest;

@@ -217,6 +217,7 @@
     <ClInclude Include="PotatoData.h" />
     <ClInclude Include="RequestData.h" />
     <ClInclude Include="RequestInterface.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SearchInterface.h" />
     <ClInclude Include="SearchWnd.h" />
     <ClInclude Include="SoftwareDefinitions.h" />
@@ -229,7 +230,11 @@
     <None Include="kart.db" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="background_image.ico" />
     <Image Include="background_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="potato.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
