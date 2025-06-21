@@ -33,6 +33,15 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 				"разработали ѕавлов  ирилл ¬итальвич и \n"
 				"√олубцов √еоргий ¬алентинович дл€ ”ниверситета", "»нформаци€", MB_OK);
 			break;
+		case MenuHelp:
+			MessageBoxA(hWnd, "—редн€€ масса клубн€:\n"
+				"очень мелкий(до 10 г)\n"
+				"мелкий(10Ц40 г)\n"
+				"средний(41Ц90 г)\n"
+				"крупный(91Ц130 г)\n"
+				"очень крупный(более 130 г)\n"
+				, "—правочна€ информаци€", MB_OK);
+			break;
 		case  MenuExit:
 			PostQuitMessage(0);
 			break;

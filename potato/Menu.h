@@ -28,6 +28,8 @@ void MainWndAddMenus(HWND hWnd)
 	AppendMenu(RootMenu, MF_POPUP, (UINT_PTR)SubMenuTable, L"Таблицы");
 	AppendMenu(RootMenu, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(RootMenu, MF_POPUP, (UINT_PTR)SubMenuRequest, L"Запросы");
+	AppendMenu(RootMenu, MF_SEPARATOR, NULL, NULL);
+	AppendMenu(RootMenu, MF_POPUP, MenuHelp, L"Справка");
 
 	SetMenu(hWnd, RootMenu);
 }

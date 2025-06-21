@@ -38,6 +38,7 @@
 #define CheckBoxPeel1			36
 #define CheckBoxPeel2			37
 #define TestPeel				38
+#define MenuHelp				39
 
 #define TextBufferSize			256
 
