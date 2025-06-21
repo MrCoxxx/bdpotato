@@ -47,6 +47,13 @@ static HWND hStaticPassword;
 static HWND editIDPotatoC;
 static HWND editIDPotatoM;
 static HWND editID;
+static HWND editYield;
+static HWND editStarch;
+static HWND editDry;
+static HWND editContent;
+static HWND editRip;
+static HWND editAbility;
+static HWND editDuration;
 
 //CheckBox
 static HWND checkBoxSample;
@@ -67,6 +74,13 @@ static HWND checkBoxBoil;
 static HWND checkBoxFriability;
 static HWND checkBoxWater;
 static HWND checkBoxBoiled;
+static HWND checkBoxYield;
+static HWND checkBoxStarch;
+static HWND checkBoxDry;
+static HWND checkBoxContent;
+static HWND checkBoxRip;
+static HWND checkBoxAbility;
+static HWND checkBoxDuration;
 static HWND checkBoxWeight;
 
 //StatsCheckbox
