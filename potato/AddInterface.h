@@ -334,7 +334,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editWeight = CreateWindow(
+	editWeightN = CreateWindow(
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,

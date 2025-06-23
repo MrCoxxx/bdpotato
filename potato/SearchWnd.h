@@ -21,7 +21,7 @@ void WndSearch(HWND hWnd)
 			L"SearchWndClass",
 			L"Поиск",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-			460, 240, 900, 600,
+			460, 240, 960, 600,
 			hWnd, NULL, hInstance, NULL
 		);
 		secondWnd = TRUE;
@@ -217,6 +217,50 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 			break;
 		case CheckBoxWeight:
 			statsCheckBoxWeight = SendMessage(checkBoxWeight, BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxYield:
+			statsCheckBoxYield = SendMessage(checkBoxYield, BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxStarch:
+			statsCheckBoxStarch = SendMessage(checkBoxStarch, BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxDry:
+			statsCheckBoxDry = SendMessage(checkBoxDry, BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxContent:
+			statsCheckBoxContent = SendMessage(checkBoxBoiled, BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxRip:
+			statsCheckBoxRip = SendMessage(checkBoxRip, BM_GETCHECK, 0, 0);
+			if (statsCheckBoxRip == BST_CHECKED) {
+				WindowData ripData = { nameRip, 9, L"Группа спелости", editRip };
+				WndTest(hWnd, ripData);
+			}
+			else if (statsCheckBoxRip == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
+			break;
+		case CheckBoxAbility:
+			statsCheckBoxAbility = SendMessage(checkBoxAbility, BM_GETCHECK, 0, 0);
+			if (statsCheckBoxAbility == BST_CHECKED) {
+				WindowData abilityData = { nameAb, 5, L"Ягодообразование", editAbility };
+				WndTest(hWnd, abilityData);
+			}
+			else if (statsCheckBoxAbility == BST_UNCHECKED) {
+				DestroyWindow(hTestWnd);
+				testWnd = FALSE;
+			}
+			//SearchCheckbox(hWnd);
+			break;
+		case CheckBoxDuration:
+			statsCheckBoxDuration = SendMessage(checkBoxDuration, BM_GETCHECK, 0, 0);
 			SearchCheckbox(hWnd);
 			break;
 		case SearchClickButtonClose:

@@ -120,7 +120,7 @@ void AddPotatoSample()
     VIGRR = GetEditText(editVIGRR);
     Productivity = GetEditText(editProductivity);
     Field = GetEditText(editField);
-    Weight = GetEditText(editWeight);
+    Weight = GetEditText(editWeightN);
 
     utf8_Sample = utf16_to_utf8(Sample);
     utf8_Origin = utf16_to_utf8(Origin);
@@ -155,7 +155,7 @@ void EditPotatoSample()
     VIGRR = GetEditText(editVIGRR);
     Productivity = GetEditText(editProductivity);
     Field = GetEditText(editField);
-    Weight = GetEditText(editWeight);
+    Weight = GetEditText(editWeightN);
 
 
     utf8_Sample = utf16_to_utf8(Sample);

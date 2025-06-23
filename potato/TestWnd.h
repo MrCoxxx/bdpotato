@@ -98,7 +98,7 @@ std::wstring GetSelectedFilters(int count) {
 			if (!result.empty()) {
 				result += L" ";
 			}
-			result += filterValue;
+			result += filterValue.substr(4);
 		}
 	}
 	return result;

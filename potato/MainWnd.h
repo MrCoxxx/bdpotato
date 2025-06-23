@@ -35,11 +35,11 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			break;
 		case MenuHelp:
 			MessageBoxA(hWnd, "—редн€€ масса клубн€:\n"
-				"очень мелкий(до 10 г)\n"
-				"мелкий(10Ц40 г)\n"
-				"средний(41Ц90 г)\n"
-				"крупный(91Ц130 г)\n"
-				"очень крупный(более 130 г)\n"
+				"1 Ч очень мелкий(до 10 г)\n"
+				"3 Ч мелкий(10Ц40 г)\n"
+				"5 Ч средний(41Ц90 г)\n"
+				"7 Ч крупный(91Ц130 г)\n"
+				"9 Ч очень крупный(более 130 г)\n"
 				, "—правочна€ информаци€", MB_OK);
 			break;
 		case  MenuExit:

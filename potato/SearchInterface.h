@@ -12,7 +12,7 @@ void SearchButton(HWND hWnd)
 		"button",
 		"Поиск",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 500, 850, 30,
+		15, 500, 910, 30,
 		hWnd,
 		(HMENU)SearchClickButtonClose,
 		NULL,
@@ -25,8 +25,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxSample = CreateWindow(
 		L"button",
 		L"Образец",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		15, 15, 80, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		15, 15, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxSample,
 		NULL,
@@ -36,8 +36,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxOrigin = CreateWindow(
 		L"button",
 		L"Происхождение",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		15, 80, 130, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		15, 80, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxOrigin,
 		NULL,
@@ -47,8 +47,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxVIGRR = CreateWindow(
 		L"button",
 		L"№ по каталогу ВИГРР",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		15, 145, 170, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		15, 145, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxVIGRR,
 		NULL,
@@ -58,8 +58,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxProductivity = CreateWindow(
 		L"button",
 		L"Урожайность, кг/м2",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		15, 200, 110, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		15, 200, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxProductivity,
 		NULL,
@@ -68,8 +68,8 @@ void SearchCheckBox(HWND hWnd)
 	
 	checkBoxField = CreateWindow(
 		L"button",
-		L"Масса товарного клубня, г",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
+		L"Полевая устойчивость к фитофторозу, балл",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
 		15, 265, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxField,
@@ -79,9 +79,9 @@ void SearchCheckBox(HWND hWnd)
 
 	checkBoxWeight = CreateWindow(
 		L"button",
-		L"Полевая устойчивость к фитофторозу, балл",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		15, 330, 165, 30,
+		L"Масса товарного клубня, г",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		15, 330, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxWeight,
 		NULL,
@@ -91,8 +91,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxForm = CreateWindow(
 		L"button",
 		L"Форма клубня",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		250, 15, 70, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		250, 15, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxForm,
 		NULL,
@@ -102,8 +102,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxPeel = CreateWindow(
 		L"button",
 		L"Окраска кожуры",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		250, 80, 130, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		250, 80, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxPeel,
 		NULL,
@@ -113,8 +113,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxPulp = CreateWindow(
 		L"button",
 		L"Окраска мякоти",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		250, 145, 125, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		250, 145, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxPulp,
 		NULL,
@@ -124,8 +124,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxEye = CreateWindow(
 		L"button",
 		L"Глубина глазков",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		250, 200, 135, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		250, 200, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxEye,
 		NULL,
@@ -135,8 +135,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxStolon = CreateWindow(
 		L"button",
 		L"Глубина столонного следа",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		250, 265, 200, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		250, 265, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxStolon,
 		NULL,
@@ -146,8 +146,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxTuber = CreateWindow(
 		L"button",
 		L"Поверхность кожуры клубня",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		250, 330, 200, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		250, 330, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxTuber,
 		NULL,
@@ -157,8 +157,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxTaste = CreateWindow(
 		L"button",
 		L"Вкус варёного картофеля",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		465, 15, 55, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		465, 15, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxTaste,
 		NULL,
@@ -168,8 +168,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxConsistency = CreateWindow(
 		L"button",
 		L"Консистенция мякоти",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		465, 80, 110, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		465, 80, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxConsistency,
 		NULL,
@@ -179,8 +179,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxDarkening = CreateWindow(
 		L"button",
 		L"Потемнение мякоти после варки",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		465, 145, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		465, 145, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxDarkening,
 		NULL,
@@ -190,8 +190,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxBoil = CreateWindow(
 		L"button",
 		L"Разваримость клубней",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		465, 210, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		465, 210, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxBoil,
 		NULL,
@@ -201,8 +201,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxFriability = CreateWindow(
 		L"button",
 		L"Рассыпчатость",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		465, 275, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		465, 275, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxFriability,
 		NULL,
@@ -212,8 +212,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxWater = CreateWindow(
 		L"button",
 		L"Водянистость клубней",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		465, 340, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		465, 340, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxWater,
 		NULL,
@@ -223,8 +223,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxBoiled = CreateWindow(
 		L"button",
 		L"Запах варёного картофеля",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		465, 405, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		465, 405, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxBoiled,
 		NULL,
@@ -234,8 +234,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxYield = CreateWindow(
 		L"button",
 		L"Урожайность, %",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		680, 15, 55, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		680, 15, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxYield,
 		NULL,
@@ -245,8 +245,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxStarch = CreateWindow(
 		L"button",
 		L"Содержание крахмала, %",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		680, 80, 110, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		680, 80, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxStarch,
 		NULL,
@@ -256,8 +256,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxDry = CreateWindow(
 		L"button",
 		L"Содержание сухого вещества, %",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		680, 145, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		680, 145, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxDry,
 		NULL,
@@ -267,8 +267,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxContent = CreateWindow(
 		L"button",
 		L"Содержание редуцирующих сахараов. %",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		680, 210, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		680, 210, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxContent,
 		NULL,
@@ -278,8 +278,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxRip = CreateWindow(
 		L"button",
 		L"Группа спелости",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		680, 275, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		680, 275, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxRip,
 		NULL,
@@ -289,8 +289,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxAbility = CreateWindow(
 		L"button",
 		L"Способность к ягодообразованию от самоопыления (балл)",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		680, 340, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		680, 340, 250, 30,
 		hWnd,
 		(HMENU)CheckBoxAbility,
 		NULL,
@@ -300,8 +300,8 @@ void SearchCheckBox(HWND hWnd)
 	checkBoxDuration = CreateWindow(
 		L"button",
 		L"Продолжительность цветения, дни",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
-		680, 405, 185, 30,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+		680, 405, 220, 30,
 		hWnd,
 		(HMENU)CheckBoxDuration,
 		NULL,
@@ -362,20 +362,20 @@ void SearchEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editWeight = CreateWindow(
+	editWeightN = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
 		15, 370, 50, 20,
 		hWnd,
 		(HMENU)CheckBoxWeight,
 		NULL,
 		NULL
 	);
-	editWeight1 = CreateWindow(
+	editWeightK = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
 		85, 370, 50, 20,
 		hWnd,
 		(HMENU)CheckBoxWeight,
@@ -532,43 +532,123 @@ void SearchEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editYield = CreateWindow(
+	editYieldN = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 45, 185, 20,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		680, 45, 50, 20,
 		hWnd,
-		(HMENU)CheckBoxTaste,
+		(HMENU)CheckBoxYield,
 		NULL,
 		NULL
 	);
-	editStarch = CreateWindow(
+	editYieldK = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 110, 185, 20,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		750, 45, 50, 20,
 		hWnd,
-		(HMENU)CheckBoxConsistency,
+		(HMENU)CheckBoxYield,
 		NULL,
 		NULL
 	);
-	editDry = CreateWindow(
-		L"edit",
-		L"",
+	hStaticTextTable2 = CreateWindowA(
+		"static",
+		"-",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 175, 185, 20,
+		735, 45, 10, 20,
 		hWnd,
-		(HMENU)CheckBoxDarkening,
+		NULL,
 		NULL,
 		NULL
 	);
-	editContent = CreateWindow(
+	editStarchN = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 240, 185, 20,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		680, 110, 50, 20,
 		hWnd,
-		(HMENU)CheckBoxBoil,
+		(HMENU)CheckBoxStarch,
+		NULL,
+		NULL
+	);
+	editStarchK = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		750, 110, 50, 20,
+		hWnd,
+		(HMENU)CheckBoxStarch,
+		NULL,
+		NULL
+	);
+	hStaticTextTable3 = CreateWindowA(
+		"static",
+		"-",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		735, 110, 10, 20,
+		hWnd,
+		NULL,
+		NULL,
+		NULL
+	);
+	editDryN = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		680, 175, 50, 20,
+		hWnd,
+		(HMENU)CheckBoxDry,
+		NULL,
+		NULL
+	);
+	editDryK = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		750, 175, 50, 20,
+		hWnd,
+		(HMENU)CheckBoxDry,
+		NULL,
+		NULL
+	);
+	hStaticTextTable4 = CreateWindowA(
+		"static",
+		"-",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		735, 175, 10, 20,
+		hWnd,
+		NULL,
+		NULL,
+		NULL
+	);
+	editContentN = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		680, 240, 50, 20,
+		hWnd,
+		(HMENU)CheckBoxContent,
+		NULL,
+		NULL
+	);
+	editContentK = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		750, 240, 50, 20,
+		hWnd,
+		(HMENU)CheckBoxContent,
+		NULL,
+		NULL
+	);
+	hStaticTextTable5 = CreateWindowA(
+		"static",
+		"-",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		735, 240, 10, 20,
+		hWnd,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -578,7 +658,7 @@ void SearchEditzone(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		680, 305, 185, 20,
 		hWnd,
-		(HMENU)CheckBoxFriability,
+		(HMENU)CheckBoxRip,
 		NULL,
 		NULL
 	);
@@ -588,21 +668,42 @@ void SearchEditzone(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		680, 370, 185, 20,
 		hWnd,
-		(HMENU)CheckBoxWater,
+		(HMENU)CheckBoxAbility,
 		NULL,
 		NULL
 	);
-	editDuration = CreateWindow(
+	editDurationN = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 435, 185, 20,
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		680, 435, 50, 20,
 		hWnd,
-		(HMENU)CheckBoxBoiled,
+		(HMENU)CheckBoxDuration,
+		NULL,
+		NULL
+	);
+	editDurationK = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
+		750, 435, 50, 20,
+		hWnd,
+		(HMENU)CheckBoxDuration,
+		NULL,
+		NULL
+	);
+	hStaticTextTable6 = CreateWindowA(
+		"static",
+		"-",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		735, 435, 10, 20,
+		hWnd,
+		NULL,
 		NULL,
 		NULL
 	);
 }
+
 
 void SearchCheckbox(HWND hWnd)
 {
@@ -643,15 +744,15 @@ void SearchCheckbox(HWND hWnd)
 	}
 	//Weight
 	if (statsCheckBoxWeight == BST_CHECKED) {
-		SetWindowText(editWeight, L"132");
+		SetWindowText(editWeightN, L"132");
 	}
 	else if (statsCheckBoxWeight == BST_UNCHECKED) {
-		SetWindowText(editWeight, L"");
+		SetWindowText(editWeightN, L"");
 	}
 	if (statsCheckBoxWeight == BST_CHECKED) {
-		SetWindowText(editWeight1, L"150");
+		SetWindowText(editWeightK, L"150");
 	}
 	else if (statsCheckBoxWeight == BST_UNCHECKED) {
-		SetWindowText(editWeight1, L"");
+		SetWindowText(editWeightK, L"");
 	}
 }

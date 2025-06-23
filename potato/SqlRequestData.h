@@ -78,8 +78,8 @@ QueryData BuildQuery()
     testCheckedParam(statsCheckBoxTaste == BST_CHECKED, editTaste, "cq.taste = ?");
     testCheckedParam(statsCheckBoxConsistency == BST_CHECKED, editConsistency, "cq.pulp_consistency = ?");
     testCheckedParam(statsCheckBoxDarkening == BST_CHECKED, editDarkening, "cq.darkening_after_cooking = ?");
-    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight, " AND p.weight_of_commercial_tuber >= ?");
-    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight1, " AND p.weight_of_commercial_tuber <= ?");
+    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeightN, " AND p.weight_of_commercial_tuber >= ?");
+    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeightK, " AND p.weight_of_commercial_tuber <= ?");
     testCheckedParam(statsCheckBoxPeel == BST_CHECKED, editPeel, "mf.peel_coloring = ?");
 
     return result;

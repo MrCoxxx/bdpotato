@@ -187,10 +187,10 @@ void DestroyCheckBox(HWND hWnd)
 		editDarkening = NULL;
 		statsCheckBoxDarkening = NULL;
 	}
-	if (editWeight)
+	if (editWeightN)
 	{
-		DestroyWindow(editWeight);
-		editWeight = NULL;
+		DestroyWindow(editWeightN);
+		editWeightN = NULL;
 		statsCheckBoxWeight = NULL;
 	}
 

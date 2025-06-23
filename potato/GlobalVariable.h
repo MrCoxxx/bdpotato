@@ -12,6 +12,11 @@ static HWND hListView;
 static HWND hComboBoxTable;
 static HWND hStaticTextTable;
 static HWND hStaticTextTable1;
+static HWND hStaticTextTable2;
+static HWND hStaticTextTable3;
+static HWND hStaticTextTable4;
+static HWND hStaticTextTable5;
+static HWND hStaticTextTable6;
 static HWND hButtonOpenTable;
 static HWND hButtonCloseTable;
 static HWND hComboBoxRequest;
@@ -37,8 +42,8 @@ static HWND editBoil;
 static HWND editFriability;
 static HWND editWater;
 static HWND editBoiled;
-static HWND editWeight;
-static HWND editWeight1;
+static HWND editWeightN;
+static HWND editWeightK;
 static HWND hButtonAuthorization;
 static HWND editLogin;
 static HWND editPassword;
@@ -47,13 +52,18 @@ static HWND hStaticPassword;
 static HWND editIDPotatoC;
 static HWND editIDPotatoM;
 static HWND editID;
-static HWND editYield;
-static HWND editStarch;
-static HWND editDry;
-static HWND editContent;
+static HWND editYieldN;
+static HWND editYieldK;
+static HWND editStarchN;
+static HWND editStarchK;
+static HWND editDryN;
+static HWND editDryK;
+static HWND editContentN;
+static HWND editContentK;
 static HWND editRip;
 static HWND editAbility;
-static HWND editDuration;
+static HWND editDurationN;
+static HWND editDurationK;
 
 //CheckBox
 static HWND checkBoxSample;
@@ -105,6 +115,13 @@ static LRESULT statsCheckBoxFriability;
 static LRESULT statsCheckBoxWater;
 static LRESULT statsCheckBoxBoiled;
 static LRESULT statsCheckBoxWeight;
+static LRESULT statsCheckBoxYield;
+static LRESULT statsCheckBoxStarch;
+static LRESULT statsCheckBoxDry;
+static LRESULT statsCheckBoxContent;
+static LRESULT statsCheckBoxRip;
+static LRESULT statsCheckBoxAbility;
+static LRESULT statsCheckBoxDuration;
 
 
 //Widgets
@@ -204,28 +221,32 @@ HWND nameT[9];
 //HWND* hEditFilters = new HWND[al];
 //LPCWSTR nameW[8] = { L"Форма", L"Окраска кожуры", L"Окраска мякоти", L"Глубина глазков", L"Глубина столонного следа", L"Вкус", L"Консистенция", L"Потемнение после варки" };
 
-LPCWSTR nameF[7] = { L"Очень длинная", L"Длинная", L"Длинноовальная" , L"Овальная", L"Округло-овальная", L"Округлая", L"Короткая"};
+LPCWSTR nameF[7] = { L"1 - Очень длинная", L"2 - Длинная", L"3 - Длинноовальная" , L"4 - Овальная", L"5 - Округло-овальная", L"6 - Округлая", L"7 - Короткая"};
 
-LPCWSTR nameP[9] = { L"Белая", L"Светло-жёлтая", L"Жёлтая" , L"Жёлто-коричневая", L"Розовая", L"Красная", L"Красно-фиолетовая", L"Сине-фиолетовая", L"Тёмно-фиолетовая" };
+LPCWSTR nameP[9] = { L"1 - Белая", L"2 - Светло-жёлтая", L"3 - Жёлтая" , L"5 - Жёлто-коричневая", L"6 - Розовая", L"7 - Красная", L"8 - Красно-фиолетовая", L"9 - Сине-фиолетовая", L"10 - Тёмно-фиолетовая" };
 
-LPCWSTR namePu[9] = { L"Белая", L"Кремовая", L"Светло - жёлтая", L"Жёлтая", L"Тёмно - жёлтая", L"Антоциановая не сплошная слабая", L"Антоциановая не сплошная насыщенная", L"Антоциановая сплошная ненасыщенная", L"Антоциановая сплошная насыщенная" };
+LPCWSTR namePu[9] = { L"1 - Белая", L"2 - Кремовая", L"3 - Светло - жёлтая", L"4 - Жёлтая", L"5 - Тёмно - жёлтая", L"6 - Антоциановая не сплошная слабая", L"7 - Антоциановая не сплошная насыщенная", L"8 - Антоциановая сплошная ненасыщенная", L"9 - Антоциановая сплошная насыщенная" };
 
 LPCWSTR nameE[5] = { L"Очень глубокие(2 и более мм)", L"глубокие(1,7–1,9 мм)", L"средние(1,4–1,6 мм)", L"мелкие(1,1–1,3 мм)", L"очень мелкие(менее 1 мм)" };
 
-LPCWSTR nameS[5] = { L"Плоский", L"Мелкий", L"Средней глубины", L"Глубокий", L"Очень глубокий" };
+LPCWSTR nameS[5] = { L"1 - Плоский", L"3 - Мелкий", L"5 - Средней глубины", L"7 - Глубокий", L"8 - Очень глубокий" };
 
-LPCWSTR nameTu[3] = { L"Гладкая", L"Слабосетчатая", L"Сильносетчатая" };
+LPCWSTR nameTu[3] = { L"3 - Гладкая", L"5 - Слабосетчатая", L"7 - Сильносетчатая" };
 
-LPCWSTR nameTa[5] = { L"Неприятный, горьковатый", L"Пресный", L"Удовлетворительный", L"Хороший", L"Отличный" };
+LPCWSTR nameTa[5] = { L"1 - Неприятный, горьковатый", L"3 - Пресный", L"5 - Удовлетворительный", L"7 - Хороший", L"9 - Отличный" };
 
-LPCWSTR nameC[5] = { L"Волокнистая", L"Плотная", L"Умеренно плотная", L"Мягкая", L"Нежная" };
+LPCWSTR nameC[5] = { L"1 - Волокнистая", L"3 - Плотная", L"5 - Умеренно плотная", L"7 - ягкая", L"9 - Нежная" };
 
-LPCWSTR nameD[5] = { L"Очень сильное", L"Сильное", L"Среднее", L"Слабое", L"Не темнеет" };
+LPCWSTR nameD[5] = { L"1 - Очень сильное", L"3 - Сильное", L"5 - Среднее", L"7 - Слабое", L"9 - Не темнеет" };
 
-LPCWSTR nameBo[5] = { L"Не развариваются", L"Развариваются", L"Средне развариваются", L"Сильно развариваются", L"Очень сильно развариваются" };
+LPCWSTR nameBo[5] = { L"1 - Не развариваются", L"3 - Развариваются", L"5 - Средне развариваются", L"7 - Сильно развариваются", L"9 - Очень сильно развариваются" };
 
-LPCWSTR nameFr[5] = { L"Нерассыпчатая", L"Слабо рассыпчатая", L"Умеренно рассыпчатая", L"Мелкозернистая", L"Очень рассыпчатая с блеском, крупнозернистая" };
+LPCWSTR nameFr[5] = { L"1 - Нерассыпчатая", L"3 - Слабо рассыпчатая", L"5 - Умеренно рассыпчатая", L"7 - Мелкозернистая", L"9 - Очень рассыпчатая с блеском, крупнозернистая" };
 
-LPCWSTR nameW[5] = { L"Очень водянистые", L"Водянистые", L"Умеренно водянистые", L"Слабо водянистые", L"Не водянистые" };
+LPCWSTR nameW[5] = { L"1 - Очень водянистые", L"3 - Водянистые", L"5 - Умеренно водянистые", L"7 - Слабо водянистые", L"9 - Не водянистые" };
 
-LPCWSTR nameBoi[5] = { L"Очень неприятный, резкий", L"Неприятный, с примесью постороннего запаха", L"Удовлетворительный", L"Приятный", L"Очень приятный" };
+LPCWSTR nameBoi[5] = { L"1 - Очень неприятный, резкий", L"3 - Неприятный, с примесью постороннего запаха", L"5 - Удовлетворительный", L"7 - Приятный", L"9 - Очень приятный" };
+
+LPCWSTR nameRip[9] = { L"01 — очень ранний", L"02 — от очень раннего до раннего", L"03 — ранний", L"04 — среднеранний", L"05 — среднеспелый", L"06 — среднепоздние", L"07 — поздние", L"09 — очень поздние" };
+
+LPCWSTR nameAb[5] = { L"1 — ягоды отсутствуют", L"3 — единичное ягодообразование", L"5 — мало", L"7 — много", L"9 — очень много" };
