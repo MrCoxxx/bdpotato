@@ -39,6 +39,13 @@
 #define CheckBoxPeel2			37
 #define TestPeel				38
 #define MenuHelp				39
+#define CheckBoxYield			40
+#define CheckBoxStarch			41
+#define CheckBoxDry				42
+#define CheckBoxContent			43
+#define CheckBoxRip				44
+#define CheckBoxAbility			45
+#define CheckBoxDuration		46
 
 #define TextBufferSize			256
 
@@ -104,6 +111,7 @@ void EditCulinarySample();
 //Test
 LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
 WNDCLASS NewTestWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
+void AdjustControlsLayout(HWND hWnd, int count, int windowWidth, int windowHeight);
 void WndTest(HWND hWnd);
 void Test(HWND hWnd, LPCWSTR* nameC, int count);
 struct WindowData {

@@ -42,10 +42,10 @@ QueryData BuildQuery()
         if (checked) {
 
             GetWindowTextA(editControl, Buffer3, TextBufferSize);
-            std::vector<std::string> words = split(Buffer3, ',');
+            std::vector<std::string> words = split(Buffer3, ' ');
             int i = 0;
 
-            size_t wordCount = countWords(Buffer3, ',');
+            size_t wordCount = countWords(Buffer3, ' ');
             for (const auto& word : words) {
                 SetWindowTextA(testPeel1, word.c_str());
 
@@ -66,7 +66,7 @@ QueryData BuildQuery()
     };
 
     // ƒобавл€ем услови€ дл€ каждого параметра
-    getCheckedParam(statsCheckBoxSample == BST_CHECKED, editSample, " AND p.sample = ?");
+    testCheckedParam(statsCheckBoxSample == BST_CHECKED, editSample, "p.sample = ?");
     getCheckedParam(statsCheckBoxOrigin == BST_CHECKED, editOrigin, " AND p.origin = ?");
     getCheckedParam(statsCheckBoxVIGRR == BST_CHECKED, editVIGRR, " AND p.VIGRR_catalogue_number = ?");
     getCheckedParam(statsCheckBoxProductivity == BST_CHECKED, editProductivity, " AND p.productivity = ?");
@@ -78,8 +78,8 @@ QueryData BuildQuery()
     testCheckedParam(statsCheckBoxTaste == BST_CHECKED, editTaste, "cq.taste = ?");
     testCheckedParam(statsCheckBoxConsistency == BST_CHECKED, editConsistency, "cq.pulp_consistency = ?");
     testCheckedParam(statsCheckBoxDarkening == BST_CHECKED, editDarkening, "cq.darkening_after_cooking = ?");
-    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight, " AND p.weight_of_commercial_tuber > ?");
-    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight1, " AND p.weight_of_commercial_tuber < ?");
+    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight, " AND p.weight_of_commercial_tuber >= ?");
+    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeight1, " AND p.weight_of_commercial_tuber <= ?");
     testCheckedParam(statsCheckBoxPeel == BST_CHECKED, editPeel, "mf.peel_coloring = ?");
 
     return result;

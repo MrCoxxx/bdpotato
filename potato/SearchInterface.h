@@ -237,7 +237,7 @@ void SearchCheckBox(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
 		680, 15, 55, 30,
 		hWnd,
-		(HMENU)CheckBoxTaste,
+		(HMENU)CheckBoxYield,
 		NULL,
 		NULL
 	);
@@ -248,7 +248,7 @@ void SearchCheckBox(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
 		680, 80, 110, 30,
 		hWnd,
-		(HMENU)CheckBoxConsistency,
+		(HMENU)CheckBoxStarch,
 		NULL,
 		NULL
 	);
@@ -259,7 +259,7 @@ void SearchCheckBox(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
 		680, 145, 185, 30,
 		hWnd,
-		(HMENU)CheckBoxDarkening,
+		(HMENU)CheckBoxDry,
 		NULL,
 		NULL
 	);
@@ -270,7 +270,7 @@ void SearchCheckBox(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
 		680, 210, 185, 30,
 		hWnd,
-		(HMENU)CheckBoxBoil,
+		(HMENU)CheckBoxContent,
 		NULL,
 		NULL
 	);
@@ -281,7 +281,7 @@ void SearchCheckBox(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
 		680, 275, 185, 30,
 		hWnd,
-		(HMENU)CheckBoxFriability,
+		(HMENU)CheckBoxRip,
 		NULL,
 		NULL
 	);
@@ -292,7 +292,7 @@ void SearchCheckBox(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
 		680, 340, 185, 30,
 		hWnd,
-		(HMENU)CheckBoxWater,
+		(HMENU)CheckBoxAbility,
 		NULL,
 		NULL
 	);
@@ -303,7 +303,7 @@ void SearchCheckBox(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX,
 		680, 405, 185, 30,
 		hWnd,
-		(HMENU)CheckBoxBoiled,
+		(HMENU)CheckBoxDuration,
 		NULL,
 		NULL
 	);

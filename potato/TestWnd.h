@@ -60,7 +60,18 @@ LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			testWnd = FALSE;
 		}
 		break;
-		
+	case WM_SIZE:
+		if (data) {
+			// Получаем новые размеры клиентской области
+			RECT rcClient;
+			GetClientRect(hWnd, &rcClient);
+			int width = rcClient.right - rcClient.left;
+			int height = rcClient.bottom - rcClient.top;
+
+			// Вызываем функцию для изменения положения элементов
+			AdjustControlsLayout(hWnd, data->itemCount, width, height);
+		}
+		break;
 	case WM_DESTROY:
 		DestroyWindow(hWnd);
 		// Освобождаем память, выделенную для данных
@@ -85,7 +96,7 @@ std::wstring GetSelectedFilters(int count) {
 		if (SendMessage(nameT[i], BM_GETCHECK, 0, 0) == BST_CHECKED) {			
 			std::wstring filterValue = GetWindowTextT(hEditFilters[i]);
 			if (!result.empty()) {
-				result += L",";
+				result += L" ";
 			}
 			result += filterValue;
 		}
@@ -128,9 +139,9 @@ void Test(HWND hWnd, LPCWSTR* nameC, int count)
 		posT += 30;
 	}
 
-	complite = new Widgets(
-		"button",
-		"Поиск",
+	complite1 = CreateWindow(
+		L"button",
+		L"Поиск",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, posT, 180, 30,
 		hWnd,
@@ -138,4 +149,32 @@ void Test(HWND hWnd, LPCWSTR* nameC, int count)
 		NULL,
 		NULL
 	);
+}
+
+void AdjustControlsLayout(HWND hWnd, int count, int windowWidth, int windowHeight)
+{
+	// Рассчитываем позиции элементов
+	int buttonWidth = windowWidth - 30; // Ширина с отступами по 15 пикселей
+	int checkboxWidth = buttonWidth - 10;
+
+	int itemHeight = max(20, (windowHeight - 45) / count); // Равномерное распределение по высоте
+	int posY = 15;
+
+	for (int i = 0; i < count; i++) {
+		// Изменяем положение и размер чекбокса
+		SetWindowPos(nameT[i], NULL,
+			15, posY,
+			checkboxWidth, 20,
+			SWP_NOZORDER);
+
+		posY += itemHeight;
+	}
+
+	//Позиционируем кнопку "Поиск"
+	if (complite1) {
+		SetWindowPos(complite1, NULL,
+			15, posY,
+			buttonWidth, 30,
+			SWP_NOZORDER);
+	}
 }
