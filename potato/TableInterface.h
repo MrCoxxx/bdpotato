@@ -47,7 +47,7 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 		L"COMBOBOX",
 		L"",
 		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
-		35, 40, 200, 200,
+		15, 40, 240, 200,
 		hWnd,
 		NULL,
 		(HINSTANCE)lp,
@@ -58,6 +58,7 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Основные характеристики");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические особенности клубня");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"По отношению к стандартам");
 	SendMessage(hComboBoxTable, CB_SETCURSEL, 0, 0);
 	idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
 }
@@ -91,6 +92,11 @@ void LoadTableData(HWND hWnd)
 	{
 		AddCulinaryColumnsToListView(hListView);
 		LoadCulinaryDataIntoListView(hListView);
+	}
+	if (idComboBox == 4)
+	{
+		AddStandartColumnsToListView(hListView);
+		LoadStandartDataIntoListView(hListView);
 	}
 
 }

@@ -49,6 +49,7 @@ using namespace Gdiplus;
 #include "MorphologicalData.h"
 #include "CulinaryData.h"
 #include "RequestData.h"
+#include "StandardData.h"
 #include "ExportExcel.h"
 
 

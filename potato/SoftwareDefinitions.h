@@ -176,6 +176,10 @@ std::vector<std::vector<std::wstring>> GetCulinaryDataFromDatabase();
 void AddCulinaryColumnsToListView(HWND hListView);
 void LoadCulinaryDataIntoListView(HWND hListView);
 
+//Standart Data
+std::vector<std::vector<std::wstring>> GetStandartDataFromDatabase();
+void AddStandartColumnsToListView(HWND hListView);
+void LoadStandartDataIntoListView(HWND hListView);
 
 //All Data
 std::vector<std::vector<std::wstring>> GetAllDataFromDatabase(sqlite3* db);

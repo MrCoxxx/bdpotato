@@ -107,6 +107,9 @@
     <ClInclude Include="resource.h">
       <Filter>Файлы заголовков\Other</Filter>
     </ClInclude>
+    <ClInclude Include="StandardData.h">
+      <Filter>Файлы заголовков\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="kart.db" />
