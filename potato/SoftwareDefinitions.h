@@ -95,9 +95,9 @@ void AddComboboxzone(HWND hWnd);
 void Add(HWND hWnd);
 void AddStatic(HWND hWnd);
 void AddButton(HWND hWnd);
-void AddPotatoSample();
-void AddMorphologicalSample();
-void AddCulinarySample();
+//void AddPotatoSample();
+//void AddMorphologicalSample();
+//void AddCulinarySample();
 
 //Edit
 LRESULT CALLBACK SoftwareEditProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
@@ -107,9 +107,9 @@ void Edit(HWND hWnd);
 void EditStatic(HWND hWnd);
 void EditButton(HWND hWnd);
 void EditEditzone(HWND hWnd);
-void EditPotatoSample();
-void EditMorphologicalSample();
-void EditCulinarySample();
+//void EditPotatoSample();
+//void EditMorphologicalSample();
+//void EditCulinarySample();
 
 //Test
 LRESULT CALLBACK SoftwareTestProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
