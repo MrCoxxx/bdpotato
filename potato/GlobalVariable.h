@@ -198,6 +198,47 @@ static HWND staticID;
 std::string potato;
 
 
+static HWND comboboxSample;
+static HWND comboboxOrigin;
+static HWND comboboxVIGRR;
+static HWND comboboxProductivity;
+static HWND comboboxField;
+static HWND comboboxForm;
+static HWND comboboxPeel;
+static HWND comboboxPulp;
+static HWND comboboxEye;
+static HWND comboboxStolon;
+static HWND comboboxTuber;
+static HWND comboboxTaste;
+static HWND comboboxConsistency;
+static HWND comboboxDarkening;
+static HWND comboboxBoil;
+static HWND comboboxFriability;
+static HWND comboboxWater;
+static HWND comboboxBoiled;
+static HWND comboboxWeightN;
+static HWND comboboxWeightK;
+static HWND comboboxtonAuthorization;
+static HWND comboboxLogin;
+static HWND comboboxPassword;
+static HWND comboboxticLogin;
+static HWND comboboxticPassword;
+static HWND comboboxIDPotatoC;
+static HWND comboboxIDPotatoM;
+static HWND comboboxID;
+static HWND comboboxYieldN;
+static HWND comboboxYieldK;
+static HWND comboboxStarchN;
+static HWND comboboxStarchK;
+static HWND comboboxDryN;
+static HWND comboboxDryK;
+static HWND comboboxContentN;
+static HWND comboboxContentK;
+static HWND comboboxRip;
+static HWND comboboxAbility;
+static HWND comboboxDurationN;
+static HWND comboboxDurationK;
+
 //
 
 static HWND testPeel1;

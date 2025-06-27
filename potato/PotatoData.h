@@ -1,21 +1,24 @@
 void AddPotatoColumnsToListView(HWND hListView)
 {
     const wchar_t* headers[] = {
-        L"ID",
         L"Образец",
-        L"Происхождение",
         L"№ по каталогу ВИГРР",
+        L"Происхождение",
+        L"Товарных клубней в клоне, шт.",
+        L"Нетоварных клубней в клоне, шт.",
+        L"Масса товарного клубня, г",
+        L"Масса нетоварного клубня, г",
+        L"Клубней в клоне, шт",
+        L"Товарность, %",
         L"Урожайность, кг/м2",
-        L"Полевая устойчивость к фитофторозу, балл",
-        L"Масса товарного клубня, г"
     };
 
-    int widths[] = { 50, 100, 150, 100, 100, 100, 100 };
+    int widths[] = { 50, 100, 150, 100, 100, 100, 100, 100, 100, 100 };
 
     LVCOLUMN lvc = { 0 };
     lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM;
 
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 10; i++) {
         lvc.iSubItem = i;
         lvc.pszText = const_cast<wchar_t*>(headers[i]);
         lvc.cx = widths[i];
@@ -30,20 +33,27 @@ std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase()
 
     if (!db) return result;
 
-    const char* sqlPotato = "SELECT id, sample, origin, VIGRR_catalogue_number, "
-        "productivity, field_resistance_to_late_blight, "
-        "weight_of_commercial_tuber FROM potato";
+    const char* sqlPotato = "SELECT sample, VIGRR_catalogue_number, origin, "
+        "productivity, commercial_tubers_in_clone, non_marketable_tubers_in_clone, "
+        "weight_of_commercial_tuber, weight_of_non_commercial_tuber, tubers_in_clone, "
+        "marketability, productivity FROM potato";
     sqlite3_stmt* stmt;
 
     if (sqlite3_prepare_v2(db, sqlPotato, -1, &stmt, NULL) == SQLITE_OK) {
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             std::vector<std::wstring> row;
 
-            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 0)));
-
-            const unsigned char* sample = sqlite3_column_text(stmt, 1);
+            const unsigned char* sample = sqlite3_column_text(stmt, 0);
             if (sample) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(sample)));
+            }
+            else {
+                row.push_back(L"");
+            }
+
+            const unsigned char* vigrr = sqlite3_column_text(stmt, 1);
+            if (vigrr) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(vigrr)));
             }
             else {
                 row.push_back(L"");
@@ -57,24 +67,40 @@ std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase()
                 row.push_back(L"");
             }
 
-            const unsigned char* vigrr = sqlite3_column_text(stmt, 3);
-            if (vigrr) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(vigrr)));
-            }
-            else {
-                row.push_back(L"");
-            }
-
-            double productivity = sqlite3_column_double(stmt, 4);
+            double commercial = sqlite3_column_double(stmt, 3);
             std::wstringstream wss;
-            wss << std::fixed << std::setprecision(2) << productivity;
+            wss << std::fixed << std::setprecision(2) << commercial;
             row.push_back(wss.str());
 
-            int resistance = sqlite3_column_int(stmt, 5);
-            row.push_back(std::to_wstring(resistance));
+            double non_marketable = sqlite3_column_double(stmt, 4);
+            std::wstringstream wss1;
+            wss1 << std::fixed << std::setprecision(2) << non_marketable;
+            row.push_back(wss1.str());
 
-            int weight = sqlite3_column_int(stmt, 6);
-            row.push_back(std::to_wstring(weight));
+            double commercial_tuber = sqlite3_column_double(stmt, 5);
+            std::wstringstream wss2;
+            wss2 << std::fixed << std::setprecision(2) << commercial_tuber;
+            row.push_back(wss2.str());
+
+            double non_commercial_tuber = sqlite3_column_double(stmt, 6);
+            std::wstringstream wss3;
+            wss3 << std::fixed << std::setprecision(2) << non_commercial_tuber;
+            row.push_back(wss3.str());
+
+            double tubers = sqlite3_column_double(stmt, 7);
+            std::wstringstream wss4;
+            wss4 << std::fixed << std::setprecision(2) << tubers;
+            row.push_back(wss4.str());
+
+            double marketability = sqlite3_column_double(stmt, 8);
+            std::wstringstream wss5;
+            wss5 << std::fixed << std::setprecision(2) << marketability;
+            row.push_back(wss5.str());
+
+            double productivity = sqlite3_column_double(stmt, 9);
+            std::wstringstream wss6;
+            wss6 << std::fixed << std::setprecision(2) << productivity;
+            row.push_back(wss6.str());
 
             result.push_back(row);
         }

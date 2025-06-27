@@ -46,6 +46,7 @@
 #define CheckBoxRip				44
 #define CheckBoxAbility			45
 #define CheckBoxDuration		46
+#define ID_SEARCH_BUTTON		47
 
 #define TextBufferSize			256
 
@@ -89,6 +90,8 @@ LRESULT CALLBACK SoftwareAddProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 WNDCLASS NewAddWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
 void WndAdd(HWND hWnd);
 void AddEditzone(HWND hWnd);
+void AddDataComboboxzone(HWND hWnd);
+void AddComboboxzone(HWND hWnd);
 void Add(HWND hWnd);
 void AddStatic(HWND hWnd);
 void AddButton(HWND hWnd);
@@ -177,9 +180,9 @@ void AddCulinaryColumnsToListView(HWND hListView);
 void LoadCulinaryDataIntoListView(HWND hListView);
 
 //Standart Data
-std::vector<std::vector<std::wstring>> GetStandartDataFromDatabase();
-void AddStandartColumnsToListView(HWND hListView);
-void LoadStandartDataIntoListView(HWND hListView);
+//std::vector<std::vector<std::wstring>> GetStandartDataFromDatabase();
+//void AddStandartColumnsToListView(HWND hListView);
+//void LoadStandartDataIntoListView(HWND hListView);
 
 //All Data
 std::vector<std::vector<std::wstring>> GetAllDataFromDatabase(sqlite3* db);
@@ -197,6 +200,6 @@ void Cleanup();
 
 
 void TestT(HWND hWnd, int count, static HWND editWnd);
-std::wstring GetSelectedFilters();
+//std::wstring GetSelectedFilters();
 std::vector<std::string> split(const std::string& s, char delimiter);
 size_t countWords(const std::string& s, char delimiter);

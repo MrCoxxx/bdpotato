@@ -5,6 +5,7 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
+#include <iostream>
 #include <locale>
 #include <codecvt>
 #include <xlsxwriter.h>
@@ -34,7 +35,7 @@ using namespace Gdiplus;
 #include "SearchWnd.h"
 #include "AddWnd.h"
 #include "EditWnd.h"
-
+#include "StandardData.h"
 #include "Menu.h"
 #include "DataBaseInit.h"
 #include "TableInterface.h"
@@ -49,7 +50,6 @@ using namespace Gdiplus;
 #include "MorphologicalData.h"
 #include "CulinaryData.h"
 #include "RequestData.h"
-#include "StandardData.h"
 #include "ExportExcel.h"
 
 

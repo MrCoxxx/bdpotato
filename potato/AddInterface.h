@@ -3,6 +3,8 @@ void Add(HWND hWnd)
 	AddStatic(hWnd);
 	AddButton(hWnd);
 	AddEditzone(hWnd);
+	AddComboboxzone(hWnd);
+	AddDataComboboxzone(hWnd);
 }
 
 void AddStatic(HWND hWnd) 
@@ -247,7 +249,7 @@ void AddEditzone(HWND hWnd)
 	editForm = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_CHILD | ES_CENTER,
 		250, 110, 200, 20,
 		hWnd,
 		(HMENU)CheckBoxForm,
@@ -257,7 +259,7 @@ void AddEditzone(HWND hWnd)
 	editPeel = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_CHILD | ES_CENTER,
 		250, 175, 200, 20,
 		hWnd,
 		(HMENU)CheckBoxPeel,
@@ -267,7 +269,7 @@ void AddEditzone(HWND hWnd)
 	editPulp = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_CHILD | ES_CENTER,
 		250, 230, 200, 20,
 		hWnd,
 		(HMENU)CheckBoxPulp,
@@ -277,7 +279,7 @@ void AddEditzone(HWND hWnd)
 	editEye = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_CHILD | ES_CENTER,
 		250, 295, 200, 20,
 		hWnd,
 		(HMENU)CheckBoxEye,
@@ -287,7 +289,7 @@ void AddEditzone(HWND hWnd)
 	editStolon = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_CHILD | ES_CENTER,
 		250, 370, 200, 20,
 		hWnd,
 		(HMENU)CheckBoxStolon,
@@ -307,7 +309,7 @@ void AddEditzone(HWND hWnd)
 	editTaste = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_CHILD | ES_CENTER,
 		465, 110, 185, 20,
 		hWnd,
 		(HMENU)CheckBoxTaste,
@@ -317,7 +319,7 @@ void AddEditzone(HWND hWnd)
 	editConsistency = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_CHILD | ES_CENTER,
 		465, 175, 185, 20,
 		hWnd,
 		(HMENU)CheckBoxConsistency,
@@ -327,7 +329,7 @@ void AddEditzone(HWND hWnd)
 	editDarkening = CreateWindow(
 		L"edit",
 		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		WS_CHILD | ES_CENTER,
 		465, 230, 185, 20,
 		hWnd,
 		(HMENU)CheckBoxDarkening,
@@ -344,4 +346,115 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
+}
+
+void AddComboboxzone(HWND hWnd)
+{
+	comboboxForm = CreateWindow(
+		L"combobox",
+		L"",
+		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
+		250, 110, 200, 200,
+		hWnd,
+		(HMENU)CheckBoxForm,
+		NULL,
+		NULL
+	);
+	comboboxPeel = CreateWindow(
+		L"combobox",
+		L"",
+		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
+		250, 175, 200, 200,
+		hWnd,
+		(HMENU)CheckBoxPeel,
+		NULL,
+		NULL
+	);
+	comboboxPulp = CreateWindow(
+		L"combobox",
+		L"",
+		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
+		250, 230, 200, 200,
+		hWnd,
+		(HMENU)CheckBoxPulp,
+		NULL,
+		NULL
+	);
+	comboboxEye = CreateWindow(
+		L"combobox",
+		L"",
+		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
+		250, 295, 200, 200,
+		hWnd,
+		(HMENU)CheckBoxEye,
+		NULL,
+		NULL
+	);
+	comboboxStolon = CreateWindow(
+		L"combobox",
+		L"",
+		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
+		250, 370, 200, 200,
+		hWnd,
+		(HMENU)CheckBoxStolon,
+		NULL,
+		NULL
+	);
+	comboboxTaste = CreateWindow(
+		L"combobox",
+		L"",
+		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
+		465, 110, 185, 200,
+		hWnd,
+		(HMENU)CheckBoxTaste,
+		NULL,
+		NULL
+	);
+	comboboxConsistency = CreateWindow(
+		L"combobox",
+		L"",
+		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
+		465, 175, 185, 200,
+		hWnd,
+		(HMENU)CheckBoxConsistency,
+		NULL,
+		NULL
+	);
+	comboboxDarkening = CreateWindow(
+		L"combobox",
+		L"",
+		WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL,
+		465, 230, 185, 200,
+		hWnd,
+		(HMENU)CheckBoxDarkening,
+		NULL,
+		NULL
+	);
+}
+
+void AddDataComboboxzone(HWND hWnd) {
+	for (int i = 0; i < 5; i++) {
+		SendMessageW(comboboxDarkening, CB_ADDSTRING, 0, (LPARAM)nameD[i]);
+	}
+	for (int i = 0; i < 5; i++) {
+		SendMessageW(comboboxConsistency, CB_ADDSTRING, 0, (LPARAM)nameC[i]);
+	}
+	for (int i = 0; i < 5; i++) {
+		SendMessageW(comboboxTaste, CB_ADDSTRING, 0, (LPARAM)nameTa[i]);
+	}
+	for (int i = 0; i < 5; i++) {
+		SendMessageW(comboboxStolon, CB_ADDSTRING, 0, (LPARAM)nameS[i]);
+	}
+	for (int i = 0; i < 5; i++) {
+		SendMessageW(comboboxEye, CB_ADDSTRING, 0, (LPARAM)nameD[i]);
+	}
+	for (int i = 0; i < 5; i++) {
+		SendMessageW(comboboxPulp, CB_ADDSTRING, 0, (LPARAM)nameE[i]);
+	}
+	for (int i = 0; i < 9; i++) {
+		SendMessageW(comboboxPeel, CB_ADDSTRING, 0, (LPARAM)namePu[i]);
+	}
+	for (int i = 0; i < 9; i++) {
+		SendMessageW(comboboxForm, CB_ADDSTRING, 0, (LPARAM)nameP[i]);
+	}
 }

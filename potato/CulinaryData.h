@@ -1,19 +1,23 @@
 void AddCulinaryColumnsToListView(HWND hListView)
 {
     const wchar_t* headers[] = {
-        L"ID",
         L"Образец",
-        L"Вкус",
-        L"Консистенция",
-        L"Потемнение после варки"
+        L"Разваримость клубней",
+        L"Консистенция мякоти",
+        L"Рассыпчатость",
+        L"Водянистость клубней",
+        L"Запах варёного картофеля",
+        L"Вкус варёного картофеля",
+        L"Потемнение мякоти сырого картофеля",
+        L"Потемнение мякоти варёного картофеля"
     };
 
-    int widths[] = { 50, 150, 150, 150, 200 };
+    int widths[] = { 100, 100, 100, 100, 100, 100, 100, 100, 100 };
 
     LVCOLUMN lvc = { 0 };
     lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM;
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 9; i++) {
         lvc.iSubItem = i;
         lvc.pszText = const_cast<wchar_t*>(headers[i]);
         lvc.cx = widths[i];
@@ -28,8 +32,9 @@ std::vector<std::vector<std::wstring>> GetCulinaryDataFromDatabase()
 
     if (!db) return result;
 
-    const char* sqlCulinary = "SELECT id, id_potato, taste, pulp_consistency, "
-        "darkening_after_cooking  FROM culinary_qualities";
+    const char* sqlCulinary = "SELECT id_potato, tuber_boilability, pulp_consistency, "
+        "friability, wateriness_of_tubers, the_smell_of_boiled_potatoes, "
+        "the_taste_of_boiled_potatoes, darkening_of_the_flesh_of_raw_potatoes, darkening_of_the_flesh_of_boiled_potatoes FROM culinary_qualities";
     sqlite3_stmt* stmt;
     int i = 0;
     if (sqlite3_prepare_v2(db, sqlCulinary, -1, &stmt, NULL) == SQLITE_OK) {
@@ -38,38 +43,22 @@ std::vector<std::vector<std::wstring>> GetCulinaryDataFromDatabase()
             
             row.push_back(std::to_wstring(sqlite3_column_int(stmt, 0)));
 
-            
-            const unsigned char* sample = sqlite3_column_text(stmt, 1);
-            if (sample) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(sample)));
-            }
-            else {
-                row.push_back(L"");
-            }
-                        
-            const unsigned char* origin = sqlite3_column_text(stmt, 2);
-            if (origin) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(origin)));
-            }
-            else {
-                row.push_back(L"");
-            }
+            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 1)));
 
-            const unsigned char* vigrr = sqlite3_column_text(stmt, 3);
-            if (vigrr) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(vigrr)));
-            }
-            else {
-                row.push_back(L"");
-            }
+            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 2)));
 
-            const unsigned char* productivity = sqlite3_column_text(stmt, 4);
-            if (productivity) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(productivity)));
-            }
-            else {
-                row.push_back(L"");
-            }
+            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 3)));
+
+            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 4)));
+
+            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 5)));
+
+            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 6)));
+
+            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 7)));
+
+            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 8)));
+
             result.push_back(row);
         }
         sqlite3_finalize(stmt);

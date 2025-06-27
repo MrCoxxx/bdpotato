@@ -74,7 +74,20 @@ void LoadTableData(HWND hWnd)
 		hInstance, NULL);
 
 	if (idComboBox == 0)
-	{
+	{	//
+		//std::unordered_map<std::wstring, std::wstring> conditions;
+		//conditions[L"id_potato"] = GetWindowTextR(editIDPotatoC);
+		//conditions[L"taste"] = GetWindowTextR(editTaste);
+		//conditions[L"pulp_consistency"] = GetWindowTextR(editConsistency);
+		//conditions[L"darkening_after_cooking"] = GetWindowTextR(editDarkening);
+		//
+		//std::string query = BuildQueryR(conditions);
+		//std::vector<std::string> params;
+		//for (const auto& cond : conditions) {
+		//	params.push_back(utf16_to_utf8(cond.second));
+		//}
+		//ExecuteQueryAndDisplayResults(db, query, params);
+
 		AddAllToListView(hListView);
 		LoadAllDataIntoListView(hListView);
 	}
@@ -95,6 +108,7 @@ void LoadTableData(HWND hWnd)
 	}
 	if (idComboBox == 4)
 	{
+		
 		AddStandartColumnsToListView(hListView);
 		LoadStandartDataIntoListView(hListView);
 	}

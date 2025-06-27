@@ -1,13 +1,13 @@
 void AddMorphologicalColumnsToListView(HWND hListView)
 {
     const wchar_t* headers[] = {
-        L"ID",
         L"Образец",
         L"Форма",
         L"Окраска кожуры",
         L"Окраска мякоти",
         L"Глубина глазков",
-        L"Глубина столонного следа"
+        L"Глубина столонного следа",
+        L"Поверхность кожуры клубня"
     };
 
     int widths[] = { 50, 100, 150, 100, 100, 100, 100 };
@@ -30,18 +30,16 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
 
     if (!db) return result;
 
-    const char* sqlMorphological = "SELECT id, id_potato, form, peel_coloring, "
+    const char* sqlMorphological = "SELECT id_potato, form, peel_coloring, "
         "pulp_coloring, eye_depth, "
-        "stolon_trace_depth FROM morphological_features_of_the_tuber";
+        "stolon_trace_depth, tuber_skin_surface FROM morphological_features_of_the_tuber";
     sqlite3_stmt* stmt;
 
     if (sqlite3_prepare_v2(db, sqlMorphological, -1, &stmt, NULL) == SQLITE_OK) {
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             std::vector<std::wstring> row; 
 
-            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 0)));
-
-            const unsigned char* sample = sqlite3_column_text(stmt, 1);
+            const unsigned char* sample = sqlite3_column_text(stmt, 0);
             if (sample) {
                 row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(sample)));
             }
@@ -49,41 +47,49 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
                 row.push_back(L"");
             }
 
-            const unsigned char* origin = sqlite3_column_text(stmt, 2);
-            if (origin) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(origin)));
+            const unsigned char* form = sqlite3_column_text(stmt, 1);
+            if (form) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(form)));
             }
             else {
                 row.push_back(L"");
             }
 
-            const unsigned char* vigrr = sqlite3_column_text(stmt, 3);
-            if (vigrr) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(vigrr)));
+            const unsigned char* peel_coloring = sqlite3_column_text(stmt, 2);
+            if (peel_coloring) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(peel_coloring)));
             }
             else {
                 row.push_back(L"");
             }
 
-            const unsigned char* productivity = sqlite3_column_text(stmt, 4);
-            if (productivity) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(productivity)));
+            const unsigned char* pulp_coloring = sqlite3_column_text(stmt, 3);
+            if (pulp_coloring) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(pulp_coloring)));
             }
             else {
                 row.push_back(L"");
             }
 
-            const unsigned char* resistance = sqlite3_column_text(stmt, 5);
-            if (resistance) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(resistance)));
+            const unsigned char* eye_depth = sqlite3_column_text(stmt, 4);
+            if (eye_depth) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(eye_depth)));
             }
             else {
                 row.push_back(L"");
             }
 
-            const unsigned char* weight = sqlite3_column_text(stmt, 6);
-            if (weight) {
-                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(weight)));
+            const unsigned char* stolon_trace_depth = sqlite3_column_text(stmt, 5);
+            if (stolon_trace_depth) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(stolon_trace_depth)));
+            }
+            else {
+                row.push_back(L"");
+            }
+
+            const unsigned char* tuber_skin_surface = sqlite3_column_text(stmt, 6);
+            if (tuber_skin_surface) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(tuber_skin_surface)));
             }
             else {
                 row.push_back(L"");

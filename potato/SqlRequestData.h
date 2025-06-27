@@ -12,13 +12,20 @@ struct QueryData{
 QueryData BuildQuery()
 {
     QueryData result;
-    result.sql = "SELECT p.sample, p.origin, p.VIGRR_catalogue_number, p.productivity, "
-        "p.field_resistance_to_late_blight, mf.form, mf.peel_coloring, mf.pulp_coloring, "
-        "mf.eye_depth, mf.stolon_trace_depth, cq.taste, cq.pulp_consistency, "
-        "cq.darkening_after_cooking, p.weight_of_commercial_tuber "
+    result.sql = "SELECT p.sample, p.VIGRR_catalogue_number, p.origin, p.commercial_tubers_in_clone, "
+        "p.non_marketable_tubers_in_clone, p.weight_of_commercial_tuber, p.weight_of_non_commercial_tuber, "
+        "p.tubers_in_clone, p.marketability, p.productivity, "
+        "mf.form, mf.peel_coloring, mf.pulp_coloring, "
+        "mf.eye_depth, mf.stolon_trace_depth, mf.tuber_skin_surface, "
+        "cq.tuber_boilability, cq.pulp_consistency, "
+        "cq.friability, cq.wateriness_of_tubers, cq.the_smell_of_boiled_potatoes, "
+        "cq.the_taste_of_boiled_potatoes, cq.darkening_of_the_flesh_of_raw_potatoes, cq.darkening_of_the_flesh_of_boiled_potatoes, "
+        "s.field_resistance_to_late_blight, s.the_ability_to_form_berries_from_self_pollination, "
+        "s.flowering_duration, s.ripeness_group, s.yield_percentage "
         "FROM potato p "
         "JOIN morphological_features_of_the_tuber mf ON p.id = mf.id_potato "
-        "JOIN culinary_qualities cq ON p.id = cq.id_potato";
+        "JOIN culinary_qualities cq ON p.id = cq.id_potato "
+        "JOIN standart s ON p.id = s.id_potato";
 
     // Получаем данные из полей ввода
     auto getCheckedParam = [&](bool checked, HWND editControl, const std::string& condition) {
