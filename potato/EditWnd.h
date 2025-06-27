@@ -36,9 +36,9 @@ LRESULT CALLBACK SoftwareEditProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 	case WM_COMMAND:
 		switch (wp) {
 		case EditClickButton:
-			//EditPotatoSample();
-			//EditMorphologicalSample();
-			//EditCulinarySample();
+			EditPotatoSample();
+			EditMorphologicalSample();
+			EditCulinarySample();
 			DestroyWindow(hWnd);
 			editWnd = FALSE;
 			break;
