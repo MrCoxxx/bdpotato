@@ -110,6 +110,12 @@
     <ClInclude Include="StandardData.h">
       <Filter>Файлы заголовков\Data</Filter>
     </ClInclude>
+    <ClInclude Include="AddData.h">
+      <Filter>Файлы заголовков\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="EditData.h">
+      <Filter>Файлы заголовков\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="kart.db" />

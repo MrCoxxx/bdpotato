@@ -35,6 +35,8 @@ using namespace Gdiplus;
 #include "SearchWnd.h"
 #include "AddWnd.h"
 #include "EditWnd.h"
+#include "AddData.h"
+#include "EditData.h"
 #include "StandardData.h"
 #include "Menu.h"
 #include "DataBaseInit.h"

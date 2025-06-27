@@ -199,6 +199,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddData.h" />
     <ClInclude Include="AddInterface.h" />
     <ClInclude Include="AddWnd.h" />
     <ClInclude Include="AuthorizationInterface.h" />
@@ -206,6 +207,7 @@
     <ClInclude Include="CulinaryData.h" />
     <ClInclude Include="DataBaseInit.h" />
     <ClInclude Include="DestroyUI.h" />
+    <ClInclude Include="EditData.h" />
     <ClInclude Include="EditInterface.h" />
     <ClInclude Include="EditWnd.h" />
     <ClInclude Include="GlobalVariable.h" />
