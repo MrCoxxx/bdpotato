@@ -153,7 +153,61 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 
 
 
+		case CheckBoxBoilability:
+			statsCheckBoxBoilability = SendMessage(checkBoxC[0], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxConsistency:
+			statsCheckBoxConsistency = SendMessage(checkBoxC[1], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxFriability:
+			statsCheckBoxFriability = SendMessage(checkBoxC[2], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxWateriness:
+			statsCheckBoxWateriness = SendMessage(checkBoxC[3], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxSmell:
+			statsCheckBoxSmell = SendMessage(checkBoxC[4], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxTaste:
+			statsCheckBoxTaste = SendMessage(checkBoxC[5], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxDarkening_raw:
+			statsCheckBoxDarkening_raw = SendMessage(checkBoxC[6], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxDarkening_boiled:
+			statsCheckBoxDarkening_boiled = SendMessage(checkBoxC[7], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
 
+
+
+		case CheckBoxField:
+			statsCheckBoxField = SendMessage(checkBoxS[0], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxAbility:
+			statsCheckBoxAbility = SendMessage(checkBoxS[1], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxFlowering:
+			statsCheckBoxFlowering = SendMessage(checkBoxS[2], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxRipeness:
+			statsCheckBoxRipeness = SendMessage(checkBoxS[3], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
+		case CheckBoxYield:
+			statsCheckBoxYield = SendMessage(checkBoxS[4], BM_GETCHECK, 0, 0);
+			SearchCheckbox(hWnd);
+			break;
 
 
 

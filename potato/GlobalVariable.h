@@ -112,22 +112,16 @@ static HWND checkBoxWeight;
 static LRESULT statsCheckBoxSample;
 static LRESULT statsCheckBoxOrigin;
 static LRESULT statsCheckBoxVIGRR;
-static LRESULT statsCheckBoxField;
 static LRESULT statsCheckBoxTuber;
-static LRESULT statsCheckBoxTaste;
-static LRESULT statsCheckBoxConsistency;
 static LRESULT statsCheckBoxDarkening;
 static LRESULT statsCheckBoxBoil;
-static LRESULT statsCheckBoxFriability;
 static LRESULT statsCheckBoxWater;
 static LRESULT statsCheckBoxBoiled;
 static LRESULT statsCheckBoxWeight;
-static LRESULT statsCheckBoxYield;
 static LRESULT statsCheckBoxStarch;
 static LRESULT statsCheckBoxDry;
 static LRESULT statsCheckBoxContent;
 static LRESULT statsCheckBoxRip;
-static LRESULT statsCheckBoxAbility;
 static LRESULT statsCheckBoxDuration;
 
 
@@ -146,6 +140,21 @@ static LRESULT statsCheckBoxPulp;
 static LRESULT statsCheckBoxEye;
 static LRESULT statsCheckBoxStolon;
 static LRESULT statsCheckBoxSkin;
+
+static LRESULT statsCheckBoxBoilability;
+static LRESULT statsCheckBoxConsistency;
+static LRESULT statsCheckBoxFriability;
+static LRESULT statsCheckBoxWateriness;
+static LRESULT statsCheckBoxSmell;
+static LRESULT statsCheckBoxTaste;
+static LRESULT statsCheckBoxDarkening_raw;
+static LRESULT statsCheckBoxDarkening_boiled;
+static LRESULT statsCheckBoxField;
+static LRESULT statsCheckBoxAbility;
+static LRESULT statsCheckBoxFlowering;
+static LRESULT statsCheckBoxRipeness;
+static LRESULT statsCheckBoxYield;
+
 
 
 //Widgets
@@ -347,7 +356,7 @@ LPCWSTR checkBoxNameM[6]{ L"Форма",  L"Окраска кожуры",  L"Окраска мякоти",  L"Г
 
 LPCWSTR checkBoxNameC[8]{ L"Разваримость клубней",  L"Консистенция мякоти",  L"Рассыпчатость",  L"Водянистость клубней",  L"Запах варёного картофеля",  L"Вкус варёного картофеля",  L"Потемнение мякоти сырого картофеля",  L"Потемнение мякоти варёного картофеля" };
 
-LPCWSTR checkBoxNameS[5]{ L"Полевая устойчивость к фитофторозу, балл",  L"Способность к ягодообразованию от самоопыления (балл)",  L"Продолжительность цветения,дни",  L"Группа спелости",  L"Группа спелости" };
+LPCWSTR checkBoxNameS[5]{ L"Полевая устойчивость к фитофторозу, балл",  L"Способность к ягодообразованию от самоопыления (балл)",  L"Продолжительность цветения,дни",  L"Группа спелости",  L"Урожайность, %" };
 
 //HWND* nameT = new HWND[al];
 //HWND* hEditFilters = new HWND[al];

@@ -18,6 +18,7 @@ void AddAllToListView(HWND hListView)
         L"Глубина столонного следа",
         L"Поверхность кожуры клубня",
         L"Разваримость клубней",
+        L"Консистенция мякоти",
         L"Рассыпчатость",
         L"Водянистость клубней",
         L"Запах варёного картофеля",
@@ -32,12 +33,12 @@ void AddAllToListView(HWND hListView)
         
     };
 
-    int widths[] = { 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200 };
+    int widths[] = { 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200 };
 
     LVCOLUMN lvc = { 0 };
     lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM;
 
-    for (int i = 0; i < 28; i++) {
+    for (int i = 0; i < 29; i++) {
         lvc.iSubItem = i;
         lvc.pszText = const_cast<wchar_t*>(headers[i]);
         lvc.cx = widths[i];
