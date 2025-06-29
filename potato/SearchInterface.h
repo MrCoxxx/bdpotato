@@ -12,7 +12,7 @@ void SearchButton(HWND hWnd)
 		"button",
 		"Поиск",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 500, 910, 30,
+		15, 665, 1010, 30,
 		hWnd,
 		(HMENU)SearchClickButtonClose,
 		NULL,
@@ -22,686 +22,220 @@ void SearchButton(HWND hWnd)
 
 void SearchCheckBox(HWND hWnd)
 {
-	checkBoxSample = CreateWindow(
-		L"button",
-		L"Образец",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		15, 15, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxSample,
-		NULL,
-		NULL
-	);
+	int p = 15;
+	int m = 15;
+	int c = 15;
+	int s = 15;
 
-	checkBoxOrigin = CreateWindow(
-		L"button",
-		L"Происхождение",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		15, 80, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxOrigin,
-		NULL,
-		NULL
-	);
-	
-	checkBoxVIGRR = CreateWindow(
-		L"button",
-		L"№ по каталогу ВИГРР",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		15, 145, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxVIGRR,
-		NULL,
-		NULL
-	);
-	
-	checkBoxProductivity = CreateWindow(
-		L"button",
-		L"Урожайность, кг/м2",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		15, 200, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxProductivity,
-		NULL,
-		NULL
-	);
-	
-	checkBoxField = CreateWindow(
-		L"button",
-		L"Полевая устойчивость к фитофторозу, балл",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		15, 265, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxField,
-		NULL,
-		NULL
-	);
+	for (int i = 0; i < 10; i++) {
+		checkBoxP[i] = CreateWindow(
+			L"button",
+			checkBoxNameP[i],
+			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+			15, p, 250, 30,
+			hWnd,
+			CheckBox[0][i],
+			NULL,
+			NULL
+		);
+		p += 65;
+	}
 
-	checkBoxWeight = CreateWindow(
-		L"button",
-		L"Масса товарного клубня, г",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		15, 330, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	
-	checkBoxForm = CreateWindow(
-		L"button",
-		L"Форма клубня",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		250, 15, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxForm,
-		NULL,
-		NULL
-	);
-	
-	checkBoxPeel = CreateWindow(
-		L"button",
-		L"Окраска кожуры",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		250, 80, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxPeel,
-		NULL,
-		NULL
-	);
-	
-	checkBoxPulp = CreateWindow(
-		L"button",
-		L"Окраска мякоти",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		250, 145, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxPulp,
-		NULL,
-		NULL
-	);
-	
-	checkBoxEye = CreateWindow(
-		L"button",
-		L"Глубина глазков",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		250, 200, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxEye,
-		NULL,
-		NULL
-	);
-	
-	checkBoxStolon = CreateWindow(
-		L"button",
-		L"Глубина столонного следа",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		250, 265, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxStolon,
-		NULL,
-		NULL
-	);
+	for (int i = 0; i < 6; i++) {
+		checkBoxM[i] = CreateWindow(
+			L"button",
+			checkBoxNameM[i],
+			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+			280, m, 250, 30,
+			hWnd,
+			CheckBox[1][i],
+			NULL,
+			NULL
+		);
+		m += 65;
+	}
 
-	checkBoxTuber = CreateWindow(
-		L"button",
-		L"Поверхность кожуры клубня",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		250, 330, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxTuber,
-		NULL,
-		NULL
-	);
-	
-	checkBoxTaste = CreateWindow(
-		L"button",
-		L"Вкус варёного картофеля",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		465, 15, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxTaste,
-		NULL,
-		NULL
-	);
-	
-	checkBoxConsistency = CreateWindow(
-		L"button",
-		L"Консистенция мякоти",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		465, 80, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxConsistency,
-		NULL,
-		NULL
-	);
-	
-	checkBoxDarkening = CreateWindow(
-		L"button",
-		L"Потемнение мякоти после варки",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		465, 145, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxDarkening,
-		NULL,
-		NULL
-	);
+	for (int i = 0; i < 8; i++) {
+		checkBoxC[i] = CreateWindow(
+			L"button",
+			checkBoxNameC[i],
+			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+			545, c, 250, 30,
+			hWnd,
+			CheckBox[2][i],
+			NULL,
+			NULL
+		);
+		c += 65;
+	}
 
-	checkBoxBoil = CreateWindow(
-		L"button",
-		L"Разваримость клубней",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		465, 210, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxBoil,
-		NULL,
-		NULL
-	);
-
-	checkBoxFriability = CreateWindow(
-		L"button",
-		L"Рассыпчатость",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		465, 275, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxFriability,
-		NULL,
-		NULL
-	);
-
-	checkBoxWater = CreateWindow(
-		L"button",
-		L"Водянистость клубней",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		465, 340, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxWater,
-		NULL,
-		NULL
-	);
-
-	checkBoxBoiled = CreateWindow(
-		L"button",
-		L"Запах варёного картофеля",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		465, 405, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxBoiled,
-		NULL,
-		NULL
-	);
-
-	checkBoxYield = CreateWindow(
-		L"button",
-		L"Урожайность, %",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		680, 15, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxYield,
-		NULL,
-		NULL
-	);
-
-	checkBoxStarch = CreateWindow(
-		L"button",
-		L"Содержание крахмала, %",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		680, 80, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxStarch,
-		NULL,
-		NULL
-	);
-
-	checkBoxDry = CreateWindow(
-		L"button",
-		L"Содержание сухого вещества, %",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		680, 145, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxDry,
-		NULL,
-		NULL
-	);
-
-	checkBoxContent = CreateWindow(
-		L"button",
-		L"Содержание редуцирующих сахараов. %",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		680, 210, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxContent,
-		NULL,
-		NULL
-	);
-
-	checkBoxRip = CreateWindow(
-		L"button",
-		L"Группа спелости",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		680, 275, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxRip,
-		NULL,
-		NULL
-	);
-
-	checkBoxAbility = CreateWindow(
-		L"button",
-		L"Способность к ягодообразованию от самоопыления (балл)",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		680, 340, 250, 30,
-		hWnd,
-		(HMENU)CheckBoxAbility,
-		NULL,
-		NULL
-	);
-
-	checkBoxDuration = CreateWindow(
-		L"button",
-		L"Продолжительность цветения, дни",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-		680, 405, 220, 30,
-		hWnd,
-		(HMENU)CheckBoxDuration,
-		NULL,
-		NULL
-	);
-
+	for (int i = 0; i < 5; i++) {
+		checkBoxS[i] = CreateWindow( 
+			L"button",
+			checkBoxNameS[i],
+			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+			810, s, 250, 30,
+			hWnd,
+			CheckBox[3][i],
+			NULL,
+			NULL
+		);
+		s += 65;
+	}
 }
 
 void SearchEditzone(HWND hWnd) 
 {
-	editSample = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 45, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxSample,
-		NULL,
-		NULL
-	);
-	editOrigin = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 110, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxOrigin,
-		NULL,
-		NULL
-	);
-	editVIGRR = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 175, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxVIGRR,
-		NULL,
-		NULL
-	);
-	editProductivity = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 240, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxProductivity,
-		NULL,
-		NULL
-	);
-	editField = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 305, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxField,
-		NULL,
-		NULL
-	);
-	editWeightN = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		15, 370, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editWeightK = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		85, 370, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	hStaticTextTable1 = CreateWindowA(
-		"static",
-		"-",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		70, 370, 10, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	editForm = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 45, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxForm,
-		NULL,
-		NULL
-	);
-	editPeel = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 110, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxPeel,
-		NULL,
-		NULL
-	);
-	testPeel1 = CreateWindow(
-		L"edit",
-		L"",
-		WS_CHILD | ES_CENTER,
-		250, 110, 200, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	editPulp = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 175, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxPulp,
-		NULL,
-		NULL
-	);
-	editEye = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 230, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxEye,
-		NULL,
-		NULL
-	);
-	editStolon = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 295, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxStolon,
-		NULL,
-		NULL
-	);
-	editTuber = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 360, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxTuber,
-		NULL,
-		NULL
-	);
-	editTaste = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 45, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxTaste,
-		NULL,
-		NULL
-	);
-	editConsistency = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 110, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxConsistency,
-		NULL,
-		NULL
-	);
-	editDarkening = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 175, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxDarkening,
-		NULL,
-		NULL
-	);
-	editBoil = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 240, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxBoil,
-		NULL,
-		NULL
-	);
-	editFriability = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 305, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxFriability,
-		NULL,
-		NULL
-	);
-	editWater = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 370, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxWater,
-		NULL,
-		NULL
-	);
-	editBoiled = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 435, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxBoiled,
-		NULL,
-		NULL
-	);
-	editYieldN = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		680, 45, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxYield,
-		NULL,
-		NULL
-	);
-	editYieldK = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		750, 45, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxYield,
-		NULL,
-		NULL
-	);
-	hStaticTextTable2 = CreateWindowA(
-		"static",
-		"-",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		735, 45, 10, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	editStarchN = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		680, 110, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxStarch,
-		NULL,
-		NULL
-	);
-	editStarchK = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		750, 110, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxStarch,
-		NULL,
-		NULL
-	);
-	hStaticTextTable3 = CreateWindowA(
-		"static",
-		"-",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		735, 110, 10, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	editDryN = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		680, 175, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxDry,
-		NULL,
-		NULL
-	);
-	editDryK = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		750, 175, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxDry,
-		NULL,
-		NULL
-	);
-	hStaticTextTable4 = CreateWindowA(
-		"static",
-		"-",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		735, 175, 10, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	editContentN = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		680, 240, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxContent,
-		NULL,
-		NULL
-	);
-	editContentK = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		750, 240, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxContent,
-		NULL,
-		NULL
-	);
-	hStaticTextTable5 = CreateWindowA(
-		"static",
-		"-",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		735, 240, 10, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	editRip = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 305, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxRip,
-		NULL,
-		NULL
-	);
-	editAbility = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 370, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxAbility,
-		NULL,
-		NULL
-	);
-	editDurationN = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		680, 435, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxDuration,
-		NULL,
-		NULL
-	);
-	editDurationK = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER | ES_NUMBER,
-		750, 435, 50, 20,
-		hWnd,
-		(HMENU)CheckBoxDuration,
-		NULL,
-		NULL
-	);
-	hStaticTextTable6 = CreateWindowA(
-		"static",
-		"-",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		735, 435, 10, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
+	int p = 45;
+	int m = 45;
+	int c = 45;
+	int s = 45;
+	int j = 3;
+
+	for (int i = 0; i < 3; i++) {
+		
+		EditZonePS[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			15, p, 220, 20,
+			hWnd,
+			CheckBox[0][i],
+			NULL,
+			NULL
+		);
+		p += 65;
+	}
+
+	for (int i = 0; i < 7; i++) {
+
+		EditZonePL[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			15, p, 50, 20,
+			hWnd,
+			CheckBox[0][j],
+			NULL,
+			NULL
+		);
+
+		EditZonePR[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			115, p, 50, 20,
+			hWnd,
+			CheckBox[0][j],
+			NULL,
+			NULL
+		);
+
+		hStaticTextTable = CreateWindow(
+			L"static",
+			L"-",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			65, p, 50, 20,
+			hWnd,
+			NULL,
+			NULL,
+			NULL
+		);
+
+		p += 65;
+		j++;
+	}
+
+	for (int i = 0; i < 6; i++) {
+
+		EditZoneM[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			280, m, 220, 20,
+			hWnd,
+			CheckBox[1][i],
+			NULL,
+			NULL
+		);
+		m += 65;
+	}
+
+	for (int i = 0; i < 8; i++) {
+
+		EditZoneCL[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			545, c, 50, 20,
+			hWnd,
+			CheckBox[2][i],
+			NULL,
+			NULL
+		);
+
+		EditZoneCR[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			645, c, 50, 20,
+			hWnd,
+			CheckBox[2][i],
+			NULL,
+			NULL
+		);
+
+		hStaticTextTable = CreateWindow(
+			L"static",
+			L"-",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			595, c, 50, 20,
+			hWnd,
+			NULL,
+			NULL,
+			NULL
+		);
+
+		c += 65;
+	}
+	
+	for (int i = 0; i < 5; i++) {
+
+		EditZoneSL[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			810, s, 50, 20,
+			hWnd,
+			CheckBox[3][i],
+			NULL,
+			NULL
+		);
+
+		EditZoneSR[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			910, s, 50, 20,
+			hWnd,
+			CheckBox[3][i],
+			NULL,
+			NULL
+		);
+
+		hStaticTextTable = CreateWindow(
+			L"static",
+			L"-",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			860, s, 50, 20,
+			hWnd,
+			NULL,
+			NULL,
+			NULL
+		);
+
+		s += 65;
+	}
 }
 
 
@@ -709,24 +243,24 @@ void SearchCheckbox(HWND hWnd)
 {
 	//Sample
 	if (statsCheckBoxSample == BST_CHECKED) {
-		SetWindowText(editSample, L"Ирбитский");
+		SetWindowText(EditZonePS[0], L"Арамис");
 	}
 	else if (statsCheckBoxSample == BST_UNCHECKED) {
-		SetWindowText(editSample, L"");
-	}
-	//Origin
-	if (statsCheckBoxOrigin == BST_CHECKED) {
-		SetWindowText(editOrigin, L"УрФАНИЦ УрОРАН");
-	}
-	else if (statsCheckBoxOrigin == BST_UNCHECKED) {
-		SetWindowText(editOrigin, L"");
+		SetWindowText(EditZonePS[0], L"");
 	}
 	//VIGRR
 	if (statsCheckBoxVIGRR == BST_CHECKED) {
-		SetWindowText(editVIGRR, L"24712");
+		SetWindowText(EditZonePS[1], L"24712");
 	}
 	else if (statsCheckBoxVIGRR == BST_UNCHECKED) {
-		SetWindowText(editVIGRR, L"");
+		SetWindowText(EditZonePS[1], L"");
+	}
+	//Origin
+	if (statsCheckBoxOrigin == BST_CHECKED) {
+		SetWindowText(EditZonePS[2], L"УрФАНИЦ УрОРАН");
+	}
+	else if (statsCheckBoxOrigin == BST_UNCHECKED) {
+		SetWindowText(EditZonePS[2], L"");
 	}
 	//Productivity
 	if (statsCheckBoxProductivity == BST_CHECKED) {

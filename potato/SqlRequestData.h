@@ -35,7 +35,7 @@ QueryData BuildQuery()
             if (!utf8.empty()) {
                 if (result.sql.find("WHERE") == std::string::npos) {
                     result.sql += " WHERE ";
-                    result.sql += condition.substr(5);                              
+                    //result.sql += condition.substr(5);                              
                 }
                 else {
                     result.sql += condition;
@@ -73,7 +73,7 @@ QueryData BuildQuery()
     };
 
     // ƒобавл€ем услови€ дл€ каждого параметра
-    testCheckedParam(statsCheckBoxSample == BST_CHECKED, editSample, "p.sample = ?");
+    testCheckedParam(statsCheckBoxSample == BST_CHECKED, EditZonePS[0], "p.sample = ?");
     getCheckedParam(statsCheckBoxOrigin == BST_CHECKED, editOrigin, " AND p.origin = ?");
     getCheckedParam(statsCheckBoxVIGRR == BST_CHECKED, editVIGRR, " AND p.VIGRR_catalogue_number = ?");
     getCheckedParam(statsCheckBoxProductivity == BST_CHECKED, editProductivity, " AND p.productivity = ?");

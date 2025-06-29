@@ -47,6 +47,21 @@
 #define CheckBoxAbility			45
 #define CheckBoxDuration		46
 #define ID_SEARCH_BUTTON		47
+#define CheckBoxCommercial 48
+#define CheckBoxNon_marketable 49
+#define CheckBoxCommercial_tuber 50
+#define CheckBoxNon_commercial_tuber 51
+#define CheckBoxTubers 52
+#define CheckBoxMarketability 53
+#define CheckBoxSkin 54
+#define CheckBoxBoilability 55
+#define CheckBoxWateriness 56
+#define CheckBoxSmell 57
+#define CheckBoxDarkening_raw 58
+#define CheckBoxDarkening_boiled 59
+#define CheckBoxFlowering 60
+#define CheckBoxRipeness 61
+
 
 #define TextBufferSize			256
 
