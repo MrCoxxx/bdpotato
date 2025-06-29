@@ -13,7 +13,7 @@ void MainWndAddMenus(HWND hWnd)
 	AppendMenu(SubMenuTable, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(SubMenuTable, MF_STRING, MenuAdd, L"Добавить новые данные");
 	AppendMenu(SubMenuTable, MF_SEPARATOR, NULL, NULL);
-	AppendMenu(SubMenuTable, MF_STRING, MenuRedact, L"Редактировать данные");
+	AppendMenu(SubMenuTable, MF_STRING, MenuRedact, L"Удаление данных");
 	AppendMenu(SubMenuTable, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(SubMenuTable, MF_STRING, MenuTableClose, L"Закрыть");
 

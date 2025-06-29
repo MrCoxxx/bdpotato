@@ -95,9 +95,12 @@ void AddComboboxzone(HWND hWnd);
 void Add(HWND hWnd);
 void AddStatic(HWND hWnd);
 void AddButton(HWND hWnd);
-void AddPotatoSample();
-void AddMorphologicalSample();
-void AddCulinarySample();
+
+//DeleteData
+void DeleteData(const std::string& sampleName, HWND hWnd);
+void DeleteStatic(HWND hWnd);
+void DeleteButton(HWND hWnd);
+void DeleteEditzone(HWND hWnd);
 
 //Edit
 LRESULT CALLBACK SoftwareEditProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);

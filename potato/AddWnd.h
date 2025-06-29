@@ -19,7 +19,7 @@ void WndAdd(HWND hWnd)
 			L"AddWndClass",
 			L"Добавить данные",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-			460, 240, 680, 485,
+			460, 240, 945, 745,
 			hWnd, NULL, hInstance, NULL
 		);
 		addWnd = TRUE;
@@ -36,9 +36,7 @@ LRESULT CALLBACK SoftwareAddProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 	case WM_COMMAND:
 		switch (wp) {
 		case AddClickButton:
-			AddPotatoSample();
-			AddMorphologicalSample();
-			AddCulinarySample();
+			AddData();
 			DestroyWindow(hWnd);
 			addWnd = FALSE;
 			break;

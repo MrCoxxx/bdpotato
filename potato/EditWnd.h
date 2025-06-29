@@ -15,11 +15,18 @@ WNDCLASS NewEditWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HIC
 void WndEdit(HWND hWnd)
 {
 	if (editWnd == FALSE) {
+		//HWND hAddWnd = CreateWindow(
+		//	L"EditWndClass",
+		//	L"Редактировать данные",
+		//	WS_OVERLAPPEDWINDOW | WS_VISIBLE,
+		//	460, 240, 680, 485,
+		//	hWnd, NULL, hInstance, NULL
+		//);
 		HWND hAddWnd = CreateWindow(
 			L"EditWndClass",
-			L"Редактировать данные",
+			L"Удаление данных",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-			460, 240, 680, 485,
+			460, 240, 265, 175,
 			hWnd, NULL, hInstance, NULL
 		);
 		editWnd = TRUE;
@@ -31,14 +38,20 @@ LRESULT CALLBACK SoftwareEditProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 	switch (msg)
 	{
 	case WM_CREATE:
-		Edit(hWnd);
+		//Edit(hWnd);
+		Delete(hWnd);
 		break;
 	case WM_COMMAND:
 		switch (wp) {
 		case EditClickButton:
-			EditPotatoSample();
-			EditMorphologicalSample();
-			EditCulinarySample();
+			//EditPotatoSample();
+			//EditMorphologicalSample();
+			//EditCulinarySample();
+
+			std::string sampleName = utf16_to_utf8(GetEditText(editID));
+
+			DeleteData(sampleName, hWnd);
+
 			DestroyWindow(hWnd);
 			editWnd = FALSE;
 			break;

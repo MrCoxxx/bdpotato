@@ -64,6 +64,21 @@ static HWND editRip;
 static HWND editAbility;
 static HWND editDurationN;
 static HWND editDurationK;
+static HWND editCommercial;
+static HWND editNon_marketable;
+static HWND editNon_commercial;
+static HWND editTubers;
+static HWND editMarketability;
+static HWND editSkin;
+static HWND editBoilability;
+static HWND editWateriness;
+static HWND editSmell;
+static HWND editDarkening_raw;
+static HWND editDarkening_boiled;
+static HWND editFlowering;
+static HWND editRipeness;
+static HWND editYield;
+static HWND editCommercial_tubers;
 
 //CheckBox
 static HWND checkBoxSample;
@@ -194,6 +209,23 @@ static HWND staticticPassword;
 static HWND staticIDPotatoC;
 static HWND staticIDPotatoM;
 static HWND staticID;
+static HWND staticCommercial;
+static HWND staticNon_marketable;
+static HWND staticNon_commercial;
+static HWND staticTubers;
+static HWND staticMarketability;
+static HWND staticSkin;
+static HWND staticBoilability;
+static HWND staticWateriness;
+static HWND staticSmell;
+static HWND staticDarkening_raw;
+static HWND staticDarkening_boiled;
+static HWND staticFlowering;
+static HWND staticRipeness;
+static HWND staticYield;
+static HWND staticCommercial_tubers;
+static HWND staticFriability;
+static HWND staticAbility;
 
 std::string potato;
 

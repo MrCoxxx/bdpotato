@@ -206,6 +206,8 @@
     <ClInclude Include="CreateWidgets.h" />
     <ClInclude Include="CulinaryData.h" />
     <ClInclude Include="DataBaseInit.h" />
+    <ClInclude Include="DeleteData.h" />
+    <ClInclude Include="DeleteInterface.h" />
     <ClInclude Include="DestroyUI.h" />
     <ClInclude Include="EditData.h" />
     <ClInclude Include="EditInterface.h" />

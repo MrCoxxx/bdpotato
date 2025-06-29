@@ -34,7 +34,7 @@ std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase()
     if (!db) return result;
 
     const char* sqlPotato = "SELECT sample, VIGRR_catalogue_number, origin, "
-        "productivity, commercial_tubers_in_clone, non_marketable_tubers_in_clone, "
+        "commercial_tubers_in_clone, non_marketable_tubers_in_clone, "
         "weight_of_commercial_tuber, weight_of_non_commercial_tuber, tubers_in_clone, "
         "marketability, productivity FROM potato";
     sqlite3_stmt* stmt;
