@@ -27,15 +27,22 @@ std::vector<std::vector<std::wstring>> GetStandartDataFromDatabase() {
 
     if (!db) return result;
 
-    const char* sqlStandart = "SELECT id_potato, field_resistance_to_late_blight, the_ability_to_form_berries_from_self_pollination, "
-        "flowering_duration, ripeness_group, yield_percentage FROM standart";
+    const char* sqlStandart = "SELECT p.sample, s.field_resistance_to_late_blight, s.the_ability_to_form_berries_from_self_pollination, "
+        "s.flowering_duration, s.ripeness_group, s.yield_percentage FROM standart s JOIN potato p WHERE p.id = s.id_potato";
+
     sqlite3_stmt* stmt;
     int i = 0;
     if (sqlite3_prepare_v2(db, sqlStandart, -1, &stmt, NULL) == SQLITE_OK) {
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             std::vector<std::wstring> row;
 
-            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 0)));
+            const unsigned char* sample = sqlite3_column_text(stmt, 0);
+            if (sample) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(sample)));
+            }
+            else {
+                row.push_back(L"");
+            }
 
             double field = sqlite3_column_double(stmt, 1);
             std::wstringstream wss7;

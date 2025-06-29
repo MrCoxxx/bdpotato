@@ -89,9 +89,6 @@
     <ClInclude Include="DestroyUI.h">
       <Filter>Файлы заголовков\Other</Filter>
     </ClInclude>
-    <ClInclude Include="ExportExcel.h">
-      <Filter>Файлы заголовков\Other</Filter>
-    </ClInclude>
     <ClInclude Include="GlobalVariable.h">
       <Filter>Файлы заголовков\Other</Filter>
     </ClInclude>

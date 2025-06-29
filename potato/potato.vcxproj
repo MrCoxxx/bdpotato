@@ -211,7 +211,6 @@
     <ClInclude Include="EditInterface.h" />
     <ClInclude Include="EditWnd.h" />
     <ClInclude Include="GlobalVariable.h" />
-    <ClInclude Include="ExportExcel.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="MainWnd.h" />
     <ClInclude Include="Menu.h" />

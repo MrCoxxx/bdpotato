@@ -30,9 +30,9 @@ std::vector<std::vector<std::wstring>> GetMorphologicalDataFromDatabase()
 
     if (!db) return result;
 
-    const char* sqlMorphological = "SELECT id_potato, form, peel_coloring, "
-        "pulp_coloring, eye_depth, "
-        "stolon_trace_depth, tuber_skin_surface FROM morphological_features_of_the_tuber";
+    const char* sqlMorphological = "SELECT p.sample, m.form, m.peel_coloring, "
+        "m.pulp_coloring, m.eye_depth, "
+        "m.stolon_trace_depth, m.tuber_skin_surface FROM morphological_features_of_the_tuber m JOIN potato p WHERE p.id = m.id_potato";
     sqlite3_stmt* stmt;
 
     if (sqlite3_prepare_v2(db, sqlMorphological, -1, &stmt, NULL) == SQLITE_OK) {

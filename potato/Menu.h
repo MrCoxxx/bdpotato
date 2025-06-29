@@ -15,8 +15,6 @@ void MainWndAddMenus(HWND hWnd)
 	AppendMenu(SubMenuTable, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(SubMenuTable, MF_STRING, MenuRedact, L"Редактировать данные");
 	AppendMenu(SubMenuTable, MF_SEPARATOR, NULL, NULL);
-	AppendMenu(SubMenuTable, MF_STRING, MenuExport, L"Экспортировать данные");
-	AppendMenu(SubMenuTable, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(SubMenuTable, MF_STRING, MenuTableClose, L"Закрыть");
 
 	AppendMenu(SubMenuRequest, MF_STRING, MenuRequestShow, L"Открыть");

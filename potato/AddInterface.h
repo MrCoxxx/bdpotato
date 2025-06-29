@@ -196,16 +196,6 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editOrigin = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 110, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxOrigin,
-		NULL,
-		NULL
-	);
 	editVIGRR = CreateWindow(
 		L"edit",
 		L"",
@@ -216,7 +206,17 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editProductivity = CreateWindow(
+	editOrigin = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 110, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxOrigin,
+		NULL,
+		NULL
+	);
+	editCommercial = CreateWindow(
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -226,7 +226,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editField = CreateWindow(
+	editNon_marketable = CreateWindow(
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -236,7 +236,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editIDPotatoM = CreateWindow(
+	editCommercial_tuber = CreateWindow(
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -246,7 +246,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editForm = CreateWindow(
+	editNon_commercial_tuber = CreateWindow(
 		L"edit",
 		L"",
 		WS_CHILD | ES_CENTER,
@@ -256,7 +256,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editPeel = CreateWindow(
+	editTubers = CreateWindow(
 		L"edit",
 		L"",
 		WS_CHILD | ES_CENTER,
@@ -266,7 +266,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editPulp = CreateWindow(
+	editMarketability = CreateWindow(
 		L"edit",
 		L"",
 		WS_CHILD | ES_CENTER,
@@ -276,7 +276,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editEye = CreateWindow(
+	editProductivity = CreateWindow(
 		L"edit",
 		L"",
 		WS_CHILD | ES_CENTER,
@@ -286,7 +286,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editStolon = CreateWindow(
+	editForm = CreateWindow(
 		L"edit",
 		L"",
 		WS_CHILD | ES_CENTER,
@@ -296,7 +296,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editIDPotatoC = CreateWindow(
+	editPeel_coloring = CreateWindow(
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
@@ -306,7 +306,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editTaste = CreateWindow(
+	editPulp_coloring = CreateWindow(
 		L"edit",
 		L"",
 		WS_CHILD | ES_CENTER,
@@ -316,7 +316,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editConsistency = CreateWindow(
+	editEye_depth = CreateWindow(
 		L"edit",
 		L"",
 		WS_CHILD | ES_CENTER,
@@ -326,7 +326,7 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editDarkening = CreateWindow(
+	editStolon_trace_depth = CreateWindow(
 		L"edit",
 		L"",
 		WS_CHILD | ES_CENTER,
@@ -336,7 +336,87 @@ void AddEditzone(HWND hWnd)
 		NULL,
 		NULL
 	);
-	editWeightN = CreateWindow(
+	editTuber_skin_surface = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 370, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	editTuber_boilability = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 370, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	editPulp_consistency = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 370, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	editFriability = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 370, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	editTuber_skin_surface = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 370, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	editTuber_skin_surface = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 370, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	editTuber_skin_surface = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 370, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	editTuber_skin_surface = CreateWindow(
+		L"edit",
+		L"",
+		WS_VISIBLE | WS_CHILD | ES_CENTER,
+		15, 370, 220, 20,
+		hWnd,
+		(HMENU)CheckBoxWeight,
+		NULL,
+		NULL
+	);
+	editTuber_skin_surface = CreateWindow(
 		L"edit",
 		L"",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,

@@ -25,8 +25,6 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		case MenuRedact:
 			WndEdit(hWnd);
 			break;
-		case MenuExport:
-			ExportToExcel(db, "potato_data.xlsx");
 			break;
 		case MenuInfo:
 			MessageBoxA(hWnd, "Программа учёта видов картофеля\n"

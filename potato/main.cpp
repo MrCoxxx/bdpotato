@@ -33,10 +33,6 @@ using namespace Gdiplus;
 #include "MainWnd.h"
 #include "TestWnd.h"
 #include "SearchWnd.h"
-#include "AddWnd.h"
-#include "EditWnd.h"
-#include "AddData.h"
-#include "EditData.h"
 #include "StandardData.h"
 #include "Menu.h"
 #include "DataBaseInit.h"
@@ -52,8 +48,10 @@ using namespace Gdiplus;
 #include "MorphologicalData.h"
 #include "CulinaryData.h"
 #include "RequestData.h"
-#include "ExportExcel.h"
-
+#include "AddData.h"
+#include "EditData.h"
+#include "AddWnd.h"
+#include "EditWnd.h"
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {

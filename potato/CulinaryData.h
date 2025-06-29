@@ -32,16 +32,22 @@ std::vector<std::vector<std::wstring>> GetCulinaryDataFromDatabase()
 
     if (!db) return result;
 
-    const char* sqlCulinary = "SELECT id_potato, tuber_boilability, pulp_consistency, "
-        "friability, wateriness_of_tubers, the_smell_of_boiled_potatoes, "
-        "the_taste_of_boiled_potatoes, darkening_of_the_flesh_of_raw_potatoes, darkening_of_the_flesh_of_boiled_potatoes FROM culinary_qualities";
+    const char* sqlCulinary = "SELECT p.sample, cq.tuber_boilability, cq.pulp_consistency, "
+        "cq.friability, cq.wateriness_of_tubers, cq.the_smell_of_boiled_potatoes, "
+        "cq.the_taste_of_boiled_potatoes, cq.darkening_of_the_flesh_of_raw_potatoes, cq.darkening_of_the_flesh_of_boiled_potatoes FROM culinary_qualities cq JOIN potato p WHERE p.id = cq.id_potato";
     sqlite3_stmt* stmt;
     int i = 0;
     if (sqlite3_prepare_v2(db, sqlCulinary, -1, &stmt, NULL) == SQLITE_OK) {
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             std::vector<std::wstring> row;
             
-            row.push_back(std::to_wstring(sqlite3_column_int(stmt, 0)));
+            const unsigned char* sample = sqlite3_column_text(stmt, 0);
+            if (sample) {
+                row.push_back(utf8_to_utf16(reinterpret_cast<const char*>(sample)));
+            }
+            else {
+                row.push_back(L"");
+            }
 
             row.push_back(std::to_wstring(sqlite3_column_int(stmt, 1)));
 
