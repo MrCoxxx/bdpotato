@@ -35,7 +35,7 @@ QueryData BuildQuery()
             if (!utf8.empty()) {
                 if (result.sql.find("WHERE") == std::string::npos) {
                     result.sql += " WHERE ";
-                    //result.sql += condition.substr(5);                              
+                    result.sql += condition.substr(5);                              
                 }
                 else {
                     result.sql += condition;
@@ -45,14 +45,14 @@ QueryData BuildQuery()
         }
     };
 
-    auto testCheckedParam = [&](bool checked, HWND editControl, const std::string& condition) {
+    auto wordCheckedParam = [&](bool checked, HWND editControl, const std::string& condition) {
         if (checked) {
 
             GetWindowTextA(editControl, Buffer3, TextBufferSize);
-            std::vector<std::string> words = split(Buffer3, ' ');
+            std::vector<std::string> words = split(Buffer3, ',');
             int i = 0;
 
-            size_t wordCount = countWords(Buffer3, ' ');
+            size_t wordCount = countWords(Buffer3, ',');
             for (const auto& word : words) {
                 SetWindowTextA(testPeel1, word.c_str());
 
@@ -73,21 +73,40 @@ QueryData BuildQuery()
     };
 
     // ƒобавл€ем услови€ дл€ каждого параметра
-    testCheckedParam(statsCheckBoxSample == BST_CHECKED, EditZonePS[0], "p.sample = ?");
-    getCheckedParam(statsCheckBoxOrigin == BST_CHECKED, editOrigin, " AND p.origin = ?");
-    getCheckedParam(statsCheckBoxVIGRR == BST_CHECKED, editVIGRR, " AND p.VIGRR_catalogue_number = ?");
-    getCheckedParam(statsCheckBoxProductivity == BST_CHECKED, editProductivity, " AND p.productivity = ?");
-    getCheckedParam(statsCheckBoxField == BST_CHECKED, editField, " AND p.field_resistance_to_late_blight = ?");
-    testCheckedParam(statsCheckBoxForm == BST_CHECKED, editForm, "mf.form = ?");
-    testCheckedParam(statsCheckBoxPulp == BST_CHECKED, editPulp, "mf.pulp_coloring = ?");
-    testCheckedParam(statsCheckBoxEye == BST_CHECKED, editEye, "mf.eye_depth = ?");
-    testCheckedParam(statsCheckBoxStolon == BST_CHECKED, editStolon, "mf.stolon_trace_depth = ?");
-    testCheckedParam(statsCheckBoxTaste == BST_CHECKED, editTaste, "cq.taste = ?");
-    testCheckedParam(statsCheckBoxConsistency == BST_CHECKED, editConsistency, "cq.pulp_consistency = ?");
-    testCheckedParam(statsCheckBoxDarkening == BST_CHECKED, editDarkening, "cq.darkening_after_cooking = ?");
-    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeightN, " AND p.weight_of_commercial_tuber >= ?");
-    getCheckedParam(statsCheckBoxWeight == BST_CHECKED, editWeightK, " AND p.weight_of_commercial_tuber <= ?");
-    testCheckedParam(statsCheckBoxPeel == BST_CHECKED, editPeel, "mf.peel_coloring = ?");
+    //Potato
+    wordCheckedParam(statsCheckBoxSample == BST_CHECKED, EditZonePS[0], "p.sample = ?");
+    wordCheckedParam(statsCheckBoxVIGRR == BST_CHECKED, EditZonePS[1], "p.VIGRR_catalogue_number = ?");
+    wordCheckedParam(statsCheckBoxOrigin == BST_CHECKED, EditZonePS[2], "p.origin = ?");
+
+    wordCheckedParam(statsCheckBoxCommercial == BST_CHECKED, EditZonePL[0], "p.commercial_tubers_in_clone >= ?");
+    wordCheckedParam(statsCheckBoxCommercial == BST_CHECKED, EditZonePR[0], "p.commercial_tubers_in_clone <= ?");
+
+    wordCheckedParam(statsCheckBoxNon_marketable == BST_CHECKED, EditZonePL[1], "p.non_marketable_tubers_in_clone >= ?");
+    wordCheckedParam(statsCheckBoxNon_marketable == BST_CHECKED, EditZonePR[1], "p.non_marketable_tubers_in_clone <= ?");
+
+    wordCheckedParam(statsCheckBoxCommercial_tuber == BST_CHECKED, EditZonePL[2], "p.weight_of_commercial_tuber >= ?");
+    wordCheckedParam(statsCheckBoxCommercial_tuber == BST_CHECKED, EditZonePR[2], "p.weight_of_commercial_tuber <= ?");
+
+    wordCheckedParam(statsCheckBoxNon_commercial_tuber == BST_CHECKED, EditZonePL[3], "p.weight_of_non_commercial_tuber >= ?");
+    wordCheckedParam(statsCheckBoxNon_commercial_tuber == BST_CHECKED, EditZonePR[3], "p.weight_of_non_commercial_tuber <= ?");
+
+    wordCheckedParam(statsCheckBoxTubers == BST_CHECKED, EditZonePL[4], "p.tubers_in_clone >= ?");
+    wordCheckedParam(statsCheckBoxTubers == BST_CHECKED, EditZonePR[4], "p.tubers_in_clone <= ?");
+
+    wordCheckedParam(statsCheckBoxMarketability == BST_CHECKED, EditZonePL[5], "p.marketability >= ?");
+    wordCheckedParam(statsCheckBoxMarketability == BST_CHECKED, EditZonePR[5], "p.marketability <= ?");
+
+    wordCheckedParam(statsCheckBoxProductivity == BST_CHECKED, EditZonePL[6], "p.productivity >= ?");
+    wordCheckedParam(statsCheckBoxProductivity == BST_CHECKED, EditZonePR[6], "p.productivity <= ?");
+
+
+    //Morh
+    wordCheckedParam(statsCheckBoxForm == BST_CHECKED, EditZoneM[0], "mf.form = ?");
+    wordCheckedParam(statsCheckBoxPeel == BST_CHECKED, EditZoneM[1], "mf.peel_coloring = ?");
+    wordCheckedParam(statsCheckBoxPulp == BST_CHECKED, EditZoneM[2], "mf.pulp_coloring = ?");
+    wordCheckedParam(statsCheckBoxEye == BST_CHECKED, EditZoneM[3], "mf.eye_depth = ?");
+    wordCheckedParam(statsCheckBoxStolon == BST_CHECKED, EditZoneM[4], "mf.stolon_trace_depth = ?");
+    wordCheckedParam(statsCheckBoxSkin == BST_CHECKED, EditZoneM[5], "mf.tuber_skin_surface = ?");
 
     return result;
 }

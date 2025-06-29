@@ -107,93 +107,45 @@ void DestroySearchUI(HWND hWnd)
 
 void DestroyCheckBox(HWND hWnd) 
 {
+	statsCheckBoxSample = NULL;
+	statsCheckBoxVIGRR = NULL;
+	statsCheckBoxOrigin = NULL;
+	statsCheckBoxCommercial = NULL;
+	statsCheckBoxNon_marketable = NULL;
+	statsCheckBoxCommercial_tuber = NULL;
+	statsCheckBoxNon_commercial_tuber = NULL;
+	statsCheckBoxTubers = NULL;
+	statsCheckBoxMarketability = NULL;
+	statsCheckBoxProductivity = NULL;
 
-	if (editSample)
-	{
-		DestroyWindow(editSample);
-		editSample = NULL;
-		statsCheckBoxSample = NULL;
+	for (int i = 0; i < 10; i++) {
+		if (i < 3) {
+			DestroyWindow(EditZonePS[i]);
+			EditZonePS[i] = NULL;
+		}
+		if (i < 7) {
+			DestroyWindow(EditZonePL[i]);
+			DestroyWindow(EditZonePR[i]);
+			EditZonePL[i] = NULL;
+			EditZonePR[i] = NULL;
+		}
+		if (i < 6) {
+			DestroyWindow(EditZoneM[i]);
+			EditZoneM[i] = NULL;
+		}
+		if (i < 8) {
+			DestroyWindow(EditZoneCL[i]);
+			DestroyWindow(EditZoneCR[i]);
+			EditZoneCL[i] = NULL;
+			EditZoneCR[i] = NULL;
+		}
+		if (i < 5) {
+			DestroyWindow(EditZoneSL[i]);
+			DestroyWindow(EditZoneSR[i]);
+			EditZoneSL[i] = NULL;
+			EditZoneSR[i] = NULL;
+		}
 	}
-	if (editOrigin)
-	{
-		DestroyWindow(editOrigin);
-		editOrigin = NULL;
-		statsCheckBoxOrigin = NULL;
-	}
-	if (editVIGRR)
-	{
-		DestroyWindow(editVIGRR);
-		editVIGRR = NULL;
-		statsCheckBoxVIGRR = NULL;
-	}
-	if (editProductivity)
-	{
-		DestroyWindow(editProductivity);
-		editProductivity = NULL;
-		statsCheckBoxProductivity = NULL;
-	}
-	if (editField)
-	{
-		DestroyWindow(editField);
-		editField = NULL;
-		statsCheckBoxField = NULL;
-	}
-	if (editForm)
-	{
-		DestroyWindow(editForm);
-		editForm = NULL;
-		statsCheckBoxForm = NULL;
-	}
-	if (editPeel)
-	{
-		DestroyWindow(editPeel);
-		editPeel = NULL;
-		statsCheckBoxPeel = NULL;
-	}
-	
-	if (editPulp)
-	{
-		DestroyWindow(editPulp);
-		editPulp = NULL;
-		statsCheckBoxPulp = NULL;
-	}
-	if (editEye)
-	{
-		DestroyWindow(editEye);
-		editEye = NULL;
-		statsCheckBoxEye = NULL;
-	}
-	if (editStolon)
-	{
-		DestroyWindow(editStolon);
-		editStolon = NULL;
-		statsCheckBoxStolon = NULL;
-	}
-	if (editTaste)
-	{
-		DestroyWindow(editTaste);
-		editTaste = NULL;
-		statsCheckBoxTaste = NULL;
-	}
-	if (editConsistency)
-	{
-		DestroyWindow(editConsistency);
-		editConsistency = NULL;
-		statsCheckBoxConsistency = NULL;
-	}
-	if (editDarkening)
-	{
-		DestroyWindow(editDarkening);
-		editDarkening = NULL;
-		statsCheckBoxDarkening = NULL;
-	}
-	if (editWeightN)
-	{
-		DestroyWindow(editWeightN);
-		editWeightN = NULL;
-		statsCheckBoxWeight = NULL;
-	}
-
 }
 
 void DestroySearchButton(HWND hWnd) 

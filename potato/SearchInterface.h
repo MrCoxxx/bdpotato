@@ -86,6 +86,17 @@ void SearchCheckBox(HWND hWnd)
 
 void SearchEditzone(HWND hWnd) 
 {
+	testPeel1 = CreateWindow(
+		L"edit",
+		L"",
+		WS_CHILD | ES_CENTER,
+		250, 110, 200, 20,
+		hWnd,
+		NULL,
+		NULL,
+		NULL
+	);
+
 	int p = 45;
 	int m = 45;
 	int c = 45;
@@ -250,14 +261,14 @@ void SearchCheckbox(HWND hWnd)
 	}
 	//VIGRR
 	if (statsCheckBoxVIGRR == BST_CHECKED) {
-		SetWindowText(EditZonePS[1], L"24712");
+		SetWindowText(EditZonePS[1], L"Без номера");
 	}
 	else if (statsCheckBoxVIGRR == BST_UNCHECKED) {
 		SetWindowText(EditZonePS[1], L"");
 	}
 	//Origin
 	if (statsCheckBoxOrigin == BST_CHECKED) {
-		SetWindowText(EditZonePS[2], L"УрФАНИЦ УрОРАН");
+		SetWindowText(EditZonePS[2], L"Германия");
 	}
 	else if (statsCheckBoxOrigin == BST_UNCHECKED) {
 		SetWindowText(EditZonePS[2], L"");

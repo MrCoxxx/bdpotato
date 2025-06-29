@@ -112,15 +112,7 @@ static HWND checkBoxWeight;
 static LRESULT statsCheckBoxSample;
 static LRESULT statsCheckBoxOrigin;
 static LRESULT statsCheckBoxVIGRR;
-static LRESULT statsCheckBoxProductivity;
 static LRESULT statsCheckBoxField;
-static LRESULT statsCheckBoxForm;
-static LRESULT statsCheckBoxPeel;
-static LRESULT statsCheckBoxPeel1;
-static LRESULT statsCheckBoxPeel2;
-static LRESULT statsCheckBoxPulp;
-static LRESULT statsCheckBoxEye;
-static LRESULT statsCheckBoxStolon;
 static LRESULT statsCheckBoxTuber;
 static LRESULT statsCheckBoxTaste;
 static LRESULT statsCheckBoxConsistency;
@@ -137,6 +129,23 @@ static LRESULT statsCheckBoxContent;
 static LRESULT statsCheckBoxRip;
 static LRESULT statsCheckBoxAbility;
 static LRESULT statsCheckBoxDuration;
+
+
+//NewStats
+static LRESULT statsCheckBoxCommercial;
+static LRESULT statsCheckBoxNon_marketable;
+static LRESULT statsCheckBoxCommercial_tuber;
+static LRESULT statsCheckBoxNon_commercial_tuber;
+static LRESULT statsCheckBoxTubers;
+static LRESULT statsCheckBoxMarketability;
+static LRESULT statsCheckBoxProductivity;
+
+static LRESULT statsCheckBoxForm;
+static LRESULT statsCheckBoxPeel;
+static LRESULT statsCheckBoxPulp;
+static LRESULT statsCheckBoxEye;
+static LRESULT statsCheckBoxStolon;
+static LRESULT statsCheckBoxSkin;
 
 
 //Widgets
@@ -320,6 +329,8 @@ HWND EditZoneSL[5];
 
 HWND EditZoneSR[5];
 
+
+
 HWND checkBoxP[10];
 
 HWND checkBoxM[6];
@@ -327,6 +338,8 @@ HWND checkBoxM[6];
 HWND checkBoxC[8];
 
 HWND checkBoxS[5];
+
+
 
 LPCWSTR checkBoxNameP[10]{ L"Образец", L"№ по каталогу ВИГРР", L"Происхождение", L"Товарных клубней в клоне, шт.", L"Нетоварных клубней в клоне, шт.", L"Масса товарного клубня, г", L"Масса нетоварного клубня, г", L"Клубней в клоне, шт", L"Товарность, %", L"Урожайность, кг/м2" };
 
@@ -362,9 +375,9 @@ LPCWSTR nameAb[5] = { L"1 — ягоды отсутствуют", L"3 — единичное ягодообразование
 
 LPCWSTR nameF[7] = { L"1 - Очень длинная", L"2 - Длинная", L"3 - Длинноовальная" , L"4 - Овальная", L"5 - Округло-овальная", L"6 - Округлая", L"7 - Короткая" };
 
-LPCWSTR nameP[9] = { L"1 - Белая", L"2 - Светло-жёлтая", L"3 - Жёлтая" , L"5 - Жёлто-коричневая", L"6 - Розовая", L"7 - Красная", L"8 - Красно-фиолетовая", L"9 - Сине-фиолетовая", L"10 - Тёмно-фиолетовая" };
+LPCWSTR nameP[9] = { L"1 - Белая", L"2 - Светло-желтая", L"3 - Желтая" , L"5 - Желто-коричневая", L"6 - Розовая", L"7 - Красная", L"8 - Красно-фиолетовая", L"9 - Сине-фиолетовая", L"10 - Тёмно-фиолетовая" };
 
-LPCWSTR namePu[9] = { L"1 - Белая", L"2 - Кремовая", L"3 - Светло - жёлтая", L"4 - Жёлтая", L"5 - Тёмно - жёлтая", L"6 - Антоциановая не сплошная слабая", L"7 - Антоциановая не сплошная насыщенная", L"8 - Антоциановая сплошная ненасыщенная", L"9 - Антоциановая сплошная насыщенная" };
+LPCWSTR namePu[9] = { L"1 - Белая", L"2 - Кремовая", L"3 - Светло - желтая", L"4 - Желтая", L"5 - Темно - желтая", L"6 - Антоциановая не сплошная слабая", L"7 - Антоциановая не сплошная насыщенная", L"8 - Антоциановая сплошная ненасыщенная", L"9 - Антоциановая сплошная насыщенная" };
 
 LPCWSTR nameE[5] = { L"Очень глубокие(2 и более мм)", L"глубокие(1,7–1,9 мм)", L"средние(1,4–1,6 мм)", L"мелкие(1,1–1,3 мм)", L"очень мелкие(менее 1 мм)" };
 

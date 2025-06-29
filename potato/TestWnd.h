@@ -96,7 +96,7 @@ std::wstring GetSelectedFilters(int count) {
 		if (SendMessage(nameT[i], BM_GETCHECK, 0, 0) == BST_CHECKED) {			
 			std::wstring filterValue = GetWindowTextT(hEditFilters[i]);
 			if (!result.empty()) {
-				result += L" ";
+				result += L",";
 			}
 			result += filterValue.substr(4);
 		}
