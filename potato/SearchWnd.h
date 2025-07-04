@@ -21,7 +21,7 @@ void WndSearch(HWND hWnd)
 			L"SearchWndClass",
 			L"Поиск",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-			460, 240, 1060, 750,
+			460, 240, 300, 750,
 			hWnd, NULL, hInstance, NULL
 		);
 		secondWnd = TRUE;
@@ -83,131 +83,131 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 			break;
 
 
-
-		case CheckBoxForm:
-			statsCheckBoxForm = SendMessage(checkBoxM[0], BM_GETCHECK, 0, 0);
-			if (statsCheckBoxForm == BST_CHECKED) {
-				WindowData formData = { nameF, 7, L"Форма", EditZoneM[0]};
-				WndTest(hWnd, formData);
-			}
-			else if (statsCheckBoxForm == BST_UNCHECKED) {
-				DestroyWindow(hTestWnd);
-				testWnd = FALSE;
-			}
-			break;
-		case CheckBoxPeel:
-			statsCheckBoxPeel = SendMessage(checkBoxM[1], BM_GETCHECK, 0, 0);
-			if (statsCheckBoxPeel == BST_CHECKED) {
-				WindowData peelData = { nameP, 9, L"Окраска кожуры", EditZoneM[1] };
-				WndTest(hWnd, peelData);
-			}
-			else if (statsCheckBoxPeel == BST_UNCHECKED) {
-				DestroyWindow(hTestWnd);
-				testWnd = FALSE;
-			}
-			break;
-		case CheckBoxPulp:
-			statsCheckBoxPulp = SendMessage(checkBoxM[2], BM_GETCHECK, 0, 0);
-			if (statsCheckBoxPulp == BST_CHECKED) {
-				WindowData pulpData = { namePu, 9, L"Окраска мякоти", EditZoneM[2] };
-				WndTest(hWnd, pulpData);
-			}
-			else if (statsCheckBoxPulp == BST_UNCHECKED) {
-				DestroyWindow(hTestWnd);
-				testWnd = FALSE;
-			}
-			break;
-		case CheckBoxEye:
-			statsCheckBoxEye = SendMessage(checkBoxM[3], BM_GETCHECK, 0, 0);
-			if (statsCheckBoxEye == BST_CHECKED) {
-				WindowData eyeData = { nameE, 5, L"Глубина глазков", EditZoneM[3] };
-				WndTest(hWnd, eyeData);
-			}
-			else if (statsCheckBoxEye == BST_UNCHECKED) {
-				DestroyWindow(hTestWnd);
-				testWnd = FALSE;
-			}
-			break;
-		case CheckBoxStolon:
-			statsCheckBoxStolon = SendMessage(checkBoxM[4], BM_GETCHECK, 0, 0);
-			if (statsCheckBoxStolon == BST_CHECKED) {
-				WindowData stolonData = { nameS, 5, L"Глубина столонного следа", EditZoneM[4] };
-				WndTest(hWnd, stolonData);
-			}
-			else if (statsCheckBoxStolon == BST_UNCHECKED) {
-				DestroyWindow(hTestWnd);
-				testWnd = FALSE;
-			}
-			break;
-		case CheckBoxSkin:
-			statsCheckBoxSkin = SendMessage(checkBoxM[5], BM_GETCHECK, 0, 0);
-			if (statsCheckBoxSkin == BST_CHECKED) {
-				WindowData skinData = { nameTu, 3, L"Поверхность кожуры клубня", EditZoneM[5] };
-				WndTest(hWnd, skinData);
-			}
-			else if (statsCheckBoxSkin == BST_UNCHECKED) {
-				DestroyWindow(hTestWnd);
-				testWnd = FALSE;
-			}
-			break;
-
-
-
-		case CheckBoxBoilability:
-			statsCheckBoxBoilability = SendMessage(checkBoxC[0], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxConsistency:
-			statsCheckBoxConsistency = SendMessage(checkBoxC[1], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxFriability:
-			statsCheckBoxFriability = SendMessage(checkBoxC[2], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxWateriness:
-			statsCheckBoxWateriness = SendMessage(checkBoxC[3], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxSmell:
-			statsCheckBoxSmell = SendMessage(checkBoxC[4], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxTaste:
-			statsCheckBoxTaste = SendMessage(checkBoxC[5], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxDarkening_raw:
-			statsCheckBoxDarkening_raw = SendMessage(checkBoxC[6], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxDarkening_boiled:
-			statsCheckBoxDarkening_boiled = SendMessage(checkBoxC[7], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-
-
-
-		case CheckBoxField:
-			statsCheckBoxField = SendMessage(checkBoxS[0], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxAbility:
-			statsCheckBoxAbility = SendMessage(checkBoxS[1], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxFlowering:
-			statsCheckBoxFlowering = SendMessage(checkBoxS[2], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxRipeness:
-			statsCheckBoxRipeness = SendMessage(checkBoxS[3], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
-		case CheckBoxYield:
-			statsCheckBoxYield = SendMessage(checkBoxS[4], BM_GETCHECK, 0, 0);
-			SearchCheckbox(hWnd);
-			break;
+		//Раскоментить когда будут данные
+		//case CheckBoxForm:
+		//	statsCheckBoxForm = SendMessage(checkBoxM[0], BM_GETCHECK, 0, 0);
+		//	if (statsCheckBoxForm == BST_CHECKED) {
+		//		WindowData formData = { nameF, 7, L"Форма", EditZoneM[0]};
+		//		WndTest(hWnd, formData);
+		//	}
+		//	else if (statsCheckBoxForm == BST_UNCHECKED) {
+		//		DestroyWindow(hTestWnd);
+		//		testWnd = FALSE;
+		//	}
+		//	break;
+		//case CheckBoxPeel:
+		//	statsCheckBoxPeel = SendMessage(checkBoxM[1], BM_GETCHECK, 0, 0);
+		//	if (statsCheckBoxPeel == BST_CHECKED) {
+		//		WindowData peelData = { nameP, 9, L"Окраска кожуры", EditZoneM[1] };
+		//		WndTest(hWnd, peelData);
+		//	}
+		//	else if (statsCheckBoxPeel == BST_UNCHECKED) {
+		//		DestroyWindow(hTestWnd);
+		//		testWnd = FALSE;
+		//	}
+		//	break;
+		//case CheckBoxPulp:
+		//	statsCheckBoxPulp = SendMessage(checkBoxM[2], BM_GETCHECK, 0, 0);
+		//	if (statsCheckBoxPulp == BST_CHECKED) {
+		//		WindowData pulpData = { namePu, 9, L"Окраска мякоти", EditZoneM[2] };
+		//		WndTest(hWnd, pulpData);
+		//	}
+		//	else if (statsCheckBoxPulp == BST_UNCHECKED) {
+		//		DestroyWindow(hTestWnd);
+		//		testWnd = FALSE;
+		//	}
+		//	break;
+		//case CheckBoxEye:
+		//	statsCheckBoxEye = SendMessage(checkBoxM[3], BM_GETCHECK, 0, 0);
+		//	if (statsCheckBoxEye == BST_CHECKED) {
+		//		WindowData eyeData = { nameE, 5, L"Глубина глазков", EditZoneM[3] };
+		//		WndTest(hWnd, eyeData);
+		//	}
+		//	else if (statsCheckBoxEye == BST_UNCHECKED) {
+		//		DestroyWindow(hTestWnd);
+		//		testWnd = FALSE;
+		//	}
+		//	break;
+		//case CheckBoxStolon:
+		//	statsCheckBoxStolon = SendMessage(checkBoxM[4], BM_GETCHECK, 0, 0);
+		//	if (statsCheckBoxStolon == BST_CHECKED) {
+		//		WindowData stolonData = { nameS, 5, L"Глубина столонного следа", EditZoneM[4] };
+		//		WndTest(hWnd, stolonData);
+		//	}
+		//	else if (statsCheckBoxStolon == BST_UNCHECKED) {
+		//		DestroyWindow(hTestWnd);
+		//		testWnd = FALSE;
+		//	}
+		//	break;
+		//case CheckBoxSkin:
+		//	statsCheckBoxSkin = SendMessage(checkBoxM[5], BM_GETCHECK, 0, 0);
+		//	if (statsCheckBoxSkin == BST_CHECKED) {
+		//		WindowData skinData = { nameTu, 3, L"Поверхность кожуры клубня", EditZoneM[5] };
+		//		WndTest(hWnd, skinData);
+		//	}
+		//	else if (statsCheckBoxSkin == BST_UNCHECKED) {
+		//		DestroyWindow(hTestWnd);
+		//		testWnd = FALSE;
+		//	}
+		//	break;
+		//
+		//
+		//
+		//case CheckBoxBoilability:
+		//	statsCheckBoxBoilability = SendMessage(checkBoxC[0], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxConsistency:
+		//	statsCheckBoxConsistency = SendMessage(checkBoxC[1], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxFriability:
+		//	statsCheckBoxFriability = SendMessage(checkBoxC[2], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxWateriness:
+		//	statsCheckBoxWateriness = SendMessage(checkBoxC[3], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxSmell:
+		//	statsCheckBoxSmell = SendMessage(checkBoxC[4], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxTaste:
+		//	statsCheckBoxTaste = SendMessage(checkBoxC[5], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxDarkening_raw:
+		//	statsCheckBoxDarkening_raw = SendMessage(checkBoxC[6], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxDarkening_boiled:
+		//	statsCheckBoxDarkening_boiled = SendMessage(checkBoxC[7], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//
+		//
+		//
+		//case CheckBoxField:
+		//	statsCheckBoxField = SendMessage(checkBoxS[0], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxAbility:
+		//	statsCheckBoxAbility = SendMessage(checkBoxS[1], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxFlowering:
+		//	statsCheckBoxFlowering = SendMessage(checkBoxS[2], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxRipeness:
+		//	statsCheckBoxRipeness = SendMessage(checkBoxS[3], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
+		//case CheckBoxYield:
+		//	statsCheckBoxYield = SendMessage(checkBoxS[4], BM_GETCHECK, 0, 0);
+		//	SearchCheckbox(hWnd);
+		//	break;
 
 
 

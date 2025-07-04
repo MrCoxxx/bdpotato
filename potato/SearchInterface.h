@@ -12,7 +12,7 @@ void SearchButton(HWND hWnd)
 		"button",
 		"Поиск",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 665, 1010, 30,
+		15, 665, 250, 30,
 		hWnd,
 		(HMENU)SearchClickButtonClose,
 		NULL,
@@ -23,9 +23,11 @@ void SearchButton(HWND hWnd)
 void SearchCheckBox(HWND hWnd)
 {
 	int p = 15;
-	int m = 15;
-	int c = 15;
-	int s = 15;
+
+	//Раскоментить когда будут данные
+	//int m = 15;
+	//int c = 15;
+	//int s = 15;
 
 	for (int i = 0; i < 10; i++) {
 		checkBoxP[i] = CreateWindow(
@@ -41,47 +43,48 @@ void SearchCheckBox(HWND hWnd)
 		p += 65;
 	}
 
-	for (int i = 0; i < 6; i++) {
-		checkBoxM[i] = CreateWindow(
-			L"button",
-			checkBoxNameM[i],
-			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-			280, m, 250, 30,
-			hWnd,
-			CheckBox[1][i],
-			NULL,
-			NULL
-		);
-		m += 65;
-	}
-
-	for (int i = 0; i < 8; i++) {
-		checkBoxC[i] = CreateWindow(
-			L"button",
-			checkBoxNameC[i],
-			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-			545, c, 250, 30,
-			hWnd,
-			CheckBox[2][i],
-			NULL,
-			NULL
-		);
-		c += 65;
-	}
-
-	for (int i = 0; i < 5; i++) {
-		checkBoxS[i] = CreateWindow( 
-			L"button",
-			checkBoxNameS[i],
-			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-			810, s, 250, 30,
-			hWnd,
-			CheckBox[3][i],
-			NULL,
-			NULL
-		);
-		s += 65;
-	}
+	//Раскоментить когда будут данные
+	//for (int i = 0; i < 6; i++) {
+	//	checkBoxM[i] = CreateWindow(
+	//		L"button",
+	//		checkBoxNameM[i],
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+	//		280, m, 250, 30,
+	//		hWnd,
+	//		CheckBox[1][i],
+	//		NULL,
+	//		NULL
+	//	);
+	//	m += 65;
+	//}
+	//
+	//for (int i = 0; i < 8; i++) {
+	//	checkBoxC[i] = CreateWindow(
+	//		L"button",
+	//		checkBoxNameC[i],
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+	//		545, c, 250, 30,
+	//		hWnd,
+	//		CheckBox[2][i],
+	//		NULL,
+	//		NULL
+	//	);
+	//	c += 65;
+	//}
+	//
+	//for (int i = 0; i < 5; i++) {
+	//	checkBoxS[i] = CreateWindow( 
+	//		L"button",
+	//		checkBoxNameS[i],
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+	//		810, s, 250, 30,
+	//		hWnd,
+	//		CheckBox[3][i],
+	//		NULL,
+	//		NULL
+	//	);
+	//	s += 65;
+	//}
 }
 
 void SearchEditzone(HWND hWnd) 
@@ -97,11 +100,14 @@ void SearchEditzone(HWND hWnd)
 		NULL
 	);
 
-	int p = 45;
-	int m = 45;
-	int c = 45;
-	int s = 45;
 	int j = 3;
+	int p = 45;
+
+	//Раскоментить когда будут данные
+	//int m = 45;
+	//int c = 45;
+	//int s = 45;
+	
 
 	for (int i = 0; i < 3; i++) {
 		
@@ -156,97 +162,99 @@ void SearchEditzone(HWND hWnd)
 		p += 65;
 		j++;
 	}
+	//Раскоментить когда будут данные
+	//for (int i = 0; i < 6; i++) {
+	//
+	//	EditZoneM[i] = CreateWindow(
+	//		L"edit",
+	//		L"",
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		280, m, 220, 20,
+	//		hWnd,
+	//		CheckBox[1][i],
+	//		NULL,
+	//		NULL
+	//	);
+	//	m += 65;
+	//}
 
-	for (int i = 0; i < 6; i++) {
-
-		EditZoneM[i] = CreateWindow(
-			L"edit",
-			L"",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
-			280, m, 220, 20,
-			hWnd,
-			CheckBox[1][i],
-			NULL,
-			NULL
-		);
-		m += 65;
-	}
-
-	for (int i = 0; i < 8; i++) {
-
-		EditZoneCL[i] = CreateWindow(
-			L"edit",
-			L"",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
-			545, c, 50, 20,
-			hWnd,
-			CheckBox[2][i],
-			NULL,
-			NULL
-		);
-
-		EditZoneCR[i] = CreateWindow(
-			L"edit",
-			L"",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
-			645, c, 50, 20,
-			hWnd,
-			CheckBox[2][i],
-			NULL,
-			NULL
-		);
-
-		hStaticTextTable = CreateWindow(
-			L"static",
-			L"-",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
-			595, c, 50, 20,
-			hWnd,
-			NULL,
-			NULL,
-			NULL
-		);
-
-		c += 65;
-	}
+	//Раскоментить когда будут данные
+	//for (int i = 0; i < 8; i++) {
+	//
+	//	EditZoneCL[i] = CreateWindow(
+	//		L"edit",
+	//		L"",
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		545, c, 50, 20,
+	//		hWnd,
+	//		CheckBox[2][i],
+	//		NULL,
+	//		NULL
+	//	);
+	//
+	//	EditZoneCR[i] = CreateWindow(
+	//		L"edit",
+	//		L"",
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		645, c, 50, 20,
+	//		hWnd,
+	//		CheckBox[2][i],
+	//		NULL,
+	//		NULL
+	//	);
+	//
+	//	hStaticTextTable = CreateWindow(
+	//		L"static",
+	//		L"-",
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		595, c, 50, 20,
+	//		hWnd,
+	//		NULL,
+	//		NULL,
+	//		NULL
+	//	);
+	//
+	//	c += 65;
+	//}
 	
-	for (int i = 0; i < 5; i++) {
-
-		EditZoneSL[i] = CreateWindow(
-			L"edit",
-			L"",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
-			810, s, 50, 20,
-			hWnd,
-			CheckBox[3][i],
-			NULL,
-			NULL
-		);
-
-		EditZoneSR[i] = CreateWindow(
-			L"edit",
-			L"",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
-			910, s, 50, 20,
-			hWnd,
-			CheckBox[3][i],
-			NULL,
-			NULL
-		);
-
-		hStaticTextTable = CreateWindow(
-			L"static",
-			L"-",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
-			860, s, 50, 20,
-			hWnd,
-			NULL,
-			NULL,
-			NULL
-		);
-
-		s += 65;
-	}
+	//Раскоментить когда будут данные
+	//for (int i = 0; i < 5; i++) {
+	//
+	//	EditZoneSL[i] = CreateWindow(
+	//		L"edit",
+	//		L"",
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		810, s, 50, 20,
+	//		hWnd,
+	//		CheckBox[3][i],
+	//		NULL,
+	//		NULL
+	//	);
+	//
+	//	EditZoneSR[i] = CreateWindow(
+	//		L"edit",
+	//		L"",
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		910, s, 50, 20,
+	//		hWnd,
+	//		CheckBox[3][i],
+	//		NULL,
+	//		NULL
+	//	);
+	//
+	//	hStaticTextTable = CreateWindow(
+	//		L"static",
+	//		L"-",
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		860, s, 50, 20,
+	//		hWnd,
+	//		NULL,
+	//		NULL,
+	//		NULL
+	//	);
+	//
+	//	s += 65;
+	//}
 }
 
 
@@ -272,32 +280,5 @@ void SearchCheckbox(HWND hWnd)
 	}
 	else if (statsCheckBoxOrigin == BST_UNCHECKED) {
 		SetWindowText(EditZonePS[2], L"");
-	}
-	//Productivity
-	if (statsCheckBoxProductivity == BST_CHECKED) {
-		SetWindowText(editProductivity, L"2.36");
-	}
-	else if (statsCheckBoxProductivity == BST_UNCHECKED) {
-		SetWindowText(editProductivity, L"");
-	}
-	//Field
-	if (statsCheckBoxField == BST_CHECKED) {
-		SetWindowText(editField, L"3");
-	}
-	else if (statsCheckBoxField == BST_UNCHECKED) {
-		SetWindowText(editField, L"");
-	}
-	//Weight
-	if (statsCheckBoxWeight == BST_CHECKED) {
-		SetWindowText(editWeightN, L"132");
-	}
-	else if (statsCheckBoxWeight == BST_UNCHECKED) {
-		SetWindowText(editWeightN, L"");
-	}
-	if (statsCheckBoxWeight == BST_CHECKED) {
-		SetWindowText(editWeightK, L"150");
-	}
-	else if (statsCheckBoxWeight == BST_UNCHECKED) {
-		SetWindowText(editWeightK, L"");
 	}
 }

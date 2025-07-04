@@ -111,201 +111,201 @@ void AddStatic(HWND hWnd)
 	);
 
 
-
-	staticForm = CreateWindow(
-		L"static",
-		L"Форма",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 15, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxStolon,
-		NULL,
-		NULL
-	);
-	staticPeel = CreateWindow(
-		L"static",
-		L"Окраска кожуры",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 80, 185, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	staticPulp = CreateWindow(
-		L"static",
-		L"Окраска мякоти",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 145, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxTaste,
-		NULL,
-		NULL
-	);
-	staticEye = CreateWindow(
-		L"static",
-		L"Глубина глазков",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 210, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxConsistency,
-		NULL,
-		NULL
-	);
-	staticStolon = CreateWindow(
-		L"static",
-		L"Глубина столонного следа",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 275, 185, 20,
-		hWnd,
-		(HMENU)CheckBoxDarkening,
-		NULL,
-		NULL
-	);
-	staticSkin = CreateWindow(
-		L"static",
-		L"Поверхность кожуры клубня",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 340, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-
-
-	staticBoilability = CreateWindow(
-		L"static",
-		L"Разваримость клубней",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 15, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticConsistency = CreateWindow(
-		L"static",
-		L"Консистенция мякоти",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 80, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticFriability = CreateWindow(
-		L"static",
-		L"Рассыпчатость",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 145, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticWateriness = CreateWindow(
-		L"static",
-		L"Водянистость клубней",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 210, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticSmell = CreateWindow(
-		L"static",
-		L"Запах варёного картофеля",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 275, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticTaste = CreateWindow(
-		L"static",
-		L"Вкус варёного картофеля",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 340, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticDarkening_raw = CreateWindow(
-		L"static",
-		L"Потемнение мякоти сырого картофеля",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 405, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticDarkening_boiled = CreateWindow(
-		L"static",
-		L"Потемнение мякоти варёного картофеля",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		465, 470, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-
-
-	staticField = CreateWindow(
-		L"static",
-		L"Полевая устойчивость к фитофторозу, балл",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 15, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticAbility = CreateWindow(
-		L"static",
-		L"Способность к ягодообразованию от самоопыления (балл)",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 80, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticFlowering = CreateWindow(
-		L"static",
-		L"Продолжительность цветения,дни",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 145, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticRipeness = CreateWindow(
-		L"static",
-		L"Группа спелости",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 210, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	staticYield = CreateWindow(
-		L"static",
-		L"Урожайность, %",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		680, 275, 220, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
+	//Раскоментить когда будут данные
+	//staticForm = CreateWindow(
+	//	L"static",
+	//	L"Форма",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 15, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxStolon,
+	//	NULL,
+	//	NULL
+	//);
+	//staticPeel = CreateWindow(
+	//	L"static",
+	//	L"Окраска кожуры",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 80, 185, 20,
+	//	hWnd,
+	//	NULL,
+	//	NULL,
+	//	NULL
+	//);
+	//staticPulp = CreateWindow(
+	//	L"static",
+	//	L"Окраска мякоти",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 145, 185, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxTaste,
+	//	NULL,
+	//	NULL
+	//);
+	//staticEye = CreateWindow(
+	//	L"static",
+	//	L"Глубина глазков",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 210, 185, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxConsistency,
+	//	NULL,
+	//	NULL
+	//);
+	//staticStolon = CreateWindow(
+	//	L"static",
+	//	L"Глубина столонного следа",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 275, 185, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxDarkening,
+	//	NULL,
+	//	NULL
+	//);
+	//staticSkin = CreateWindow(
+	//	L"static",
+	//	L"Поверхность кожуры клубня",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 340, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//
+	//
+	//staticBoilability = CreateWindow(
+	//	L"static",
+	//	L"Разваримость клубней",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	465, 15, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticConsistency = CreateWindow(
+	//	L"static",
+	//	L"Консистенция мякоти",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	465, 80, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticFriability = CreateWindow(
+	//	L"static",
+	//	L"Рассыпчатость",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	465, 145, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticWateriness = CreateWindow(
+	//	L"static",
+	//	L"Водянистость клубней",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	465, 210, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticSmell = CreateWindow(
+	//	L"static",
+	//	L"Запах варёного картофеля",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	465, 275, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticTaste = CreateWindow(
+	//	L"static",
+	//	L"Вкус варёного картофеля",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	465, 340, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticDarkening_raw = CreateWindow(
+	//	L"static",
+	//	L"Потемнение мякоти сырого картофеля",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	465, 405, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticDarkening_boiled = CreateWindow(
+	//	L"static",
+	//	L"Потемнение мякоти варёного картофеля",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	465, 470, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//
+	//
+	//staticField = CreateWindow(
+	//	L"static",
+	//	L"Полевая устойчивость к фитофторозу, балл",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	680, 15, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticAbility = CreateWindow(
+	//	L"static",
+	//	L"Способность к ягодообразованию от самоопыления (балл)",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	680, 80, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticFlowering = CreateWindow(
+	//	L"static",
+	//	L"Продолжительность цветения,дни",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	680, 145, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticRipeness = CreateWindow(
+	//	L"static",
+	//	L"Группа спелости",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	680, 210, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//staticYield = CreateWindow(
+	//	L"static",
+	//	L"Урожайность, %",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	680, 275, 220, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
 }
 void AddButton(HWND hWnd)
 {
@@ -313,7 +313,7 @@ void AddButton(HWND hWnd)
 		"button",
 		"Добавить",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 665, 900, 30,
+		15, 665, 200, 30,
 		hWnd,
 		(HMENU)AddClickButton,
 		NULL,
@@ -425,203 +425,203 @@ void AddEditzone(HWND hWnd)
 	);
 
 
-
-	editForm = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 45, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxStolon,
-		NULL,
-		NULL
-	);
-	editPeel = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 110, 200, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	editPulp = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 175, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxTaste,
-		NULL,
-		NULL
-	);
-	editEye = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 240, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxConsistency,
-		NULL,
-		NULL
-	);
-	editStolon = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 305, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxDarkening,
-		NULL,
-		NULL
-	);
-	editSkin = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 370, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-
-
-
-	editBoilability = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 45, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editConsistency = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 110, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editFriability = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 175, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editWateriness = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 240, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editSmell = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 305, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editTaste = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 370, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editDarkening_raw = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 435, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editDarkening_boiled = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 500, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-
-
-
-	editField = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		710, 45, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editAbility = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		710, 110, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editFlowering = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		710, 175, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editRipeness = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		710, 240, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editYield = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		710, 305, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
+	//Раскоментить когда будут данные
+	//editForm = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 45, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxStolon,
+	//	NULL,
+	//	NULL
+	//);
+	//editPeel = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 110, 200, 20,
+	//	hWnd,
+	//	NULL,
+	//	NULL,
+	//	NULL
+	//);
+	//editPulp = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 175, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxTaste,
+	//	NULL,
+	//	NULL
+	//);
+	//editEye = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 240, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxConsistency,
+	//	NULL,
+	//	NULL
+	//);
+	//editStolon = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 305, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxDarkening,
+	//	NULL,
+	//	NULL
+	//);
+	//editSkin = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	250, 370, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//
+	//
+	//
+	//editBoilability = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	480, 45, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editConsistency = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	480, 110, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editFriability = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	480, 175, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editWateriness = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	480, 240, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editSmell = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	480, 305, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editTaste = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	480, 370, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editDarkening_raw = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	480, 435, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editDarkening_boiled = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	480, 500, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//
+	//
+	//
+	//editField = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	710, 45, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editAbility = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	710, 110, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editFlowering = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	710, 175, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editRipeness = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	710, 240, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
+	//editYield = CreateWindow(
+	//	L"edit",
+	//	L"",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	710, 305, 200, 20,
+	//	hWnd,
+	//	(HMENU)CheckBoxWeight,
+	//	NULL,
+	//	NULL
+	//);
 }
 //
 //void AddComboboxzone(HWND hWnd)

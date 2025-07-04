@@ -113,6 +113,12 @@
     <ClInclude Include="EditData.h">
       <Filter>Файлы заголовков\Data</Filter>
     </ClInclude>
+    <ClInclude Include="DeleteInterface.h">
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteData.h">
+      <Filter>Файлы заголовков\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="kart.db" />

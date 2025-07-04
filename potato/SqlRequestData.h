@@ -14,18 +14,23 @@ QueryData BuildQuery()
     QueryData result;
     result.sql = "SELECT p.sample, p.VIGRR_catalogue_number, p.origin, p.commercial_tubers_in_clone, "
         "p.non_marketable_tubers_in_clone, p.weight_of_commercial_tuber, p.weight_of_non_commercial_tuber, "
-        "p.tubers_in_clone, p.marketability, p.productivity, "
-        "mf.form, mf.peel_coloring, mf.pulp_coloring, "
-        "mf.eye_depth, mf.stolon_trace_depth, mf.tuber_skin_surface, "
-        "cq.tuber_boilability, cq.pulp_consistency, "
-        "cq.friability, cq.wateriness_of_tubers, cq.the_smell_of_boiled_potatoes, "
-        "cq.the_taste_of_boiled_potatoes, cq.darkening_of_the_flesh_of_raw_potatoes, cq.darkening_of_the_flesh_of_boiled_potatoes, "
-        "s.field_resistance_to_late_blight, s.the_ability_to_form_berries_from_self_pollination, "
-        "s.flowering_duration, s.ripeness_group, s.yield_percentage "
-        "FROM potato p "
-        "JOIN morphological_features_of_the_tuber mf ON p.id = mf.id_potato "
-        "JOIN culinary_qualities cq ON p.id = cq.id_potato "
-        "JOIN standart s ON p.id = s.id_potato";
+        "p.tubers_in_clone, p.marketability, p.productivity "
+
+        //Раскоментить когда будут данные
+        //"mf.form, mf.peel_coloring, mf.pulp_coloring, "
+        //"mf.eye_depth, mf.stolon_trace_depth, mf.tuber_skin_surface, "
+        //"cq.tuber_boilability, cq.pulp_consistency, "
+        //"cq.friability, cq.wateriness_of_tubers, cq.the_smell_of_boiled_potatoes, "
+        //"cq.the_taste_of_boiled_potatoes, cq.darkening_of_the_flesh_of_raw_potatoes, cq.darkening_of_the_flesh_of_boiled_potatoes, "
+        //"s.field_resistance_to_late_blight, s.the_ability_to_form_berries_from_self_pollination, "
+        //"s.flowering_duration, s.ripeness_group, s.yield_percentage "
+        
+        "FROM potato p ";
+
+        //Раскоментить когда будут данные
+        //"JOIN morphological_features_of_the_tuber mf ON p.id = mf.id_potato "
+        //"JOIN culinary_qualities cq ON p.id = cq.id_potato "
+        //"JOIN standart s ON p.id = s.id_potato";
 
     // Получаем данные из полей ввода
     auto getCheckedParam = [&](bool checked, HWND editControl, const std::string& condition) {
@@ -99,57 +104,57 @@ QueryData BuildQuery()
     wordCheckedParam(statsCheckBoxProductivity == BST_CHECKED, EditZonePL[6], "p.productivity >= ?");
     wordCheckedParam(statsCheckBoxProductivity == BST_CHECKED, EditZonePR[6], "p.productivity <= ?");
 
-
-    //Morh
-    wordCheckedParam(statsCheckBoxForm == BST_CHECKED, EditZoneM[0], "mf.form = ?");
-    wordCheckedParam(statsCheckBoxPeel == BST_CHECKED, EditZoneM[1], "mf.peel_coloring = ?");
-    wordCheckedParam(statsCheckBoxPulp == BST_CHECKED, EditZoneM[2], "mf.pulp_coloring = ?");
-    wordCheckedParam(statsCheckBoxEye == BST_CHECKED, EditZoneM[3], "mf.eye_depth = ?");
-    wordCheckedParam(statsCheckBoxStolon == BST_CHECKED, EditZoneM[4], "mf.stolon_trace_depth = ?");
-    wordCheckedParam(statsCheckBoxSkin == BST_CHECKED, EditZoneM[5], "mf.tuber_skin_surface = ?");
-
-
-    //Cul
-    wordCheckedParam(statsCheckBoxBoilability == BST_CHECKED, EditZoneCL[0], "cq.tuber_boilability >= ?");
-    wordCheckedParam(statsCheckBoxBoilability == BST_CHECKED, EditZoneCR[0], "cq.tuber_boilability <= ?");
-
-    wordCheckedParam(statsCheckBoxConsistency == BST_CHECKED, EditZoneCL[1], "cq.pulp_consistency >= ?");
-    wordCheckedParam(statsCheckBoxConsistency == BST_CHECKED, EditZoneCR[1], "cq.pulp_consistency <= ?");
-
-    wordCheckedParam(statsCheckBoxFriability == BST_CHECKED, EditZoneCL[2], "cq.friability >= ?");
-    wordCheckedParam(statsCheckBoxFriability == BST_CHECKED, EditZoneCR[2], "cq.friability <= ?");
-
-    wordCheckedParam(statsCheckBoxWateriness == BST_CHECKED, EditZoneCL[3], "cq.wateriness_of_tubers >= ?");
-    wordCheckedParam(statsCheckBoxWateriness == BST_CHECKED, EditZoneCR[3], "cq.wateriness_of_tubers <= ?");
-
-    wordCheckedParam(statsCheckBoxSmell == BST_CHECKED, EditZoneCL[4], "cq.the_smell_of_boiled_potatoes >= ?");
-    wordCheckedParam(statsCheckBoxSmell == BST_CHECKED, EditZoneCR[4], "cq.the_smell_of_boiled_potatoes <= ?");
-
-    wordCheckedParam(statsCheckBoxTaste == BST_CHECKED, EditZoneCL[5], "cq.the_taste_of_boiled_potatoes >= ?");
-    wordCheckedParam(statsCheckBoxTaste == BST_CHECKED, EditZoneCR[5], "cq.the_taste_of_boiled_potatoes <= ?");
-
-    wordCheckedParam(statsCheckBoxDarkening_raw == BST_CHECKED, EditZoneCL[6], "cq.darkening_of_the_flesh_of_raw_potatoes >= ?");
-    wordCheckedParam(statsCheckBoxDarkening_raw == BST_CHECKED, EditZoneCR[6], "cq.darkening_of_the_flesh_of_raw_potatoes <= ?");
-
-    wordCheckedParam(statsCheckBoxDarkening_boiled == BST_CHECKED, EditZoneCL[7], "cq.darkening_of_the_flesh_of_boiled_potatoes >= ?");
-    wordCheckedParam(statsCheckBoxDarkening_boiled == BST_CHECKED, EditZoneCR[7], "cq.darkening_of_the_flesh_of_boiled_potatoes <= ?");
-
-
-    //Standart
-    wordCheckedParam(statsCheckBoxField == BST_CHECKED, EditZoneSL[0], "s.field_resistance_to_late_blight >= ?");
-    wordCheckedParam(statsCheckBoxField == BST_CHECKED, EditZoneSR[0], "s.field_resistance_to_late_blight <= ?");
-
-    wordCheckedParam(statsCheckBoxAbility == BST_CHECKED, EditZoneSL[1], "s.the_ability_to_form_berries_from_self_pollination >= ?");
-    wordCheckedParam(statsCheckBoxAbility == BST_CHECKED, EditZoneSR[1], "s.the_ability_to_form_berries_from_self_pollination <= ?");
-
-    wordCheckedParam(statsCheckBoxFlowering == BST_CHECKED, EditZoneSL[2], "s.flowering_duration >= ?");
-    wordCheckedParam(statsCheckBoxFlowering == BST_CHECKED, EditZoneSR[2], "s.flowering_duration <= ?");
-
-    wordCheckedParam(statsCheckBoxRipeness == BST_CHECKED, EditZoneSL[3], "s.ripeness_group >= ?");
-    wordCheckedParam(statsCheckBoxRipeness == BST_CHECKED, EditZoneSR[3], "s.ripeness_group <= ?");
-
-    wordCheckedParam(statsCheckBoxYield == BST_CHECKED, EditZoneSL[4], "s.yield_percentage >= ?");
-    wordCheckedParam(statsCheckBoxYield == BST_CHECKED, EditZoneSR[4], "s.yield_percentage <= ?");
+    //Раскоментить когда будут данные
+    ////Morh
+    //wordCheckedParam(statsCheckBoxForm == BST_CHECKED, EditZoneM[0], "mf.form = ?");
+    //wordCheckedParam(statsCheckBoxPeel == BST_CHECKED, EditZoneM[1], "mf.peel_coloring = ?");
+    //wordCheckedParam(statsCheckBoxPulp == BST_CHECKED, EditZoneM[2], "mf.pulp_coloring = ?");
+    //wordCheckedParam(statsCheckBoxEye == BST_CHECKED, EditZoneM[3], "mf.eye_depth = ?");
+    //wordCheckedParam(statsCheckBoxStolon == BST_CHECKED, EditZoneM[4], "mf.stolon_trace_depth = ?");
+    //wordCheckedParam(statsCheckBoxSkin == BST_CHECKED, EditZoneM[5], "mf.tuber_skin_surface = ?");
+    //
+    //
+    ////Cul
+    //wordCheckedParam(statsCheckBoxBoilability == BST_CHECKED, EditZoneCL[0], "cq.tuber_boilability >= ?");
+    //wordCheckedParam(statsCheckBoxBoilability == BST_CHECKED, EditZoneCR[0], "cq.tuber_boilability <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxConsistency == BST_CHECKED, EditZoneCL[1], "cq.pulp_consistency >= ?");
+    //wordCheckedParam(statsCheckBoxConsistency == BST_CHECKED, EditZoneCR[1], "cq.pulp_consistency <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxFriability == BST_CHECKED, EditZoneCL[2], "cq.friability >= ?");
+    //wordCheckedParam(statsCheckBoxFriability == BST_CHECKED, EditZoneCR[2], "cq.friability <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxWateriness == BST_CHECKED, EditZoneCL[3], "cq.wateriness_of_tubers >= ?");
+    //wordCheckedParam(statsCheckBoxWateriness == BST_CHECKED, EditZoneCR[3], "cq.wateriness_of_tubers <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxSmell == BST_CHECKED, EditZoneCL[4], "cq.the_smell_of_boiled_potatoes >= ?");
+    //wordCheckedParam(statsCheckBoxSmell == BST_CHECKED, EditZoneCR[4], "cq.the_smell_of_boiled_potatoes <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxTaste == BST_CHECKED, EditZoneCL[5], "cq.the_taste_of_boiled_potatoes >= ?");
+    //wordCheckedParam(statsCheckBoxTaste == BST_CHECKED, EditZoneCR[5], "cq.the_taste_of_boiled_potatoes <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxDarkening_raw == BST_CHECKED, EditZoneCL[6], "cq.darkening_of_the_flesh_of_raw_potatoes >= ?");
+    //wordCheckedParam(statsCheckBoxDarkening_raw == BST_CHECKED, EditZoneCR[6], "cq.darkening_of_the_flesh_of_raw_potatoes <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxDarkening_boiled == BST_CHECKED, EditZoneCL[7], "cq.darkening_of_the_flesh_of_boiled_potatoes >= ?");
+    //wordCheckedParam(statsCheckBoxDarkening_boiled == BST_CHECKED, EditZoneCR[7], "cq.darkening_of_the_flesh_of_boiled_potatoes <= ?");
+    //
+    //
+    ////Standart
+    //wordCheckedParam(statsCheckBoxField == BST_CHECKED, EditZoneSL[0], "s.field_resistance_to_late_blight >= ?");
+    //wordCheckedParam(statsCheckBoxField == BST_CHECKED, EditZoneSR[0], "s.field_resistance_to_late_blight <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxAbility == BST_CHECKED, EditZoneSL[1], "s.the_ability_to_form_berries_from_self_pollination >= ?");
+    //wordCheckedParam(statsCheckBoxAbility == BST_CHECKED, EditZoneSR[1], "s.the_ability_to_form_berries_from_self_pollination <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxFlowering == BST_CHECKED, EditZoneSL[2], "s.flowering_duration >= ?");
+    //wordCheckedParam(statsCheckBoxFlowering == BST_CHECKED, EditZoneSR[2], "s.flowering_duration <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxRipeness == BST_CHECKED, EditZoneSL[3], "s.ripeness_group >= ?");
+    //wordCheckedParam(statsCheckBoxRipeness == BST_CHECKED, EditZoneSR[3], "s.ripeness_group <= ?");
+    //
+    //wordCheckedParam(statsCheckBoxYield == BST_CHECKED, EditZoneSL[4], "s.yield_percentage >= ?");
+    //wordCheckedParam(statsCheckBoxYield == BST_CHECKED, EditZoneSR[4], "s.yield_percentage <= ?");
 
 
 

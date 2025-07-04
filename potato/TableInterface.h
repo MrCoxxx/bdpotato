@@ -56,9 +56,12 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Все данные");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Основные характеристики");
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические особенности клубня");
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"По отношению к стандартам");
+
+	//Раскоментить когда будут данные
+	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические особенности клубня");
+	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
+	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"По отношению к стандартам");
+
 	SendMessage(hComboBoxTable, CB_SETCURSEL, 0, 0);
 	idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);
 }
@@ -74,20 +77,7 @@ void LoadTableData(HWND hWnd)
 		hInstance, NULL);
 
 	if (idComboBox == 0)
-	{	//
-		//std::unordered_map<std::wstring, std::wstring> conditions;
-		//conditions[L"id_potato"] = GetWindowTextR(editIDPotatoC);
-		//conditions[L"taste"] = GetWindowTextR(editTaste);
-		//conditions[L"pulp_consistency"] = GetWindowTextR(editConsistency);
-		//conditions[L"darkening_after_cooking"] = GetWindowTextR(editDarkening);
-		//
-		//std::string query = BuildQueryR(conditions);
-		//std::vector<std::string> params;
-		//for (const auto& cond : conditions) {
-		//	params.push_back(utf16_to_utf8(cond.second));
-		//}
-		//ExecuteQueryAndDisplayResults(db, query, params);
-
+	{	
 		AddAllToListView(hListView);
 		LoadAllDataIntoListView(hListView);
 	}
@@ -96,21 +86,23 @@ void LoadTableData(HWND hWnd)
 		AddPotatoColumnsToListView(hListView);
 		LoadPotatoDataIntoListView(hListView);
 	}
-	if (idComboBox == 2)
-	{
-		AddMorphologicalColumnsToListView(hListView);
-		LoadMorphologicalDataIntoListView(hListView);
-	}
-	if (idComboBox == 3)
-	{
-		AddCulinaryColumnsToListView(hListView);
-		LoadCulinaryDataIntoListView(hListView);
-	}
-	if (idComboBox == 4)
-	{
-		
-		AddStandartColumnsToListView(hListView);
-		LoadStandartDataIntoListView(hListView);
-	}
+
+	//Раскоментить когда будут данные
+	//if (idComboBox == 2)
+	//{
+	//	AddMorphologicalColumnsToListView(hListView);
+	//	LoadMorphologicalDataIntoListView(hListView);
+	//}
+	//if (idComboBox == 3)
+	//{
+	//	AddCulinaryColumnsToListView(hListView);
+	//	LoadCulinaryDataIntoListView(hListView);
+	//}
+	//if (idComboBox == 4)
+	//{
+	//	
+	//	AddStandartColumnsToListView(hListView);
+	//	LoadStandartDataIntoListView(hListView);
+	//}
 
 }
