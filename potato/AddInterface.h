@@ -53,7 +53,7 @@ void AddStatic(HWND hWnd)
 		L"static",
 		L"Нетоварных клубней в клоне, шт.",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 275, 220, 20,
+		15, 275, 230, 20,
 		hWnd,
 		(HMENU)CheckBoxField,
 		NULL,

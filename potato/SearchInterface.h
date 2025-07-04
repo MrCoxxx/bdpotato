@@ -114,7 +114,7 @@ void SearchEditzone(HWND hWnd)
 		EditZonePS[i] = CreateWindow(
 			L"edit",
 			L"",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			WS_VISIBLE | WS_CHILD | ES_LEFT | ES_MULTILINE | WS_VSCROLL | WS_BORDER,
 			15, p, 220, 20,
 			hWnd,
 			CheckBox[0][i],
@@ -122,6 +122,7 @@ void SearchEditzone(HWND hWnd)
 			NULL
 		);
 		p += 65;
+		SendMessage(EditZonePS[i], EM_SETLIMITTEXT, 0, 0);  // Снимаем ограничение на длину текста
 	}
 
 	for (int i = 0; i < 7; i++) {
@@ -129,7 +130,7 @@ void SearchEditzone(HWND hWnd)
 		EditZonePL[i] = CreateWindow(
 			L"edit",
 			L"",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
 			15, p, 50, 20,
 			hWnd,
 			CheckBox[0][j],
@@ -140,7 +141,7 @@ void SearchEditzone(HWND hWnd)
 		EditZonePR[i] = CreateWindow(
 			L"edit",
 			L"",
-			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
 			115, p, 50, 20,
 			hWnd,
 			CheckBox[0][j],
@@ -168,7 +169,7 @@ void SearchEditzone(HWND hWnd)
 	//	EditZoneM[i] = CreateWindow(
 	//		L"edit",
 	//		L"",
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
 	//		280, m, 220, 20,
 	//		hWnd,
 	//		CheckBox[1][i],
@@ -184,7 +185,7 @@ void SearchEditzone(HWND hWnd)
 	//	EditZoneCL[i] = CreateWindow(
 	//		L"edit",
 	//		L"",
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
 	//		545, c, 50, 20,
 	//		hWnd,
 	//		CheckBox[2][i],
@@ -195,7 +196,7 @@ void SearchEditzone(HWND hWnd)
 	//	EditZoneCR[i] = CreateWindow(
 	//		L"edit",
 	//		L"",
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
 	//		645, c, 50, 20,
 	//		hWnd,
 	//		CheckBox[2][i],
@@ -223,7 +224,7 @@ void SearchEditzone(HWND hWnd)
 	//	EditZoneSL[i] = CreateWindow(
 	//		L"edit",
 	//		L"",
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
 	//		810, s, 50, 20,
 	//		hWnd,
 	//		CheckBox[3][i],
@@ -234,7 +235,7 @@ void SearchEditzone(HWND hWnd)
 	//	EditZoneSR[i] = CreateWindow(
 	//		L"edit",
 	//		L"",
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//		WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
 	//		910, s, 50, 20,
 	//		hWnd,
 	//		CheckBox[3][i],

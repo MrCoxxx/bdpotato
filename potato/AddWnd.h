@@ -19,7 +19,7 @@ void WndAdd(HWND hWnd)
 			L"AddWndClass",
 			L"Добавить данные",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-			460, 240, 250, 745,
+			460, 240, 280, 745,
 			hWnd, NULL, hInstance, NULL
 		);
 		addWnd = TRUE;
