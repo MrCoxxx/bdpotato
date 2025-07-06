@@ -1,6 +1,6 @@
 #include <windows.h>
-#include <sqlite3.h>
 #include <commctrl.h>
+#include <sqlite3.h>
 #include <vector>
 #include <string>
 #include <iomanip>
@@ -33,6 +33,7 @@ using namespace Gdiplus;
 #include "MainWnd.h"
 #include "TestWnd.h"
 #include "SearchWnd.h"
+#include "Tooltip.h"
 #include "StandardData.h"
 #include "Menu.h"
 #include "DataBaseInit.h"
@@ -55,8 +56,13 @@ using namespace Gdiplus;
 #include "AddWnd.h"
 #include "EditWnd.h"
 
+
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {
+#pragma comment(linker, "\"/manifestdependency:type='win32' \
+    name='Microsoft.Windows.Common-Controls' version='6.0.0.0' \
+    processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+
 	// Инициализация общих элементов управления
 	INITCOMMONCONTROLSEX icc;
 	icc.dwSize = sizeof(icc);

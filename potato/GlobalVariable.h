@@ -288,6 +288,12 @@ static HWND comboboxDurationK;
 
 //
 
+static TRACKMOUSEEVENT tme = { sizeof(TRACKMOUSEEVENT) };
+
+HWND hSearchWnd;
+
+HWND hToolTip[10];
+
 static HWND testPeel1;
 
 HWND hTestWnd;

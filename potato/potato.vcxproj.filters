@@ -119,6 +119,9 @@
     <ClInclude Include="DeleteData.h">
       <Filter>Файлы заголовков\Data</Filter>
     </ClInclude>
+    <ClInclude Include="Tooltip.h">
+      <Filter>Файлы заголовков\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="kart.db" />

@@ -154,7 +154,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <LinkTimeCodeGenerationObjectFile>$(IntDir)$(TargetName).iobj</LinkTimeCodeGenerationObjectFile>
-      <AdditionalDependencies>sqlite3.lib;xlsxwriter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>comctl32.lib;sqlite3.lib;xlsxwriter.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\vcpkg\installed\x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ProjectReference>
@@ -228,6 +228,7 @@
     <ClInclude Include="StandardData.h" />
     <ClInclude Include="TableInterface.h" />
     <ClInclude Include="TestWnd.h" />
+    <ClInclude Include="Tooltip.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="kart" />

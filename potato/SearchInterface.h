@@ -27,7 +27,7 @@ void SearchCheckBox(HWND hWnd)
 	//–аскоментить когда будут данные
 	//int m = 15;
 	//int c = 15;
-	//int s = 15;
+	//int s = 15;	
 
 	for (int i = 0; i < 10; i++) {
 		checkBoxP[i] = CreateWindow(
@@ -42,6 +42,9 @@ void SearchCheckBox(HWND hWnd)
 		);
 		p += 65;
 	}
+
+
+	//hToolTip = CreateToolTipForControl(checkBoxP[1], hSearchWnd, L"Ёто тестова€ подсказка");
 
 	//–аскоментить когда будут данные
 	//for (int i = 0; i < 6; i++) {

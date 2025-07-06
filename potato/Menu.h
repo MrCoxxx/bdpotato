@@ -31,3 +31,11 @@ void MainWndAddMenus(HWND hWnd)
 
 	SetMenu(hWnd, RootMenu);
 }
+
+void SearchMenu(HWND hWnd) {
+	HMENU RootMenu = CreateMenu();
+
+	AppendMenu(RootMenu, MF_STRING, Help, L"Подсказки");
+
+	SetMenu(hWnd, RootMenu);
+}

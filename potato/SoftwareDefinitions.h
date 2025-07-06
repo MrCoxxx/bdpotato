@@ -61,6 +61,7 @@
 #define CheckBoxDarkening_boiled 59
 #define CheckBoxFlowering 60
 #define CheckBoxRipeness 61
+#define Help 61
 
 
 #define TextBufferSize			256
@@ -99,6 +100,7 @@ void AuthrorizathionInt(HWND hWnd);
 
 //Menu
 void MainWndAddMenus(HWND hWnd);
+void SearchMenu(HWND hWnd);
 
 //Add
 LRESULT CALLBACK SoftwareAddProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
@@ -221,3 +223,7 @@ void TestT(HWND hWnd, int count, static HWND editWnd);
 //std::wstring GetSelectedFilters();
 std::vector<std::string> split(const std::string& s, char delimiter);
 size_t countWords(const std::string& s, char delimiter);
+
+
+void ShowError(const wchar_t* message);
+HWND CreateToolTipForControl(HWND hwndControl, HWND hwndParent, const wchar_t* pszText, HWND hToolTip);

@@ -16,13 +16,14 @@ WNDCLASS NewSearchWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, H
 
 void WndSearch(HWND hWnd) 
 {
+
 	if (secondWnd == FALSE) {
-		HWND hSearchWnd = CreateWindow(
+		hSearchWnd = CreateWindow(
 			L"SearchWndClass",
 			L"Поиск",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 			460, 240, 300, 750,
-			hWnd, NULL, hInstance, NULL
+			NULL, NULL, hInstance, NULL
 		);
 		secondWnd = TRUE;
 	}
@@ -30,15 +31,54 @@ void WndSearch(HWND hWnd)
 
 LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 {
+
 	switch (msg)
 	{
 	case WM_CREATE:
 		Search(hWnd);
+		SearchMenu(hWnd);
 		// Инициализация второго окна
 		break;
+	case WM_MOUSEHOVER: {
+		for (int i = 0; i < 10; i++) {
+			if ((HWND)wp == checkBoxP[0] && hToolTip[i]) {
+				MSG relayMsg = { hWnd, WM_MOUSEMOVE, 0, lp };
+				SendMessageW(hToolTip[i], TTM_RELAYEVENT, 0, (LPARAM)&relayMsg);
+			}
+			TrackMouseEvent(&tme); // Продолжаем отслеживание
+		}
+		break;
+	}
 	case WM_COMMAND:
 		switch (wp) {
-		
+		case Help:
+			for (int i = 0; i < 10; i++) {
+				if (!hToolTip[i]) {
+					hToolTip[i] = CreateToolTipForControl(checkBoxP[i], hSearchWnd, L"Это тестовая подсказка", hToolTip[i]);
+				}
+				else {
+					DestroyWindow(hToolTip[i]);
+					hToolTip[i] = NULL;
+				}
+				
+			}
+			
+			//hToolTip = CreateToolTipForControl(checkBoxP[1], hSearchWnd, L"Это тестовая подсказка");
+			//hToolTip = CreateToolTipForControl(checkBoxP[2], hSearchWnd, L"Это тестовая подсказка");
+			//hToolTip = CreateToolTipForControl(checkBoxP[3], hSearchWnd, L"Это тестовая подсказка");
+			//hToolTip = CreateToolTipForControl(checkBoxP[4], hSearchWnd, L"Это тестовая подсказка");
+			//hToolTip = CreateToolTipForControl(checkBoxP[5], hSearchWnd, L"Это тестовая подсказка");
+			//hToolTip = CreateToolTipForControl(checkBoxP[6], hSearchWnd, L"Это тестовая подсказка");
+			//hToolTip = CreateToolTipForControl(checkBoxP[7], hSearchWnd, L"Это тестовая подсказка");
+			//hToolTip = CreateToolTipForControl(checkBoxP[8], hSearchWnd, L"Это тестовая подсказка");
+			//hToolTip = CreateToolTipForControl(checkBoxP[9], hSearchWnd, L"Это тестовая подсказка");
+
+			// Настройка отслеживания мыши
+			tme.hwndTrack = checkBoxP[0];
+			tme.dwFlags = TME_HOVER | TME_LEAVE;
+			tme.dwHoverTime = 300;
+			TrackMouseEvent(&tme);
+			break;		
 		case CheckBoxSample:
 			statsCheckBoxSample = SendMessage(checkBoxP[0], BM_GETCHECK, 0, 0);
 			SearchCheckbox(hWnd);
@@ -227,6 +267,10 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 	case WM_DESTROY:
 		DestroyCheckBox(hWnd);
 		DestroyWindow(hWnd);
+		//if (hToolTip && IsWindow(hToolTip)) {
+		//	DestroyWindow(hToolTip);
+		//	hToolTip = NULL;
+		//}
 		secondWnd = FALSE;
 		break;
 	default:
