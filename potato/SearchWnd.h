@@ -54,7 +54,7 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		case Help:
 			for (int i = 0; i < 10; i++) {
 				if (!hToolTip[i]) {
-					hToolTip[i] = CreateToolTipForControl(checkBoxP[i], hSearchWnd, L"Это тестовая подсказка", hToolTip[i]);
+					hToolTip[i] = CreateToolTipForControl(checkBoxP[i], hSearchWnd, helpText[i], hToolTip[i]);
 				}
 				else {
 					DestroyWindow(hToolTip[i]);
