@@ -233,10 +233,6 @@
     <ClInclude Include="Tooltip.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="kart" />
-    <None Include="kart.db" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="background_image.ico" />
     <Image Include="background_image.png" />
   </ItemGroup>

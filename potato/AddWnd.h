@@ -20,7 +20,7 @@ void WndAdd(HWND hWnd)
 			L"Добавить данные",
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 			460, 240, 280, 745,
-			hWnd, NULL, hInstance, NULL
+			NULL, NULL, hInstance, NULL
 		);
 		addWnd = TRUE;
 	}
@@ -37,8 +37,9 @@ LRESULT CALLBACK SoftwareAddProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 		switch (wp) {
 		case AddClickButton:
 			AddData();
-			DestroyWindow(hWnd);
-			addWnd = FALSE;
+			ClearAddData();
+			//DestroyWindow(hWnd);
+			//addWnd = FALSE;
 			break;
 		}
 

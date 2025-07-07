@@ -35,7 +35,7 @@ void AddAllToListView(HWND hListView)
         
     };
 
-    int widths[] = { 200, 200, 200, 200, 200, 200, 200, 200, 200, 200 };
+    int widths[] = { 100, 100, 150, 100, 100, 100, 100, 100, 100, 100 };
 
     LVCOLUMN lvc = { 0 };
     lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM;

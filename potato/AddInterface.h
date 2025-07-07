@@ -7,6 +7,19 @@ void Add(HWND hWnd)
 	//AddDataComboboxzone(hWnd);
 }
 
+void ClearAddData() {
+	SetWindowText(editSample, L"");
+	SetWindowText(editVIGRR, L"");
+	SetWindowText(editOrigin, L"");
+	SetWindowText(editCommercial_tubers, L"");
+	SetWindowText(editNon_marketable, L"");
+	SetWindowText(editCommercial, L"");
+	SetWindowText(editNon_commercial, L"");
+	SetWindowText(editTubers, L"");
+	SetWindowText(editMarketability, L"");
+	SetWindowText(editProductivity, L"");
+}
+
 void AddStatic(HWND hWnd) 
 {
 	staticSample = CreateWindow(

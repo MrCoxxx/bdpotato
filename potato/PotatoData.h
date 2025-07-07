@@ -13,7 +13,7 @@ void AddPotatoColumnsToListView(HWND hListView)
         L"Урожайность, кг/м2",
     };
 
-    int widths[] = { 50, 100, 150, 100, 100, 100, 100, 100, 100, 100 };
+    int widths[] = { 100, 100, 150, 100, 100, 100, 100, 100, 100, 100 };
 
     LVCOLUMN lvc = { 0 };
     lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM;
