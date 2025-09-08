@@ -54,12 +54,12 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 		NULL
 	);
 	//Раскоментить когда будут данные
-	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Все данные");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Все данные");
 	
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Основные характеристики");	
 
-	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические особенности клубня");
-	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические особенности клубня");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
 	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"По отношению к стандартам");
 
 	SendMessage(hComboBoxTable, CB_SETCURSEL, 0, 0);
@@ -75,30 +75,29 @@ void LoadTableData(HWND hWnd)
 		270, 10, 700, 570,
 		hWnd, NULL,
 		hInstance, NULL);
-	//Раскоментить когда будут данные
-	//if (idComboBox == 0)
-	//{	
-	//	AddAllToListView(hListView);
-	//	LoadAllDataIntoListView(hListView);
-	//}
-	//
-	
 	if (idComboBox == 0)
+	{	
+		AddAllToListView(hListView);
+		LoadAllDataIntoListView(hListView);
+	}
+	
+	
+	if (idComboBox == 1)
 	{
 		AddPotatoColumnsToListView(hListView);
 		LoadPotatoDataIntoListView(hListView);
 	}
 		
-	//if (idComboBox == 2)
-	//{
-	//	AddMorphologicalColumnsToListView(hListView);
-	//	LoadMorphologicalDataIntoListView(hListView);
-	//}
-	//if (idComboBox == 3)
-	//{
-	//	AddCulinaryColumnsToListView(hListView);
-	//	LoadCulinaryDataIntoListView(hListView);
-	//}
+	if (idComboBox == 2)
+	{
+		AddMorphologicalColumnsToListView(hListView);
+		LoadMorphologicalDataIntoListView(hListView);
+	}
+	if (idComboBox == 3)
+	{
+		AddCulinaryColumnsToListView(hListView);
+		LoadCulinaryDataIntoListView(hListView);
+	}
 	//if (idComboBox == 4)
 	//{
 	//	

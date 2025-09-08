@@ -122,42 +122,6 @@ std::vector<std::vector<std::wstring>> GetPotatoDataFromDatabase()
             else {
                 row.push_back(L"");
             }
-
-            //double commercial = sqlite3_column_double(stmt, 3);
-            //std::wstringstream wss;
-            //wss << std::fixed << std::setprecision(1) << commercial;
-            //row.push_back(wss.str());
-
-            //double non_marketable = sqlite3_column_double(stmt, 4);
-            //std::wstringstream wss1;
-            //wss1 << std::fixed << std::setprecision(1) << non_marketable;
-            //row.push_back(wss1.str());
-            //
-            //double commercial_tuber = sqlite3_column_double(stmt, 5);
-            //std::wstringstream wss2;
-            //wss2 << std::fixed << std::setprecision(1) << commercial_tuber;
-            //row.push_back(wss2.str());
-            //
-            //double non_commercial_tuber = sqlite3_column_double(stmt, 6);
-            //std::wstringstream wss3;
-            //wss3 << std::fixed << std::setprecision(1) << non_commercial_tuber;
-            //row.push_back(wss3.str());
-            //
-            //double tubers = sqlite3_column_double(stmt, 7);
-            //std::wstringstream wss4;
-            //wss4 << std::fixed << std::setprecision(1) << tubers;
-            //row.push_back(wss4.str());
-            //
-            //double marketability = sqlite3_column_double(stmt, 8);
-            //std::wstringstream wss5;
-            //wss5 << std::fixed << std::setprecision(1) << marketability;
-            //row.push_back(wss5.str());
-            //
-            //double productivity = sqlite3_column_double(stmt, 9);
-            //std::wstringstream wss6;
-            //wss6 << std::fixed << std::setprecision(2) << productivity;
-            //row.push_back(wss6.str());
-
             result.push_back(row);
         }
         sqlite3_finalize(stmt);

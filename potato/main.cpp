@@ -43,7 +43,7 @@ using namespace Gdiplus;
 #include "AddInterface.h"
 #include "DeleteInterface.h"
 #include "EditInterface.h"
-#include "AuthorizationInterface.h"
+//#include "AuthorizationInterface.h"
 #include "DestroyUI.h"
 #include "SqlRequestData.h"
 #include "PotatoData.h"

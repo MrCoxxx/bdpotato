@@ -12,7 +12,7 @@ void SearchButton(HWND hWnd)
 		"button",
 		"Поиск",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 665, 250, 30,
+		15, 665, 750, 30,
 		hWnd,
 		(HMENU)SearchClickButtonClose,
 		NULL,
@@ -23,10 +23,9 @@ void SearchButton(HWND hWnd)
 void SearchCheckBox(HWND hWnd)
 {
 	int p = 15;
-
+	int m = 15;
+	int c = 15;
 	//Раскоментить когда будут данные
-	//int m = 15;
-	//int c = 15;
 	//int s = 15;	
 
 	for (int i = 0; i < 10; i++) {
@@ -47,34 +46,34 @@ void SearchCheckBox(HWND hWnd)
 	//hToolTip = CreateToolTipForControl(checkBoxP[1], hSearchWnd, L"Это тестовая подсказка");
 
 	//Раскоментить когда будут данные
-	//for (int i = 0; i < 6; i++) {
-	//	checkBoxM[i] = CreateWindow(
-	//		L"button",
-	//		checkBoxNameM[i],
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-	//		280, m, 250, 30,
-	//		hWnd,
-	//		CheckBox[1][i],
-	//		NULL,
-	//		NULL
-	//	);
-	//	m += 65;
-	//}
-	//
-	//for (int i = 0; i < 8; i++) {
-	//	checkBoxC[i] = CreateWindow(
-	//		L"button",
-	//		checkBoxNameC[i],
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
-	//		545, c, 250, 30,
-	//		hWnd,
-	//		CheckBox[2][i],
-	//		NULL,
-	//		NULL
-	//	);
-	//	c += 65;
-	//}
-	//
+	for (int i = 0; i < 6; i++) {
+		checkBoxM[i] = CreateWindow(
+			L"button",
+			checkBoxNameM[i],
+			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+			280, m, 250, 30,
+			hWnd,
+			CheckBox[1][i],
+			NULL,
+			NULL
+		);
+		m += 65;
+	}
+	
+	for (int i = 0; i < 8; i++) {
+		checkBoxC[i] = CreateWindow(
+			L"button",
+			checkBoxNameC[i],
+			WS_VISIBLE | WS_CHILD | ES_CENTER | BS_CHECKBOX | BS_MULTILINE,
+			545, c, 250, 30,
+			hWnd,
+			CheckBox[2][i],
+			NULL,
+			NULL
+		);
+		c += 65;
+	}
+	
 	//for (int i = 0; i < 5; i++) {
 	//	checkBoxS[i] = CreateWindow( 
 	//		L"button",
@@ -105,10 +104,9 @@ void SearchEditzone(HWND hWnd)
 
 	int j = 3;
 	int p = 45;
-
+	int m = 45;
+	int c = 45;
 	//Раскоментить когда будут данные
-	//int m = 45;
-	//int c = 45;
 	//int s = 45;
 	
 
@@ -166,60 +164,59 @@ void SearchEditzone(HWND hWnd)
 		p += 65;
 		j++;
 	}
-	//Раскоментить когда будут данные
-	//for (int i = 0; i < 6; i++) {
-	//
-	//	EditZoneM[i] = CreateWindow(
-	//		L"edit",
-	//		L"",
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
-	//		280, m, 220, 20,
-	//		hWnd,
-	//		CheckBox[1][i],
-	//		NULL,
-	//		NULL
-	//	);
-	//	m += 65;
-	//}
 
-	//Раскоментить когда будут данные
-	//for (int i = 0; i < 8; i++) {
-	//
-	//	EditZoneCL[i] = CreateWindow(
-	//		L"edit",
-	//		L"",
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
-	//		545, c, 50, 20,
-	//		hWnd,
-	//		CheckBox[2][i],
-	//		NULL,
-	//		NULL
-	//	);
-	//
-	//	EditZoneCR[i] = CreateWindow(
-	//		L"edit",
-	//		L"",
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
-	//		645, c, 50, 20,
-	//		hWnd,
-	//		CheckBox[2][i],
-	//		NULL,
-	//		NULL
-	//	);
-	//
-	//	hStaticTextTable = CreateWindow(
-	//		L"static",
-	//		L"-",
-	//		WS_VISIBLE | WS_CHILD | ES_CENTER,
-	//		595, c, 50, 20,
-	//		hWnd,
-	//		NULL,
-	//		NULL,
-	//		NULL
-	//	);
-	//
-	//	c += 65;
-	//}
+	for (int i = 0; i < 6; i++) {
+	
+		EditZoneM[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
+			280, m, 220, 20,
+			hWnd,
+			CheckBox[1][i],
+			NULL,
+			NULL
+		);
+		m += 65;
+	}
+
+	for (int i = 0; i < 8; i++) {
+	
+		EditZoneCL[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
+			545, c, 50, 20,
+			hWnd,
+			CheckBox[2][i],
+			NULL,
+			NULL
+		);
+	
+		EditZoneCR[i] = CreateWindow(
+			L"edit",
+			L"",
+			WS_VISIBLE | WS_CHILD | ES_CENTER | WS_BORDER,
+			645, c, 50, 20,
+			hWnd,
+			CheckBox[2][i],
+			NULL,
+			NULL
+		);
+	
+		hStaticTextTable = CreateWindow(
+			L"static",
+			L"-",
+			WS_VISIBLE | WS_CHILD | ES_CENTER,
+			595, c, 50, 20,
+			hWnd,
+			NULL,
+			NULL,
+			NULL
+		);
+	
+		c += 65;
+	}
 	
 	//Раскоментить когда будут данные
 	//for (int i = 0; i < 5; i++) {

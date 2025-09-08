@@ -69,17 +69,6 @@
 wchar_t Buffer1[TextBufferSize];
 wchar_t Buffer2[TextBufferSize];
 char Buffer3[TextBufferSize];
-//wchar_t Buffer4[TextBufferSize];
-//wchar_t Buffer5[TextBufferSize];
-//wchar_t Buffer6[TextBufferSize];
-//wchar_t Buffer7[TextBufferSize];
-//wchar_t Buffer8[TextBufferSize];
-//wchar_t Buffer9[TextBufferSize];
-//wchar_t Buffer10[TextBufferSize];
-//wchar_t Buffer11[TextBufferSize];
-//wchar_t Buffer12[TextBufferSize];
-//wchar_t Buffer13[TextBufferSize];
-//wchar_t Buffer14[TextBufferSize];
 
 
 //Main
@@ -93,7 +82,6 @@ WNDCLASS NewSearchWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, H
 void WndSearch(HWND hWnd);
 void SearchCheckbox(HWND hWnd);
 void SearchEditzone(HWND hWnd);
-//QueryData BuildQuery();
 
 //
 void AuthrorizathionInt(HWND hWnd);
