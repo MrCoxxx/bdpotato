@@ -117,7 +117,7 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		case CheckBoxForm:
 			statsCheckBoxForm = SendMessage(checkBoxM[0], BM_GETCHECK, 0, 0);
 			if (statsCheckBoxForm == BST_CHECKED) {
-				WindowData formData = { nameF, 7, L"Форма", EditZoneM[0]};
+				WindowData formData = { nameF, 17, L"Форма", EditZoneM[0]};
 				WndTest(hWnd, formData);
 			}
 			else if (statsCheckBoxForm == BST_UNCHECKED) {
@@ -128,7 +128,7 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		case CheckBoxPeel:
 			statsCheckBoxPeel = SendMessage(checkBoxM[1], BM_GETCHECK, 0, 0);
 			if (statsCheckBoxPeel == BST_CHECKED) {
-				WindowData peelData = { nameP, 9, L"Окраска кожуры", EditZoneM[1] };
+				WindowData peelData = { nameP, 17, L"Окраска кожуры", EditZoneM[1] };
 				WndTest(hWnd, peelData);
 			}
 			else if (statsCheckBoxPeel == BST_UNCHECKED) {
@@ -150,7 +150,7 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		case CheckBoxEye:
 			statsCheckBoxEye = SendMessage(checkBoxM[3], BM_GETCHECK, 0, 0);
 			if (statsCheckBoxEye == BST_CHECKED) {
-				WindowData eyeData = { nameE, 5, L"Глубина глазков", EditZoneM[3] };
+				WindowData eyeData = { nameE, 20, L"Глубина глазков", EditZoneM[3] };
 				WndTest(hWnd, eyeData);
 			}
 			else if (statsCheckBoxEye == BST_UNCHECKED) {
@@ -161,7 +161,7 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		case CheckBoxStolon:
 			statsCheckBoxStolon = SendMessage(checkBoxM[4], BM_GETCHECK, 0, 0);
 			if (statsCheckBoxStolon == BST_CHECKED) {
-				WindowData stolonData = { nameS, 5, L"Глубина столонного следа", EditZoneM[4] };
+				WindowData stolonData = { nameS, 7, L"Глубина столонного следа", EditZoneM[4] };
 				WndTest(hWnd, stolonData);
 			}
 			else if (statsCheckBoxStolon == BST_UNCHECKED) {
@@ -172,7 +172,7 @@ LRESULT CALLBACK SoftwareSearchProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM 
 		case CheckBoxSkin:
 			statsCheckBoxSkin = SendMessage(checkBoxM[5], BM_GETCHECK, 0, 0);
 			if (statsCheckBoxSkin == BST_CHECKED) {
-				WindowData skinData = { nameTu, 3, L"Поверхность кожуры клубня", EditZoneM[5] };
+				WindowData skinData = { nameTu, 8, L"Поверхность кожуры клубня", EditZoneM[5] };
 				WndTest(hWnd, skinData);
 			}
 			else if (statsCheckBoxSkin == BST_UNCHECKED) {

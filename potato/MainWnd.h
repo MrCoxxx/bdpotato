@@ -111,12 +111,12 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		MainWndAddMenus(hWnd);
 
 		break;
-	case WM_PAINT:	
+	/*case WM_PAINT:	
 		CreatePaint(hWnd);
-		break;
+		break;*/
 	case WM_DESTROY:
 		
-		Cleanup();
+		//Cleanup();
 		PostQuitMessage(0);
 		break;
 	default:
