@@ -15,6 +15,14 @@
 #include <functional>
 #include <cctype>
 
+#include <algorithm>
+#include <cmath>
+#include <fstream>
+#include <memory>
+#include <limits>
+
+#include <nlohmann/json.hpp>
+
 using namespace Gdiplus;
 
 #pragma comment(lib, "comctl32.lib")
@@ -50,6 +58,9 @@ using namespace Gdiplus;
 #include "MorphologicalData.h"
 #include "CulinaryData.h"
 #include "RequestData.h"
+#include "SampleBD.h"
+#include "SampleJSON.h"
+#include "SampleUsing.h"
 #include "AddData.h"
 #include "DeleteData.h"
 #include "EditData.h"

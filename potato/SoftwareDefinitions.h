@@ -71,6 +71,8 @@ wchar_t Buffer2[TextBufferSize];
 char Buffer3[TextBufferSize];
 
 
+
+
 //Main
 LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
 WNDCLASS NewMainWindowClass(HBRUSH BGColor, HCURSOR Cursor, HINSTANCE hInst, HICON Icon, LPCWSTR Name, WNDPROC Procedure);
@@ -216,3 +218,17 @@ size_t countWords(const std::string& s, char delimiter);
 
 void ShowError(const wchar_t* message);
 HWND CreateToolTipForControl(HWND hwndControl, HWND hwndParent, const wchar_t* pszText, HWND hToolTip);
+
+std::vector<std::vector<std::wstring>> GetSample();
+void SaveJSON(std::string FileName);
+struct DataJSON;
+
+
+
+DataJSON Build(std::string name, std::string description, std::string method, std::string selectedTraits, double weights);
+
+void DeleteJSON(std::string FileName, std::string name);
+
+std::vector<std::wstring> a();
+
+//json ReadJSON(std::string FileName, std::string name);

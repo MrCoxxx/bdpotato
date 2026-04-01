@@ -224,6 +224,9 @@
     <ClInclude Include="RequestData.h" />
     <ClInclude Include="RequestInterface.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="SampleBD.h" />
+    <ClInclude Include="SampleJSON.h" />
+    <ClInclude Include="SampleUsing.h" />
     <ClInclude Include="WSM.h" />
     <ClInclude Include="SearchInterface.h" />
     <ClInclude Include="SearchWnd.h" />

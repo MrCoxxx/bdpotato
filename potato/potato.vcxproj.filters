@@ -137,6 +137,15 @@
     <ClInclude Include="Harrington.h">
       <Filter>Файлы заголовков\Module\Sample\Method</Filter>
     </ClInclude>
+    <ClInclude Include="SampleBD.h">
+      <Filter>Файлы заголовков\Module\Sample</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleJSON.h">
+      <Filter>Файлы заголовков\Module\Sample</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleUsing.h">
+      <Filter>Файлы заголовков\Module\Sample</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="background_image.png">

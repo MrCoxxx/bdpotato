@@ -39,6 +39,12 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 				"7 Ч крупный(91Ц130 г)\n"
 				"9 Ч очень крупный(более 130 г)\n"
 				, "—правочна€ информаци€", MB_OK);
+			//SaveJSON("Sample.json");
+			//DeleteJSON("Sample.json", "name12");
+			a();
+
+			//MessageBoxA(hWnd, ReadJSON("Sample.json", "name1"), "»нформаци€", MB_OK);
+
 			break;
 		case  MenuExit:
 			PostQuitMessage(0);
