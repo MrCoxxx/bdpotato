@@ -1,4 +1,4 @@
-json process_potatoes() {
+std::unordered_map<std::string, std::unordered_map<std::string, double>> process_potatoes() {
 
     std::vector<std::string> headers = {
         "Образец", "№ по каталогу ВИГРР", "Происхождение",
@@ -15,7 +15,7 @@ json process_potatoes() {
 
 	std::vector<std::vector<std::wstring>> Sample = GetSample();
 
-	json Sampl = ReadJSON("Sample.json", "name13");
+	json Sampl = ReadJSON("Sample.json", "Столовый стандарт");
 
     auto weights = Sampl["weights"].get<std::unordered_map<std::string, double>>();
 
@@ -60,5 +60,75 @@ json process_potatoes() {
         }
     }
 
-    return json(DataBD);
+    return DataBD;
+}
+
+std::unordered_map<std::string, Trait> initTraits() {
+    std::unordered_map<std::string, Trait> t;
+    t["Урожайность"] = Trait("Урожайность", Trait::LargerBetter, 100, 800, 0, 0, "ц/га");
+    t["Вкус"] = Trait("Вкус", Trait::LargerBetter, 1, 9, 0, 0, "балл");
+    t["Товарность"] = Trait("Товарность", Trait::LargerBetter, 50, 100, 0, 0, "%");
+    t["Форма клубня"] = Trait("Форма клубня", Trait::LargerBetter, 1, 9);
+    t["Потемнение мякоти"] = Trait("Потемнение мякоти", Trait::SmallerBetter, 1, 9);
+    t["Развариваемость"] = Trait("Развариваемость", Trait::LargerBetter, 1, 9);
+    t["Устойчивость к фитофторозу"] = Trait("Устойчивость к фитофторозу", Trait::LargerBetter, 1, 9);
+    return t;
+}
+
+void Sampling() {
+    // 1. Получаем данные
+    auto DataBD = process_potatoes();
+
+    // 2. Создаем вектор объектов
+    std::vector<Variety> varieties;
+    for (auto const& item : DataBD) {
+        const std::string& name = item.first;
+        const std::unordered_map<std::string, double>& traitsMap = item.second;
+
+        Variety v(name);
+        for (auto const& traitPair : traitsMap) {
+            v.setTrait(traitPair.first, traitPair.second);
+        }
+        varieties.push_back(v);
+    }
+
+    auto traitsDict = initTraits();
+
+    // 3. Загружаем шаблон
+    json Sampl = ReadJSON("Sample.json", "Столовый стандарт");
+
+    ExpertTemplate universal("Столовый стандарт", "Критерий качества", EvaluationMethod::WSM);
+
+    if (Sampl.contains("weights") && Sampl["weights"].is_object()) {
+        for (auto& [traitName, weightValue] : Sampl["weights"].items()) {
+            if (weightValue.is_number()) {
+                universal.setWeight(traitName, weightValue.get<double>());
+            }
+        }
+    }
+
+    // 4. Расчет рейтинга
+    // Используем указатель на Variety (Variety*), чтобы не копировать объекты целиком
+    std::vector<std::pair<Variety, double>> results;
+    for (auto& v : varieties) {
+        double score = universal.evaluate(v, traitsDict);
+        results.push_back({ v, score });
+    }
+
+    // 5. Сортировка
+    std::sort(results.begin(), results.end(), [](const std::pair<Variety, double>& a, const std::pair<Variety, double>& b) {
+        return a.second > b.second;
+        });
+
+    std::ofstream out("txt.txt");
+    if (out.is_open()) {
+        for (const auto& res : results) {
+            if (res.second > 0.350) {
+                // res.first - это объект Variety
+                printRadarChartToFile(out, res.first, universal, traitsDict);
+                out << "\n" << std::string(60, '=') << "\n"; // Разделитель между сортами
+            }
+        }
+        out.close();
+    }
 }

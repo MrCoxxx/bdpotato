@@ -34,6 +34,9 @@
     <Filter Include="Файлы заголовков\Module\Sample\Method">
       <UniqueIdentifier>{e072aff2-b6eb-4b83-9384-188f2c591907}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Module\Sample\Class">
+      <UniqueIdentifier>{daecd31c-7265-4af7-98d5-116b593d5886}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -144,6 +147,15 @@
       <Filter>Файлы заголовков\Module\Sample</Filter>
     </ClInclude>
     <ClInclude Include="SampleUsing.h">
+      <Filter>Файлы заголовков\Module\Sample</Filter>
+    </ClInclude>
+    <ClInclude Include="PotatoClass.h">
+      <Filter>Файлы заголовков\Module\Sample\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleClass.h">
+      <Filter>Файлы заголовков\Module\Sample\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Visualization.h">
       <Filter>Файлы заголовков\Module\Sample</Filter>
     </ClInclude>
   </ItemGroup>

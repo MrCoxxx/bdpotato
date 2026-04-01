@@ -1,3 +1,5 @@
+#define _SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING
+
 #include <windows.h>
 #include <commctrl.h>
 #include <sqlite3.h>
@@ -60,6 +62,10 @@ using namespace Gdiplus;
 #include "RequestData.h"
 #include "SampleBD.h"
 #include "SampleJSON.h"
+#include "PotatoClass.h"
+#include "Harrington.h"
+#include "SampleClass.h"
+#include "Visualization.h"
 #include "SampleUsing.h"
 #include "AddData.h"
 #include "DeleteData.h"

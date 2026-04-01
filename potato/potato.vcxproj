@@ -150,6 +150,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\path\to\vcpkg\installed\x86-windows\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -227,6 +228,9 @@
     <ClInclude Include="SampleBD.h" />
     <ClInclude Include="SampleJSON.h" />
     <ClInclude Include="SampleUsing.h" />
+    <ClInclude Include="PotatoClass.h" />
+    <ClInclude Include="SampleClass.h" />
+    <ClInclude Include="Visualization.h" />
     <ClInclude Include="WSM.h" />
     <ClInclude Include="SearchInterface.h" />
     <ClInclude Include="SearchWnd.h" />

@@ -229,6 +229,7 @@ DataJSON Build(std::string name, std::string description, std::string method, st
 
 void DeleteJSON(std::string FileName, std::string name);
 
-nlohmann::json process_potatoes();
+std::unordered_map<std::string, std::unordered_map<std::string, double>> process_potatoes();
+void Sampling();
 
 //json ReadJSON(std::string FileName, std::string name);
