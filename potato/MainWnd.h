@@ -41,7 +41,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 				, "Справочная информация", MB_OK);
 			//SaveJSON("Sample.json");
 			//DeleteJSON("Sample.json", "name12");
-			a();
+			process_potatoes();
 
 			//MessageBoxA(hWnd, ReadJSON("Sample.json", "name1"), "Информация", MB_OK);
 

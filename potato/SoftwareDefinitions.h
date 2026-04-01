@@ -229,6 +229,6 @@ DataJSON Build(std::string name, std::string description, std::string method, st
 
 void DeleteJSON(std::string FileName, std::string name);
 
-std::vector<std::wstring> a();
+nlohmann::json process_potatoes();
 
 //json ReadJSON(std::string FileName, std::string name);

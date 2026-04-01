@@ -1,58 +1,64 @@
-std::vector<std::wstring> a() {
+json process_potatoes() {
 
-    std::vector<std::string> headers; 
-    headers.push_back("Образец");
-    headers.push_back("№ по каталогу ВИГРР");
-    headers.push_back("Происхождение");
-    headers.push_back("Товарных клубней в клоне, шт.");
-    headers.push_back("Нетоварных клубней в клоне, шт.");
-    headers.push_back("Масса товарного клубня, г");
-    headers.push_back("Масса нетоварного клубня, г");
-    headers.push_back("Клубней в клоне, шт");
-    headers.push_back("Товарность, %");
-    headers.push_back("Урожайность, кг/м2");
-    headers.push_back("Форма клубня");
-    headers.push_back("Окраска кожуры");
-    headers.push_back("Окраска мякоти");
-    headers.push_back("Глубина глазков");
-    headers.push_back("Глубина столонного следа");
-    headers.push_back("Поверхность кожуры клубня");
-    headers.push_back("Разваримость клубней");
-    headers.push_back("Консистенция мякоти");
-    headers.push_back("Рассыпчатость");
-    headers.push_back("Водянистость клубней");
-    headers.push_back("Запах варёного картофеля");
-    headers.push_back("Вкус варёного картофеля");
-    headers.push_back("Потемнение мякоти сырого картофеля");
-    headers.push_back("Потемнение мякоти варёного картофеля");
+    std::vector<std::string> headers = {
+        "Образец", "№ по каталогу ВИГРР", "Происхождение",
+        "Товарных клубней в клоне, шт.", "Нетоварных клубней в клоне, шт.",
+        "Масса товарного клубня, г", "Масса нетоварного клубня, г",
+        "Клубней в клоне, шт", "Товарность", "Урожайность",
+        "Форма клубня", "Окраска кожуры", "Окраска мякоти",
+        "Глубина глазков", "Глубина столонного следа",
+        "Поверхность кожуры клубня", "Разваримость клубней",
+        "Консистенция мякоти", "Рассыпчатость", "Водянистость клубней",
+        "Запах варёного картофеля", "Вкус",
+        "Потемнение мякоти сырого картофеля", "Потемнение мякоти варёного картофеля"
+    };
 
 	std::vector<std::vector<std::wstring>> Sample = GetSample();
 
-	json Sampl = ReadJSON("Sample.json", "name1");
+	json Sampl = ReadJSON("Sample.json", "name13");
 
-	std::unordered_map<std::string, double> weights = Sampl["weights"].get<std::unordered_map<std::string, double>>();
+    auto weights = Sampl["weights"].get<std::unordered_map<std::string, double>>();
 
     std::vector<std::string> selectedTraits;
-    std::vector<double> weight;
     std::vector<int> number;
 
     for (auto const& pair : weights) {
         selectedTraits.push_back(pair.first);
-        weight.push_back(pair.second);
     }
 
     for (int i = 0; i < selectedTraits.size(); i++) {
         for (int j = 0; j < headers.size(); j++) {
-            headers[j] == selectedTraits[i];
-            number[i] = j;
+            if (headers[j] == selectedTraits[i]) {
+                number.push_back(j);
+            }
+        }
+    }  
+
+    std::unordered_map<std::string, std::unordered_map<std::string, double>> DataBD;
+
+    for (int i = 0; i < Sample.size(); i++) {
+        std::string objectName = utf16_to_utf8(Sample[i][0]);
+
+        std::unordered_map<std::string, double> currentData;
+
+        for (int j = 0; j < number.size(); j++) {
+            int colIndex = number[j];
+
+            std::wstring wideValue = Sample[i][colIndex];
+            if (wideValue.empty()) continue;
+
+            std::string cellValueRaw = utf16_to_utf8(wideValue);
+            double value = std::stod(cellValueRaw);
+
+            std::string traitName = selectedTraits[j];
+            currentData[traitName] = value;
+
+        }
+
+        if (!currentData.empty()) {
+            DataBD[objectName] = currentData;
         }
     }
 
-    std::unordered_map<std::string, double> DataBD;
-
-    for (int i = 0; i < Sample.size(); i++){
-
-    }
-
-	return Sampl; 
+    return json(DataBD);
 }
