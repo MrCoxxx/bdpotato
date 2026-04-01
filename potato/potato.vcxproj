@@ -57,7 +57,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -159,7 +159,7 @@
       <AdditionalLibraryDirectories>C:\vcpkg\installed\x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ProjectReference>
-      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -215,6 +215,7 @@
     <ClInclude Include="EditInterface.h" />
     <ClInclude Include="EditWnd.h" />
     <ClInclude Include="GlobalVariable.h" />
+    <ClInclude Include="Harrington.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="MainWnd.h" />
     <ClInclude Include="Menu.h" />
@@ -223,6 +224,7 @@
     <ClInclude Include="RequestData.h" />
     <ClInclude Include="RequestInterface.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="WSM.h" />
     <ClInclude Include="SearchInterface.h" />
     <ClInclude Include="SearchWnd.h" />
     <ClInclude Include="SoftwareDefinitions.h" />

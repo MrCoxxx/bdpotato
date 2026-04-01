@@ -25,6 +25,15 @@
     <Filter Include="Файлы заголовков\Wnd">
       <UniqueIdentifier>{d6128bcb-9ba3-4209-80cd-756b8185c40d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Module">
+      <UniqueIdentifier>{00f589cc-56f9-4fe7-a1fe-0737d29b46a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Module\Sample">
+      <UniqueIdentifier>{d3bd9d1a-4ff0-475c-8103-e8e8879e86c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Module\Sample\Method">
+      <UniqueIdentifier>{e072aff2-b6eb-4b83-9384-188f2c591907}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -122,10 +131,12 @@
     <ClInclude Include="Tooltip.h">
       <Filter>Файлы заголовков\Other</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="kart.db" />
-    <None Include="kart" />
+    <ClInclude Include="WSM.h">
+      <Filter>Файлы заголовков\Module\Sample\Method</Filter>
+    </ClInclude>
+    <ClInclude Include="Harrington.h">
+      <Filter>Файлы заголовков\Module\Sample\Method</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="background_image.png">
