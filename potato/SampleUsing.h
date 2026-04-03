@@ -65,9 +65,10 @@ std::unordered_map<std::string, std::unordered_map<std::string, double>> process
 
 std::unordered_map<std::string, Trait> initTraits() {
     std::unordered_map<std::string, Trait> t;
-    t["Урожайность"] = Trait("Урожайность", Trait::LargerBetter, 100, 800, 0, 0, "ц/га");
+   
     t["Вкус"] = Trait("Вкус", Trait::LargerBetter, 1, 9, 0, 0, "балл");
     t["Товарность"] = Trait("Товарность", Trait::LargerBetter, 50, 100, 0, 0, "%");
+    t["Урожайность"] = Trait("Урожайность", Trait::LargerBetter, 1, 6, 0, 0, "ц/га");
     t["Форма клубня"] = Trait("Форма клубня", Trait::LargerBetter, 1, 9);
     t["Потемнение мякоти"] = Trait("Потемнение мякоти", Trait::SmallerBetter, 1, 9);
     t["Развариваемость"] = Trait("Развариваемость", Trait::LargerBetter, 1, 9);
