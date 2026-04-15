@@ -7,6 +7,7 @@
 #define MenuTableShow			5
 #define MenuTableClose			6
 #define MenuRequestShow			7
+#define MenuRequestSample		63
 #define MenuRequestClose		8
 #define OpenTableButton			9
 #define CloseTableButton		10
