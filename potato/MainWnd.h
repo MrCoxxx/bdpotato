@@ -69,6 +69,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		case MenuRequestShow:
 			if (!isRequestIntCreated)
 			{
+				ClearInterface(hWnd);
 				DestroyUIElements(hWnd);
 				RequestWndAdd(hWnd, (LPARAM)hInstance);
 				isRequestIntCreated = TRUE;
