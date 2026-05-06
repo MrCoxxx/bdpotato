@@ -218,6 +218,7 @@
     <ClInclude Include="GlobalVariable.h" />
     <ClInclude Include="Harrington.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="MainWnd.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MorphologicalData.h" />

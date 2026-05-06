@@ -234,3 +234,5 @@ std::unordered_map<std::string, std::unordered_map<std::string, double>> process
 void Sampling();
 
 //json ReadJSON(std::string FileName, std::string name);
+
+void Interface(LPCSTR form, std::vector<LPCSTR> name, int x, int y, int width, int height, HWND hWnd, std::vector <HMENU> hMenu, int stepX, int stepY, int quantity);

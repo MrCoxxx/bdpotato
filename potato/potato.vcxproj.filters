@@ -158,6 +158,9 @@
     <ClInclude Include="Visualization.h">
       <Filter>Файлы заголовков\Module\Sample</Filter>
     </ClInclude>
+    <ClInclude Include="Interface.h">
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="background_image.png">

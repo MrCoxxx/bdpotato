@@ -26,6 +26,7 @@
 #include <nlohmann/json.hpp>
 
 using namespace Gdiplus;
+//using namespace std;
 
 #pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "sqlite3.lib")
@@ -40,6 +41,7 @@ using namespace Gdiplus;
 
 #include "GlobalVariable.h"
 #include "Image.h"
+#include "Interface.h"
 #include "MainWnd.h"
 #include "TestWnd.h"
 #include "SearchWnd.h"
@@ -47,6 +49,7 @@ using namespace Gdiplus;
 #include "StandardData.h"
 #include "Menu.h"
 #include "DataBaseInit.h"
+
 #include "TableInterface.h"
 #include "RequestInterface.h"
 #include "SearchInterface.h"

@@ -1,5 +1,6 @@
 void TableWndAdd(HWND hWnd, LPARAM lp) 
 {
+	
 	TableWnd(hWnd);
 	TableCombobox(hWnd, lp);
 	LoadTableData(hWnd);
@@ -7,38 +8,42 @@ void TableWndAdd(HWND hWnd, LPARAM lp)
 
 void TableWnd(HWND hWnd)
 {
-	hStaticTextTable = CreateWindowA(
-		"static",
-		"Выберите таблицу",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		30, 20, 200, 60,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
+	Interface("static", hStaticTable, 30, 20, 200, 60, hWnd, hNULL, 1, 1, 1);
 
-	hButtonOpenTable = CreateWindowA(
-		"button",
-		"Открыть",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 90, 120, 30,
-		hWnd,
-		(HMENU)OpenTableButton,
-		NULL,
-		NULL
-	);
+	Interface("button", hButtonTable, 15, 90, 120, 30, hWnd, hButtonTableC, 120, 1, 2);
 
-	hButtonCloseTable = CreateWindowA(
-		"button",
-		"Закрыть",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		135, 90, 120, 30,
-		hWnd,
-		(HMENU)CloseTableButton,
-		NULL,
-		NULL
-	);
+	//hStaticTextTable = CreateWindowA(
+	//	"static",
+	//	"Выберите таблицу",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	30, 20, 200, 60,
+	//	hWnd,
+	//	NULL,
+	//	NULL,
+	//	NULL
+	//);
+
+	//hButtonOpenTable = CreateWindowA(
+	//	"button",
+	//	"Открыть",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	15, 90, 120, 30,
+	//	hWnd,
+	//	(HMENU)OpenTableButton,
+	//	NULL,
+	//	NULL
+	//);
+
+	//hButtonCloseTable = CreateWindowA(
+	//	"button",
+	//	"Закрыть",
+	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
+	//	135, 90, 120, 30,
+	//	hWnd,
+	//	(HMENU)CloseTableButton,
+	//	NULL,
+	//	NULL
+	//);
 }
 
 void TableCombobox(HWND hWnd, LPARAM lp)

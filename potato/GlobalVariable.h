@@ -404,3 +404,18 @@ LPCWSTR nameE[5] = { L"Очень глубокие(2 и более мм)", L"глубокие(1,7–1,9 мм)", L
 LPCWSTR nameS[5] = { L"1 - Плоский", L"3 - Мелкий", L"5 - Средней глубины", L"7 - Глубокий", L"8 - Очень глубокий" };
 
 LPCWSTR nameTu[3] = { L"3 - Гладкая", L"5 - Слабосетчатая", L"7 - Сильносетчатая" };
+
+
+
+
+std::vector<LPCSTR> hStaticTable = { "Выберите таблицу" };
+
+std::vector<LPCSTR> hButtonTable = { "Открыть", "Закрыть" };
+
+std::vector<HMENU> hButtonTableC = { (HMENU)OpenTableButton, (HMENU)CloseTableButton };
+std::vector<HMENU> hNULL = { NULL };
+
+
+
+std::vector<LPCSTR> staticPotato = { "Образец", "№ по каталогу ВИГРР", "Происхождение", "Товарных клубней в клоне, шт.", "Нетоварных клубней в клоне, шт.", "Масса товарного клубня, г", "Масса нетоварного клубня, г", "Клубней в клоне, шт", "Товарность, %", "Урожайность, кг/м2" };
+

@@ -36,13 +36,20 @@ void ClearAddData() {
 
 void AddStatic(HWND hWnd) 
 {
-	staticSample = CreateWindow(
+
+	Interface("static", staticPotato, 15, 15, 220, 20, hWnd, hNULL, 1, 65, 10);
+
+	Interface("static", staticPotato, 15, 15, 220, 20, hWnd, hNULL, 1, 65, 10);
+
+	Interface("static", staticPotato, 15, 15, 220, 20, hWnd, hNULL, 1, 65, 10);
+
+	/*staticSample = CreateWindow(
 		L"static",
 		L"Образец",
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, 15, 220, 20,
 		hWnd,
-		(HMENU)CheckBoxSample,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -52,7 +59,7 @@ void AddStatic(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, 80, 220, 20,
 		hWnd,
-		(HMENU)CheckBoxVIGRR,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -62,7 +69,7 @@ void AddStatic(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, 145, 220, 20,
 		hWnd,
-		(HMENU)CheckBoxOrigin,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -72,7 +79,7 @@ void AddStatic(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, 210, 220, 20,
 		hWnd,
-		(HMENU)CheckBoxProductivity,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -82,7 +89,7 @@ void AddStatic(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, 275, 230, 20,
 		hWnd,
-		(HMENU)CheckBoxField,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -102,7 +109,7 @@ void AddStatic(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, 405, 200, 20,
 		hWnd,
-		(HMENU)CheckBoxForm,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -112,7 +119,7 @@ void AddStatic(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, 470, 200, 20,
 		hWnd,
-		(HMENU)CheckBoxPeel,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -122,7 +129,7 @@ void AddStatic(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, 535, 200, 20,
 		hWnd,
-		(HMENU)CheckBoxPulp,
+		NULL,
 		NULL,
 		NULL
 	);
@@ -132,10 +139,10 @@ void AddStatic(HWND hWnd)
 		WS_VISIBLE | WS_CHILD | ES_CENTER,
 		15, 600, 200, 20,
 		hWnd,
-		(HMENU)CheckBoxEye,
+		NULL,
 		NULL,
 		NULL
-	);
+	);*/
 
 
 	
