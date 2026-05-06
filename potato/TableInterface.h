@@ -13,7 +13,7 @@ void TableWnd(HWND hWnd)
 
 	Interface("button", hButtonTable, 15, 90, 120, 30, hWnd, hButtonTableC, 120, 0, 2);
 
-	//CheckInt();
+	CheckInt();
 
 }
 

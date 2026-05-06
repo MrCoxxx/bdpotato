@@ -31,11 +31,14 @@ LRESULT CALLBACK SoftwareAddProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 	switch (msg)
 	{
 	case WM_CREATE:
+		
 		Add(hWnd);
+
 		break;
 	case WM_COMMAND:
 		switch (wp) {
 		case AddClickButton:
+			
 			AddData();
 			ClearAddData();
 			//DestroyWindow(hWnd);
@@ -45,6 +48,7 @@ LRESULT CALLBACK SoftwareAddProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 
 		break;
 	case WM_DESTROY:
+		//ClearInterface(hWnd);
 		DestroyWindow(hWnd);
 		addWnd = FALSE;
 		break;

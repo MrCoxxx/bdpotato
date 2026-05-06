@@ -27,8 +27,10 @@ void Interface(LPCSTR form, std::vector<LPCSTR> name, int x, int y, int width, i
 			sX += stepX;
 			sY += stepY;
 		}
+		if (name[0] != "") {
+			n++;
+		}
 		
-		n++;
 	}
 
 }
@@ -37,8 +39,10 @@ void ClearInterface(HWND hWnd)
 {
 	for (int i = 0; i < ValueInt.size(); i++) {
 		DestroyWindow(ValueInt[i]);
-		ValueInt[i] = NULL;
 	}
+
+	ValueInt.clear();
+
 }
 
 
@@ -56,10 +60,8 @@ void CheckInt()
 		GetClassNameW(h, className, 256);
 
 		// Формируем сообщение
-		std::wstring msg = L"Title:" + std::wstring(title) + L"\n";
-		msg += L"Class:" + std::wstring(className) + L"           ";
-
-		//MessageBoxW(nullptr, msg.c_str(), L"Информация об окне", MB_OK);
+		std::wstring msg = L"Title:" + std::wstring(title) + L"           ";
+		msg += L"Class:" + std::wstring(className) + L"\n";
 
 		OutputDebugStringW(msg.c_str());
 	}

@@ -5,6 +5,8 @@ void Add(HWND hWnd)
 	AddEditzone(hWnd);
 	//AddComboboxzone(hWnd);
 	//AddDataComboboxzone(hWnd);
+
+	CheckInt();
 }
 
 void ClearAddData() {
@@ -37,333 +39,45 @@ void ClearAddData() {
 void AddStatic(HWND hWnd) 
 {
 
-	Interface("static", staticPotato, 15, 15, 220, 20, hWnd, hNULL, 1, 65, 10);
+	Interface("static", staticPotato, 15, 15, 220, 20, hWnd, hNULL, 0, 65, 10);
 
-	Interface("static", staticMorh, 250, 15, 200, 20, hWnd, hNULL, 1, 65, 6);
+	Interface("static", staticMorh, 250, 15, 200, 20, hWnd, hNULL, 0, 65, 6);
 
-	Interface("static", staticCul, 465, 15, 220, 20, hWnd, hNULL, 1, 65, 8);
+	Interface("static", staticCul, 465, 15, 220, 20, hWnd, hNULL, 0, 65, 8);
 
-	//Interface("static", staticStand, 680, 15, 220, 20, hWnd, hNULL, 1, 65, 5);
-
-	CheckInt();
+	//Interface("static", staticStand, 680, 15, 220, 20, hWnd, hNULL, 0, 65, 5);
+		
 }
 
 void AddButton(HWND hWnd)
 {
-	complite = new Widgets(
-		"button",
-		"Добавить",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 665, 650, 30,
-		hWnd,
-		(HMENU)AddClickButton,
-		NULL,
-		NULL
-	);
+
+	Interface("button", compliteBTN, 15, 665, 650, 30, hWnd, compliteAddBTNC, 0, 0, 1);
+
 }
 
 void AddEditzone(HWND hWnd)
 {
-	editSample = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 45, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxSample,
-		NULL,
-		NULL
-	);
-	editVIGRR = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 110, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxVIGRR,
-		NULL,
-		NULL
-	);
-	editOrigin = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 175, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxOrigin,
-		NULL,
-		NULL
-	);
-	editCommercial_tubers = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 240, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxProductivity,
-		NULL,
-		NULL
-	);
-	editNon_marketable = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 305, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxField,
-		NULL,
-		NULL
-	);
-	editCommercial = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 370, 200, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	editNon_commercial = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 435, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxForm,
-		NULL,
-		NULL
-	);
-	editTubers = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 500, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxPeel,
-		NULL,
-		NULL
-	);
-	editMarketability = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 565, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxPulp,
-		NULL,
-		NULL
-	);
-	editProductivity = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		15, 630, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxEye,
-		NULL,
-		NULL
-	);
 
+	Interface("edit", editName, 15, 45, 200, 20, hWnd, hNULL, 0, 65, 10);
 
-	//Раскоментить когда будут данные
-	editForm = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 45, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxStolon,
-		NULL,
-		NULL
-	);
-	editPeel = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 110, 200, 20,
-		hWnd,
-		NULL,
-		NULL,
-		NULL
-	);
-	editPulp = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 175, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxTaste,
-		NULL,
-		NULL
-	);
-	editEye = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 240, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxConsistency,
-		NULL,
-		NULL
-	);
-	editStolon = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 305, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxDarkening,
-		NULL,
-		NULL
-	);
-	editSkin = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		250, 370, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	
-	
-	
-	editBoilability = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 45, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editConsistency = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 110, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editFriability = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 175, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editWateriness = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 240, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editSmell = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 305, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editTaste = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 370, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editDarkening_raw = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 435, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	editDarkening_boiled = CreateWindow(
-		L"edit",
-		L"",
-		WS_VISIBLE | WS_CHILD | ES_CENTER,
-		480, 500, 200, 20,
-		hWnd,
-		(HMENU)CheckBoxWeight,
-		NULL,
-		NULL
-	);
-	
-	
-	
-	//editField = CreateWindow(
-	//	L"edit",
-	//	L"",
-	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
-	//	710, 45, 200, 20,
-	//	hWnd,
-	//	(HMENU)CheckBoxWeight,
-	//	NULL,
-	//	NULL
-	//);
-	//editAbility = CreateWindow(
-	//	L"edit",
-	//	L"",
-	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
-	//	710, 110, 200, 20,
-	//	hWnd,
-	//	(HMENU)CheckBoxWeight,
-	//	NULL,
-	//	NULL
-	//);
-	//editFlowering = CreateWindow(
-	//	L"edit",
-	//	L"",
-	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
-	//	710, 175, 200, 20,
-	//	hWnd,
-	//	(HMENU)CheckBoxWeight,
-	//	NULL,
-	//	NULL
-	//);
-	//editRipeness = CreateWindow(
-	//	L"edit",
-	//	L"",
-	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
-	//	710, 240, 200, 20,
-	//	hWnd,
-	//	(HMENU)CheckBoxWeight,
-	//	NULL,
-	//	NULL
-	//);
-	//editYield = CreateWindow(
-	//	L"edit",
-	//	L"",
-	//	WS_VISIBLE | WS_CHILD | ES_CENTER,
-	//	710, 305, 200, 20,
-	//	hWnd,
-	//	(HMENU)CheckBoxWeight,
-	//	NULL,
-	//	NULL
-	//);
+	Interface("edit", editName, 250, 45, 200, 20, hWnd, hNULL, 0, 65, 6);
+
+	Interface("edit", editName, 465, 45, 220, 20, hWnd, hNULL, 0, 65, 8);
+
+	//Interface("edit", editName, 680, 45, 220, 20, hWnd, hNULL, 0, 65, 5);
+
 }
+
+
+
+
+
+
+
+
+
+
 
 void AddComboboxzone(HWND hWnd)
 {
