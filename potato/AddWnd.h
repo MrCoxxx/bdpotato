@@ -48,7 +48,7 @@ LRESULT CALLBACK SoftwareAddProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 
 		break;
 	case WM_DESTROY:
-		//ClearInterface(hWnd);
+		ClearInterface(hWnd, "Add");
 		DestroyWindow(hWnd);
 		addWnd = FALSE;
 		break;

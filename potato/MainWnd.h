@@ -61,7 +61,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			}
 			break;
 		case MenuTableClose:
-			ClearInterface(hWnd);
+			ClearInterface(hWnd, "Table");
 			DestroyUIElements(hWnd);
 			isTableIntCreated = FALSE;
 			isRequestIntCreated = FALSE;
@@ -69,7 +69,7 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		case MenuRequestShow:
 			if (!isRequestIntCreated)
 			{
-				ClearInterface(hWnd);
+				ClearInterface(hWnd, "Table");
 				DestroyUIElements(hWnd);
 				RequestWndAdd(hWnd, (LPARAM)hInstance);
 				isRequestIntCreated = TRUE;

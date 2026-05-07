@@ -9,9 +9,9 @@ void TableWndAdd(HWND hWnd, LPARAM lp)
 void TableWnd(HWND hWnd)
 {
 
-	Interface("static", hStaticTable, 30, 20, 200, 60, hWnd, hNULL, 0, 0, 1);
+	Interface("static", hStaticTable, 30, 20, 200, 60, hWnd, hNULL, 0, 0, 1, "Table");
 
-	Interface("button", hButtonTable, 15, 90, 120, 30, hWnd, hButtonTableC, 120, 0, 2);
+	Interface("button", hButtonTable, 15, 90, 120, 30, hWnd, hButtonTableC, 120, 0, 2, "Table");
 
 	CheckInt();
 

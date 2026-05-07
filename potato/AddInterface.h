@@ -9,41 +9,23 @@ void Add(HWND hWnd)
 	CheckInt();
 }
 
-void ClearAddData() {
-	SetWindowText(editSample, L"");
-	SetWindowText(editVIGRR, L"");
-	SetWindowText(editOrigin, L"");
-	SetWindowText(editCommercial_tubers, L"");
-	SetWindowText(editNon_marketable, L"");
-	SetWindowText(editCommercial, L"");
-	SetWindowText(editNon_commercial, L"");
-	SetWindowText(editTubers, L"");
-	SetWindowText(editMarketability, L"");
-	SetWindowText(editProductivity, L"");
-	SetWindowText(editForm, L"");
-	SetWindowText(editPeel, L"");
-	SetWindowText(editPulp, L"");
-	SetWindowText(editEye, L"");
-	SetWindowText(editStolon, L"");
-	SetWindowText(editSkin, L"");
-	SetWindowText(editBoilability, L"");
-	SetWindowText(editConsistency, L"");
-	SetWindowText(editFriability, L"");
-	SetWindowText(editWateriness, L"");
-	SetWindowText(editSmell, L"");
-	SetWindowText(editTaste, L"");
-	SetWindowText(editDarkening_raw, L"");
-	SetWindowText(editDarkening_boiled, L"");
+void ClearAddData() 
+{
+
+	for (int i = 0; i < DataInterface["Add"]["edit"].size(); i++) {
+		SetWindowTextA(DataInterface["Add"]["edit"][i], "");
+	}
+
 }
 
 void AddStatic(HWND hWnd) 
 {
 
-	Interface("static", staticPotato, 15, 15, 220, 20, hWnd, hNULL, 0, 65, 10);
-
-	Interface("static", staticMorh, 250, 15, 200, 20, hWnd, hNULL, 0, 65, 6);
-
-	Interface("static", staticCul, 465, 15, 220, 20, hWnd, hNULL, 0, 65, 8);
+	Interface("static", staticPotato, 15, 15, 220, 20, hWnd, hNULL, 0, 65, 10, "Add");
+	
+	Interface("static", staticMorh, 250, 15, 200, 20, hWnd, hNULL, 0, 65, 6, "Add");
+	
+	Interface("static", staticCul, 465, 15, 220, 20, hWnd, hNULL, 0, 65, 8, "Add");
 
 	//Interface("static", staticStand, 680, 15, 220, 20, hWnd, hNULL, 0, 65, 5);
 		
@@ -52,18 +34,18 @@ void AddStatic(HWND hWnd)
 void AddButton(HWND hWnd)
 {
 
-	Interface("button", compliteBTN, 15, 665, 650, 30, hWnd, compliteAddBTNC, 0, 0, 1);
+	Interface("button", compliteBTN, 15, 665, 650, 30, hWnd, compliteAddBTNC, 0, 0, 1, "Add");
 
 }
 
 void AddEditzone(HWND hWnd)
 {
 
-	Interface("edit", editName, 15, 45, 200, 20, hWnd, hNULL, 0, 65, 10);
-
-	Interface("edit", editName, 250, 45, 200, 20, hWnd, hNULL, 0, 65, 6);
-
-	Interface("edit", editName, 465, 45, 220, 20, hWnd, hNULL, 0, 65, 8);
+	Interface("edit", editName, 15, 45, 200, 20, hWnd, hNULL, 0, 65, 10, "Add");
+																	   
+	Interface("edit", editName, 250, 45, 200, 20, hWnd, hNULL, 0, 65, 6, "Add");
+																	   
+	Interface("edit", editName, 465, 45, 220, 20, hWnd, hNULL, 0, 65, 8, "Add");
 
 	//Interface("edit", editName, 680, 45, 220, 20, hWnd, hNULL, 0, 65, 5);
 
