@@ -31,9 +31,7 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 	);
 	//Раскоментить когда будут данные
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Все данные");
-	
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Основные характеристики");	
-
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Основные характеристики");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические особенности клубня");
 	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
 	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"По отношению к стандартам");
