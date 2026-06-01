@@ -161,6 +161,12 @@
     <ClInclude Include="Interface.h">
       <Filter>Файлы заголовков\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="GeoMapModule.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleInterface.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="background_image.png">
@@ -174,5 +180,8 @@
     <ResourceCompile Include="potato.rc">
       <Filter>Файлы ресурсов</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

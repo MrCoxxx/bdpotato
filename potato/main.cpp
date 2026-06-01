@@ -25,6 +25,15 @@
 
 #include "json.hpp"
 
+#include <cwctype>
+
+// WebView2
+#include <WebView2.h>
+#include <wrl.h>	
+
+
+#pragma comment(lib, "WebView2LoaderStatic.lib")
+
 using namespace Gdiplus;
 //using namespace std;
 
@@ -36,6 +45,10 @@ using namespace Gdiplus;
 
 #include "resource.h"
 
+
+
+
+
 #include "SoftwareDefinitions.h"
 #include "CreateWidgets.h"
 
@@ -43,6 +56,7 @@ using namespace Gdiplus;
 #include "Image.h"
 #include "Interface.h"
 #include "MainWnd.h"
+
 #include "TestWnd.h"
 #include "SearchWnd.h"
 #include "Tooltip.h"
@@ -77,6 +91,9 @@ using namespace Gdiplus;
 #include "EditWnd.h"
 
 #include "SampleInterface.h"
+#include "GeoMapModule.h"
+
+
 
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)

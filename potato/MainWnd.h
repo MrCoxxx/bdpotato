@@ -109,6 +109,19 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			RemoveSelectedTrait();
 			return 0;
 
+		case IDC_OPEN_GEO_MAP:
+		{
+			LoadFromJson("GeoData.json");
+			OpenGeoMapForWindow(hWnd);
+			return 0;
+		}
+
+		case IDC_REFRESH_GEO_MAP:
+		{
+			RefreshGeoMap();
+			return 0;
+		}
+
 		case MenuAdd:
 			WndAdd(hWnd);
 			return 0;

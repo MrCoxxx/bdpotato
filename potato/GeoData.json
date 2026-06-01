@@ -1,0 +1,48 @@
+{
+  "varieties": {
+    "Беллароза": {
+      "origin": "Германия",
+      "description": "Ранний столовый сорт",
+      "notes": "Хорошо подходит для умеренного климата"
+    },
+    "Жуковский ранний": {
+      "origin": "Россия",
+      "description": "Ранний сорт",
+      "notes": "Хорошо переносит прохладу"
+    }
+  },
+  "regions": [
+    {
+      "name": "Краснодарский край",
+      "country": "Россия",
+      "lat": 45.0355,
+      "lon": 38.9753,
+      "climateText": "Мягкая зима, тёплое лето, умеренная влажность",
+      "climate": {
+        "minTemp": -8,
+        "maxTemp": 34,
+        "precipitation": 650,
+        "requiredResistance": 60
+      },
+      "alreadyGrown": [
+        "Беллароза"
+      ]
+    },
+    {
+      "name": "Кировская область",
+      "country": "Россия",
+      "lat": 58.6036,
+      "lon": 49.6679,
+      "climateText": "Холодная зима, короткое лето",
+      "climate": {
+        "minTemp": -30,
+        "maxTemp": 25,
+        "precipitation": 550,
+        "requiredResistance": 80
+      },
+      "alreadyGrown": [
+        "Жуковский ранний"
+      ]
+    }
+  ]
+}

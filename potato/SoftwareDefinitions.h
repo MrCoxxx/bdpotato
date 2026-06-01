@@ -63,7 +63,7 @@
 #define CheckBoxFlowering 60
 #define CheckBoxRipeness 61
 #define Help 61
-
+#define MenuMap 62
 
 #define TextBufferSize			256
 
@@ -380,10 +380,53 @@ inline void OnCommand(HWND hWnd, int id) {
 
 
 
+#ifndef IDC_OPEN_GEO_MAP
+#define IDC_OPEN_GEO_MAP      4001
+#endif
+
+#ifndef IDC_REFRESH_GEO_MAP
+#define IDC_REFRESH_GEO_MAP   4002
+#endif
 
 
 
+struct DbVarietyRow{
+    std::wstring name;          // èç ÁÄ
+    double climateResistance{}; // èç ÁÄ
+};
 
+struct VarietyMeta {
+    std::wstring origin;
+    std::wstring description;
+    std::wstring notes;
+};
+
+struct RegionClimate {
+    double minTemp = 0.0;
+    double maxTemp = 0.0;
+    double precipitation = 0.0;
+    double requiredResistance = 0.0; // 0..100
+};
+
+struct RegionInfo {
+    std::wstring name;
+    std::wstring country;
+    double lat = 0.0;
+    double lon = 0.0;
+    std::wstring climateText;
+    RegionClimate climate;
+    std::vector<std::wstring> alreadyGrown;
+};
+
+struct RegionView {
+    RegionInfo region;
+    std::vector<std::wstring> suitableVarieties;
+};
+
+void LoadFromJson(const std::string& filename);
+
+inline void OpenGeoMapForWindow(HWND hWnd);
+inline void RefreshGeoMap();
 
 
 
