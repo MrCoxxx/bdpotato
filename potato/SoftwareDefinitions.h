@@ -67,6 +67,9 @@
 
 #define TextBufferSize			256
 
+#define MenuTemplates   100
+#define MenuTemplateMgr 101
+
 wchar_t Buffer1[TextBufferSize];
 wchar_t Buffer2[TextBufferSize];
 char Buffer3[TextBufferSize];
@@ -236,3 +239,5 @@ void Sampling();
 //json ReadJSON(std::string FileName, std::string name);
 
 void Interface(LPCSTR form, std::vector<LPCSTR> name, int x, int y, int width, int height, HWND hWnd, std::vector <HMENU> hMenu, int stepX, int stepY, int quantity, std::string nameWnd);
+
+void InitializeTemplateInterface(HWND hParent);

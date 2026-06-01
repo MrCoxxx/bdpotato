@@ -19,7 +19,7 @@ void MainWndAddMenus(HWND hWnd)
 
 	AppendMenu(SubMenuRequest, MF_STRING, MenuRequestShow, L"Открыть");
 	AppendMenu(SubMenuRequest, MF_SEPARATOR, NULL, NULL);
-	AppendMenu(SubMenuRequest, MF_STRING, MenuRequestSample, L"Ранжирование по шаблонам");
+	AppendMenu(SubMenuRequest, MF_STRING, MenuTemplateMgr, L"Ранжирование по шаблонам");
 	AppendMenu(SubMenuRequest, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(SubMenuRequest, MF_STRING, MenuRequestClose, L"Закрыть");
 

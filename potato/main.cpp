@@ -23,7 +23,7 @@
 #include <memory>
 #include <limits>
 
-#include <nlohmann/json.hpp>
+#include "json.hpp"
 
 using namespace Gdiplus;
 //using namespace std;
@@ -75,6 +75,8 @@ using namespace Gdiplus;
 #include "EditData.h"
 #include "AddWnd.h"
 #include "EditWnd.h"
+
+#include "SampleInterface.h"
 
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)

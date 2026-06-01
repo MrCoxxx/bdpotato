@@ -61,4 +61,13 @@ public:
             return std::pow(geometricProduct, 1.0 / totalWeight);
         }
     }
+
+    void removeWeight(const std::string& trait) {
+        auto it = weights.find(trait);
+        if (it != weights.end()) {
+            weights.erase(it);
+            selectedTraits.erase(std::remove(selectedTraits.begin(), selectedTraits.end(), trait), selectedTraits.end());
+        }
+    }
+
 };

@@ -77,9 +77,13 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 
 			}
 			break;
-		case MenuRequestSample:
+		case MenuTemplateMgr:
+			InitializeTemplateInterface(hWnd);
 			DestroyUIElements(hWnd);
+		break;
+		case MenuRequestSample:
 
+			DestroyUIElements(hWnd);
 			break;
 		case MenuRequestClose:
 			DestroyUIElements(hWnd);

@@ -121,6 +121,8 @@ void Sampling() {
         return a.second > b.second;
         });
 
+    
+
     std::ofstream out("txt.txt");
     if (out.is_open()) {
         for (const auto& res : results) {
