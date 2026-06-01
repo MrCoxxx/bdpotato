@@ -241,3 +241,160 @@ void Sampling();
 void Interface(LPCSTR form, std::vector<LPCSTR> name, int x, int y, int width, int height, HWND hWnd, std::vector <HMENU> hMenu, int stepX, int stepY, int quantity, std::string nameWnd);
 
 void InitializeTemplateInterface(HWND hParent);
+
+struct UiTemplate {
+    std::wstring name;
+    std::wstring description;
+    std::string method = "WSM"; // WSM / Harrington
+    std::unordered_map<std::string, double> weights;
+};
+
+struct UiTraitRow {
+    std::wstring traitName;
+    std::wstring weight;
+};
+
+
+inline std::vector<UiTemplate> g_templates;
+inline int g_currentTemplateIndex = -1;
+
+// -----------------------------
+// Идентификаторы кнопок
+// -----------------------------
+enum UiCommandId {
+    IDC_CREATE_TEMPLATE = 1001,
+    IDC_EDIT_TEMPLATE = 1002,
+    IDC_DELETE_TEMPLATE = 1003,
+    IDC_SAVE_TEMPLATES = 1004,
+    IDC_LOAD_TEMPLATES = 1005,
+    IDC_COMPARE = 1006,
+    IDC_CLEAR = 1007,
+    IDC_ADD_TRAIT = 1008,
+    IDC_REMOVE_TRAIT = 1009,
+    IDC_TEMPLATE_CHANGE = 1010
+};
+
+inline void SaveCurrentTemplateToVector();
+inline void CreateNewTemplate();
+inline void DeleteCurrentTemplate();
+inline bool SaveTemplatesToFile(const std::string& filename);
+inline bool LoadTemplatesFromFile(const std::string& filename);
+inline void RefreshTemplatesCombo();
+inline void FillControlsFromCurrentTemplate();
+inline std::wstring GenerateComparisonReport(const UiTemplate& tmpl);
+inline void ShowReportInUI(const std::wstring& text);
+inline void ClearCurrentTemplateUI();
+inline void AddOrUpdateTrait();
+inline void RemoveSelectedTrait();
+inline void OnTemplateSelectionChanged();
+inline std::string WToU8(const std::wstring& s);
+inline UiTemplate ReadCurrentTemplateFromControls();
+
+inline std::wstring GetExeDirW()
+{
+    wchar_t path[MAX_PATH]{};
+    GetModuleFileNameW(nullptr, path, MAX_PATH);
+
+    std::wstring s = path;
+    size_t pos = s.find_last_of(L"\\/");
+    if (pos != std::wstring::npos)
+        s = s.substr(0, pos);
+
+    return s;
+}
+
+inline std::string GetSampleJsonPath()
+{
+    return WToU8(GetExeDirW() + L"\\Sample.json");
+}
+
+
+
+
+
+
+
+inline void OnCommand(HWND hWnd, int id) {
+    switch (id) {
+    case IDC_CREATE_TEMPLATE:
+        SaveCurrentTemplateToVector();
+        CreateNewTemplate();
+        break;
+
+    case IDC_EDIT_TEMPLATE:
+        SaveCurrentTemplateToVector();
+        break;
+
+    case IDC_DELETE_TEMPLATE:
+        DeleteCurrentTemplate();
+        break;
+
+    case IDC_SAVE_TEMPLATES:
+        SaveCurrentTemplateToVector();
+        if (SaveTemplatesToFile(GetSampleJsonPath())) {
+            MessageBoxW(hWnd, L"Шаблоны сохранены в Sample.json", L"OK", MB_ICONINFORMATION);
+        }
+        else {
+            MessageBoxW(hWnd, L"Не удалось сохранить JSON", L"Ошибка", MB_ICONERROR);
+        }
+        break;
+
+    case IDC_LOAD_TEMPLATES:
+        if (LoadTemplatesFromFile(GetSampleJsonPath())) {
+            RefreshTemplatesCombo();
+            FillControlsFromCurrentTemplate();
+            MessageBoxW(hWnd, L"Шаблоны загружены из Sample.json", L"OK", MB_ICONINFORMATION);
+        }
+        else {
+            MessageBoxW(hWnd, L"Не удалось загрузить Sample.json", L"Ошибка", MB_ICONERROR);
+        }
+        break;
+
+    case IDC_COMPARE:
+        SaveCurrentTemplateToVector();
+        if (g_currentTemplateIndex >= 0 && g_currentTemplateIndex < (int)g_templates.size()) {
+            std::wstring report = GenerateComparisonReport(g_templates[g_currentTemplateIndex]);
+            ShowReportInUI(report);
+        }
+        else {
+            MessageBoxW(hWnd, L"Сначала создайте или выберите шаблон", L"Внимание", MB_ICONWARNING);
+        }
+        break;
+
+    case IDC_CLEAR:
+        ClearCurrentTemplateUI();
+        break;
+
+    case IDC_ADD_TRAIT:
+        AddOrUpdateTrait();
+        break;
+
+    case IDC_REMOVE_TRAIT:
+        RemoveSelectedTrait();
+        break;
+
+    default:
+        break;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "templates": [
+    {
+      "name": "Пример шаблона",
+      "description": "Описание",
+      "createdDate": "2024-01-01T00:00:00",
+      "modifiedDate": "2024-01-01T00:00:00",
+      "parameters": [
+        {
+          "name": "параметр1",
+          "value": "значение1",
+          "minValue": "",
+          "maxValue": "",
+          "isRange": false
+        }
+      ]
+    }
+  ]
+}
