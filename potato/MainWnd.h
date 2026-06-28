@@ -219,9 +219,9 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		break;
     }
 	
-    case WM_PAINT:
-        CreatePaint(hWnd);
-        return 0;
+    //case WM_PAINT:
+    //    CreatePaint(hWnd);
+    //    return 0;
 
     case WM_DESTROY:
         Cleanup();

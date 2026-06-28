@@ -9,6 +9,11 @@
       "origin": "Россия",
       "description": "Ранний сорт",
       "notes": "Хорошо переносит прохладу"
+    },
+    "Садон": {
+      "origin": "Россия",
+      "description": "Ранний сорт",
+      "notes": "Хорошо переносит прохладу"
     }
   },
   "regions": [
@@ -43,6 +48,23 @@
       "alreadyGrown": [
         "Жуковский ранний"
       ]
+    },
+    {
+      "name": "Красноярский край",
+      "country": "Россия",
+      "lat": 56.0105,
+      "lon": 92.8526,
+      "climateText": "Продолжительная холодная зима, короткое жаркое лето",
+      "climate": {
+        "minTemp": -30,
+        "maxTemp": 27,
+        "precipitation": 180,
+        "requiredResistance": 50
+      },
+      "alreadyGrown": [
+        "Садон"
+      ]
     }
+
   ]
 }

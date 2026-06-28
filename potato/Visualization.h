@@ -14,7 +14,7 @@ void printRadarChartToFile(std::ostream& os, const Variety& variety, const Exper
         // Длина графической полоски (30 символов максимум)
         int barLength = static_cast<int>(norm * 30);
 
-        os << std::setw(30) << std::left << traitName << " |";
+        os << std::setw(30) << std::left << "\n" << traitName << " |";
         for (int i = 0; i < 30; ++i) {
             os << (i < barLength ? "█" : "░");
         }

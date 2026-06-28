@@ -596,7 +596,7 @@ inline void InitializeTemplateInterface(HWND hWnd) {
 
     // Окно результата
     CreateWindowW(L"static", L"Результат сравнения", WS_VISIBLE | WS_CHILD,
-        15, 470, 180, 20, hWnd, nullptr, nullptr, nullptr);
+        15, 470, 400, 20, hWnd, nullptr, nullptr, nullptr);
 
     g_hEditResult = CreateWindowW(L"edit", L"",
         WS_VISIBLE | WS_CHILD | WS_BORDER | ES_MULTILINE | ES_AUTOVSCROLL | WS_VSCROLL | ES_READONLY,
