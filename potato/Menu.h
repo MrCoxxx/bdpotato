@@ -23,7 +23,11 @@ void MainWndAddMenus(HWND hWnd)
 	AppendMenu(SubMenuRequest, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(SubMenuRequest, MF_STRING, IDC_OPEN_GEO_MAP, L"Гео-карта");
 	AppendMenu(SubMenuRequest, MF_SEPARATOR, NULL, NULL);
+	AppendMenu(SubMenuRequest, MF_STRING, MenuDuplicate, L"Поиск похожих сортов");
+	AppendMenu(SubMenuRequest, MF_SEPARATOR, NULL, NULL);
 	AppendMenu(SubMenuRequest, MF_STRING, MenuRequestClose, L"Закрыть");
+
+
 
 	AppendMenu(RootMenu, MF_POPUP, (UINT_PTR)SubMenuMain, L"Меню");
 	AppendMenu(RootMenu, MF_SEPARATOR, NULL, NULL);

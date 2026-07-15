@@ -1,24 +1,3 @@
-
-
-// ------------------------------------------------------------
-// UTF-8 / UTF-16
-// ------------------------------------------------------------
-//inline std::string WToU8(const std::wstring& s) {
-//    if (s.empty()) return {};
-//    int sz = WideCharToMultiByte(CP_UTF8, 0, s.c_str(), (int)s.size(), nullptr, 0, nullptr, nullptr);
-//    std::string r(sz, 0);
-//    WideCharToMultiByte(CP_UTF8, 0, s.c_str(), (int)s.size(), r.data(), sz, nullptr, nullptr);
-//    return r;
-//}
-//
-//inline std::wstring U8ToW(const std::string& s) {
-//    if (s.empty()) return {};
-//    int sz = MultiByteToWideChar(CP_UTF8, 0, s.c_str(), (int)s.size(), nullptr, 0);
-//    std::wstring r(sz, 0);
-//    MultiByteToWideChar(CP_UTF8, 0, s.c_str(), (int)s.size(), r.data(), sz);
-//    return r;
-//}
-
 inline std::wstring TrimW(std::wstring s) {
     auto notSpace = [](wchar_t ch) { return !iswspace(ch); };
 

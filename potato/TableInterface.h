@@ -1,4 +1,4 @@
-void TableWndAdd(HWND hWnd, LPARAM lp) 
+п»їvoid TableWndAdd(HWND hWnd, LPARAM lp) 
 {
 	
 	TableWnd(hWnd);
@@ -29,12 +29,12 @@ void TableCombobox(HWND hWnd, LPARAM lp)
 		(HINSTANCE)lp,
 		NULL
 	);
-	//Раскоментить когда будут данные
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Все данные");
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Основные характеристики");
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Морфологические особенности клубня");
-	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Кулинарные качества");
-	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"По отношению к стандартам");
+	//Р Р°СЃРєРѕРјРµРЅС‚РёС‚СЊ РєРѕРіРґР° Р±СѓРґСѓС‚ РґР°РЅРЅС‹Рµ
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"Р’СЃРµ РґР°РЅРЅС‹Рµ");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"РћСЃРЅРѕРІРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"РњРѕСЂС„РѕР»РѕРіРёС‡РµСЃРєРёРµ РѕСЃРѕР±РµРЅРЅРѕСЃС‚Рё РєР»СѓР±РЅСЏ");
+	SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"РљСѓР»РёРЅР°СЂРЅС‹Рµ РєР°С‡РµСЃС‚РІР°");
+	//SendMessageW(hComboBoxTable, CB_ADDSTRING, 0, (LPARAM)L"РџРѕ РѕС‚РЅРѕС€РµРЅРёСЋ Рє СЃС‚Р°РЅРґР°СЂС‚Р°Рј");
 
 	SendMessage(hComboBoxTable, CB_SETCURSEL, 0, 0);
 	idComboBox = SendMessage(hComboBoxTable, CB_GETCURSEL, 0, 0);

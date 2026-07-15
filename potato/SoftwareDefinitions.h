@@ -65,6 +65,27 @@
 #define Help 61
 #define MenuMap 62
 
+
+#define MenuDuplicate        64
+#define DupBtnSearch         65
+#define DupBtnClose          66
+#define DupChkCommercial     70
+#define DupChkNonMarket      71
+#define DupChkWeightC        72
+#define DupChkWeightN        73
+#define DupChkTubers         74
+#define DupChkMarketability  75
+#define DupChkProductivity   76
+#define DupChkBoilability    77
+#define DupChkConsistency    78
+#define DupChkFriability     79
+#define DupChkWateriness     80
+#define DupChkSmell          81
+#define DupChkTaste          82
+#define DupChkDarkRaw        83
+#define DupChkDarkBoiled     84
+
+
 #define TextBufferSize			256
 
 #define MenuTemplates   100
@@ -428,7 +449,7 @@ void LoadFromJson(const std::string& filename);
 inline void OpenGeoMapForWindow(HWND hWnd);
 inline void RefreshGeoMap();
 
-
+static void WndDuplicate(HWND hParent);
 
 
 

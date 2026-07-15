@@ -96,7 +96,7 @@ void AddData() {
    //    sqlite3_bind_text(stmt, 1, id_potato[0].c_str(), -1, SQLITE_TRANSIENT);
 
    //    for (int i = 2; i < 7; i++) {
-   //        sqlite3_bind_text(stmt, i, utf8_Data[col].c_str(), -1, SQLITE_TRANSIENT);
+   //      sqlite3_bind_text(stmt, i, utf8_Data[col].c_str(), -1, SQLITE_TRANSIENT);
    //        col++;
    //    }
    //

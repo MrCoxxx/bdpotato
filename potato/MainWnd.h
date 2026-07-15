@@ -111,6 +111,8 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 
 		case IDC_OPEN_GEO_MAP:
 		{
+			ClearInterface(hWnd, "Table");
+			DestroyUIElements(hWnd);
 			LoadFromJson("GeoData.json");
 			OpenGeoMapForWindow(hWnd);
 			return 0;
@@ -121,6 +123,10 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			RefreshGeoMap();
 			return 0;
 		}
+
+		case MenuDuplicate:
+			WndDuplicate(hWnd);
+			break;
 
 		case MenuAdd:
 			WndAdd(hWnd);

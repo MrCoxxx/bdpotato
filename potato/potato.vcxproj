@@ -151,6 +151,7 @@
       <AdditionalIncludeDirectories>C:\path\to\vcpkg\installed\x86-windows\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <UndefinePreprocessorDefinitions>%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -214,6 +215,8 @@
     <ClInclude Include="DeleteData.h" />
     <ClInclude Include="DeleteInterface.h" />
     <ClInclude Include="DestroyUI.h" />
+    <ClInclude Include="DuplicateSearch.h" />
+    <ClInclude Include="DuplicateWnd.h" />
     <ClInclude Include="EditData.h" />
     <ClInclude Include="EditInterface.h" />
     <ClInclude Include="EditWnd.h" />

@@ -1,3 +1,7 @@
+п»ї#define UNICODE
+#define _UNICODE
+
+
 #define _SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING
 
 #include <windows.h>
@@ -12,7 +16,7 @@
 #include <codecvt>
 #include <xlsxwriter.h>
 #include <gdiplus.h>
-#include <shlwapi.h> // для PathFileExists
+#include <shlwapi.h> // РґР»СЏ PathFileExists
 #include <unordered_map>
 #include <functional>
 #include <cctype>
@@ -32,7 +36,6 @@
 // WebView2
 #include <WebView2.h>
 #include <wrl.h>	
-
 
 #pragma comment(lib, "WebView2LoaderStatic.lib")
 
@@ -92,6 +95,9 @@ using namespace Gdiplus;
 #include "AddWnd.h"
 #include "EditWnd.h"
 
+#include "DuplicateSearch.h"
+#include "DuplicateWnd.h"
+
 #include "SampleInterface.h"
 #include "GeoMapModule.h"
 
@@ -104,16 +110,18 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
     name='Microsoft.Windows.Common-Controls' version='6.0.0.0' \
     processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
-	// Инициализация общих элементов управления
+	// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РѕР±С‰РёС… СЌР»РµРјРµРЅС‚РѕРІ СѓРїСЂР°РІР»РµРЅРёСЏ
 	INITCOMMONCONTROLSEX icc;
 	icc.dwSize = sizeof(icc);
 	icc.dwICC = ICC_LISTVIEW_CLASSES;
 	InitCommonControlsEx(&icc);
 
-	// Инициализация базы данных
+	// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 	InitializeDatabase();
 
 	hInstance = hInst;
+
+	RegisterDuplicateWindowClass(hInst);
 
 	WNDCLASS SoftwareMainClass = NewMainWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON1)), L"MainWndClass", SoftwareMainProcedure);
 	WNDCLASS SoftwareSearchClass = NewSearchWindowClass((HBRUSH)COLOR_WINDOW, LoadCursor(NULL, IDC_ARROW), hInst, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON1)), L"SearchWndClass", SoftwareSearchProcedure);
@@ -135,7 +143,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 
 	HWND hWnd = CreateWindow(
 		L"MainWndClass",
-		L"База данных",
+		L"Р‘Р°Р·Р° РґР°РЅРЅС‹С…",
 		WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 		460, 240, 1000, 650,
 		NULL,
