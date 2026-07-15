@@ -113,8 +113,9 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		{
 			ClearInterface(hWnd, "Table");
 			DestroyUIElements(hWnd);
-			LoadFromJson("GeoData.json");
-			OpenGeoMapForWindow(hWnd);
+			//LoadFromJson("GeoData.json");
+			//OpenGeoMapForWindow(hWnd);
+
 			return 0;
 		}
 
