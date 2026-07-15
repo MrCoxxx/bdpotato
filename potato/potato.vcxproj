@@ -221,6 +221,7 @@
     <ClInclude Include="EditInterface.h" />
     <ClInclude Include="EditWnd.h" />
     <ClInclude Include="GeoMapModule.h" />
+    <ClInclude Include="GeoMapModuleNew.h" />
     <ClInclude Include="GlobalVariable.h" />
     <ClInclude Include="Harrington.h" />
     <ClInclude Include="Image.h" />
