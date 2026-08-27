@@ -553,6 +553,6 @@ inline void RefreshGeoMap() {
 }
 
 inline void ClearGeoMap() {
-    g_geoMapWindow.ClearWebContent();
+    g_geoMapWindow.Destroy();
 }
 
