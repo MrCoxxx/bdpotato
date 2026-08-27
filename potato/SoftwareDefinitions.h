@@ -448,11 +448,11 @@ void LoadFromJson(const std::string& filename);
 
 inline void OpenGeoMapForWindow(HWND hWnd);
 inline void RefreshGeoMap();
+inline void ClearGeoMap();
 
 static void WndDuplicate(HWND hParent);
 
-
-
+void ClearSampleInterface(HWND hWnd);
 
 
 

@@ -112,9 +112,12 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		case IDC_OPEN_GEO_MAP:
 		{
 			ClearInterface(hWnd, "Table");
+			ClearSampleInterface(hWnd);
 			DestroyUIElements(hWnd);
-			//LoadFromJson("GeoData.json");
-			//OpenGeoMapForWindow(hWnd);
+			LoadFromJson("GeoData.json");
+			OpenGeoMapForWindow(hWnd);
+			isRequestIntCreated = FALSE;
+			isTableIntCreated = FALSE;
 
 			return 0;
 		}
@@ -136,18 +139,18 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			WndEdit(hWnd);
 			return 0;
 		case MenuInfo:
-			MessageBoxA(hWnd, "Ïðîãðàììà ó÷¸òà âèäîâ êàðòîôåëÿ\n"
-				"ðàçðàáîòàëè Ïàâëîâ Êèðèëë Âèòàëüâè÷ è \n"
-				"Ãîëóáöîâ Ãåîðãèé Âàëåíòèíîâè÷ äëÿ Óíèâåðñèòåòà", "Èíôîðìàöèÿ", MB_OK);
+			MessageBoxA(hWnd, "Программа учёта видов картофеля\n"
+				"разработали Павлов Кирилл Витальевич и \n"
+				"Голубцов Георгий Валентинович для Университета", "Информация", MB_OK);
 			return 0;
 		case MenuHelp:
-			MessageBoxA(hWnd, "Ñðåäíÿÿ ìàññà êëóáíÿ:\n"
-				"1 — î÷åíü ìåëêèé(äî 10 ã)\n"
-				"3 — ìåëêèé(10–40 ã)\n"
-				"5 — ñðåäíèé(41–90 ã)\n"
-				"7 — êðóïíûé(91–130 ã)\n"
-				"9 — î÷åíü êðóïíûé(áîëåå 130 ã)\n"
-				, "Ñïðàâî÷íàÿ èíôîðìàöèÿ", MB_OK);
+			MessageBoxA(hWnd, "Средняя масса клубня:\n"
+				"1 — очень мелкий(до 10 г)\n"
+				"3 — мелкий(10–40 г)\n"
+				"5 — средний(41–90 г)\n"
+				"7 — крупный(91–130 г)\n"
+				"9 — очень крупный(более 130 г)\n"
+				, "Справочная информация", MB_OK);
 			//SaveJSON("Sample.json");
 			//DeleteJSON("Sample.json", "name12");
 			//process_potatoes();
@@ -161,7 +164,8 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		case MenuTableShow:
 			if (!isTableIntCreated)
 			{
-
+				ClearGeoMap();
+				ClearSampleInterface(hWnd);
 				DestroyUIElements(hWnd);
 				TableWndAdd(hWnd, (LPARAM)hInstance);
 				isTableIntCreated = TRUE;
@@ -170,16 +174,20 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			}
 			return 0;
 		case MenuTableClose:
+			ClearGeoMap();
 			ClearInterface(hWnd, "Table");
 			DestroyUIElements(hWnd);
+			ClearSampleInterface(hWnd);
 			isTableIntCreated = FALSE;
 			isRequestIntCreated = FALSE;
 			return 0;
 		case MenuRequestShow:
 			if (!isRequestIntCreated)
 			{
+				ClearGeoMap();
 				ClearInterface(hWnd, "Table");
 				DestroyUIElements(hWnd);
+				ClearSampleInterface(hWnd);
 				RequestWndAdd(hWnd, (LPARAM)hInstance);
 				isRequestIntCreated = TRUE;
 				isTableIntCreated = FALSE;
@@ -187,14 +195,21 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 			}
 			return 0;
 		case MenuTemplateMgr:
+			ClearGeoMap();
+			ClearInterface(hWnd, "Table");
 			InitializeTemplateInterface(hWnd);
 			DestroyUIElements(hWnd);
+			isTableIntCreated = FALSE;
+			isRequestIntCreated = FALSE;
 			return 0;
 		case MenuRequestSample:
 
 			DestroyUIElements(hWnd);
 			return 0;
 		case MenuRequestClose:
+			ClearGeoMap();
+			ClearInterface(hWnd, "Table");
+			ClearSampleInterface(hWnd);
 			DestroyUIElements(hWnd);
 			isRequestIntCreated = FALSE;
 			isTableIntCreated = FALSE;
@@ -226,9 +241,9 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
 		break;
     }
 	
-    //case WM_PAINT:
-    //    CreatePaint(hWnd);
-    //    return 0;
+    case WM_PAINT:
+        CreatePaint(hWnd);
+        return 0;
 
     case WM_DESTROY:
         Cleanup();

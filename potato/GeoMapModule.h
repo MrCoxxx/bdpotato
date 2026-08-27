@@ -1,4 +1,4 @@
-inline std::wstring TrimW(std::wstring s) {
+п»їinline std::wstring TrimW(std::wstring s) {
     auto notSpace = [](wchar_t ch) { return !iswspace(ch); };
 
     while (!s.empty() && !notSpace(s.front())) s.erase(s.begin());
@@ -17,15 +17,15 @@ inline std::wstring NormalizeW(std::wstring s) {
 }
 
 // ------------------------------------------------------------
-// IDs для кнопок
+// IDs РґР»СЏ РєРЅРѕРїРѕРє
 // ------------------------------------------------------------
 
 // ------------------------------------------------------------
-// Данные
+// Р”Р°РЅРЅС‹Рµ
 // ------------------------------------------------------------
 
 // ------------------------------------------------------------
-// Основной модуль
+// РћСЃРЅРѕРІРЅРѕР№ РјРѕРґСѓР»СЊ
 // ------------------------------------------------------------
 class GeoMapModule {
 public:
@@ -139,8 +139,8 @@ public:
                     return NormalizeW(a) < NormalizeW(b);
                 });
 
-            // Регион показываем, если есть хотя бы один подходящий сорт
-            // или если есть история выращивания
+            // Р РµРіРёРѕРЅ РїРѕРєР°Р·С‹РІР°РµРј, РµСЃР»Рё РµСЃС‚СЊ С…РѕС‚СЏ Р±С‹ РѕРґРёРЅ РїРѕРґС…РѕРґСЏС‰РёР№ СЃРѕСЂС‚
+            // РёР»Рё РµСЃР»Рё РµСЃС‚СЊ РёСЃС‚РѕСЂРёСЏ РІС‹СЂР°С‰РёРІР°РЅРёСЏ
             if (!view.suitableVarieties.empty() || !region.alreadyGrown.empty()) {
                 views.push_back(std::move(view));
             }
@@ -206,6 +206,12 @@ public:
         html, body { margin:0; padding:0; width:100%; height:100%; }
         #map { width:100%; height:100%; }
 
+        /* <-- РР—РњР•РќР•РќРћ: РЎРєСЂС‹РІР°РµРј Р»РѕРіРѕС‚РёРї Рё РєРѕРїРёСЂР°Р№С‚ Leaflet */
+        .leaflet-control-attribution {
+        display: none !important;
+        }
+
+
         .legend {
             background: white;
             padding: 8px 10px;
@@ -238,11 +244,11 @@ public:
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    const map = L.map('map').setView([25, 15], 2);
+    const map = L.map('map', { attributionControl: false }).setView([25, 15], 2);
+
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; OpenStreetMap contributors'
+        maxZoom: 18
     }).addTo(map);
 
     let layers = [];
@@ -262,7 +268,7 @@ public:
     }
 
     function listHtml(arr) {
-        if (!arr || arr.length === 0) return '<span class="small">нет данных</span>';
+        if (!arr || arr.length === 0) return '<span class="small">РЅРµС‚ РґР°РЅРЅС‹С…</span>';
         return '<ul>' + arr.map(x => `<li>${escapeHtml(x)}</li>`).join('') + '</ul>';
     }
 
@@ -272,22 +278,22 @@ public:
 
         return `
             <div class="region-title">${escapeHtml(r.name)}</div>
-            <div><b>Страна:</b> ${escapeHtml(r.country || '')}</div>
-            <div><b>Климат:</b> ${escapeHtml(r.climateText || '')}</div>
-            <div><b>Мин. температура:</b> ${r.climate?.minTemp ?? '-'}</div>
-            <div><b>Макс. температура:</b> ${r.climate?.maxTemp ?? '-'}</div>
-            <div><b>Осадки:</b> ${r.climate?.precipitation ?? '-'}</div>
-            <div><b>Порог устойчивости:</b> ${r.climate?.requiredResistance ?? '-'}</div>
+            <div><b>РЎС‚СЂР°РЅР°:</b> ${escapeHtml(r.country || '')}</div>
+            <div><b>РљР»РёРјР°С‚:</b> ${escapeHtml(r.climateText || '')}</div>
+            <div><b>РњРёРЅ. С‚РµРјРїРµСЂР°С‚СѓСЂР°:</b> ${r.climate?.minTemp ?? '-'}</div>
+            <div><b>РњР°РєСЃ. С‚РµРјРїРµСЂР°С‚СѓСЂР°:</b> ${r.climate?.maxTemp ?? '-'}</div>
+            <div><b>РћСЃР°РґРєРё:</b> ${r.climate?.precipitation ?? '-'}</div>
+            <div><b>РџРѕСЂРѕРі СѓСЃС‚РѕР№С‡РёРІРѕСЃС‚Рё:</b> ${r.climate?.requiredResistance ?? '-'}</div>
 
             <hr/>
 
             <div>
-                <span class="badge green">Подходят: ${suitable.length}</span>
-                <span class="badge orange">Ранее выращивались: ${grown.length}</span>
+                <span class="badge green">РџРѕРґС…РѕРґСЏС‚: ${suitable.length}</span>
+                <span class="badge orange">Р Р°РЅРµРµ РІС‹СЂР°С‰РёРІР°Р»РёСЃСЊ: ${grown.length}</span>
             </div>
 
-            <div style="margin-top:8px;"><b>Подходящие сорта:</b>${listHtml(suitable)}</div>
-            <div style="margin-top:8px;"><b>Сорта, уже выращенные в регионе:</b>${listHtml(grown)}</div>
+            <div style="margin-top:8px;"><b>РџРѕРґС…РѕРґСЏС‰РёРµ СЃРѕСЂС‚Р°:</b>${listHtml(suitable)}</div>
+            <div style="margin-top:8px;"><b>РЎРѕСЂС‚Р°, СѓР¶Рµ РІС‹СЂР°С‰РµРЅРЅС‹Рµ РІ СЂРµРіРёРѕРЅРµ:</b>${listHtml(grown)}</div>
         `;
     }
 
@@ -358,10 +364,10 @@ private:
     }
 
     static double NormalizeResistance(double value) {
-        // Поддержка разных форматов:
-        // 0..1  -> процент
-        // 1..5  -> перевод в 0..100
-        // 0..100 -> как есть
+        // РџРѕРґРґРµСЂР¶РєР° СЂР°Р·РЅС‹С… С„РѕСЂРјР°С‚РѕРІ:
+        // 0..1  -> РїСЂРѕС†РµРЅС‚
+        // 1..5  -> РїРµСЂРµРІРѕРґ РІ 0..100
+        // 0..100 -> РєР°Рє РµСЃС‚СЊ
         if (value <= 1.0) return ClampDouble(value * 100.0, 0.0, 100.0);
         if (value <= 5.0) return ClampDouble((value - 1.0) * 25.0, 0.0, 100.0);
         return ClampDouble(value, 0.0, 100.0);
@@ -369,7 +375,7 @@ private:
 };
 
 // ------------------------------------------------------------
-// WebView2-окно карты
+// WebView2-РѕРєРЅРѕ РєР°СЂС‚С‹
 // ------------------------------------------------------------
 class GeoMapWindow {
 public:
@@ -468,6 +474,11 @@ public:
         m_created = false;
     }
 
+    void ClearWebContent() {
+        if (!m_webView) return;
+        m_webView->NavigateToString(L""); // Р—Р°РіСЂСѓР¶Р°РµРј РїСѓСЃС‚СѓСЋ СЃС‚СЂР°РЅРёС†Сѓ
+    }
+
 private:
     void SendPayloadToWeb() {
         if (!m_webView) return;
@@ -492,14 +503,14 @@ private:
 };
 
 // ------------------------------------------------------------
-// Глобальные объекты модуля
+// Р“Р»РѕР±Р°Р»СЊРЅС‹Рµ РѕР±СЉРµРєС‚С‹ РјРѕРґСѓР»СЏ
 // ------------------------------------------------------------
 
 inline GeoMapModule g_geoMapModule;
 inline GeoMapWindow g_geoMapWindow;
 
 // ------------------------------------------------------------
-// Удобные функции
+// РЈРґРѕР±РЅС‹Рµ С„СѓРЅРєС†РёРё
 // ------------------------------------------------------------
 inline std::vector<DbVarietyRow> ConvertDbRowsFromPairs(
     const std::vector<std::pair<std::wstring, double>>& rows)
@@ -519,9 +530,13 @@ void LoadFromJson(const std::string& filename) {
 }
 
 std::vector<std::pair<std::wstring, double>> dbRows = {
-    {L"Беллароза", 70.0},
-    {L"Жуковский ранний", 85.0},
-    {L"Гала", 55.0}
+    {L"Р‘РµР»Р»Р°СЂРѕР·Р°", 55.0},
+    {L"Р–СѓРєРѕРІСЃРєРёР№ СЂР°РЅРЅРёР№", 70.0},
+    {L"Р“Р°Р»Р°", 60.0},
+    {L"РђСЂР°РјРёСЃ", 60.0},
+    {L"РљСЂР°СЃРЅРѕСЏСЂСЃРєРёР№ СЂР°РЅРЅРёР№", 60.0},
+    {L"Р‘34", 60.0},
+    {L"РўСѓР»РµРµРІСЃРєРёР№", 60.0}
 };
 
 inline void OpenGeoMapForWindow(HWND hWnd) {
@@ -536,3 +551,8 @@ inline void OpenGeoMapForWindow(HWND hWnd) {
 inline void RefreshGeoMap() {
     g_geoMapWindow.ShowModuleData(g_geoMapModule);
 }
+
+inline void ClearGeoMap() {
+    g_geoMapWindow.ClearWebContent();
+}
+

@@ -43,7 +43,7 @@
         "minTemp": -30,
         "maxTemp": 25,
         "precipitation": 550,
-        "requiredResistance": 80
+        "requiredResistance": 70
       },
       "alreadyGrown": [
         "Жуковский ранний"
@@ -59,10 +59,13 @@
         "minTemp": -30,
         "maxTemp": 27,
         "precipitation": 180,
-        "requiredResistance": 50
+        "requiredResistance": 60
       },
       "alreadyGrown": [
-        "Садон"
+        "Арамис",
+	"Красноярский ранний",
+	"Б34",
+	"Тулеевский"
       ]
     }
 

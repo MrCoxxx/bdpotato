@@ -53,6 +53,15 @@ inline HWND g_hEditTraitName = nullptr;
 inline HWND g_hEditTraitWeight = nullptr;
 inline HWND g_hEditResult = nullptr;
 
+inline HWND g_hStaticTemplateName = nullptr;
+inline HWND g_hStaticTemplateDescription = nullptr;
+inline HWND g_hStaticMethod = nullptr;
+inline HWND g_hStaticTemplates = nullptr;
+inline HWND g_hStaticWeights = nullptr;
+inline HWND g_hStaticTraitName = nullptr;
+inline HWND g_hStaticTraitWeight = nullptr;
+inline HWND g_hStaticResult = nullptr;
+
 inline HWND g_btnCreate = nullptr;
 inline HWND g_btnEdit = nullptr;
 inline HWND g_btnDelete = nullptr;
@@ -520,19 +529,19 @@ inline void ShowReportInUI(const std::wstring& text) {
 inline void InitializeTemplateInterface(HWND hWnd) {
     InitCommonControls();
 
-    CreateWindowW(L"static", L"Название шаблона", WS_VISIBLE | WS_CHILD,
+    g_hStaticTemplateName = CreateWindowW(L"static", L"Название шаблона", WS_VISIBLE | WS_CHILD,
         15, 15, 180, 20, hWnd, nullptr, nullptr, nullptr);
 
     g_hEditTemplateName = CreateWindowW(L"edit", L"", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_AUTOHSCROLL,
         15, 35, 230, 25, hWnd, nullptr, nullptr, nullptr);
 
-    CreateWindowW(L"static", L"Описание", WS_VISIBLE | WS_CHILD,
+    g_hStaticTemplateDescription = CreateWindowW(L"static", L"Описание", WS_VISIBLE | WS_CHILD,
         255, 15, 180, 20, hWnd, nullptr, nullptr, nullptr);
 
     g_hEditTemplateDescription = CreateWindowW(L"edit", L"", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_AUTOHSCROLL,
         255, 35, 300, 25, hWnd, nullptr, nullptr, nullptr);
 
-    CreateWindowW(L"static", L"Метод", WS_VISIBLE | WS_CHILD,
+    g_hStaticMethod = CreateWindowW(L"static", L"Метод", WS_VISIBLE | WS_CHILD,
         570, 15, 100, 20, hWnd, nullptr, nullptr, nullptr);
 
     g_hComboMethod = CreateWindowW(L"combobox", L"", WS_VISIBLE | WS_CHILD | CBS_DROPDOWNLIST,
@@ -542,7 +551,7 @@ inline void InitializeTemplateInterface(HWND hWnd) {
     SendMessageW(g_hComboMethod, CB_ADDSTRING, 0, (LPARAM)L"Harrington");
     SendMessageW(g_hComboMethod, CB_SETCURSEL, 0, 0);
 
-    CreateWindowW(L"static", L"Шаблоны", WS_VISIBLE | WS_CHILD,
+    g_hStaticTemplates = CreateWindowW(L"static", L"Шаблоны", WS_VISIBLE | WS_CHILD,
         15, 70, 120, 20, hWnd, nullptr, nullptr, nullptr);
 
     g_hComboTemplates = CreateWindowW(L"combobox", L"", WS_VISIBLE | WS_CHILD | CBS_DROPDOWNLIST | WS_VSCROLL,
@@ -554,13 +563,13 @@ inline void InitializeTemplateInterface(HWND hWnd) {
     InitWeightsListView(g_hListWeights);
 
     // Поля добавления/редактирования признака
-    CreateWindowW(L"static", L"Признак", WS_VISIBLE | WS_CHILD,
+    g_hStaticTraitName = CreateWindowW(L"static", L"Признак", WS_VISIBLE | WS_CHILD,
         15, 320, 120, 20, hWnd, nullptr, nullptr, nullptr);
 
     g_hEditTraitName = CreateWindowW(L"edit", L"", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_AUTOHSCROLL,
         15, 340, 300, 25, hWnd, nullptr, nullptr, nullptr);
 
-    CreateWindowW(L"static", L"Вес", WS_VISIBLE | WS_CHILD,
+    g_hStaticTraitWeight = CreateWindowW(L"static", L"Вес", WS_VISIBLE | WS_CHILD,
         330, 320, 80, 20, hWnd, nullptr, nullptr, nullptr);
 
     g_hEditTraitWeight = CreateWindowW(L"edit", L"", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_AUTOHSCROLL,
@@ -595,7 +604,7 @@ inline void InitializeTemplateInterface(HWND hWnd) {
         15, 430, 90, 30, hWnd, (HMENU)IDC_CLEAR, nullptr, nullptr);
 
     // Окно результата
-    CreateWindowW(L"static", L"Результат сравнения", WS_VISIBLE | WS_CHILD,
+    g_hStaticResult = CreateWindowW(L"static", L"Результат сравнения", WS_VISIBLE | WS_CHILD,
         15, 470, 400, 20, hWnd, nullptr, nullptr, nullptr);
 
     g_hEditResult = CreateWindowW(L"edit", L"",
@@ -618,3 +627,32 @@ inline void OnTemplateSelectionChanged() {
 // Основной обработчик команд
 // -----------------------------
 
+void ClearSampleInterface(HWND hWnd) {
+    DestroyWindow(g_hEditTemplateName);
+    DestroyWindow(g_hEditTemplateDescription);
+    DestroyWindow(g_hComboMethod);
+    DestroyWindow(g_hComboTemplates);
+    DestroyWindow(g_hListWeights);
+    DestroyWindow(g_hEditTraitName);
+    DestroyWindow(g_hEditTraitWeight);
+    DestroyWindow(g_hEditResult);
+
+    DestroyWindow(g_hStaticTemplateName);
+    DestroyWindow(g_hStaticTemplateDescription);
+    DestroyWindow(g_hStaticMethod);
+    DestroyWindow(g_hStaticTemplates);
+    DestroyWindow(g_hStaticWeights);
+    DestroyWindow(g_hStaticTraitName);
+    DestroyWindow(g_hStaticTraitWeight);
+    DestroyWindow(g_hStaticResult);
+
+    DestroyWindow(g_btnCreate);
+    DestroyWindow(g_btnEdit);
+    DestroyWindow(g_btnDelete);
+    DestroyWindow(g_btnSave);
+    DestroyWindow(g_btnLoad);
+    DestroyWindow(g_btnCompare);
+    DestroyWindow(g_btnClear);
+    DestroyWindow(g_btnAddTrait);
+    DestroyWindow(g_btnRemoveTrait);
+}
